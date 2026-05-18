@@ -166,52 +166,96 @@ client satisfaction rate.
 
 ---
 
-## Step 7: Add Your Work Experience
+## Step 7: Add Your Work Experience — "Add Experience" Form
 
-Click **Add experience** (you can see this button in your profile right now).
+### Role 1 — Current Position (fill in the open form right now)
 
-### Role 1 — Current Position
-- **Title:** Senior Fullstack Developer & AI Integration Specialist
-- **Employment type:** Self-employed
-- **Company name:** SaifCraft
-- **Location:** Multan, Punjab, Pakistan (Remote)
-- **Location type:** Remote
-- **Start date:** January 2024
-- **End date:** Present (check "I am currently working in this role")
-- **Description:**
-  ```
-  Building AI-integrated web products for clients worldwide. 
-  Specializing in SaaS development, LLM API integrations, and scalable 
-  fullstack architectures using React, Next.js, Node.js, and Firebase.
-  
-  Key highlights:
-  • 48+ projects delivered across global clients
-  • AI chatbot and semantic search integrations
-  • End-to-end development — from database design to Vercel deployment
-  ```
+You have the "Add experience" form open. Here is every field, exactly what to enter:
 
-### Role 2
-- **Title:** Fullstack Developer
-- **Employment type:** Contract
-- **Location:** Remote
-- **Start date:** January 2021 | **End date:** December 2023
-- **Description:**
-  ```
-  Led development of SaaS and e-commerce platforms. Delivered end-to-end 
-  solutions from database design to deployment. Worked with international 
-  clients on React, Node.js, and PostgreSQL-based projects.
-  ```
+| Field | What to enter |
+|---|---|
+| Title | Senior Fullstack Developer & AI Integration Specialist |
+| Employment type | Freelance |
+| Company or organization | SaifCraft |
+| I am currently working in this role | Keep checked |
+| Start date — Month | **January** (change from May) |
+| Start date — Year | **2024** ← this is missing, select it to fix the error |
+| Location | Multan, Punjab, Pakistan |
+| Location type | **Remote** |
+| Profile headline | Senior Fullstack Developer & AI Integration Specialist |
+| Where did you find this job? | Other |
 
-### Role 3
-- **Title:** Frontend Developer
-- **Employment type:** Full-time / Agency
-- **Start date:** January 2018 | **End date:** December 2020
-- **Description:**
-  ```
-  Delivered 20+ client projects including marketing landing pages, admin 
-  dashboards, and reusable component libraries. Focused on pixel-perfect 
-  UI and responsive design.
-  ```
+**Description — copy and paste this into the Description box:**
+
+```
+Building AI-integrated web products for clients worldwide. Specializing in SaaS development, LLM API integrations, and scalable fullstack architectures using React, Next.js, Node.js, and Firebase.
+
+Key highlights:
+• 48+ projects delivered for global clients
+• AI chatbot and semantic search integrations (OpenAI, Groq, RAG pipelines)
+• End-to-end development — from database design to Vercel deployment
+• Direct client communication — no middlemen, no project managers
+```
+
+**Skills — click "+ Add skill" and add these 5:**
+1. React.js
+2. Node.js
+3. TypeScript
+4. Firebase
+5. AI Integration
+
+**Media — click "+ Add media" and paste this URL:**
+```
+https://saifcraft.com
+```
+
+Click **Save** when all fields are filled.
+
+---
+
+### Role 2 — After saving Role 1, click "Add experience" again
+
+| Field | What to enter |
+|---|---|
+| Title | Fullstack Developer |
+| Employment type | Contract |
+| Company or organization | Freelance Projects |
+| Start date — Month | January |
+| Start date — Year | 2021 |
+| End date — Month | December |
+| End date — Year | 2023 |
+| Location | Remote |
+| Location type | Remote |
+
+**Description:**
+```
+Led development of SaaS and e-commerce platforms for international clients. 
+Delivered end-to-end solutions from database design to production deployment.
+Stack: React, Node.js, PostgreSQL, MongoDB.
+```
+
+---
+
+### Role 3 — Click "Add experience" a third time
+
+| Field | What to enter |
+|---|---|
+| Title | Frontend Developer |
+| Employment type | Full-time |
+| Company or organization | Web Agency |
+| Start date — Month | January |
+| Start date — Year | 2018 |
+| End date — Month | December |
+| End date — Year | 2020 |
+| Location | Multan, Punjab, Pakistan |
+| Location type | On-site |
+
+**Description:**
+```
+Delivered 20+ client projects including marketing landing pages, admin 
+dashboards, and reusable component libraries. Focused on pixel-perfect UI 
+and responsive design using HTML, CSS, JavaScript, and React.
+```
 
 ---
 
