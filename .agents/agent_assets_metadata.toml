@@ -47,3 +47,9 @@ id = "q-hnhDY3Yvs80uSdwC-Uu"
 uri = "file://GITHUB_PROFILE_README.md"
 type = "text"
 title = "Your GitHub Profile README — Ready to Copy"
+
+[[outputs]]
+id = "oHa23oNCn_f-SkM5Rp5Pg"
+uri = "file://linkedin-profile-setup.md"
+type = "text"
+title = "LinkedIn Profile Setup Guide — Saif Khan"
