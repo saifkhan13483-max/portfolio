@@ -62,7 +62,7 @@ export default function Contact() {
       projectDescription: "",
       budget: "",
       timeline: "",
-      priority: "normal",
+      priority: "medium",
     },
   });
 

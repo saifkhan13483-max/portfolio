@@ -47,6 +47,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         {/* Desktop hover overlay — centred action buttons */}
         <div className="hidden sm:flex absolute inset-0 bg-background/75 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center gap-3 z-20">
           <button
+            onClick={() => navigate(`/portfolio/${project.id}`)}
             className="flex items-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-bold hover:bg-primary/90 transition-colors shadow-lg"
             data-testid={`button-view-project-${project.id}`}
           >

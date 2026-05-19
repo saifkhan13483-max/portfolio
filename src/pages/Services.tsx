@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useServices } from "@/hooks/use-services";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -148,6 +149,10 @@ export default function Services() {
     if (meta) meta.setAttribute("content", "Fixed-scope packages for landing pages, business websites, custom web apps, AI features, and monthly retainers. Clear pricing, no hourly surprises.");
   }, []);
 
+  const { data: allServices } = useServices();
+  const activeFirestoreServices = (allServices || []).filter(s => s.active);
+  const useFirestoreServices = activeFirestoreServices.length > 0;
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -184,78 +189,135 @@ export default function Services() {
 
         {/* ── Packages Grid ── */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-          {packages.map((pkg, idx) => (
-            <motion.div
-              key={pkg.id}
-              custom={idx}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className={`relative rounded-2xl border flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                pkg.highlight
-                  ? "border-primary/50 bg-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/15"
-                  : "border-border bg-card hover:border-primary/30 hover:shadow-primary/5"
-              }`}
-              data-testid={`card-package-${pkg.id}`}
-            >
-              {/* Badge */}
-              {pkg.badge && (
-                <div className="absolute -top-3.5 left-5">
-                  <span className={`text-[11px] font-bold px-3 py-1 rounded-full shadow-sm ${
-                    pkg.highlight
-                      ? "bg-primary text-primary-foreground shadow-primary/30"
-                      : "bg-card border border-border text-muted-foreground"
-                  }`}>
-                    {pkg.badge}
-                  </span>
-                </div>
-              )}
+          {useFirestoreServices
+            ? activeFirestoreServices.map((svc, idx) => (
+                <motion.div
+                  key={svc.id}
+                  custom={idx}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="relative rounded-2xl border border-border bg-card flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30 hover:shadow-primary/5"
+                  data-testid={`card-service-${svc.id}`}
+                >
+                  <div className="p-6 sm:p-7 flex flex-col flex-1">
+                    {/* Category badge */}
+                    {svc.category && (
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 rounded-full px-2.5 py-1 mb-4 w-fit">
+                        {svc.category}
+                      </span>
+                    )}
 
-              <div className="p-6 sm:p-7 flex flex-col flex-1">
-                {/* Icon + Name */}
-                <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${pkg.highlight ? "bg-primary/15" : "bg-primary/10"}`}>
-                  <pkg.icon className="w-5 h-5 text-primary" />
-                </div>
+                    {svc.imageUrl && (
+                      <div className="aspect-video rounded-xl overflow-hidden mb-4 border border-border/60 bg-muted">
+                        <img src={svc.imageUrl} alt={svc.title} className="w-full h-full object-cover" />
+                      </div>
+                    )}
 
-                <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-2">{pkg.name}</h2>
-                <p className="text-xs sm:text-sm text-muted-foreground mb-5 leading-relaxed">{pkg.tagline}</p>
+                    <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-2">{svc.title}</h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-5 leading-relaxed">{svc.description}</p>
 
-                {/* Features */}
-                <ul className="space-y-2.5 mb-6 flex-1">
-                  {pkg.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80 leading-relaxed">
-                      <Check className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.highlight ? "text-primary" : "text-primary/80"}`} />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                    {/* Features */}
+                    {svc.features?.length > 0 && (
+                      <ul className="space-y-2.5 mb-6 flex-1">
+                        {svc.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                            <Check className="w-4 h-4 shrink-0 mt-0.5 text-primary/80" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
-                {/* Footer */}
-                <div className="pt-4 border-t border-border/60 space-y-2">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
-                    {pkg.timeline}
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <RefreshCw className="w-3.5 h-3.5 text-primary shrink-0" />
-                    {pkg.revisions}
-                  </div>
-                  <div className="pt-2 flex items-end justify-between gap-2">
-                    <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
-                    <div className="text-right">
-                      <span className="text-lg sm:text-xl font-display font-bold text-foreground">{pkg.price}</span>
-                      {pkg.priceTo && <span className="text-sm text-muted-foreground"> – {pkg.priceTo}</span>}
+                    {/* Footer */}
+                    <div className="pt-4 border-t border-border/60 space-y-2 mt-auto">
+                      {svc.deliveryTime && (
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
+                          {svc.deliveryTime}
+                        </div>
+                      )}
+                      {svc.pricing && (
+                        <div className="pt-2 flex items-end justify-between gap-2">
+                          <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Pricing</span>
+                          <span className="text-lg sm:text-xl font-display font-bold text-foreground">{svc.pricing}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+                </motion.div>
+              ))
+            : packages.map((pkg, idx) => (
+                <motion.div
+                  key={pkg.id}
+                  custom={idx}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className={`relative rounded-2xl border flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                    pkg.highlight
+                      ? "border-primary/50 bg-primary/5 shadow-lg shadow-primary/10 hover:shadow-primary/15"
+                      : "border-border bg-card hover:border-primary/30 hover:shadow-primary/5"
+                  }`}
+                  data-testid={`card-package-${pkg.id}`}
+                >
+                  {/* Badge */}
+                  {pkg.badge && (
+                    <div className="absolute -top-3.5 left-5">
+                      <span className={`text-[11px] font-bold px-3 py-1 rounded-full shadow-sm ${
+                        pkg.highlight
+                          ? "bg-primary text-primary-foreground shadow-primary/30"
+                          : "bg-card border border-border text-muted-foreground"
+                      }`}>
+                        {pkg.badge}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="p-6 sm:p-7 flex flex-col flex-1">
+                    <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${pkg.highlight ? "bg-primary/15" : "bg-primary/10"}`}>
+                      <pkg.icon className="w-5 h-5 text-primary" />
+                    </div>
+
+                    <h2 className="text-lg sm:text-xl font-display font-bold text-foreground mb-2">{pkg.name}</h2>
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-5 leading-relaxed">{pkg.tagline}</p>
+
+                    <ul className="space-y-2.5 mb-6 flex-1">
+                      {pkg.features.map((f, i) => (
+                        <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-foreground/80 leading-relaxed">
+                          <Check className={`w-4 h-4 shrink-0 mt-0.5 ${pkg.highlight ? "text-primary" : "text-primary/80"}`} />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="pt-4 border-t border-border/60 space-y-2">
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
+                        {pkg.timeline}
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                        <RefreshCw className="w-3.5 h-3.5 text-primary shrink-0" />
+                        {pkg.revisions}
+                      </div>
+                      <div className="pt-2 flex items-end justify-between gap-2">
+                        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
+                        <div className="text-right">
+                          <span className="text-lg sm:text-xl font-display font-bold text-foreground">{pkg.price}</span>
+                          {pkg.priceTo && <span className="text-sm text-muted-foreground"> – {pkg.priceTo}</span>}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))
+          }
 
           {/* CTA card */}
           <motion.div
-            custom={packages.length}
+            custom={useFirestoreServices ? activeFirestoreServices.length : packages.length}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
