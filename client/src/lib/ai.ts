@@ -10,7 +10,7 @@ export const SITE_KNOWLEDGE_BASE = `
 Full name: Saif Khan
 Brand name: SaifCraft
 Title: Senior Fullstack Developer & AI Integration Specialist
-Experience: 8+ years fullstack development · 2+ years AI integration
+Experience: 7+ years fullstack development · 2+ years AI integration
 Location: Multan, Punjab, Pakistan — works worldwide (US, UK, Europe, Middle East, SE Asia)
 Availability: Available for new projects — starting June 2026
 Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
@@ -24,10 +24,10 @@ Work type: Freelance / Contract / Fixed-scope preferred
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  SITE-WIDE STATS (appear across pages)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Hero page stats:    48+ Projects Delivered · 29+ Happy Clients · 8+ Years Experience · 94% Satisfaction Rate
+Hero page stats:    48+ Projects Delivered · 29+ Happy Clients · 7+ Years Experience · 94% Satisfaction Rate
 Portfolio page:     48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
-About page:         8+ Years Experience · 48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
-Profile card (home): 8+ Yrs Exp. · 48+ Projects · 94% Satisfaction
+About page:         7+ Years Experience · 48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
+Profile card (home): 7+ Yrs Exp. · 48+ Projects · 94% Satisfaction
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  HEADER (sticky, appears on every page)
@@ -61,17 +61,17 @@ Page title: "Saif Khan — Freelance Fullstack Developer | SaifCraft | React · 
 
 SECTION 1 — HERO:
 Headline: "I build fast, custom web apps that deliver results."
-Subheading: "Senior fullstack developer with 8+ years of experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
+Subheading: "Senior fullstack developer with 7+ years of experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
 Highlight badges: Fast Delivery · Clean Code · On Time & On Budget
 CTA buttons: "Hire Me" → /contact  ·  "View My Work" → /portfolio
 Tech stack badges shown: React · Node.js · TypeScript · PostgreSQL · AI/LLMs
 Availability badge: "Available for New Projects" (green pulsing dot)
 Hero right panel shows animated code card (project.tsx), floating cards: Web Applications, Clean Architecture, Modern Stack
-Stats bar below hero: 48+ Projects Delivered · 29+ Happy Clients · 8+ Years Experience · 94% Satisfaction Rate (animated counters)
+Stats bar below hero: 48+ Projects Delivered · 29+ Happy Clients · 7+ Years Experience · 94% Satisfaction Rate (animated counters)
 
 SECTION 2 — ABOUT (on home page):
 Headline: "I help businesses build web apps that solve real problems."
-Bio: Freelance fullstack developer, 8+ years, React/Node.js/TypeScript/PostgreSQL specialist. 2 years AI integration.
+Bio: Freelance fullstack developer, 7+ years, React/Node.js/TypeScript/PostgreSQL specialist. 2 years AI integration.
 Value cards: Fast Delivery · Clean Code · On Time & On Budget · Clear Communication
 CTA: "Read My Full Story" → /about
 Profile card shows: Saif Khan, Senior Fullstack Developer, Available badge
@@ -255,16 +255,16 @@ Headline: "Saif Khan"
 Sub-title: "Senior Fullstack Developer & AI Integration Specialist"
 
 HERO SECTION:
-Left: Saif's photo (portrait). Floating badges: "Available for Projects · Starting June 2026" (green dot), "8+ Years" badge top-right
+Left: Saif's photo (portrait). Floating badges: "Available for Projects · Starting June 2026" (green dot), "7+ Years" badge top-right
 Right: Bio text, stat chips (48+ Projects · 29+ Clients · 94% Satisfaction · 24h Response), info row (Remote—Global · Freelance/Contract · contact@saifcraft.com)
 CTA buttons: "Hire Me" → /contact  ·  "View My Work" → /portfolio  ·  Resume (download link)
 Social icons: GitHub · LinkedIn · Twitter
 
 STATS BAR (full width):
-8+ Years Experience · 48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
+7+ Years Experience · 48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
 
 MY STORY SECTION:
-Bio text: 8+ years fullstack, early-stage startups and SMBs. React/Node.js/TypeScript/PostgreSQL specialist. 2 years AI features in production (chatbots, semantic search, content generation, recommendation engines). "When you hire me, you're not handing your project off to a project manager — you talk directly to the developer doing the work."
+Bio text: 7+ years fullstack, early-stage startups and SMBs. React/Node.js/TypeScript/PostgreSQL specialist. 2 years AI features in production (chatbots, semantic search, content generation, recommendation engines). "When you hire me, you're not handing your project off to a project manager — you talk directly to the developer doing the work."
 What I can help with: Custom Web Applications · SaaS Product Development · AI/LLM Integrations · E-Commerce Platforms · API Design & Integration · Performance Optimization · Technical Consulting
 CTA: "Start a Project" → /contact
 

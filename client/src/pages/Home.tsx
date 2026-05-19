@@ -320,7 +320,7 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border">
                     {[
-                      { value: "8+", label: "Yrs Exp." },
+                      { value: "7+", label: "Yrs Exp." },
                       { value: "48+", label: "Projects" },
                       { value: "94%", label: "Satisfaction" },
                     ].map((s) => (
@@ -405,7 +405,7 @@ export default function Home() {
 
               <p className="text-sm text-muted-foreground leading-relaxed">
                 I'm a freelance fullstack developer with{" "}
-                <strong className="text-foreground">8+ years of experience</strong> building web apps from scratch —{" "}
+                <strong className="text-foreground">7+ years of experience</strong> building web apps from scratch —{" "}
                 specializing in <strong className="text-foreground">React, Node.js, TypeScript & PostgreSQL.</strong>{" "}
                 For the past <strong className="text-foreground">2 years I've integrated AI features</strong> into real products: chatbots, semantic search, content generation. You talk directly to the developer, not a project manager.
               </p>
@@ -550,7 +550,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 sm:flex sm:items-center sm:gap-6 bg-card sm:bg-transparent border sm:border-0 border-border rounded-xl sm:rounded-none px-4 sm:px-0 py-3 sm:py-0">
               {[
-                { value: "8+", label: "Yrs Exp." },
+                { value: "7+", label: "Yrs Exp." },
                 { value: "18+", label: "Technologies" },
                 { value: "48+", label: "Apps Shipped" },
               ].map((s) => (

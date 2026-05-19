@@ -15,7 +15,7 @@ const techBadges = ["React", "Node.js", "TypeScript", "PostgreSQL", "AI / LLMs"]
 const stats = [
   { label: "Projects Delivered", value: 48, suffix: "+" },
   { label: "Happy Clients", value: 29, suffix: "+" },
-  { label: "Years Experience", value: 8, suffix: "+" },
+  { label: "Years Experience", value: 7, suffix: "+" },
   { label: "Satisfaction Rate", value: 94, suffix: "%" },
 ];
 
@@ -230,7 +230,7 @@ export default function Hero() {
               className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg"
             >
               Senior fullstack developer with{" "}
-              <strong className="text-foreground font-semibold">8+ years of experience</strong>{" "}
+              <strong className="text-foreground font-semibold">7+ years of experience</strong>{" "}
               helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget.
             </motion.p>
 
