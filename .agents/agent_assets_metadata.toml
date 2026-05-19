@@ -53,3 +53,9 @@ id = "oHa23oNCn_f-SkM5Rp5Pg"
 uri = "file://linkedin-profile-setup.md"
 type = "text"
 title = "LinkedIn Profile Setup Guide — Add Experience Form Instructions"
+
+[[outputs]]
+id = "KxtmrREhKHCXxAgysNC9g"
+uri = "file://chatdesk-prd.md"
+type = "text"
+title = "ChatDesk PRD"
