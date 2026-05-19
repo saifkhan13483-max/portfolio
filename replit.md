@@ -23,7 +23,7 @@ Required env vars: `GROQ_API_KEY` (+ optionally `GROQ_API_KEY_2` … `GROQ_API_K
 
 ## Where things live
 ```
-client/src/
+src/
   App.tsx                    # Root + wouter routing
   pages/                     # Page components (Home, Portfolio, Services, About, Contact, FAQ, admin/*)
   components/                # Shared UI (Header, Footer, ChatBot, AdminProtectedRoute, etc.)
@@ -36,6 +36,8 @@ client/src/
     cloudinary.ts            # Image upload helper
   hooks/                     # use-projects, use-services, use-orders, use-team
   types/index.ts             # Project, Service, Order, TeamMember interfaces
+public/                      # Static assets (favicon, logos, robots.txt, sitemap)
+index.html                   # HTML entry point
 api/chat.ts                  # Vercel serverless function — Groq proxy with multi-key rotation
 vite.config.ts               # Vite config — port 5000, /api/chat Groq middleware (dev only)
 vercel.json                  # Vercel deploy config — routes /api/chat → serverless fn, SPA fallback
