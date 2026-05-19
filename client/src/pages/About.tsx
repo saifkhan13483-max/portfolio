@@ -17,7 +17,7 @@ import {
 } from "react-icons/si";
 
 const stats = [
-  { icon: Award,  value: "7+",  label: "Years Experience" },
+  { icon: Award,  value: "8+",  label: "Years Experience" },
   { icon: Code2,  value: "48+", label: "Projects Delivered" },
   { icon: Users,  value: "29+", label: "Happy Clients" },
   { icon: Zap,    value: "94%", label: "Satisfaction Rate" },
@@ -162,7 +162,7 @@ export default function About() {
     if (meta)
       meta.setAttribute(
         "content",
-        "7+ years building fast, production-ready web apps. React, Node.js, TypeScript & AI specialist. Direct communication, clean code, on-time delivery."
+        "8+ years building fast, production-ready web apps. React, Node.js, TypeScript & AI specialist. Direct communication, clean code, on-time delivery."
       );
   }, []);
 
@@ -215,7 +215,7 @@ export default function About() {
 
               {/* Floating experience badge — top right */}
               <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground rounded-2xl px-3.5 py-2 shadow-lg shadow-primary/25 text-center">
-                <p className="text-lg font-black leading-none">7+</p>
+                <p className="text-lg font-black leading-none">8+</p>
                 <p className="text-[10px] font-semibold uppercase tracking-wide opacity-90 leading-none mt-0.5">Years</p>
               </div>
             </motion.div>
@@ -239,7 +239,7 @@ export default function About() {
               </p>
 
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7 max-w-lg">
-                I build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">7 years</strong> of hands-on experience — clean code, honest timelines, and direct communication every step of the way.
+                I build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">8 years</strong> of hands-on experience — clean code, honest timelines, and direct communication every step of the way.
               </p>
 
               {/* Inline stat chips */}
@@ -287,7 +287,7 @@ export default function About() {
               <div className="flex items-center gap-2.5">
                 {[
                   { href: "https://github.com/saifkhan-dev",    Icon: Github,   label: "GitHub"   },
-                  { href: "https://linkedin.com/in/saifkhan", Icon: Linkedin, label: "LinkedIn" },
+                  { href: "https://linkedin.com/in/saifkhan-dev", Icon: Linkedin, label: "LinkedIn" },
                   { href: "https://twitter.com/saifbuilds",   Icon: Twitter,  label: "Twitter"  },
                 ].map(({ href, Icon, label }) => (
                   <a
@@ -341,7 +341,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                I'm a self-driven fullstack developer with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually solves the problem.
+                I'm a self-driven fullstack developer with <strong className="text-foreground font-semibold">8+ years of experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually solves the problem.
               </p>
               <p>
                 I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, and PostgreSQL</strong>. Over the past 2 years, I've integrated AI into production projects — semantic search, chatbots, content generation, and recommendation engines.

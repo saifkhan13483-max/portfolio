@@ -34,7 +34,7 @@ const contactDetails = [
   { icon: Mail,     label: "Email",         value: "contact@saifcraft.com",       href: "mailto:contact@saifcraft.com" },
   { icon: Clock,    label: "Response Time", value: "Within 24 hours",           href: null },
   { icon: Github,   label: "GitHub",        value: "github.com/saifkhan-dev",      href: "https://github.com/saifkhan-dev" },
-  { icon: Linkedin, label: "LinkedIn",      value: "linkedin.com/in/saifkhan", href: "https://linkedin.com/in/saifkhan" },
+  { icon: Linkedin, label: "LinkedIn",      value: "linkedin.com/in/saifkhan-dev", href: "https://linkedin.com/in/saifkhan-dev" },
 ];
 
 const nextSteps = [

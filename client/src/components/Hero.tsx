@@ -13,10 +13,10 @@ const highlights = [
 const techBadges = ["React", "Node.js", "TypeScript", "PostgreSQL", "AI / LLMs"];
 
 const stats = [
-  { label: "Projects Delivered", value: 50, suffix: "+" },
-  { label: "Happy Clients", value: 30, suffix: "+" },
-  { label: "Years Experience", value: 7, suffix: "+" },
-  { label: "Satisfaction Rate", value: 99, suffix: "%" },
+  { label: "Projects Delivered", value: 48, suffix: "+" },
+  { label: "Happy Clients", value: 29, suffix: "+" },
+  { label: "Years Experience", value: 8, suffix: "+" },
+  { label: "Satisfaction Rate", value: 94, suffix: "%" },
 ];
 
 const floatingCards = [
@@ -230,7 +230,7 @@ export default function Hero() {
               className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg"
             >
               Senior fullstack developer with{" "}
-              <strong className="text-foreground font-semibold">7+ years of experience</strong>{" "}
+              <strong className="text-foreground font-semibold">8+ years of experience</strong>{" "}
               helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget.
             </motion.p>
 
@@ -367,7 +367,7 @@ export default function Hero() {
                 ))}
               </div>
               <span className="text-xs font-semibold text-foreground">5.0</span>
-              <span className="text-xs text-muted-foreground">· 30+ clients</span>
+              <span className="text-xs text-muted-foreground">· 29+ clients</span>
             </motion.div>
 
             {/* Web Applications — mid-right */}

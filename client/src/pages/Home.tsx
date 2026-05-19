@@ -147,7 +147,7 @@ const platforms = [
     desc: "My professional home. Client recommendations, case studies, and posts on building real web products.",
     highlights: ["Verified recommendations", "500+ connections", "Weekly dev insights"],
     cta: "Connect with Me",
-    href: "https://linkedin.com/in/saifkhan",
+    href: "https://linkedin.com/in/saifkhan-dev",
     iconBg: "bg-[#0A66C2]",
     accentFrom: "from-blue-600",
     accentTo: "to-blue-800",
@@ -257,7 +257,7 @@ export default function Home() {
         },
         "sameAs": [
           "https://github.com/saifkhan-dev",
-          "https://linkedin.com/in/saifkhan"
+          "https://linkedin.com/in/saifkhan-dev"
         ]
       });
       document.head.appendChild(script);
@@ -320,9 +320,9 @@ export default function Home() {
                   </div>
                   <div className="grid grid-cols-3 gap-2 pt-3 border-t border-border">
                     {[
-                      { value: "7+", label: "Yrs Exp." },
-                      { value: "50+", label: "Projects" },
-                      { value: "99%", label: "Satisfaction" },
+                      { value: "8+", label: "Yrs Exp." },
+                      { value: "48+", label: "Projects" },
+                      { value: "94%", label: "Satisfaction" },
                     ].map((s) => (
                       <div key={s.label} className="text-center">
                         <div className="text-base font-display font-bold text-foreground">{s.value}</div>
@@ -405,7 +405,7 @@ export default function Home() {
 
               <p className="text-sm text-muted-foreground leading-relaxed">
                 I'm a freelance fullstack developer with{" "}
-                <strong className="text-foreground">7+ years of experience</strong> building web apps from scratch —{" "}
+                <strong className="text-foreground">8+ years of experience</strong> building web apps from scratch —{" "}
                 specializing in <strong className="text-foreground">React, Node.js, TypeScript & PostgreSQL.</strong>{" "}
                 For the past <strong className="text-foreground">2 years I've integrated AI features</strong> into real products: chatbots, semantic search, content generation. You talk directly to the developer, not a project manager.
               </p>
@@ -550,9 +550,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 sm:flex sm:items-center sm:gap-6 bg-card sm:bg-transparent border sm:border-0 border-border rounded-xl sm:rounded-none px-4 sm:px-0 py-3 sm:py-0">
               {[
-                { value: "7+", label: "Yrs Exp." },
+                { value: "8+", label: "Yrs Exp." },
                 { value: "18+", label: "Technologies" },
-                { value: "50+", label: "Apps Shipped" },
+                { value: "48+", label: "Apps Shipped" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
                   <div className="text-sm font-display font-bold text-foreground">{s.value}</div>
@@ -741,8 +741,8 @@ export default function Home() {
           >
             {[
               { icon: Star, value: "5.0 / 5", label: "Average rating", color: "text-amber-500", bg: "bg-amber-500/10" },
-              { icon: Users, value: "30+", label: "Happy clients", color: "text-blue-500", bg: "bg-blue-500/10" },
-              { icon: TrendingUp, value: "99%", label: "On-time delivery", color: "text-emerald-600", bg: "bg-emerald-500/10" },
+              { icon: Users, value: "29+", label: "Happy clients", color: "text-blue-500", bg: "bg-blue-500/10" },
+              { icon: TrendingUp, value: "94%", label: "On-time delivery", color: "text-emerald-600", bg: "bg-emerald-500/10" },
               { icon: HeartHandshake, value: "100%", label: "Would re-hire", color: "text-violet-500", bg: "bg-violet-500/10" },
             ].map((stat) => (
               <div key={stat.label} className="bg-card border border-border rounded-2xl px-4 py-4 flex items-center gap-3">
@@ -841,7 +841,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">30+ clients</span> have trusted me with their products.{" "}
+              <span className="font-semibold text-foreground">29+ clients</span> have trusted me with their products.{" "}
               <Link href="/contact" className="text-primary hover:underline font-medium">
                 Become the next.
               </Link>

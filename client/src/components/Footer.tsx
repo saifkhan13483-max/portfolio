@@ -27,7 +27,7 @@ export default function Footer() {
               <a href="https://twitter.com/saifbuilds" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/saifkhan" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/saifkhan-dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
               <a href="https://github.com/saifkhan-dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="GitHub">
@@ -71,7 +71,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                <span>Available remotely worldwide</span>
+                <span>Multan, Punjab, Pakistan — Remote Worldwide</span>
               </li>
             </ul>
           </div>
