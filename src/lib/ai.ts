@@ -17,7 +17,7 @@ Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
 WhatsApp: +92 318 8055850  (href: https://wa.me/923188055850)
 GitHub: github.com/saifcraft-dev  (href: https://github.com/saifcraft-dev)
 LinkedIn: linkedin.com/in/saifkhan-dev  (href: https://www.linkedin.com/in/saifkhan-dev/)
-Twitter/X: @saifbuilds
+Twitter/X: @saifcraft_dev
 Response time: Within 24 hours — guaranteed
 Work type: Freelance / Contract / Fixed-scope preferred
 
@@ -105,7 +105,7 @@ c) Priya Sharma (CTO, LaunchPad SaaS) — "We went from idea to working MVP in u
 SECTION 6 — SOCIAL PROFILES:
 GitHub (@saifcraft-dev): 15+ public repos, real production projects, clean documented code
 LinkedIn (Saif Khan): 500+ connections, verified recommendations, weekly dev insights
-Twitter/X (@saifbuilds): Building in public, daily build updates, freelance tips
+Twitter/X (@saifcraft_dev): Building in public, daily build updates, freelance tips
 
 SECTION 7 — PROJECTS GALLERY:
 Shows live project cards loaded from Firebase Firestore (real-time data)

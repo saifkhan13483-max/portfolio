@@ -288,7 +288,7 @@ export default function About() {
                 {[
                   { href: "https://github.com/saifcraft-dev",    Icon: Github,   label: "GitHub"   },
                   { href: "https://www.linkedin.com/in/saifkhan-dev/", Icon: Linkedin, label: "LinkedIn" },
-                  { href: "https://twitter.com/saifbuilds",   Icon: Twitter,  label: "Twitter"  },
+                  { href: "https://twitter.com/saifcraft_dev",   Icon: Twitter,  label: "Twitter"  },
                 ].map(({ href, Icon, label }) => (
                   <a
                     key={label}

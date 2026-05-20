@@ -24,7 +24,7 @@ export default function Footer() {
               Hi, I'm Saif Khan — a freelance fullstack developer. I help startups and businesses build fast, custom web apps that solve real problems.
             </p>
             <div className="flex space-x-4">
-              <a href="https://twitter.com/saifbuilds" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">
+              <a href="https://twitter.com/saifcraft_dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
               <a href="https://www.linkedin.com/in/saifkhan-dev/" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="LinkedIn">
