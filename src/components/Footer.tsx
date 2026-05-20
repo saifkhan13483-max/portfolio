@@ -27,10 +27,10 @@ export default function Footer() {
               <a href="https://twitter.com/saifbuilds" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/saifkhan-dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/saifkhan-dev/" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com/saifkhan-dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="GitHub">
+              <a href="https://github.com/saifcraft-dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
             </div>

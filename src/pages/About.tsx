@@ -286,8 +286,8 @@ export default function About() {
               {/* Socials */}
               <div className="flex items-center gap-2.5">
                 {[
-                  { href: "https://github.com/saifkhan-dev",    Icon: Github,   label: "GitHub"   },
-                  { href: "https://linkedin.com/in/saifkhan-dev", Icon: Linkedin, label: "LinkedIn" },
+                  { href: "https://github.com/saifcraft-dev",    Icon: Github,   label: "GitHub"   },
+                  { href: "https://www.linkedin.com/in/saifkhan-dev/", Icon: Linkedin, label: "LinkedIn" },
                   { href: "https://twitter.com/saifbuilds",   Icon: Twitter,  label: "Twitter"  },
                 ].map(({ href, Icon, label }) => (
                   <a

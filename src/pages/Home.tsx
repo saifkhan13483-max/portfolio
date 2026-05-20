@@ -147,7 +147,7 @@ const platforms = [
     desc: "My professional home. Client recommendations, case studies, and posts on building real web products.",
     highlights: ["Verified recommendations", "500+ connections", "Weekly dev insights"],
     cta: "Connect with Me",
-    href: "https://linkedin.com/in/saifkhan-dev",
+    href: "https://www.linkedin.com/in/saifkhan-dev/",
     iconBg: "bg-[#0A66C2]",
     accentFrom: "from-blue-600",
     accentTo: "to-blue-800",
@@ -256,8 +256,8 @@ export default function Home() {
           "priceRange": "$800 - $8,000+"
         },
         "sameAs": [
-          "https://github.com/saifkhan-dev",
-          "https://linkedin.com/in/saifkhan-dev"
+          "https://github.com/saifcraft-dev",
+          "https://www.linkedin.com/in/saifkhan-dev/"
         ]
       });
       document.head.appendChild(script);

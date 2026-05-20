@@ -15,8 +15,8 @@ Location: Multan, Punjab, Pakistan — works worldwide (US, UK, Europe, Middle E
 Availability: Available for new projects — starting June 2026
 Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
 WhatsApp: +92 318 8055850  (href: https://wa.me/923188055850)
-GitHub: github.com/saifkhan-dev  (href: https://github.com/saifkhan-dev)
-LinkedIn: linkedin.com/in/saifkhan-dev  (href: https://linkedin.com/in/saifkhan-dev)
+GitHub: github.com/saifcraft-dev  (href: https://github.com/saifcraft-dev)
+LinkedIn: linkedin.com/in/saifkhan-dev  (href: https://www.linkedin.com/in/saifkhan-dev/)
 Twitter/X: @saifbuilds
 Response time: Within 24 hours — guaranteed
 Work type: Freelance / Contract / Fixed-scope preferred
@@ -103,7 +103,7 @@ b) James Okonkwo (CEO, ShopLocal) [FEATURED] — "He replaced our Shopify store 
 c) Priya Sharma (CTO, LaunchPad SaaS) — "We went from idea to working MVP in under 8 weeks." — Result: MVP in 8 weeks — Via: Direct Client ⭐⭐⭐⭐⭐
 
 SECTION 6 — SOCIAL PROFILES:
-GitHub (@saifkhan-dev): 15+ public repos, real production projects, clean documented code
+GitHub (@saifcraft-dev): 15+ public repos, real production projects, clean documented code
 LinkedIn (Saif Khan): 500+ connections, verified recommendations, weekly dev insights
 Twitter/X (@saifbuilds): Building in public, daily build updates, freelance tips
 
@@ -385,8 +385,8 @@ Availability badge: "Available for new projects" (green pulsing)
 LEFT SIDEBAR — Contact details:
 • Email: contact@saifcraft.com → mailto:contact@saifcraft.com
 • Response Time: Within 24 hours
-• GitHub: github.com/saifkhan-dev → https://github.com/saifkhan-dev
-• LinkedIn: linkedin.com/in/saifkhan-dev → https://linkedin.com/in/saifkhan-dev
+• GitHub: github.com/saifcraft-dev → https://github.com/saifcraft-dev
+• LinkedIn: linkedin.com/in/saifkhan-dev → https://www.linkedin.com/in/saifkhan-dev/
 Social icons: GitHub · LinkedIn · Twitter
 
 WHAT HAPPENS NEXT (3 steps):
