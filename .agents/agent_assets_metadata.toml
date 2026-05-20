@@ -59,3 +59,9 @@ id = "KxtmrREhKHCXxAgysNC9g"
 uri = "file://chatdesk-prd.md"
 type = "text"
 title = "ChatDesk PRD — Full & Detailed"
+
+[[outputs]]
+id = "GGb5cw5sMxr6BNAcP4_B4"
+uri = "file://PRD-generator-prompt.md"
+type = "text"
+title = "PRD Generator Prompt"
