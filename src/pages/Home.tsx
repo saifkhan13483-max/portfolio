@@ -147,7 +147,7 @@ const platforms = [
     desc: "My professional home. Client recommendations, case studies, and posts on building real web products.",
     highlights: ["Verified recommendations", "500+ connections", "Weekly dev insights"],
     cta: "Connect with Me",
-    href: "https://www.linkedin.com/in/saifkhan-dev/",
+    href: "https://www.linkedin.com/in/saifcraft-dev/",
     iconBg: "bg-[#0A66C2]",
     accentFrom: "from-blue-600",
     accentTo: "to-blue-800",
@@ -257,7 +257,7 @@ export default function Home() {
         },
         "sameAs": [
           "https://github.com/saifcraft-dev",
-          "https://www.linkedin.com/in/saifkhan-dev/"
+          "https://www.linkedin.com/in/saifcraft-dev/"
         ]
       });
       document.head.appendChild(script);

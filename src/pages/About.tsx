@@ -287,7 +287,7 @@ export default function About() {
               <div className="flex items-center gap-2.5">
                 {[
                   { href: "https://github.com/saifcraft-dev",    Icon: Github,   label: "GitHub"   },
-                  { href: "https://www.linkedin.com/in/saifkhan-dev/", Icon: Linkedin, label: "LinkedIn" },
+                  { href: "https://www.linkedin.com/in/saifcraft-dev/", Icon: Linkedin, label: "LinkedIn" },
                   { href: "https://twitter.com/saifcraft_dev",   Icon: Twitter,  label: "Twitter"  },
                 ].map(({ href, Icon, label }) => (
                   <a

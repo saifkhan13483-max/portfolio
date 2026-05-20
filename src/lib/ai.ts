@@ -16,7 +16,7 @@ Availability: Available for new projects — starting June 2026
 Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
 WhatsApp: +92 318 8055850  (href: https://wa.me/923188055850)
 GitHub: github.com/saifcraft-dev  (href: https://github.com/saifcraft-dev)
-LinkedIn: linkedin.com/in/saifkhan-dev  (href: https://www.linkedin.com/in/saifkhan-dev/)
+LinkedIn: linkedin.com/in/saifcraft-dev  (href: https://www.linkedin.com/in/saifcraft-dev/)
 Twitter/X: @saifcraft_dev
 Response time: Within 24 hours — guaranteed
 Work type: Freelance / Contract / Fixed-scope preferred
@@ -386,7 +386,7 @@ LEFT SIDEBAR — Contact details:
 • Email: contact@saifcraft.com → mailto:contact@saifcraft.com
 • Response Time: Within 24 hours
 • GitHub: github.com/saifcraft-dev → https://github.com/saifcraft-dev
-• LinkedIn: linkedin.com/in/saifkhan-dev → https://www.linkedin.com/in/saifkhan-dev/
+• LinkedIn: linkedin.com/in/saifcraft-dev → https://www.linkedin.com/in/saifcraft-dev/
 Social icons: GitHub · LinkedIn · Twitter
 
 WHAT HAPPENS NEXT (3 steps):
