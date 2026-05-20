@@ -65,3 +65,9 @@ id = "GGb5cw5sMxr6BNAcP4_B4"
 uri = "file://PRD-generator-prompt.md"
 type = "text"
 title = "PRD Generator Prompt"
+
+[[outputs]]
+id = "x1exk8G8H3csKg9cecLJM"
+uri = "file://ShipDesk-PRD.md"
+type = "text"
+title = "ShipDesk — Complete PRD"
