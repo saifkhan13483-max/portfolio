@@ -36,6 +36,14 @@ const faqs = [
         q: "Do you work hourly or on fixed projects?",
         a: "I prefer fixed-scope projects — it rewards efficiency, helps you budget, and removes the anxiety of watching a clock. I only work hourly for ongoing retainer relationships. For one-off projects, we agree on a clear scope and a fixed price upfront.",
       },
+      {
+        q: "When is a startup ready to hire its first developer?",
+        a: "There are four clear signals: (1) You have paying customers — not just a waitlist, but people who've confirmed value with their credit card. (2) No-code or manual processes are becoming your product's ceiling, costing you users or revenue. (3) You know exactly what needs to be built — specific features and user flows, not just 'a better product.' (4) You can articulate what success looks like: 'I need X feature by Y date so we can Z.' If you have all four, you're ready and bringing in the right developer is often the highest-ROI investment you'll make. Two or three? Focus on validation first — the build will be better for it.",
+      },
+      {
+        q: "How do I write a project brief that gets results?",
+        a: "The biggest cause of 'this isn't what I asked for' isn't a bad developer — it's a bad brief. Five things every good brief includes: (1) The problem and user: not 'I need a dashboard' but 'our logistics managers spend 2 hours a day tracking shipments manually.' (2) What success looks like in 90 days — one specific, measurable outcome. (3) Your current solution — spreadsheets, a no-code tool, nothing yet? (4) Your budget range — approximate is fine, it just helps me scope appropriately. (5) Your ideal launch date and whether it's fixed or flexible. The more specific your brief, the more accurate and useful my proposal will be.",
+      },
     ],
   },
   {
@@ -124,6 +132,14 @@ const faqs = [
         q: "Should I hire a specialist or a generalist developer?",
         a: "For early-stage products, a senior generalist (fullstack developer) is usually the better choice. You need someone who can build the backend, frontend, database, and deployment pipeline — not specialists who can't talk to each other. Research shows specialist freelancers command a 90–150% premium over generalists. My position: I'm a fullstack specialist in the React + Node + PostgreSQL stack — deep expertise across the full layer, without the overhead of a team.",
       },
+      {
+        q: "Do I need a technical co-founder?",
+        a: "Probably not — at least not as early as most founders think. The uncomfortable data: 90% of startups fail, and the ones with technical co-founders fail at roughly the same rate as solo founders. The bottleneck is almost never 'not enough code being written.' It's the wrong problem, wrong customer, wrong monetization model. What most founders actually need is a fast, trustworthy way to get a validated MVP into users' hands without giving up equity. In 2025, with AI tools compressing development timelines by 40–60%, a senior freelance developer with the right process can take a validated idea to a production MVP in 6–8 weeks. You keep 100% equity. You ship fast, learn fast, and make smarter decisions with real user data.",
+      },
+      {
+        q: "What are passkeys, and should my SaaS support them?",
+        a: "Passkeys are cryptographic, phishing-proof replacements for passwords — based on the FIDO2 standard. As of 2025, 69% of users already have at least one passkey. The case for supporting them is strong: passkey logins complete in 8.5 seconds vs 31.2 seconds for traditional MFA, with a 93% success rate vs 63% for legacy methods. 75% of organizations experienced a SaaS security incident in the last year — most triggered by compromised passwords, the exact problem passkeys eliminate. 87% of enterprise organizations are already deploying them. If you're building a SaaS product today, modern auth (passkeys + magic links) isn't a luxury — it's the table stakes your users will expect.",
+      },
     ],
   },
   {
@@ -144,6 +160,10 @@ const faqs = [
       {
         q: "What if I have a very small budget?",
         a: "Reach out anyway and describe your project. If your budget doesn't fit a full custom build, I may be able to recommend a phased approach — starting with an MVP and building from there. I'd rather give you an honest recommendation than waste both our time.",
+      },
+      {
+        q: "What red flags should I watch for when hiring a developer?",
+        a: "After reviewing hundreds of freelance engagements, here are the five most common red flags: (1) No contract offered — any serious developer uses written agreements. (2) Requests for full payment upfront before any work begins. (3) Can't explain their architecture decisions in plain language — a great developer can always justify their choices. (4) No questions asked about your business, users, or goals — they just want to start coding. (5) Portfolio has no live links, only screenshots — ask for working URLs. The flip side: a developer who asks hard questions before quoting, offers a fixed price, and communicates proactively is worth paying a premium for.",
       },
     ],
   },

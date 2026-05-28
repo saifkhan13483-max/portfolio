@@ -200,6 +200,36 @@ export default function Contact() {
               </div>
             </motion.div>
 
+            {/* Brief guide */}
+            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={2.5}>
+              <div className="bg-primary/5 border border-primary/20 rounded-2xl p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <FileText className="w-4 h-4 text-primary shrink-0" />
+                  <h3 className="text-sm font-bold text-foreground">What makes a great project brief</h3>
+                </div>
+                <p className="text-xs text-muted-foreground mb-4 leading-relaxed">
+                  The better your brief, the faster I can give you an accurate quote. Include these five things:
+                </p>
+                <ul className="space-y-3">
+                  {[
+                    { label: "The problem & user", desc: "Not 'I need a dashboard' — describe who uses it and what they can't do without it." },
+                    { label: "Success in 90 days", desc: "One specific measurable outcome. What does a successful launch look like?" },
+                    { label: "Your current solution", desc: "Are you on Shopify, a no-code tool, spreadsheets, or nothing yet?" },
+                    { label: "Budget range", desc: "Approximate range helps me propose the right scope. No commitment required." },
+                    { label: "Ideal launch date", desc: "Hard deadline or flexible? Rush timelines carry a 25–40% surcharge." },
+                  ].map((item) => (
+                    <li key={item.label} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <span className="text-xs font-semibold text-foreground">{item.label}: </span>
+                        <span className="text-xs text-muted-foreground">{item.desc}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
             {/* Social row */}
             <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="flex gap-3">
               {[

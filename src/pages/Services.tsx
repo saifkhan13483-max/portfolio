@@ -99,11 +99,12 @@ const packages = [
     revisions: "Priority 4-hr response",
     highlight: false,
     features: [
-      "5–10 hours of work per month",
-      "Bug fixes & performance monitoring",
-      "Content and copy updates",
+      "5–10 dedicated hours per month",
+      "Bug fixes, patches & performance monitoring",
+      "Priority 4-hour response on critical issues",
       "Security patches & dependency updates",
-      "Monthly progress report",
+      "Monthly progress report + recommendations",
+      "Avg. $2,100 saved vs. emergency dev costs",
     ],
   },
 ];

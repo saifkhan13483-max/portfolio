@@ -379,6 +379,55 @@ export default function About() {
           </div>
         </div>
 
+        {/* ── Time Breakdown ── */}
+        <div>
+          <SectionHeading
+            label="Transparency"
+            title="How I Actually Spend My Time"
+            subtitle="Only 42% of a senior developer's working hours go into writing code. Here's what the other 58% looks like — and why it matters for your project."
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            <div className="space-y-3.5">
+              {[
+                { label: "Active development", pct: 42, color: "bg-primary" },
+                { label: "Client communication & calls", pct: 18, color: "bg-blue-500" },
+                { label: "Scoping, discovery & planning", pct: 14, color: "bg-emerald-500" },
+                { label: "Code review & QA", pct: 11, color: "bg-violet-500" },
+                { label: "Documentation & content", pct: 8, color: "bg-amber-500" },
+                { label: "Admin, invoicing & contracts", pct: 7, color: "bg-orange-500" },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-semibold text-foreground">{item.label}</span>
+                    <span className="text-xs font-bold text-muted-foreground">{item.pct}%</span>
+                  </div>
+                  <div className="h-2 bg-muted rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${item.pct}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                      className={`h-full rounded-full ${item.color}`}
+                    />
+                  </div>
+                </div>
+              ))}
+              <p className="text-[11px] text-muted-foreground/60 italic pt-1">Based on 90 days of tracked hours across 48+ delivered projects.</p>
+            </div>
+            <div className="bg-card border border-border rounded-2xl p-6 space-y-4">
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                "The question clients most often ask is <em>'how many hours will it take?'</em> — but that's almost never the right question."
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                When you hire a senior developer, you're paying for the full system: the scoping that prevents expensive pivots, the communication that keeps you aligned, the QA that catches issues before your users do.
+              </p>
+              <p className="text-sm text-foreground font-semibold">
+                That's why I charge for outcomes, not hours. The time breakdown above is what makes delivery predictable and quality consistent.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* ── How I Work ── */}
         <div>
           <SectionHeading
