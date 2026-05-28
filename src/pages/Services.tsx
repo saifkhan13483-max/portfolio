@@ -144,7 +144,7 @@ function SectionHeading({ label, title, subtitle }: { label: string; title: stri
         <div className="w-1 h-1 rounded-full bg-primary" />
         <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">{label}</span>
       </div>
-      <h2 className="text-2xl sm:text-3xl lg:text-[2rem] font-display font-bold text-foreground tracking-tight mb-3 leading-tight">{title}</h2>
+      <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-display font-bold text-foreground tracking-tight mb-3 leading-tight">{title}</h2>
       {subtitle && <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">{subtitle}</p>}
     </motion.div>
   );
@@ -196,7 +196,7 @@ export default function Services() {
     <div className="min-h-screen bg-background">
 
       {/* ─── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-20 pb-0 sm:pt-28 lg:pt-36">
+      <section className="relative overflow-hidden pt-20 pb-0 sm:pt-28 lg:pt-36 overflow-x-hidden">
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05]"
           style={{
@@ -219,7 +219,7 @@ export default function Services() {
               <div className="w-1 h-1 rounded-full bg-primary" />
               <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">What I Offer</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-display font-bold text-foreground leading-[1.07] tracking-tight mb-5">
+            <h1 className="text-[2.1rem] sm:text-5xl lg:text-[56px] font-display font-bold text-foreground leading-[1.07] tracking-tight mb-5">
               Services &{" "}
               <span className="text-primary">Packages</span>
             </h1>
@@ -233,38 +233,39 @@ export default function Services() {
         </div>
 
         {/* Outcomes strip */}
-        <div className="mt-12 sm:mt-16 border-t border-border">
+        <div className="mt-10 sm:mt-16 border-t border-border">
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-            <div className="py-5 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground shrink-0">
+            <div className="py-4 sm:py-5">
+              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-3 sm:mb-0 sm:inline sm:mr-5">
                 Real outcomes
-              </span>
-              <div className="w-px h-4 bg-border hidden sm:block" />
-              {outcomes.map(({ icon: Icon, stat, label, color }, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07, duration: 0.4 }}
-                  className="flex items-center gap-2.5"
-                >
-                  <div className="w-7 h-7 rounded-md bg-card border border-border flex items-center justify-center shrink-0">
-                    <Icon className={`w-3 h-3 ${color}`} />
-                  </div>
-                  <div>
-                    <p className={`text-xs font-black leading-none mb-0.5 ${color}`}>{stat}</p>
-                    <p className="text-[10px] text-muted-foreground">{label}</p>
-                  </div>
-                </motion.div>
-              ))}
+              </p>
+              <div className="grid grid-cols-2 sm:inline-grid sm:grid-cols-4 gap-3 sm:gap-0 sm:divide-x sm:divide-border">
+                {outcomes.map(({ icon: Icon, stat, label, color }, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07, duration: 0.4 }}
+                    className="flex items-center gap-2.5 sm:px-6 first:sm:pl-0"
+                  >
+                    <div className="w-7 h-7 rounded-md bg-card border border-border flex items-center justify-center shrink-0">
+                      <Icon className={`w-3 h-3 ${color}`} />
+                    </div>
+                    <div>
+                      <p className={`text-xs font-black leading-none mb-0.5 ${color}`}>{stat}</p>
+                      <p className="text-[10px] text-muted-foreground leading-tight">{label}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* ─── Main content ─────────────────────────────────────── */}
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl py-14 sm:py-20 space-y-20 sm:space-y-28">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl py-10 sm:py-16 lg:py-20 space-y-16 sm:space-y-24 lg:space-y-28">
 
         {/* ── Packages ── */}
         <div>
@@ -421,11 +422,11 @@ export default function Services() {
                   initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                   className="flex flex-row lg:flex-col items-start gap-4 lg:gap-0"
                 >
-                  <div className="w-11 h-11 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center font-display font-bold text-sm shrink-0 lg:mb-5 shadow-sm">
+                  <div className="w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center font-display font-bold text-sm shrink-0 lg:mb-5 shadow-sm">
                     {step.number}
                   </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-foreground mb-1.5">{step.title}</h3>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 </motion.div>
@@ -613,15 +614,15 @@ export default function Services() {
                 </p>
                 <p className="text-xs font-semibold text-primary">— Saif Khan, SaifCraft</p>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {[
-                  { value: "100%", label: "projects are fixed-scope" },
-                  { value: "0",    label: "surprise invoices, ever" },
-                  { value: "48+",  label: "projects delivered" },
+                  { value: "100%", label: "Fixed-scope" },
+                  { value: "0",    label: "Surprise invoices" },
+                  { value: "48+",  label: "Projects done" },
                 ].map(s => (
-                  <div key={s.label} className="bg-card border border-border rounded-xl p-3 sm:p-4 text-center">
-                    <p className="text-lg sm:text-xl font-display font-bold text-primary leading-none mb-1">{s.value}</p>
-                    <p className="text-[10px] text-muted-foreground leading-tight">{s.label}</p>
+                  <div key={s.label} className="bg-card border border-border rounded-xl p-2.5 sm:p-4 text-center">
+                    <p className="text-base sm:text-xl font-display font-bold text-primary leading-none mb-1">{s.value}</p>
+                    <p className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight">{s.label}</p>
                   </div>
                 ))}
               </div>
