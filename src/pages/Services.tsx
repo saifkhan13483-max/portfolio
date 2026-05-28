@@ -146,9 +146,91 @@ const fadeUp = {
 
 export default function Services() {
   useEffect(() => {
-    document.title = "Services & Pricing — Saif Khan | SaifCraft";
+    document.title = "Web Development Services & Pricing | Saif Khan | SaifCraft";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Fixed-scope packages for landing pages, business websites, custom web apps, AI features, and monthly retainers. Clear pricing, no hourly surprises.");
+    if (meta) meta.setAttribute("content", "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI features & monthly retainers. Clear pricing, no surprises.");
+
+    const addSchema = (id: string, data: object) => {
+      if (document.getElementById(id)) return;
+      const s = document.createElement("script");
+      s.id = id;
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
+
+    addSchema("jsonld-services-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://portfolio-wheat-iota-47.vercel.app/services" }
+      ]
+    });
+
+    addSchema("jsonld-services-itemlist", {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Web Development Services by Saif Khan",
+      "description": "Fixed-scope freelance web development packages with transparent pricing.",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/services",
+      "itemListElement": [
+        {
+          "@type": "ListItem", "position": 1,
+          "item": {
+            "@type": "Service",
+            "name": "Landing Page Development",
+            "description": "High-converting, pixel-perfect landing pages built to impress and rank. Single-page, fully responsive design with contact form and basic on-page SEO.",
+            "offers": { "@type": "Offer", "priceRange": "$800 - $1,500", "priceCurrency": "USD" },
+            "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 2,
+          "item": {
+            "@type": "Service",
+            "name": "Business Website Development",
+            "description": "Multi-page professional sites that build trust and generate real leads. 5-8 pages with mobile-first design, SEO setup and Google Analytics.",
+            "offers": { "@type": "Offer", "priceRange": "$2,000 - $3,500", "priceCurrency": "USD" },
+            "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 3,
+          "item": {
+            "@type": "Service",
+            "name": "Custom Web Application Development",
+            "description": "Full-stack applications built with React, Node.js & PostgreSQL. Includes auth, admin dashboard, REST/GraphQL API, and production deployment.",
+            "offers": { "@type": "Offer", "priceRange": "$3,500 - $8,000+", "priceCurrency": "USD" },
+            "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 4,
+          "item": {
+            "@type": "Service",
+            "name": "AI Feature Integration",
+            "description": "RAG chatbots, semantic search, content generation and LLM integrations added to existing applications using OpenAI, Groq, or Anthropic APIs.",
+            "offers": { "@type": "Offer", "priceRange": "$1,200 - $3,000", "priceCurrency": "USD" },
+            "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "Service",
+            "name": "Monthly Retainer & Support",
+            "description": "Ongoing bug fixes, security patches, uptime monitoring, and priority response. 5-10 dedicated hours per month with monthly progress reports.",
+            "offers": { "@type": "Offer", "priceRange": "$550 - $950/month", "priceCurrency": "USD" },
+            "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        }
+      ]
+    });
+
+    return () => {
+      ["jsonld-services-breadcrumb", "jsonld-services-itemlist"].forEach(id => document.getElementById(id)?.remove());
+    };
   }, []);
 
   const { data: allServices } = useServices();

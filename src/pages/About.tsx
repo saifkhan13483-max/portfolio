@@ -157,13 +157,57 @@ function SectionHeading({ label, title, subtitle }: { label: string; title: stri
 export default function About() {
   const isDark = useDarkMode();
   useEffect(() => {
-    document.title = "About Saif Khan — Senior Fullstack Developer | SaifCraft";
+    document.title = "About Saif Khan | Senior Fullstack Developer & AI Specialist";
     const meta = document.querySelector('meta[name="description"]');
     if (meta)
       meta.setAttribute(
         "content",
-        "7+ years building fast, production-ready web apps. React, Node.js, TypeScript & AI specialist. Direct communication, clean code, on-time delivery."
+        "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery."
       );
+
+    const addSchema = (id: string, data: object) => {
+      if (document.getElementById(id)) return;
+      const s = document.createElement("script");
+      s.id = id;
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
+
+    addSchema("jsonld-about-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://portfolio-wheat-iota-47.vercel.app/about" }
+      ]
+    });
+
+    addSchema("jsonld-about-person", {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://portfolio-wheat-iota-47.vercel.app/#person",
+      "name": "Saif Khan",
+      "jobTitle": "Senior Freelance Fullstack Developer",
+      "description": "Senior fullstack developer with 7+ years of experience building React, Node.js, TypeScript, and AI-integrated web applications for startups and businesses worldwide.",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/about",
+      "image": "https://res.cloudinary.com/de2wrwg6e/image/upload/v1778032828/khjghjfgjhfgh_lnkk4d.png",
+      "email": "contact@saifcraft.com",
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "7+ Years Fullstack Development Experience" },
+        { "@type": "EducationalOccupationalCredential", "name": "48+ Delivered Projects" }
+      ],
+      "knowsAbout": ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "MongoDB", "GraphQL", "AI/LLMs", "Docker", "Firebase"],
+      "sameAs": [
+        "https://github.com/saifcraft-dev",
+        "https://www.linkedin.com/in/saifcraft-dev/",
+        "https://twitter.com/saifcraft_dev"
+      ]
+    });
+
+    return () => {
+      ["jsonld-about-breadcrumb", "jsonld-about-person"].forEach(id => document.getElementById(id)?.remove());
+    };
   }, []);
 
   return (

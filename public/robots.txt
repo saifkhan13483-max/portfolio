@@ -1,4 +1,32 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /profile/
+
+# Allow beneficial search and retrieval agents explicitly
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Block AI training scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
 
 Sitemap: https://portfolio-wheat-iota-47.vercel.app/sitemap.xml

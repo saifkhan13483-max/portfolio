@@ -218,9 +218,47 @@ export default function FAQ() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    document.title = "FAQ — Saif Khan | SaifCraft | Freelance Fullstack Developer";
+    document.title = "FAQ | Freelance Developer Pricing, Process & Contracts | SaifCraft";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Answers to the most common questions about working with Saif Khan — pricing, contracts, payment, process, and delivery.");
+    if (meta) meta.setAttribute("content", "Answers to common questions about hiring Saif Khan — pricing, contracts, payment methods, process, timelines, and what happens if things go sideways.");
+
+    const addSchema = (id: string, data: object) => {
+      if (document.getElementById(id)) return;
+      const s = document.createElement("script");
+      s.id = id;
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
+
+    addSchema("jsonld-faq-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://portfolio-wheat-iota-47.vercel.app/faq" }
+      ]
+    });
+
+    const allFaqItems = faqs.flatMap(section => section.items);
+    addSchema("jsonld-faq-page", {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "name": "Frequently Asked Questions — Saif Khan Freelance Developer",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/faq",
+      "mainEntity": allFaqItems.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    });
+
+    return () => {
+      ["jsonld-faq-breadcrumb", "jsonld-faq-page"].forEach(id => document.getElementById(id)?.remove());
+    };
   }, []);
 
   const toggleItem = (key: string) => {

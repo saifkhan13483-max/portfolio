@@ -45,9 +45,45 @@ const nextSteps = [
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact Saif Khan — Hire a Fullstack Developer | SaifCraft";
+    document.title = "Contact Saif Khan | Hire a Fullstack Developer | SaifCraft";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Ready to build your web app? Get in touch with Saif Khan for a free consultation. Fixed-scope pricing, clear timelines, direct communication.");
+    if (meta) meta.setAttribute("content", "Ready to build your web app? Contact Saif Khan for a free consultation. Fixed-scope pricing, clear timelines, direct communication. Reply within 24 hours.");
+
+    const addSchema = (id: string, data: object) => {
+      if (document.getElementById(id)) return;
+      const s = document.createElement("script");
+      s.id = id;
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
+
+    addSchema("jsonld-contact-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://portfolio-wheat-iota-47.vercel.app/contact" }
+      ]
+    });
+
+    addSchema("jsonld-contact-page", {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Saif Khan — Hire a Fullstack Developer",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/contact",
+      "description": "Get in touch with Saif Khan to discuss your web development project. Free consultation, reply within 24 hours.",
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://portfolio-wheat-iota-47.vercel.app/#person",
+        "email": "contact@saifcraft.com",
+        "availableLanguage": "English"
+      }
+    });
+
+    return () => {
+      ["jsonld-contact-breadcrumb", "jsonld-contact-page"].forEach(id => document.getElementById(id)?.remove());
+    };
   }, []);
 
   const { toast } = useToast();

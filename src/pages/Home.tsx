@@ -233,39 +233,32 @@ const servicePreview = [
 export default function Home() {
   const isDark = useDarkMode();
   useEffect(() => {
-    document.title = "Saif Khan — Freelance Fullstack Developer | SaifCraft | React · Node.js · TypeScript";
+    document.title = "Hire Freelance Fullstack Developer | Saif Khan | SaifCraft";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "I'm Saif Khan, a freelance fullstack developer. I help startups and businesses build fast, custom web applications — on time, within budget, with clean code you can maintain.");
+    if (meta) meta.setAttribute("content", "Hire Saif Khan — senior fullstack developer for React, Node.js & AI web apps. Fixed-scope pricing, fast delivery, clean code. Get a free quote today.");
 
-    const existingScript = document.getElementById("jsonld-person");
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.id = "jsonld-person";
-      script.type = "application/ld+json";
-      script.text = JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Saif Khan",
-        "url": "https://portfolio-wheat-iota-47.vercel.app/",
-        "jobTitle": "Senior Fullstack Developer",
-        "description": "Freelance fullstack developer specializing in React, Node.js, TypeScript, and AI integrations.",
-        "knowsAbout": ["React", "Node.js", "TypeScript", "PostgreSQL", "AI/LLMs", "Firebase"],
-        "offers": {
-          "@type": "Offer",
-          "description": "Custom web application development",
-          "priceRange": "$800 - $8,000+"
-        },
-        "sameAs": [
-          "https://github.com/saifcraft-dev",
-          "https://www.linkedin.com/in/saifcraft-dev/"
-        ]
-      });
-      document.head.appendChild(script);
-    }
+    const addSchema = (id: string, data: object) => {
+      if (document.getElementById(id)) return;
+      const s = document.createElement("script");
+      s.id = id;
+      s.type = "application/ld+json";
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
+
+    addSchema("jsonld-home-service", {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "SaifCraft — Freelance Web Development",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/",
+      "description": "Senior fullstack development services: custom web apps, React frontends, Node.js APIs, and AI feature integrations.",
+      "priceRange": "$800 - $8,000+",
+      "areaServed": "Worldwide",
+      "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+    });
 
     return () => {
-      const s = document.getElementById("jsonld-person");
-      if (s) s.remove();
+      ["jsonld-home-service"].forEach(id => document.getElementById(id)?.remove());
     };
   }, []);
 
