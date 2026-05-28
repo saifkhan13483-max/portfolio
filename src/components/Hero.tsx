@@ -455,6 +455,28 @@ export default function Hero() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Industry Trust Strip */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1.1 }}
+          className="mt-5 pt-4 border-t border-border/40 flex flex-wrap items-center justify-center gap-x-5 gap-y-2"
+        >
+          <span className="text-[10px] text-muted-foreground/40 font-bold uppercase tracking-widest shrink-0 hidden sm:block">
+            Why it matters:
+          </span>
+          {[
+            { stat: "$390.5B", label: "SaaS market in 2025" },
+            { stat: "3×", label: "more conversions at 1s load vs 5s" },
+            { stat: "60%", label: "higher startup success with MVP-first" },
+          ].map((item) => (
+            <div key={item.stat} className="flex items-center gap-1.5 cursor-default">
+              <span className="text-[11px] font-bold text-primary">{item.stat}</span>
+              <span className="text-[10px] text-muted-foreground/70">{item.label}</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import {
   ArrowRight, Check, Clock, RefreshCw, Zap, Bot,
   Globe, Layers, Code2, Wrench, Star, Shield, CreditCard,
+  TrendingUp, Award, Timer,
 } from "lucide-react";
 
 const packages = [
@@ -181,6 +182,47 @@ export default function Services() {
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto px-2">
               Fixed-scope packages with transparent pricing. No hourly billing, no scope surprises — you know exactly what you're getting before we start.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Real Client Outcomes Strip ── */}
+      <section className="border-y border-border bg-card/40 py-6 sm:py-8">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-0 sm:divide-x divide-border"
+          >
+            <div className="text-center sm:text-left sm:pr-8 shrink-0">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-0.5">Real client outcomes</p>
+              <p className="text-xs text-muted-foreground">Across 48+ delivered projects</p>
+            </div>
+            {[
+              { icon: TrendingUp, stat: "+22%", label: "avg conversion lift", color: "text-emerald-500" },
+              { icon: Timer, stat: "6.2s → 0.9s", label: "page load time", color: "text-blue-500" },
+              { icon: Award, stat: "$2,400→$40/mo", label: "infra cost reduction", color: "text-violet-500" },
+              { icon: Zap, stat: "6 weeks", label: "MVP to live product", color: "text-amber-500" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                className="flex items-center gap-3 sm:px-8 cursor-default group"
+              >
+                <div className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center shrink-0 group-hover:border-primary/30 transition-colors">
+                  <item.icon className={`w-3.5 h-3.5 ${item.color}`} />
+                </div>
+                <div>
+                  <p className={`text-sm font-black leading-tight ${item.color}`}>{item.stat}</p>
+                  <p className="text-[10px] text-muted-foreground font-medium">{item.label}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

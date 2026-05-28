@@ -452,6 +452,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.5 — INDUSTRY CONTEXT / PROOF */}
+      <section className="py-10 sm:py-14 border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-8"
+          >
+            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1.5">Why It Matters</p>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground">
+              The Numbers Behind Every Decision
+            </h2>
+            <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
+              Every recommendation I make is grounded in data — not guesswork. Here's what the research says about what actually moves the needle.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+            {[
+              {
+                stat: "3×",
+                context: "more conversions",
+                detail: "Sites loading in 1 second convert 3× better than sites at 5 seconds. A 0.1s improvement boosts conversions by 8%.",
+                source: "Deloitte & Google",
+                color: "from-blue-500/10 to-cyan-500/5",
+                border: "hover:border-blue-500/30",
+                accent: "text-blue-500",
+                icon: TrendingUp,
+              },
+              {
+                stat: "60%",
+                context: "higher startup success",
+                detail: "Startups that launch an MVP before a full product have a 60% higher success rate. 67% of failures come from building what nobody wanted.",
+                source: "CB Insights / Founders Forum 2025",
+                color: "from-emerald-500/10 to-teal-500/5",
+                border: "hover:border-emerald-500/30",
+                accent: "text-emerald-500",
+                icon: Sparkles,
+              },
+              {
+                stat: "55%",
+                context: "faster with AI-assisted dev",
+                detail: "Developers using AI tools complete tasks 55% faster. AI-assisted builds have compressed MVP timelines by 40–60% in 2025.",
+                source: "GitHub Research / McKinsey 2025",
+                color: "from-violet-500/10 to-purple-500/5",
+                border: "hover:border-violet-500/30",
+                accent: "text-violet-500",
+                icon: Award,
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                className={`relative bg-gradient-to-br ${item.color} border border-border ${item.border} rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-default`}
+              >
+                <div className={`flex items-center gap-2 mb-3`}>
+                  <item.icon className={`w-4 h-4 ${item.accent}`} />
+                  <span className={`text-[10px] font-bold uppercase tracking-widest ${item.accent}`}>{item.source}</span>
+                </div>
+                <div className={`text-4xl sm:text-5xl font-display font-black ${item.accent} mb-1 leading-none`}>{item.stat}</div>
+                <div className="text-sm font-bold text-foreground mb-2">{item.context}</div>
+                <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">{item.detail}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. SKILLS / TECH STACK */}
       <section id="skills" className="py-10 sm:py-16 border-t border-border bg-card/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
