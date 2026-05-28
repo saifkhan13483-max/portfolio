@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/components/ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,9 +12,33 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    document.title = "Portfolio — Saif Khan | Fullstack Developer Projects";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Browse real-world projects by Saif Khan — fullstack web apps, SaaS platforms, e-commerce solutions, and more. Each project started with a problem to solve.");
+    updatePageSEO({
+      title: "Freelance Developer Portfolio | Saif Khan | SaifCraft",
+      description: "Browse real-world projects by Saif Khan — fullstack web apps, SaaS platforms, e-commerce solutions, and more. Each project started with a problem to solve.",
+      path: "/portfolio",
+    });
+
+    addSchema("jsonld-portfolio-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://portfolio-wheat-iota-47.vercel.app/portfolio" }
+      ]
+    });
+
+    addSchema("jsonld-portfolio-page", {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Freelance Developer Portfolio — Saif Khan",
+      "description": "A curated selection of real-world fullstack web apps, SaaS platforms, and e-commerce solutions built by Saif Khan.",
+      "url": "https://portfolio-wheat-iota-47.vercel.app/portfolio",
+      "author": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+    });
+
+    return () => {
+      removeSchemas(["jsonld-portfolio-breadcrumb", "jsonld-portfolio-page"]);
+    };
   }, []);
 
   const categories = ["All", ...Array.from(new Set(projects?.map((p: any) => p.category) ?? []))];

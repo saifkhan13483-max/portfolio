@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import {
   Github, Linkedin, Twitter, Target, Lightbulb, Clock,
@@ -157,22 +158,11 @@ function SectionHeading({ label, title, subtitle }: { label: string; title: stri
 export default function About() {
   const isDark = useDarkMode();
   useEffect(() => {
-    document.title = "About Saif Khan | Senior Fullstack Developer & AI Specialist";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta)
-      meta.setAttribute(
-        "content",
-        "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery."
-      );
-
-    const addSchema = (id: string, data: object) => {
-      if (document.getElementById(id)) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-    };
+    updatePageSEO({
+      title: "About Saif Khan | Senior Fullstack Developer & AI Specialist",
+      description: "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery.",
+      path: "/about",
+    });
 
     addSchema("jsonld-about-breadcrumb", {
       "@context": "https://schema.org",
@@ -206,7 +196,7 @@ export default function About() {
     });
 
     return () => {
-      ["jsonld-about-breadcrumb", "jsonld-about-person"].forEach(id => document.getElementById(id)?.remove());
+      removeSchemas(["jsonld-about-breadcrumb", "jsonld-about-person"]);
     };
   }, []);
 

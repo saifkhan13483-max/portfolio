@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useServices } from "@/hooks/use-services";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -146,18 +147,11 @@ const fadeUp = {
 
 export default function Services() {
   useEffect(() => {
-    document.title = "Web Development Services & Pricing | Saif Khan | SaifCraft";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI features & monthly retainers. Clear pricing, no surprises.");
-
-    const addSchema = (id: string, data: object) => {
-      if (document.getElementById(id)) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-    };
+    updatePageSEO({
+      title: "Web Development Services & Pricing | Saif Khan | SaifCraft",
+      description: "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI features & monthly retainers. Clear pricing, no surprises.",
+      path: "/services",
+    });
 
     addSchema("jsonld-services-breadcrumb", {
       "@context": "https://schema.org",
@@ -229,7 +223,7 @@ export default function Services() {
     });
 
     return () => {
-      ["jsonld-services-breadcrumb", "jsonld-services-itemlist"].forEach(id => document.getElementById(id)?.remove());
+      removeSchemas(["jsonld-services-breadcrumb", "jsonld-services-itemlist"]);
     };
   }, []);
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown, ArrowRight, Search, Users, CreditCard,
@@ -218,18 +219,11 @@ export default function FAQ() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    document.title = "FAQ | Freelance Developer Pricing, Process & Contracts | SaifCraft";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Answers to common questions about hiring Saif Khan — pricing, contracts, payment methods, process, timelines, and what happens if things go sideways.");
-
-    const addSchema = (id: string, data: object) => {
-      if (document.getElementById(id)) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-    };
+    updatePageSEO({
+      title: "FAQ | Developer Pricing, Contracts & Process | SaifCraft",
+      description: "Answers to common questions about hiring Saif Khan — pricing, contracts, payment methods, process, timelines, and what happens if things go sideways.",
+      path: "/faq",
+    });
 
     addSchema("jsonld-faq-breadcrumb", {
       "@context": "https://schema.org",
@@ -257,7 +251,7 @@ export default function FAQ() {
     });
 
     return () => {
-      ["jsonld-faq-breadcrumb", "jsonld-faq-page"].forEach(id => document.getElementById(id)?.remove());
+      removeSchemas(["jsonld-faq-breadcrumb", "jsonld-faq-page"]);
     };
   }, []);
 

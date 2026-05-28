@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -45,18 +46,11 @@ const nextSteps = [
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact Saif Khan | Hire a Fullstack Developer | SaifCraft";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Ready to build your web app? Contact Saif Khan for a free consultation. Fixed-scope pricing, clear timelines, direct communication. Reply within 24 hours.");
-
-    const addSchema = (id: string, data: object) => {
-      if (document.getElementById(id)) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-    };
+    updatePageSEO({
+      title: "Contact Saif Khan | Hire a Fullstack Developer | SaifCraft",
+      description: "Ready to build your web app? Contact Saif Khan for a free consultation. Fixed-scope pricing, clear timelines, direct communication. Reply within 24 hours.",
+      path: "/contact",
+    });
 
     addSchema("jsonld-contact-breadcrumb", {
       "@context": "https://schema.org",
@@ -82,7 +76,7 @@ export default function Contact() {
     });
 
     return () => {
-      ["jsonld-contact-breadcrumb", "jsonld-contact-page"].forEach(id => document.getElementById(id)?.remove());
+      removeSchemas(["jsonld-contact-breadcrumb", "jsonld-contact-page"]);
     };
   }, []);
 
@@ -269,9 +263,9 @@ export default function Contact() {
             {/* Social row */}
             <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="flex gap-3">
               {[
-                { href: "#", Icon: Github,   label: "GitHub"   },
-                { href: "#", Icon: Linkedin, label: "LinkedIn" },
-                { href: "#", Icon: Twitter,  label: "Twitter"  },
+                { href: "https://github.com/saifcraft-dev",          Icon: Github,   label: "GitHub"   },
+                { href: "https://www.linkedin.com/in/saifcraft-dev/", Icon: Linkedin, label: "LinkedIn" },
+                { href: "https://twitter.com/saifcraft_dev",          Icon: Twitter,  label: "Twitter"  },
               ].map(({ href, Icon, label }) => (
                 <a
                   key={label}

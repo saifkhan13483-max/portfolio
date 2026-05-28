@@ -8,7 +8,8 @@ import {
   Layers, Zap, Globe, ChevronDown,
   Sparkles, Box
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -34,6 +35,35 @@ export default function ProjectDetail() {
   const [, params] = useRoute("/portfolio/:id");
   const { data: project, isLoading } = useProject(params?.id || "");
   const [mobileMetaOpen, setMobileMetaOpen] = useState(false);
+
+  useEffect(() => {
+    if (!project) return;
+    const title = `${project.title} | Portfolio | SaifCraft`;
+    const description = project.description
+      ? project.description.slice(0, 155) + (project.description.length > 155 ? "…" : "")
+      : `Case study: ${project.title} — a fullstack web project by Saif Khan.`;
+
+    updatePageSEO({
+      title,
+      description,
+      path: `/portfolio/${params?.id}`,
+      ogImage: project.imageUrl || undefined,
+    });
+
+    addSchema(`jsonld-project-${params?.id}-breadcrumb`, {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://portfolio-wheat-iota-47.vercel.app/portfolio" },
+        { "@type": "ListItem", "position": 3, "name": project.title, "item": `https://portfolio-wheat-iota-47.vercel.app/portfolio/${params?.id}` }
+      ]
+    });
+
+    return () => {
+      removeSchemas([`jsonld-project-${params?.id}-breadcrumb`]);
+    };
+  }, [project, params?.id]);
 
   if (isLoading) {
     return (

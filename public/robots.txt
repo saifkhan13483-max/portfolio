@@ -13,6 +13,9 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
 # Block AI training scrapers
 User-agent: GPTBot
 Disallow: /

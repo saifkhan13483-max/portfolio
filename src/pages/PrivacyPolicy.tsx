@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { ShieldCheck, ArrowLeft, Home } from "lucide-react";
 import { Link } from "wouter";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -75,6 +77,27 @@ To exercise any of these rights, please contact us at contact@saifcraft.com and 
 ];
 
 export default function PrivacyPolicy() {
+  useEffect(() => {
+    updatePageSEO({
+      title: "Privacy Policy | SaifCraft — Saif Khan Freelance Developer",
+      description: "How SaifCraft collects, uses, and protects your personal information. Read the full privacy policy for Saif Khan's freelance web development services.",
+      path: "/privacy-policy",
+    });
+
+    addSchema("jsonld-privacy-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://portfolio-wheat-iota-47.vercel.app/privacy-policy" }
+      ]
+    });
+
+    return () => {
+      removeSchemas(["jsonld-privacy-breadcrumb"]);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
 

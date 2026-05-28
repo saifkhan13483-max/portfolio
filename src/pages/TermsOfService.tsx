@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { ScrollText, ArrowLeft, Home } from "lucide-react";
 import { Link } from "wouter";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -92,6 +94,27 @@ Upon termination, the client is responsible for payment of all work completed up
 ];
 
 export default function TermsOfService() {
+  useEffect(() => {
+    updatePageSEO({
+      title: "Terms of Service | SaifCraft — Saif Khan Freelance Developer",
+      description: "Terms and conditions governing the use of SaifCraft's website and freelance web development services provided by Saif Khan.",
+      path: "/terms-of-service",
+    });
+
+    addSchema("jsonld-terms-breadcrumb", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://portfolio-wheat-iota-47.vercel.app/terms-of-service" }
+      ]
+    });
+
+    return () => {
+      removeSchemas(["jsonld-terms-breadcrumb"]);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
 

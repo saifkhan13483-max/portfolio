@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import Hero from "@/components/Hero";
 import ProjectsGallery from "@/components/ProjectsGallery";
@@ -233,18 +234,11 @@ const servicePreview = [
 export default function Home() {
   const isDark = useDarkMode();
   useEffect(() => {
-    document.title = "Hire Freelance Fullstack Developer | Saif Khan | SaifCraft";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Hire Saif Khan — senior fullstack developer for React, Node.js & AI web apps. Fixed-scope pricing, fast delivery, clean code. Get a free quote today.");
-
-    const addSchema = (id: string, data: object) => {
-      if (document.getElementById(id)) return;
-      const s = document.createElement("script");
-      s.id = id;
-      s.type = "application/ld+json";
-      s.text = JSON.stringify(data);
-      document.head.appendChild(s);
-    };
+    updatePageSEO({
+      title: "Hire Freelance Fullstack Developer | Saif Khan | SaifCraft",
+      description: "Hire Saif Khan — senior fullstack developer for React, Node.js & AI web apps. Fixed-scope pricing, fast delivery, clean code. Get a free quote today.",
+      path: "/",
+    });
 
     addSchema("jsonld-home-service", {
       "@context": "https://schema.org",
@@ -258,7 +252,7 @@ export default function Home() {
     });
 
     return () => {
-      ["jsonld-home-service"].forEach(id => document.getElementById(id)?.remove());
+      removeSchemas(["jsonld-home-service"]);
     };
   }, []);
 
