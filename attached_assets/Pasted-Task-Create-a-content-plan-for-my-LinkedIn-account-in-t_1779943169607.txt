@@ -1,0 +1,22 @@
+Task: Create a content plan for my LinkedIn account in the form of a single .md (Markdown) file containing 30 high-quality, knowledge-rich posts — one for each day of the month.
+
+Step 1 — Research first (mandatory): Before writing anything, thoroughly read and analyze all files in my project/site (documents, pages, notes, code, or any reference material provided). Use this as the primary source of truth so the posts accurately reflect my work, voice, and expertise. Supplement with deep web research on current trends, statistics, and best practices in my niche.
+
+Step 2 — Write the 30 LinkedIn posts: Save everything in one file named linkedin-posts.md. For each post, include:
+
+Post Number & Day (e.g., "Day 1")
+Topic / Title
+Target Audience & Goal (e.g., educate, engage, attract leads)
+Full Post Content — ready to publish, written in a professional yet engaging LinkedIn tone, with:
+A strong hook in the first line
+Clear value, insight, or storytelling
+Line breaks for readability
+A call-to-action or thought-provoking question at the end
+3–5 relevant hashtags
+Recommended Posting Day/Time (optional but helpful)
+Image Prompt — only if a visual would meaningfully boost the post. Provide a detailed prompt I can paste into an AI image generator (Midjourney, DALL·E, etc.), specifying style, mood, colors, composition, and aspect ratio (LinkedIn-friendly: 1200×627 or 1:1).
+Step 3 — Content mix (for variety across the 30 posts): Balance the month with a mix of: educational/how-to posts, industry insights & trends, personal stories or lessons learned, case studies or results, opinion/thought-leadership pieces, tips & quick wins, questions to spark engagement, and 1–2 promotional posts.
+
+Step 4 — Formatting: Use clean Markdown — headings (##), bold for labels, horizontal rules (---) between posts, and code blocks for image prompts so they're easy to copy.
+
+Deliverable: One complete linkedin-posts.md file, fully written and ready to use — no placeholders, no "fill this in later."

@@ -71,3 +71,9 @@ id = "x1exk8G8H3csKg9cecLJM"
 uri = "file://ShipDesk-PRD.md"
 type = "text"
 title = "ShipDesk — Complete PRD"
+
+[[outputs]]
+id = "KLiAt6CsXtahERi6i4E-l"
+uri = "file://SaifCraft_LinkedIn_Content_Calendar_June.md"
+type = "text"
+title = "SaifCraft LinkedIn Content Calendar — June (30 Posts)"
