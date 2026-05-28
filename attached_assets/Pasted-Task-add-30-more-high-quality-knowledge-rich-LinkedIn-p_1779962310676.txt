@@ -1,0 +1,42 @@
+Task: add 30 more high-quality, knowledge-rich LinkedIn posts — ready for me to publish on my LinkedIn account.
+
+Before writing the posts, please:
+
+Read and analyze all files in this project/site to understand my niche, tone, target audience, expertise area, and brand voice.
+Conduct deep research on current trends, insights, statistics, and discussions relevant to my industry so the content is fresh, accurate, and authoritative.
+Requirements for each post:
+
+Hook: Start with a strong attention-grabbing opening line.
+Body: Deliver genuine value — insights, lessons, frameworks, stories, data, or actionable tips (not generic fluff).
+Length: 150–300 words, formatted for LinkedIn readability (short paragraphs, line breaks, occasional emojis where appropriate).
+CTA: End with a question or call-to-action to drive engagement.
+Hashtags: Add 3–5 relevant hashtags.
+Post Type Variety: Mix formats across the 30 posts — personal stories, industry insights, how-to guides, contrarian takes, case studies, listicles, thought leadership, lessons learned, trend analysis, etc.
+Image Prompts:
+
+For any post where a visual would significantly boost engagement, include a detailed AI image-generation prompt (describing style, composition, colors, mood, and elements) right below the post under a clear heading like **Suggested Image Prompt:**.
+Skip image prompts for text-only posts where visuals aren't necessary.
+Format the .md file like this:
+
+Copy# LinkedIn Content Calendar — [Month]
+
+## Day 1 — [Post Title/Theme]
+**Format:** [e.g., Personal Story / Insight / How-to]
+**Post:**
+[Full post text here]
+
+**Hashtags:** #example #example
+
+**Suggested Image Prompt:** [If applicable]
+
+---
+## Day 2 — ...
+Deliverable: A single, well-structured .md file I can copy, schedule, or import directly into my content planner.
+
+Why this version works better:
+
+Specifies the output structure clearly so you get a usable file, not a wall of text.
+Defines quality criteria (hook, body, CTA, hashtags) so each post is publish-ready.
+Asks for variety so your feed doesn't look repetitive.
+Makes the image-prompt requirement concrete and conditional.
+Sequences the work: research first, then write.
