@@ -471,12 +471,12 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {[
               {
                 stat: "3×",
-                context: "more conversions",
-                detail: "Sites loading in 1 second convert 3× better than sites at 5 seconds. A 0.1s improvement boosts conversions by 8%.",
+                context: "more conversions at 1s load",
+                detail: "Sites loading in 1 second convert 3× better than sites at 5 seconds. Every 0.1s improvement boosts conversions by 8%.",
                 source: "Deloitte & Google",
                 color: "from-blue-500/10 to-cyan-500/5",
                 border: "hover:border-blue-500/30",
@@ -485,8 +485,8 @@ export default function Home() {
               },
               {
                 stat: "60%",
-                context: "higher startup success",
-                detail: "Startups that launch an MVP before a full product have a 60% higher success rate. 67% of failures come from building what nobody wanted.",
+                context: "higher startup success with MVP-first",
+                detail: "Startups that launch an MVP before a full build have a 60% higher success rate. 67% of failures come from building what nobody wanted.",
                 source: "CB Insights / Founders Forum 2025",
                 color: "from-emerald-500/10 to-teal-500/5",
                 border: "hover:border-emerald-500/30",
@@ -495,13 +495,43 @@ export default function Home() {
               },
               {
                 stat: "55%",
-                context: "faster with AI-assisted dev",
-                detail: "Developers using AI tools complete tasks 55% faster. AI-assisted builds have compressed MVP timelines by 40–60% in 2025.",
+                context: "faster dev with AI-assisted workflows",
+                detail: "Developers using AI tools complete tasks 55% faster. AI-assisted builds compress MVP timelines by 40–60% without sacrificing code quality.",
                 source: "GitHub Research / McKinsey 2025",
                 color: "from-violet-500/10 to-purple-500/5",
                 border: "hover:border-violet-500/30",
                 accent: "text-violet-500",
                 icon: Award,
+              },
+              {
+                stat: "100%",
+                context: "faster growth for AI-native SaaS",
+                detail: "AI-native SaaS products grow at 2× the median rate of traditional SaaS. 44% of SaaS companies now charge specifically for AI-powered features.",
+                source: "SaaS Capital Annual Survey 2025",
+                color: "from-pink-500/10 to-rose-500/5",
+                border: "hover:border-pink-500/30",
+                accent: "text-pink-500",
+                icon: Sparkles,
+              },
+              {
+                stat: "85%",
+                context: "of bootstrapped SaaS are profitable",
+                detail: "85% of bootstrapped SaaS companies are profitable or near breakeven, vs only 46% of VC-backed firms. Lean, validated builds win long-term.",
+                source: "SaaS Capital 2025",
+                color: "from-amber-500/10 to-orange-500/5",
+                border: "hover:border-amber-500/30",
+                accent: "text-amber-500",
+                icon: TrendingUp,
+              },
+              {
+                stat: "36%",
+                context: "of new startups are now solo-founded",
+                detail: "Solo founders rose from 23.7% in 2019 to 36.3% in 2025 — and account for 52% of successful exits. The right developer partner makes this possible.",
+                source: "Carta Startup Data 2025",
+                color: "from-indigo-500/10 to-blue-500/5",
+                border: "hover:border-indigo-500/30",
+                accent: "text-indigo-500",
+                icon: Users,
               },
             ].map((item, i) => (
               <motion.div

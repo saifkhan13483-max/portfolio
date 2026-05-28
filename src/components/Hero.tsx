@@ -467,9 +467,10 @@ export default function Hero() {
             Why it matters:
           </span>
           {[
-            { stat: "$390.5B", label: "SaaS market in 2025" },
+            { stat: "TypeScript #1", label: "most used language on GitHub 2025" },
             { stat: "3×", label: "more conversions at 1s load vs 5s" },
-            { stat: "60%", label: "higher startup success with MVP-first" },
+            { stat: "100%", label: "faster growth for AI-native SaaS" },
+            { stat: "36%", label: "of new startups are solo-founded" },
           ].map((item) => (
             <div key={item.stat} className="flex items-center gap-1.5 cursor-default">
               <span className="text-[11px] font-bold text-primary">{item.stat}</span>

@@ -12,6 +12,7 @@ const categoryIcons: Record<string, any> = {
   "Pricing & Payment": CreditCard,
   "Contracts & Scope": FileText,
   "Process & Delivery": Zap,
+  "Tech & Product Strategy": MessageCircle,
   "Common Concerns":  ShieldCheck,
 };
 
@@ -101,6 +102,27 @@ const faqs = [
       {
         q: "Will I own the code?",
         a: "Yes — 100%. After final payment, all code, designs, and intellectual property transfer to you. I retain no rights to anything built for your project.",
+      },
+    ],
+  },
+  {
+    category: "Tech & Product Strategy",
+    items: [
+      {
+        q: "Should I validate my idea before building?",
+        a: "Yes — always. The #1 cause of startup failure is building a product nobody wants (67% of failures, per CB Insights). Before writing code, validate with a landing page, a simple prototype, or even a waitlist. I help clients think through this before quoting. A validated idea makes for a better project brief, a tighter scope, and a product that has a real shot at success.",
+      },
+      {
+        q: "Should I start with no-code tools or custom development?",
+        a: "No-code tools (Webflow, Bubble, Glide) are a legitimate first step — use them to validate quickly and cheaply if your idea can be tested that way. But there's a ceiling: they break under custom logic, don't scale well, and lock you into platforms you don't own. Once you've validated and need real differentiation — custom auth, complex data models, integrations, or performance — that's when custom development pays off. I'll tell you honestly if no-code can serve your needs.",
+      },
+      {
+        q: "What is RAG, and does my AI chatbot need it?",
+        a: "RAG stands for Retrieval-Augmented Generation. Instead of training a model (which is expensive and slow), you give an LLM access to your own data at query time — FAQs, docs, product info — and it answers using that context. The result is a chatbot that's accurate, up-to-date, and on-brand. I implement RAG using PostgreSQL + pgvector, so you don't need a separate vector database. If you want an AI assistant that actually knows your business, RAG is the right architecture.",
+      },
+      {
+        q: "Should I hire a specialist or a generalist developer?",
+        a: "For early-stage products, a senior generalist (fullstack developer) is usually the better choice. You need someone who can build the backend, frontend, database, and deployment pipeline — not specialists who can't talk to each other. Research shows specialist freelancers command a 90–150% premium over generalists. My position: I'm a fullstack specialist in the React + Node + PostgreSQL stack — deep expertise across the full layer, without the overhead of a team.",
       },
     ],
   },

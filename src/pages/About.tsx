@@ -209,7 +209,7 @@ export default function About() {
                 </span>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">Available for Projects</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">Starting June 2026</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Starting July 2026</p>
                 </div>
               </div>
 
@@ -344,10 +344,10 @@ export default function About() {
                 I'm a self-driven fullstack developer with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. I push back on bad assumptions before a single line of code is written.
               </p>
               <p>
-                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, and PostgreSQL</strong> — the most in-demand stack of 2025 (TypeScript is now #1 on GitHub). Over the past 2+ years I've woven AI into production products: semantic search, chatbots, content generation, and recommendation engines. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> than traditional timelines — without cutting corners on quality.
+                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, and PostgreSQL</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, and content generation pipelines. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
-                When you hire me, you're not handing your project off to a project manager. <strong className="text-foreground font-semibold">You talk directly to the developer doing the work.</strong> Fast replies, clear updates, honest timelines — and a 94% client satisfaction rate to back that up.
+                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you talk directly to the developer doing the work. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
               </p>
             </div>
 

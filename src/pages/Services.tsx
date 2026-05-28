@@ -80,12 +80,12 @@ const packages = [
     highlight: false,
     badge: "🔥 Fastest Growing",
     features: [
-      "Smart semantic search + vector DBs",
-      "AI-generated content / descriptions",
-      "Chatbot trained on your own data",
-      "Recommendation engine",
-      "OpenAI / Anthropic API integration",
-      "AI-assisted vibe coding workflows",
+      "RAG chatbot trained on your own data (pgvector)",
+      "Semantic search — powered by vector embeddings",
+      "AI-generated content & product descriptions",
+      "Recommendation engine using LLM reasoning",
+      "OpenAI / Groq / Anthropic API integration",
+      "No separate vector DB needed — runs on PostgreSQL",
     ],
   },
   {
@@ -556,6 +556,105 @@ export default function Services() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        {/* ── Why Fixed-Scope? ── */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-14"
+          >
+            <div className="flex items-center gap-3 justify-center mb-3">
+              <div className="w-1 h-7 bg-primary rounded-full" />
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-foreground">Why Fixed-Scope Beats Hourly</h2>
+              <div className="w-1 h-7 bg-primary rounded-full" />
+            </div>
+            <p className="text-muted-foreground text-sm sm:text-base max-w-lg mx-auto">
+              I charged hourly for the first two years of my freelance career. Here's what I learned from switching.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            {/* Left: The contrast */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="bg-card border border-border rounded-2xl p-5"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">Hourly billing</p>
+                <ul className="space-y-2.5">
+                  {[
+                    "Client watches the clock — every hour feels like a cost",
+                    "You're paid for time, not outcomes",
+                    "Being fast = earning less",
+                    "Scope changes become awkward negotiations",
+                    "Budget unpredictability on both sides",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+                      <span className="text-red-400 font-bold mt-0.5 shrink-0">✗</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="bg-primary/5 border border-primary/25 rounded-2xl p-5"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">Fixed-scope billing</p>
+                <ul className="space-y-2.5">
+                  {[
+                    "Client buys an outcome — aligned incentives from day one",
+                    "You're paid for the value delivered",
+                    "Efficient delivery = higher effective rate",
+                    "Change requests are handled via a clear process",
+                    "Exact budget known before work begins",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-xs text-foreground/80">
+                      <span className="text-emerald-500 font-bold mt-0.5 shrink-0">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+
+            {/* Right: Quote + stats */}
+            <motion.div
+              initial={{ opacity: 0, x: 16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="flex flex-col gap-4"
+            >
+              <div className="bg-card border border-border rounded-2xl p-6 flex-1">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4">
+                  "My fastest projects — <strong className="text-foreground">3-week turnarounds</strong> — are among my highest-paid. Because fast, high-quality delivery has value. Hourly billing punishes you for being efficient."
+                </p>
+                <p className="text-xs font-semibold text-primary">— Saif Khan, SaifCraft</p>
+              </div>
+              <div className="grid grid-cols-3 gap-3">
+                {[
+                  { value: "100%", label: "of my projects are fixed-scope" },
+                  { value: "0", label: "surprise invoices sent, ever" },
+                  { value: "48+", label: "projects delivered this way" },
+                ].map((s) => (
+                  <div key={s.label} className="bg-card border border-border rounded-xl p-3 text-center">
+                    <p className="text-lg font-display font-bold text-primary leading-none mb-1">{s.value}</p>
+                    <p className="text-[10px] text-muted-foreground leading-tight">{s.label}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
 
