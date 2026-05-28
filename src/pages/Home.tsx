@@ -707,7 +707,7 @@ export default function Home() {
       <ProjectsGallery />
 
       {/* 5. SERVICES PREVIEW */}
-      <section id="services" className="py-16 sm:py-24 border-t border-border bg-card/20">
+      <section id="services" className="py-10 sm:py-16 lg:py-24 border-t border-border bg-card/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
@@ -847,7 +847,7 @@ export default function Home() {
       </section>
 
       {/* 5.5 — MY PROCESS */}
-      <section className="py-16 sm:py-24 border-t border-border">
+      <section className="py-10 sm:py-16 lg:py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -870,7 +870,7 @@ export default function Home() {
 
           <div className="relative">
             <div className="hidden lg:block absolute top-[2.6rem] left-[10%] right-[10%] h-px bg-border z-0" />
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-4 relative z-10">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-4 relative z-10">
               {[
                 { icon: Users, step: "01", title: "Discovery", desc: "We align on your problem, your users, and the single most important thing the MVP must do. Hard questions first, code later.", color: "text-blue-500", bg: "bg-blue-500/10" },
                 { icon: Shield, step: "02", title: "Scope & Contract", desc: "A precise fixed-scope document — every deliverable described, every exclusion named. You sign, pay the deposit, we start.", color: "text-emerald-500", bg: "bg-emerald-500/10" },
@@ -886,16 +886,16 @@ export default function Home() {
                   transition={{ delay: i * 0.1, duration: 0.45 }}
                   className="flex flex-col items-center text-center group"
                 >
-                  <div className="relative mb-4">
-                    <div className={`w-14 h-14 rounded-2xl ${s.bg} flex items-center justify-center border border-border group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                      <s.icon className={`w-6 h-6 ${s.color}`} />
+                  <div className="relative mb-3 sm:mb-4">
+                    <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl ${s.bg} flex items-center justify-center border border-border group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                      <s.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${s.color}`} />
                     </div>
                     <span className={`absolute -top-2 -right-2 text-[9px] font-black ${s.color} bg-background border border-border rounded-full w-5 h-5 flex items-center justify-center`}>
                       {i + 1}
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-display font-bold text-foreground mb-2">{s.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-[190px]">{s.desc}</p>
+                  <h3 className="text-xs sm:text-sm font-display font-bold text-foreground mb-1 sm:mb-2">{s.title}</h3>
+                  <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -925,7 +925,7 @@ export default function Home() {
       </section>
 
       {/* 6. TESTIMONIALS / SOCIAL PROOF */}
-      <section id="testimonials" className="py-16 sm:py-24 border-t border-border">
+      <section id="testimonials" className="py-10 sm:py-16 lg:py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
@@ -1069,7 +1069,7 @@ export default function Home() {
       </section>
 
       {/* 7. PLATFORMS — Find me on */}
-      <section id="platforms" className="py-16 sm:py-24 border-t border-border bg-card/20">
+      <section id="platforms" className="py-10 sm:py-16 lg:py-24 border-t border-border bg-card/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
@@ -1095,7 +1095,7 @@ export default function Home() {
           </motion.div>
 
           {/* Platform cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {platforms.map((p, i) => (
               <motion.a
                 key={p.name}
@@ -1201,7 +1201,7 @@ export default function Home() {
       </section>
 
       {/* 8. CTA */}
-      <section id="contact-cta" className="py-20 sm:py-32 relative overflow-hidden border-t border-border bg-[hsl(var(--footer))]">
+      <section id="contact-cta" className="py-14 sm:py-20 lg:py-32 relative overflow-hidden border-t border-border bg-[hsl(var(--footer))]">
         <div className="absolute -top-[50%] left-[20%] w-[60%] h-[60%] bg-primary/20 blur-[150px] rounded-full" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -1211,23 +1211,23 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6 px-2">
+            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6 px-2">
               Have a project in mind?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-3 sm:mb-4 max-w-2xl mx-auto px-2">
+            <p className="text-sm sm:text-lg lg:text-xl text-white/90 mb-3 sm:mb-4 max-w-2xl mx-auto px-2">
               Tell me what you're building. I'll get back to you within 24 hours with my thoughts and a rough timeline.
             </p>
             <p className="text-xs sm:text-sm text-white/60 mb-8 sm:mb-12 px-2">
               50% upfront · Fixed-scope contract · 30-day post-launch support
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
               <Button
                 size="lg"
-                className="btn-cta border-0 text-lg h-16 px-12 rounded-full shadow-lg shadow-orange-900/20 group"
+                className="btn-cta border-0 text-base sm:text-lg h-12 sm:h-16 px-8 sm:px-12 rounded-full shadow-lg shadow-orange-900/20 group"
                 asChild
               >
                 <Link href="/contact">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     Let's Work Together
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
@@ -1236,7 +1236,7 @@ export default function Home() {
               <Button
                 size="lg"
                 variant="outline"
-                className="h-16 px-10 text-lg rounded-full border-white/20 text-white/80 hover:text-white hover:border-white/50 hover:bg-white/10"
+                className="h-12 sm:h-16 px-8 sm:px-10 text-base sm:text-lg rounded-full border-white/20 text-white/80 hover:text-white hover:border-white/50 hover:bg-white/10"
                 asChild
               >
                 <Link href="/faq">Read the FAQ</Link>
