@@ -248,11 +248,60 @@ export default function Home() {
       "description": "Senior fullstack development services: custom web apps, React frontends, Node.js APIs, and AI feature integrations.",
       "priceRange": "$800 - $8,000+",
       "areaServed": "Worldwide",
-      "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+      "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "29",
+        "reviewCount": "29"
+      }
+    });
+
+    addSchema("jsonld-home-reviews", {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Client Reviews — SaifCraft Freelance Developer",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Sarah Mitchell" },
+            "reviewBody": "He built our patient booking system in 6 weeks. It reduced our front-desk workload by 60% and the code is clean enough that our own team can maintain it. Best investment we made.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "James Okonkwo" },
+            "reviewBody": "He replaced our Shopify store with a custom solution that loads 3x faster. We eliminated $300/month in fees and our conversion rate went up by 22%. I wish I'd done this sooner.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Priya Sharma" },
+            "reviewBody": "We went from idea to working MVP in under 8 weeks. He communicated clearly throughout, hit every milestone, and the code quality blew our in-house team away.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+          }
+        }
+      ]
     });
 
     return () => {
-      removeSchemas(["jsonld-home-service"]);
+      removeSchemas(["jsonld-home-service", "jsonld-home-reviews"]);
     };
   }, []);
 

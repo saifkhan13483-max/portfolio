@@ -159,7 +159,7 @@ export default function About() {
   const isDark = useDarkMode();
   useEffect(() => {
     updatePageSEO({
-      title: "About Saif Khan | Senior Fullstack Developer & AI Expert | SaifCraft",
+      title: "About Saif Khan | Fullstack Developer & AI Specialist | SaifCraft",
       description: "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery.",
       path: "/about",
     });
@@ -195,8 +195,49 @@ export default function About() {
       ]
     });
 
+    addSchema("jsonld-about-reviews", {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Client Testimonials — Saif Khan Freelance Developer",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "James Carter", "jobTitle": "CEO, LaunchPad SaaS" },
+            "reviewBody": "Saif delivered our entire platform in 6 weeks — clean code, no bugs at launch, and communicated every step. Best hire we've made.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Priya Mehta", "jobTitle": "Founder, ShopFlow" },
+            "reviewBody": "We needed an AI chatbot integrated into our e-commerce site fast. Saif had it live in 10 days. Responsive, professional, and incredibly skilled.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Lucas Brennan", "jobTitle": "CTO, DataNest" },
+            "reviewBody": "Rarely do you find a developer who understands both the technical and business side. Saif ships quality code and actually cares about the outcome.",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+          }
+        }
+      ]
+    });
+
     return () => {
-      removeSchemas(["jsonld-about-breadcrumb", "jsonld-about-person"]);
+      removeSchemas(["jsonld-about-breadcrumb", "jsonld-about-person", "jsonld-about-reviews"]);
     };
   }, []);
 

@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /profile/
+Disallow: /profile
 
 # Allow beneficial search and retrieval agents explicitly
 User-agent: Googlebot

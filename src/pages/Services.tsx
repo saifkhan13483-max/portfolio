@@ -162,6 +162,40 @@ export default function Services() {
       ]
     });
 
+    addSchema("jsonld-services-howto", {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Hire Saif Khan for a Web Development Project",
+      "description": "A clear, 4-step process to scope, start, and launch a custom web development project with Saif Khan.",
+      "totalTime": "P2D",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Discovery Call",
+          "text": "We talk about your business, goals, and the problem you need solved. You get a clear written scope within 48 hours."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Proposal & Contract",
+          "text": "I send a fixed-scope proposal with timeline, price, and exact deliverables. You sign and pay the upfront deposit."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Build with Weekly Demos",
+          "text": "I build in focused sprints. You see a working demo every week — not just at the very end."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Launch & Handoff",
+          "text": "I deploy, record a walkthrough, hand over all code and docs, and stay available for 30 days post-launch."
+        }
+      ]
+    });
+
     addSchema("jsonld-services-itemlist", {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -223,7 +257,7 @@ export default function Services() {
     });
 
     return () => {
-      removeSchemas(["jsonld-services-breadcrumb", "jsonld-services-itemlist"]);
+      removeSchemas(["jsonld-services-breadcrumb", "jsonld-services-howto", "jsonld-services-itemlist"]);
     };
   }, []);
 

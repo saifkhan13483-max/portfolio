@@ -148,8 +148,8 @@ export default function Contact() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold text-foreground mb-5 leading-tight tracking-tight">
-              Let's Build Something{" "}
-              <span className="text-primary">Great</span>
+              Hire a Freelance Developer —{" "}
+              <span className="text-primary">Let's Build</span>
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto px-2">

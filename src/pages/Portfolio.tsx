@@ -33,6 +33,8 @@ export default function Portfolio() {
       "name": "Freelance Developer Portfolio — Saif Khan",
       "description": "A curated selection of real-world fullstack web apps, SaaS platforms, and e-commerce solutions built by Saif Khan.",
       "url": "https://portfolio-wheat-iota-47.vercel.app/portfolio",
+      "datePublished": "2019-01-01",
+      "dateModified": "2026-05-28",
       "author": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
     });
 
