@@ -96,7 +96,7 @@ Upon termination, the client is responsible for payment of all work completed up
 export default function TermsOfService() {
   useEffect(() => {
     updatePageSEO({
-      title: "Terms of Service | SaifCraft — Saif Khan Freelance Developer",
+      title: "Terms of Service | Saif Khan Freelance Developer | SaifCraft",
       description: "Terms and conditions governing the use of SaifCraft's website and freelance web development services provided by Saif Khan.",
       path: "/terms-of-service",
     });

@@ -7,11 +7,24 @@ interface PageSEOOptions {
   path: string;
   ogType?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 function setMeta(selector: string, value: string) {
   const el = document.querySelector(selector);
   if (el) el.setAttribute("content", value);
+}
+
+function setOrCreateMeta(attrs: Record<string, string>, content: string) {
+  const attrPairs = Object.entries(attrs);
+  const selector = attrPairs.map(([k, v]) => `[${k}="${v}"]`).join("");
+  let el = document.querySelector(`meta${selector}`) as HTMLMetaElement | null;
+  if (!el) {
+    el = document.createElement("meta") as HTMLMetaElement;
+    attrPairs.forEach(([k, v]) => el!.setAttribute(k, v));
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
 }
 
 function setOrCreateLink(rel: string, href: string) {
@@ -24,12 +37,23 @@ function setOrCreateLink(rel: string, href: string) {
   el.setAttribute("href", href);
 }
 
+function setRobotsDirective(content: string) {
+  let el = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+  if (!el) {
+    el = document.createElement("meta") as HTMLMetaElement;
+    el.setAttribute("name", "robots");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
 export function updatePageSEO({
   title,
   description,
   path,
   ogType = "website",
   ogImage = DEFAULT_OG_IMAGE,
+  noindex = false,
 }: PageSEOOptions) {
   const url = `${BASE_URL}${path}`;
 
@@ -47,7 +71,9 @@ export function updatePageSEO({
   setMeta('meta[name="twitter:title"]', title);
   setMeta('meta[name="twitter:description"]', description);
   setMeta('meta[name="twitter:url"]', url);
+  setOrCreateMeta({ name: "twitter:image" }, ogImage);
 
+  setRobotsDirective(noindex ? "noindex, nofollow" : "index, follow");
   setOrCreateLink("canonical", url);
 }
 

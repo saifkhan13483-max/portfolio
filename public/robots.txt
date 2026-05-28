@@ -16,6 +16,9 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: YouBot
+Allow: /
+
 # Block AI training scrapers
 User-agent: GPTBot
 Disallow: /
@@ -30,6 +33,24 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Diffbot
+Disallow: /
+
+User-agent: ImagesiftBot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: PetalBot
 Disallow: /
 
 Sitemap: https://portfolio-wheat-iota-47.vercel.app/sitemap.xml

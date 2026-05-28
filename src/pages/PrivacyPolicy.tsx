@@ -79,7 +79,7 @@ To exercise any of these rights, please contact us at contact@saifcraft.com and 
 export default function PrivacyPolicy() {
   useEffect(() => {
     updatePageSEO({
-      title: "Privacy Policy | SaifCraft — Saif Khan Freelance Developer",
+      title: "Privacy Policy | Saif Khan Freelance Developer | SaifCraft",
       description: "How SaifCraft collects, uses, and protects your personal information. Read the full privacy policy for Saif Khan's freelance web development services.",
       path: "/privacy-policy",
     });

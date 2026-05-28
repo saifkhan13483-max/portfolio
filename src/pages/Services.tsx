@@ -149,7 +149,7 @@ export default function Services() {
   useEffect(() => {
     updatePageSEO({
       title: "Web Development Services & Pricing | Saif Khan | SaifCraft",
-      description: "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI features & monthly retainers. Clear pricing, no surprises.",
+      description: "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI integrations & retainers. Clear pricing, no surprises.",
       path: "/services",
     });
 

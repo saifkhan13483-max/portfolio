@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { updatePageSEO } from "@/lib/seo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import { useOrders } from "@/hooks/use-orders";
@@ -170,13 +171,12 @@ export default function ClientProfile() {
   const [savingName, setSavingName] = useState(false);
 
   useEffect(() => {
-    document.title = "My Profile — SaifCraft";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta)
-      meta.setAttribute(
-        "content",
-        "View and manage your SaifCraft client profile, track your project orders, and update your account details."
-      );
+    updatePageSEO({
+      title: "My Profile | SaifCraft",
+      description: "View and manage your SaifCraft client profile, track your project orders, and update your account details.",
+      path: "/profile",
+      noindex: true,
+    });
   }, []);
 
   useEffect(() => {

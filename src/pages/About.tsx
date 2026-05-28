@@ -159,7 +159,7 @@ export default function About() {
   const isDark = useDarkMode();
   useEffect(() => {
     updatePageSEO({
-      title: "About Saif Khan | Senior Fullstack Developer & AI Specialist",
+      title: "About Saif Khan | Senior Fullstack Developer & AI Expert | SaifCraft",
       description: "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery.",
       path: "/about",
     });
