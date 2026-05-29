@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,8 +12,8 @@ import {
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { useCreateOrder } from "@/hooks/data/use-orders";
-import { useToast } from "@/hooks/ui/use-toast";
+import { useCreateOrder } from "@/hooks/use-orders";
+import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 import {
   Loader2, Mail, Github, Linkedin, Twitter, Clock,

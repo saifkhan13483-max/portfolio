@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { useOrders, useUpdateOrder } from "@/hooks/data/use-orders";
+import { useOrders, useUpdateOrder } from "@/hooks/use-orders";
 import { Order } from "@/types";
 import { 
   MoreHorizontal, Eye, Clock, CheckCircle2, XCircle, AlertCircle, 

@@ -1,5 +1,5 @@
-import { useServices } from "@/hooks/data/use-services";
-import { ServiceCard } from "@/components/shared/ServiceCard";
+import { useServices } from "@/hooks/use-services";
+import { ServiceCard } from "@/features/services/components/ServiceCard";
 import { motion } from "framer-motion";
 
 export default function ServicesSection() {

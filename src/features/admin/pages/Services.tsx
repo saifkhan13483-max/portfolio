@@ -24,12 +24,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
-import { useServices, useCreateService, useUpdateService, useDeleteService } from "@/hooks/data/use-services";
+import { useServices, useCreateService, useUpdateService, useDeleteService } from "@/hooks/use-services";
 import { Service } from "@/types";
 import { Plus, Pencil, Trash2, Loader2, X, Layers, Search, Clock, DollarSign, CheckCircle2 } from "lucide-react";
-import { useToast } from "@/hooks/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useImageUpload } from "@/hooks/data/use-image-upload";
+import { useImageUpload } from "@/hooks/use-image-upload";
 
 export default function ServicesManagement() {
   const { data: services, isLoading } = useServices();

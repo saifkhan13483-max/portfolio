@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { updatePageSEO } from "@/lib/seo";
+import { updatePageSEO } from "@/utils/seo";
 import { motion, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/context/AuthContext";
-import { useOrders } from "@/hooks/data/use-orders";
+import { useAuth } from "@/features/auth/AuthContext";
+import { useOrders } from "@/hooks/use-orders";
 import { signOut } from "@/lib/firebase/auth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "@/lib/firebase/config";
-import { useToast } from "@/hooks/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";

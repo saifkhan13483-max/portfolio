@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { ShieldCheck, ArrowLeft, Home } from "lucide-react";
 import { Link } from "wouter";
-import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },

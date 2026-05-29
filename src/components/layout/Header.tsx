@@ -4,11 +4,11 @@ import { Link } from "wouter";
 import { Menu, LogIn, User as UserIcon, LayoutDashboard, LogOut, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/features/auth/AuthContext";
 import { signInWithGoogle, signOut } from "@/lib/firebase/auth";
-import { useToast } from "@/hooks/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
-import { useDarkMode } from "@/hooks/ui/use-dark-mode";
+import { useDarkMode } from "@/hooks/use-dark-mode";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 

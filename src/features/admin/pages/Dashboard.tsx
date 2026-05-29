@@ -10,8 +10,8 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
-import { useOrders } from "@/hooks/data/use-orders";
-import { useProjects } from "@/hooks/data/use-projects";
+import { useOrders } from "@/hooks/use-orders";
+import { useProjects } from "@/hooks/use-projects";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
-import { useServices } from "@/hooks/data/use-services";
+import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { useServices } from "@/hooks/use-services";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";

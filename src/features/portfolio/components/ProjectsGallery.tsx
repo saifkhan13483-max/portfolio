@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import { useProjects } from "@/hooks/data/use-projects";
-import { ProjectCard } from "@/components/shared/ProjectCard";
+import { useProjects } from "@/hooks/use-projects";
+import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";

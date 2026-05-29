@@ -16,7 +16,14 @@
     "baseUrl": ".",
     "types": ["node", "vite/client"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@features/*": ["./src/features/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@types/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

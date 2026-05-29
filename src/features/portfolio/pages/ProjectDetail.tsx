@@ -1,5 +1,5 @@
 import { useRoute, Link } from "wouter";
-import { useProject } from "@/hooks/data/use-projects";
+import { useProject } from "@/hooks/use-projects";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +9,7 @@ import {
   Sparkles, Box
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
