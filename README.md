@@ -253,10 +253,6 @@ VITE_CLOUDINARY_CLOUD_NAME=
 
 # Groq — server-side ONLY, never prefix with VITE_
 GROQ_API_KEY=
-GROQ_API_KEY_2=
-GROQ_API_KEY_3=
-GROQ_API_KEY_4=
-GROQ_API_KEY_5=
 ```
 
 > **Important:** `GROQ_API_KEY` and siblings are server-only secrets. `VITE_*` variables are embedded into the client bundle at build time — never store secrets in them.
