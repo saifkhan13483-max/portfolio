@@ -30,6 +30,7 @@ SaifCraft is the professional portfolio and freelance services site of **Saif Kh
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
 - [Environment Variables](#environment-variables)
+- [Path Aliases](#path-aliases)
 - [Architecture](#architecture)
 - [Admin Dashboard](#admin-dashboard)
 - [AI Chatbot](#ai-chatbot)
@@ -79,90 +80,115 @@ SaifCraft is the professional portfolio and freelance services site of **Saif Kh
 ```
 saifcraft/
 ├── api/
-│   └── chat.ts                    # Vercel serverless function — Groq API proxy
+│   └── chat.ts                          # Vercel serverless function — Groq API proxy
 │
-├── client/
-│   ├── index.html                 # HTML shell — meta tags, OG, JSON-LD schema
-│   ├── public/
-│   │   ├── logo.png               # Favicon
-│   │   ├── logo-light.png         # Light mode logo
-│   │   ├── logo-dark.png          # Dark mode logo
-│   │   ├── favicon.png            # Browser tab icon
-│   │   ├── robots.txt             # Search engine crawl rules
-│   │   ├── sitemap.xml            # Public page URLs for indexing
-│   │   └── 404.html               # SPA fallback for Vercel routing
+├── public/
+│   ├── favicon.png
+│   ├── logo.png / logo-light.png / logo-dark.png
+│   ├── robots.txt                       # Search engine crawl rules
+│   ├── sitemap.xml                      # Public page URLs for indexing
+│   └── 404.html                         # SPA fallback for Vercel routing
+│
+├── src/
+│   ├── App.tsx                          # Root router — public + admin branches
+│   ├── main.tsx                         # Entry point, wrapped in ErrorBoundary
+│   ├── index.css                        # Global styles & CSS custom properties
 │   │
-│   └── src/
-│       ├── App.tsx                # Root router — public + admin branches
-│       ├── main.tsx               # Entry point, wrapped in ErrorBoundary
-│       ├── index.css              # Global styles & CSS custom properties
-│       │
-│       ├── components/
-│       │   ├── ErrorBoundary.tsx  # React error boundary (crash fallback)
-│       │   ├── Header.tsx         # Navigation bar with auth menu & dark mode toggle
-│       │   ├── Footer.tsx         # Site footer with links and social icons
-│       │   ├── Hero.tsx           # Home page hero section
-│       │   ├── ChatBot.tsx        # Floating AI chatbot widget
-│       │   ├── ContactForm.tsx    # Reusable contact / lead capture form
-│       │   ├── ProjectCard.tsx    # Portfolio project card component
-│       │   ├── ProjectsGallery.tsx# Filterable portfolio grid
-│       │   ├── ServiceCard.tsx    # Service package card
-│       │   ├── ServicesSection.tsx# Services overview section
-│       │   ├── AdminProtectedRoute.tsx # Auth guard for admin routes
-│       │   └── ui/                # shadcn/ui component library
-│       │
-│       ├── context/
-│       │   └── AuthContext.tsx    # Firebase auth state provider
-│       │
-│       ├── hooks/
-│       │   ├── use-dark-mode.ts   # Dark mode state hook
-│       │   ├── use-image-upload.ts# Cloudinary upload hook
-│       │   ├── use-mobile.tsx     # Mobile breakpoint hook
-│       │   ├── use-orders.ts      # Firestore orders hook
-│       │   ├── use-projects.ts    # Firestore projects hook
-│       │   ├── use-services.ts    # Firestore services hook
-│       │   └── use-toast.ts       # Toast notification hook
-│       │
-│       ├── lib/
-│       │   ├── firebase/
-│       │   │   ├── config.ts      # Firebase app initialisation
-│       │   │   ├── auth.ts        # signIn, signOut, isAdmin helpers
-│       │   │   └── firestore.ts   # Firestore CRUD + local service fallbacks
-│       │   ├── ai.ts              # Groq chatbot logic + site knowledge base
-│       │   ├── cloudinary.ts      # Cloudinary upload helper
-│       │   ├── queryClient.ts     # TanStack React Query client setup
-│       │   └── utils.ts           # Utility functions (cn, etc.)
-│       │
-│       ├── pages/
-│       │   ├── Home.tsx           # Landing page
-│       │   ├── Services.tsx       # Services & pricing
-│       │   ├── Portfolio.tsx      # Portfolio gallery (filterable)
-│       │   ├── ProjectDetail.tsx  # Individual project case study
-│       │   ├── About.tsx          # About Saif Khan
-│       │   ├── Contact.tsx        # Contact / hire page
-│       │   ├── FAQ.tsx            # Frequently asked questions
-│       │   ├── ClientProfile.tsx  # Client inquiry history (/profile)
-│       │   ├── PrivacyPolicy.tsx  # Privacy policy
-│       │   ├── TermsOfService.tsx # Terms of service
-│       │   ├── not-found.tsx      # 404 page
-│       │   └── admin/
-│       │       ├── Login.tsx      # Admin login
-│       │       ├── AdminLayout.tsx# Admin shell layout
-│       │       ├── Dashboard.tsx  # Admin overview
-│       │       ├── Orders.tsx     # Manage incoming orders
-│       │       ├── Projects.tsx   # Manage portfolio projects
-│       │       └── Services.tsx   # Manage service packages
-│       │
-│       └── types/
-│           └── index.ts           # Project, Service, Order TypeScript interfaces
+│   ├── components/                      # Globally shared, reusable UI only
+│   │   ├── layout/
+│   │   │   ├── ErrorBoundary.tsx        # Crash fallback boundary
+│   │   │   ├── Header.tsx               # Nav bar — auth menu, dark mode toggle
+│   │   │   └── Footer.tsx               # Site footer with links & social icons
+│   │   └── ui/                          # shadcn/ui primitives (40+ components)
+│   │
+│   ├── features/                        # Feature-scoped code — components, pages, libs
+│   │   ├── auth/
+│   │   │   └── AuthContext.tsx          # Firebase auth state provider
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── components/
+│   │   │   │   └── AdminProtectedRoute.tsx  # Auth guard for admin routes
+│   │   │   └── pages/
+│   │   │       ├── AdminLayout.tsx      # Admin shell layout
+│   │   │       ├── Dashboard.tsx        # Admin overview & stats
+│   │   │       ├── Login.tsx            # Admin email/password login
+│   │   │       ├── Orders.tsx           # Manage incoming client orders
+│   │   │       ├── Projects.tsx         # Manage portfolio projects
+│   │   │       └── Services.tsx         # Manage service packages
+│   │   │
+│   │   ├── chatbot/
+│   │   │   ├── components/
+│   │   │   │   └── ChatBot.tsx          # Floating AI chatbot widget
+│   │   │   └── lib/
+│   │   │       ├── groq-client.ts       # API transport, prompt builder, ChatMessage type
+│   │   │       └── knowledge-base.ts    # Full site knowledge base string
+│   │   │
+│   │   ├── contact/
+│   │   │   ├── components/
+│   │   │   │   └── ContactForm.tsx      # Reusable lead capture form
+│   │   │   └── pages/
+│   │   │       └── Contact.tsx          # Contact / hire page
+│   │   │
+│   │   ├── home/
+│   │   │   ├── components/
+│   │   │   │   └── Hero.tsx             # Home page hero section
+│   │   │   └── pages/
+│   │   │       └── Home.tsx             # Landing page
+│   │   │
+│   │   ├── portfolio/
+│   │   │   ├── components/
+│   │   │   │   ├── ProjectCard.tsx      # Portfolio project card
+│   │   │   │   └── ProjectsGallery.tsx  # Filterable portfolio grid
+│   │   │   └── pages/
+│   │   │       ├── Portfolio.tsx        # Portfolio gallery page
+│   │   │       └── ProjectDetail.tsx    # Individual project case study
+│   │   │
+│   │   └── services/
+│   │       ├── components/
+│   │       │   ├── ServiceCard.tsx      # Service package card
+│   │       │   └── ServicesSection.tsx  # Services overview section
+│   │       └── pages/
+│   │           └── Services.tsx         # Services & pricing page
+│   │
+│   ├── hooks/                           # Global hooks (used across 2+ features)
+│   │   ├── use-dark-mode.ts
+│   │   ├── use-image-upload.ts          # Cloudinary upload hook
+│   │   ├── use-mobile.tsx               # Mobile breakpoint hook
+│   │   ├── use-orders.ts                # Firestore orders CRUD
+│   │   ├── use-projects.ts              # Firestore projects CRUD
+│   │   ├── use-services.ts              # Firestore services CRUD
+│   │   └── use-toast.ts                 # Toast notification hook
+│   │
+│   ├── lib/                             # Infrastructure & third-party clients
+│   │   ├── firebase/
+│   │   │   ├── config.ts                # Firebase app initialisation
+│   │   │   ├── auth.ts                  # signIn, signOut, isAdmin helpers
+│   │   │   └── firestore.ts             # Firestore CRUD + local fallbacks
+│   │   ├── cloudinary.ts                # Cloudinary upload helper
+│   │   ├── queryClient.ts               # TanStack React Query client setup
+│   │   └── utils.ts                     # Utility functions (cn, etc.)
+│   │
+│   ├── pages/                           # Standalone pages (no dedicated feature folder)
+│   │   ├── About.tsx
+│   │   ├── ClientProfile.tsx            # Client inquiry history (/profile)
+│   │   ├── FAQ.tsx
+│   │   ├── NotFound.tsx                 # 404 page
+│   │   ├── PrivacyPolicy.tsx
+│   │   └── TermsOfService.tsx
+│   │
+│   ├── types/
+│   │   └── index.ts                     # Project, Service, Order TypeScript interfaces
+│   │
+│   └── utils/
+│       └── seo.ts                       # updatePageSEO, addSchema, removeSchemas helpers
 │
-├── firestore.rules                # Firestore security rules
-├── vercel.json                    # Vercel deploy config
-├── vite.config.ts                 # Vite config — port 5000, code splitting, dev proxy
-├── tailwind.config.ts             # Tailwind configuration
-├── tsconfig.json                  # TypeScript configuration
-├── components.json                # shadcn/ui configuration
-└── .env.example                   # Environment variables template
+├── firestore.rules                      # Firestore security rules
+├── index.html                           # HTML shell — meta tags, OG, JSON-LD schema
+├── vercel.json                          # Vercel deploy config
+├── vite.config.ts                       # Vite — port 5000, code splitting, dev Groq proxy
+├── tsconfig.json                        # TypeScript config + path aliases
+├── components.json                      # shadcn/ui configuration
+└── .env.example                         # Environment variables template
 ```
 
 ---
@@ -227,9 +253,30 @@ VITE_CLOUDINARY_CLOUD_NAME=
 
 # Groq — server-side ONLY, never prefix with VITE_
 GROQ_API_KEY=
+GROQ_API_KEY_2=
+GROQ_API_KEY_3=
+GROQ_API_KEY_4=
+GROQ_API_KEY_5=
 ```
 
 > **Important:** `GROQ_API_KEY` and siblings are server-only secrets. `VITE_*` variables are embedded into the client bundle at build time — never store secrets in them.
+
+---
+
+## Path Aliases
+
+All aliases resolve from `src/`. Configured in both `tsconfig.json` and `vite.config.ts`.
+
+| Alias | Resolves to |
+|---|---|
+| `@/*` | `src/*` |
+| `@components/*` | `src/components/*` |
+| `@features/*` | `src/features/*` |
+| `@hooks/*` | `src/hooks/*` |
+| `@lib/*` | `src/lib/*` |
+| `@pages/*` | `src/pages/*` |
+| `@types/*` | `src/types/*` |
+| `@utils/*` | `src/utils/*` |
 
 ---
 
@@ -249,9 +296,11 @@ Browser
 ```
 
 **Key decisions:**
+- **Feature-based structure** — each domain (admin, chatbot, portfolio, services, contact, home) owns its components, pages, and libs. Shared-only code lives in `components/`, `hooks/`, `lib/`, or `utils/`
 - **No separate Express server** — all server logic lives in either the Vite middleware (dev) or Vercel serverless functions (prod)
 - **Dual API layer** — `/api/chat` is transparent across environments with zero config changes
 - **Groq multi-key rotation** — on a 429 rate-limit, the proxy automatically advances to the next key and retries all 3 llama models before giving up
+- **Chatbot knowledge base separated** — `knowledge-base.ts` holds site content; `groq-client.ts` handles API transport. Update content without touching transport logic, and vice versa
 - **Firebase local fallbacks** — services return pre-defined data if Firestore is empty or unreachable
 - **Admin routes fully isolated** — public `Header`/`Footer` are never rendered under `/admin/*`; a separate router branch handles the admin shell
 
@@ -272,8 +321,12 @@ The admin area is accessible at `/admin`. Access requires:
 
 ## AI Chatbot
 
-The floating chatbot widget (`ChatBot.tsx`) is powered by Groq and uses a hand-crafted site knowledge base defined in `client/src/lib/ai.ts`. It answers questions about:
+The floating chatbot widget (`ChatBot.tsx`) is powered by Groq and uses a hand-crafted site knowledge base split across two files:
 
+- `features/chatbot/lib/knowledge-base.ts` — full site content (every page, price, FAQ answer, contact detail)
+- `features/chatbot/lib/groq-client.ts` — API transport, prompt builder, and `ChatMessage` type
+
+It answers questions about:
 - Service pricing and what is included
 - Typical delivery timelines
 - Technology stack and past projects
@@ -290,13 +343,13 @@ The floating chatbot widget (`ChatBot.tsx`) is powered by Groq and uses a hand-c
 
 | Item | Implementation |
 |---|---|
-| Title & description | Set per page via `document.title` and meta tag updates in `useEffect` |
-| Open Graph | Configured in `client/index.html` |
-| Twitter Card | Configured in `client/index.html` |
-| JSON-LD schema | `Person` schema for Saif Khan in `client/index.html` |
-| Canonical URL | `<link rel="canonical">` in `client/index.html` |
-| Sitemap | `client/public/sitemap.xml` — all 8 public pages |
-| Robots | `client/public/robots.txt` — allow all, reference sitemap |
+| Title & description | Set per page via `document.title` and `updatePageSEO()` in `useEffect` |
+| Open Graph | Configured in `index.html` |
+| Twitter Card | Configured in `index.html` |
+| JSON-LD schema | `Person` schema for Saif Khan in `index.html` |
+| Canonical URL | `<link rel="canonical">` updated per page via `utils/seo.ts` |
+| Sitemap | `public/sitemap.xml` — all public pages |
+| Robots | `public/robots.txt` — allow all, reference sitemap |
 | Code splitting | Vendor chunks for React, Firebase, Framer Motion, Radix UI, icons |
 | Font loading | Preconnect + `display=swap` for zero layout shift |
 
