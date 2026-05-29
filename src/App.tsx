@@ -6,9 +6,9 @@ import { queryClient } from "@/lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Switch, Route, Redirect, useLocation } from "wouter";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-const ChatBot = lazy(() => import("@/components/ChatBot"));
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+const ChatBot = lazy(() => import("@/components/shared/ChatBot"));
 
 const Home = lazy(() => import("@/pages/Home"));
 const Portfolio = lazy(() => import("@/pages/Portfolio"));
@@ -25,9 +25,9 @@ const OrdersManagement = lazy(() => import("@/pages/admin/Orders"));
 const ProjectsManagement = lazy(() => import("@/pages/admin/Projects"));
 const ServicesManagement = lazy(() => import("@/pages/admin/Services"));
 const AdminLayout = lazy(() => import("@/pages/admin/AdminLayout"));
-const AdminProtectedRoute = lazy(() => import("@/components/AdminProtectedRoute"));
+const AdminProtectedRoute = lazy(() => import("@/features/admin/AdminProtectedRoute"));
 const ClientProfile = lazy(() => import("@/pages/ClientProfile"));
-const NotFound = lazy(() => import("@/pages/not-found"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 function PageLoader() {
   return (

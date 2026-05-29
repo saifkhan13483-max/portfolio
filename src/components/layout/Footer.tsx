@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Twitter, Linkedin, Github, Mail, MapPin } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { useDarkMode } from "@/hooks/use-dark-mode";
+import { useDarkMode } from "@/hooks/ui/use-dark-mode";
 
 const logoLight = "/logo-light.png";
 const logoDark = "/logo-dark.png";

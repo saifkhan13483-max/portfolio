@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
-import { useDarkMode } from "@/hooks/use-dark-mode";
-import Hero from "@/components/Hero";
-import ProjectsGallery from "@/components/ProjectsGallery";
+import { useDarkMode } from "@/hooks/ui/use-dark-mode";
+import Hero from "@/features/home/Hero";
+import ProjectsGallery from "@/components/shared/ProjectsGallery";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { motion } from "framer-motion";

@@ -1,5 +1,5 @@
 import { useRoute, Link } from "wouter";
-import { useProject } from "@/hooks/use-projects";
+import { useProject } from "@/hooks/data/use-projects";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {

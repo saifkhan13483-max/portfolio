@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithGoogle, signOut } from "@/lib/firebase/auth";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/ui/use-toast";
 import { motion } from "framer-motion";
-import { useDarkMode } from "@/hooks/use-dark-mode";
+import { useDarkMode } from "@/hooks/ui/use-dark-mode";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 

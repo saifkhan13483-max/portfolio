@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
-import { useProjects } from "@/hooks/use-projects";
-import { ProjectCard } from "@/components/ProjectCard";
+import { useProjects } from "@/hooks/data/use-projects";
+import { ProjectCard } from "@/components/shared/ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, Sparkles } from "lucide-react";
 

@@ -24,12 +24,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
-import { useProjects, useCreateProject, useUpdateProject, useDeleteProject } from "@/hooks/use-projects";
+import { useProjects, useCreateProject, useUpdateProject, useDeleteProject } from "@/hooks/data/use-projects";
 import { Project } from "@/types";
 import { Plus, Pencil, Trash2, ExternalLink, Github, Loader2, Upload, X, Briefcase, Search, Star } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/ui/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useImageUpload } from "@/hooks/use-image-upload";
+import { useImageUpload } from "@/hooks/data/use-image-upload";
 
 export default function ProjectsManagement() {
   const { data: projects, isLoading } = useProjects();
