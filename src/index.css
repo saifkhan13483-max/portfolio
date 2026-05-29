@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 /* ============================================================
-   DEVSTUDIO — PREMIUM COLOR SYSTEM
-   Inspired by: Linear, Vercel, Stripe, Framer, Arc
+   SAIFCRAFT — THE CONSULTANT COLOR SYSTEM
+   Palette: Elevated Neutral · Charcoal · Mocha Mousse
+   Guide: website-color-guide.md — "The Consultant" persona
    Fonts: Outfit (body) · Space Grotesk (display)
    ============================================================ */
 
@@ -12,100 +13,102 @@
   --font-sans: 'Outfit', sans-serif;
   --font-display: 'Space Grotesk', sans-serif;
 
-  /* ── THEME A: SLEEK & PREMIUM (Default — Cobalt / Teal) ──
-     Rationale: The background uses a hair of lavender-tint (242°) so white
-     cards "pop" off the page — the trick Linear and Vercel use. The primary
-     cobalt-indigo (231°) is more editorial than stock SaaS blue: richer chroma,
-     deeper personality. The teal secondary (174°) complements via hue split
-     without competing. Both pair beautifully with Space Grotesk's geometric
-     letterforms. */
+  /* ── LIGHT MODE: ELEVATED NEUTRAL (Default) ──
+     Guide rationale: Senior freelancer/consultant persona.
+     Warm off-white (#F5F3EF) background replaces harsh white —
+     2026 "Elevated Neutrals" trend, reduces visual fatigue.
+     Deep charcoal (#1C1C1E) as primary: editorial, premium, minimal.
+     Mocha (#A47864, Pantone 2025 COTW) as accent/CTA: warm,
+     sophisticated, high-contrast against the neutral bg.
+     Saturation kept deliberately low — the saturation-trust
+     paradox confirms muted tones signal more credibility. */
 
   /* Elevation / Surface hierarchy */
-  --surface-base:     242 30% 97.5%;   /* #F5F5FC — page background */
-  --surface-subtle:   240 22% 95.5%;   /* #EEEEF8 — alternate section tint */
-  --surface-card:     0 0% 100%;       /* #FFFFFF — card face */
-  --surface-elevated: 240 35% 99%;     /* #FAFAFF — floating panels */
-  --surface-overlay:  234 20% 94%;     /* #ECEDF5 — modal/popover bg */
+  --surface-base:     40 23% 95%;    /* #F5F3EF — warm off-white page bg */
+  --surface-subtle:   33 18% 89%;    /* #E5DDD3 — alternate section tint */
+  --surface-card:     0 0% 100%;     /* #FFFFFF — card face */
+  --surface-elevated: 40 28% 98%;    /* #FAF8F5 — floating panels */
+  --surface-overlay:  33 16% 93%;    /* #EDE8E3 — modal/popover bg */
 
   /* Core tokens */
-  --background:          242 30% 97.5%;
-  --foreground:          234 22% 10%;    /* #131525 — deep cobalt-dark */
+  --background:          40 23% 95%;
+  --foreground:          240 3% 11%;   /* #1C1C1E — deep charcoal */
   --card:                0 0% 100%;
-  --card-foreground:     234 22% 10%;
+  --card-foreground:     240 3% 11%;
   --popover:             0 0% 100%;
-  --popover-foreground:  234 22% 10%;
+  --popover-foreground:  240 3% 11%;
 
-  /* Primary — Deep Cobalt-Indigo
-     More editorial than #2563eb. The extra chroma gives confidence without
-     aggression. Darkens cleanly for hover states. */
-  --primary:             231 82% 52%;   /* ≈ #2545E6 */
+  /* Primary — Deep Charcoal
+     Editorial, luxury, premium. Used for buttons, nav, brand
+     identity. Pairs with warm bg for clean architectural contrast. */
+  --primary:             240 3% 11%;   /* #1C1C1E */
   --primary-foreground:  0 0% 100%;
 
-  /* Secondary — Sophisticated Teal
-     174° sits perfectly across the hue wheel from 231°, creating harmony
-     instead of competition. Desaturated enough to feel refined, not tropical. */
-  --secondary:           174 72% 36%;   /* ≈ #16998A */
+  /* Secondary — Warm Dark Brown
+     Bridges charcoal and mocha. Used on secondary buttons,
+     tags, and subtle brand touches. */
+  --secondary:           19 22% 32%;   /* #60453A */
   --secondary-foreground: 0 0% 100%;
 
-  /* Accent — Soft Violet
-     262° bridges primary and secondary. Used sparingly on badges, active
-     states, and decorative highlights for a layered, premium feel. */
-  --accent:              262 75% 58%;   /* ≈ #7B45E0 */
+  /* Accent — Mocha Mousse (#A47864, Pantone 2025 COTW)
+     The CTA and highlight color. Creates strong visual contrast
+     against the neutral bg (+38% conversion lift per guide). */
+  --accent:              19 26% 52%;   /* #A47864 */
   --accent-foreground:   0 0% 100%;
 
   /* Neutral surfaces */
-  --muted:               234 18% 91%;   /* #E3E4EF — cool lavender-grey */
-  --muted-foreground:    234 12% 44%;   /* #5D6180 */
+  --muted:               36 14% 88%;   /* #E5DDD5 — warm stone */
+  --muted-foreground:    240 3% 44%;   /* #6E6E71 — accessible gray */
 
   /* Borders */
-  --border:              234 20% 87%;   /* #D5D7E8 */
-  --border-subtle:       234 15% 93%;   /* #ECEDF6 — hairline */
-  --border-strong:       234 20% 75%;   /* #B4B8D4 — emphasis */
+  --border:              33 12% 82%;   /* #D5CEC7 — soft warm border */
+  --border-subtle:       40 14% 91%;   /* #ECEAE5 — hairline */
+  --border-strong:       33 14% 70%;   /* #BAB1A8 — emphasis */
 
-  --input:               240 25% 96%;   /* #F0F0FA */
-  --ring:                231 82% 52%;
+  --input:               40 18% 93%;   /* #EEEBE5 */
+  --ring:                19 26% 52%;   /* Mocha focus ring */
 
-  /* Semantic — tuned to match the cobalt-indigo family mood */
-  --destructive:         6 78% 55%;     /* #E8391E — warm brick red */
+  /* Semantic */
+  --destructive:         6 78% 55%;    /* #E8391E — warm brick red */
   --destructive-foreground: 0 0% 100%;
-  --success:             152 65% 32%;   /* #18855A — forest green */
-  --warning:             34 88% 50%;    /* #E88B16 — warm amber */
+  --success:             152 65% 32%;  /* #18855A — forest green */
+  --warning:             34 88% 50%;   /* #E88B16 — warm amber */
 
-  /* CTA */
-  --cta:                 231 82% 52%;
-  --cta-hover:           231 82% 45%;
+  /* CTA — Mocha (most contrasting element per guide recommendation) */
+  --cta:                 19 26% 52%;
+  --cta-hover:           19 26% 44%;
 
   /* Footer */
-  --footer:              234 38% 9%;    /* #0E1024 — deep cobalt-night */
-  --footer-foreground:   234 20% 92%;
+  --footer:              240 5% 8%;    /* #131314 — near-black charcoal */
+  --footer-foreground:   40 14% 88%;   /* warm off-white text */
 
-  /* Glow / Shadow tokens — what makes premium sites feel premium */
-  --glow-primary-sm:   0 2px 12px rgba(37, 69, 230, 0.22);
-  --glow-primary-md:   0 4px 28px rgba(37, 69, 230, 0.30);
-  --glow-primary-lg:   0 8px 48px rgba(37, 69, 230, 0.24);
-  --glow-card:         0 0 60px rgba(37, 69, 230, 0.06);
-  --glow-card-hover:   0 8px 40px rgba(37, 69, 230, 0.12);
-  --glow-secondary:    0 4px 24px rgba(22, 153, 138, 0.22);
-  --glow-accent:       0 4px 24px rgba(123, 69, 224, 0.25);
+  /* Glow / Shadow — warm mocha tones */
+  --glow-primary-sm:   0 2px 12px rgba(164, 120, 100, 0.18);
+  --glow-primary-md:   0 4px 28px rgba(164, 120, 100, 0.26);
+  --glow-primary-lg:   0 8px 48px rgba(164, 120, 100, 0.20);
+  --glow-card:         0 0 60px rgba(164, 120, 100, 0.05);
+  --glow-card-hover:   0 8px 40px rgba(164, 120, 100, 0.10);
+  --glow-secondary:    0 4px 24px rgba(96, 69, 58, 0.18);
+  --glow-accent:       0 4px 24px rgba(164, 120, 100, 0.22);
 
   --radius: 0.75rem;
 
   /* Chart tokens */
-  --chart-1: 231 82% 52%;
-  --chart-2: 174 72% 36%;
-  --chart-3: 262 75% 58%;
-  --chart-4: 34 88% 50%;
-  --chart-5: 6 78% 55%;
+  --chart-1: 19 26% 52%;    /* Mocha */
+  --chart-2: 240 3% 11%;    /* Charcoal */
+  --chart-3: 19 22% 32%;    /* Dark Brown */
+  --chart-4: 34 88% 50%;    /* Amber */
+  --chart-5: 152 65% 32%;   /* Forest Green */
 
   /* Sidebar */
-  --sidebar:                    234 22% 12%;
-  --sidebar-foreground:         234 15% 88%;
-  --sidebar-border:             234 22% 18%;
-  --sidebar-ring:               231 82% 52%;
-  --sidebar-primary:            231 82% 52%;
+  --sidebar:                    240 4% 12%;
+  --sidebar-foreground:         40 14% 85%;
+  --sidebar-border:             240 3% 18%;
+  --sidebar-ring:               19 26% 52%;
+  --sidebar-primary:            19 26% 52%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent:             234 22% 18%;
-  --sidebar-accent-foreground:  234 15% 88%;
+  --sidebar-accent:             240 3% 18%;
+  --sidebar-accent-foreground:  40 14% 85%;
 }
 
 
@@ -156,7 +159,7 @@
   --cta:                 36 90% 56%;
   --cta-hover:           36 90% 50%;
 
-  --footer:              270 42% 10%;   /* ≈ #1C0A30 — deep plum */
+  --footer:              270 42% 10%;
   --footer-foreground:   270 18% 92%;
 
   --glow-primary-sm:   0 2px 12px rgba(123, 35, 200, 0.22);
@@ -169,12 +172,10 @@
 }
 
 
-/* ── THEME C: MIDNIGHT AURORA (New — Electric Teal / Coral) ──
+/* ── THEME C: MIDNIGHT AURORA (Electric Teal / Coral) ──
    A cinematic dark-first theme. Deep blue-black canvas lets the
    electric teal primary glow like bioluminescence. Soft coral
-   accent adds warmth and humanity. Together they evoke the visual
-   language of generative AI — precise, alive, and beautiful.
-   Recommended for devs who want to stand out on the dark web. */
+   accent adds warmth and humanity. */
 :root.theme-aurora,
 [data-theme="aurora"] {
   --surface-base:     216 42% 6%;
@@ -183,20 +184,20 @@
   --surface-elevated: 216 34% 14%;
   --surface-overlay:  216 38% 14%;
 
-  --background:          216 42% 6%;    /* ≈ #07101E — deep blue-black */
-  --foreground:          192 20% 92%;   /* ≈ #E5F0F0 — cool off-white */
+  --background:          216 42% 6%;
+  --foreground:          192 20% 92%;
   --card:                216 38% 10%;
   --card-foreground:     192 20% 92%;
   --popover:             216 38% 14%;
   --popover-foreground:  192 20% 92%;
 
-  --primary:             182 92% 48%;   /* ≈ #09D9D5 — electric teal */
+  --primary:             182 92% 48%;
   --primary-foreground:  216 42% 6%;
 
-  --secondary:           350 75% 65%;   /* ≈ #E86080 — soft coral */
+  --secondary:           350 75% 65%;
   --secondary-foreground: 216 42% 6%;
 
-  --accent:              264 80% 68%;   /* ≈ #9B6FF5 — violet */
+  --accent:              264 80% 68%;
   --accent-foreground:   216 42% 6%;
 
   --muted:               216 28% 22%;
@@ -230,72 +231,72 @@
 }
 
 
-/* ── DARK MODE — Cinematic & Layered (Theme A default) ──
-   True depth hierarchy: base → card → elevated.
-   Blue-violet undertones throughout for a unified cinematic
-   quality. Soft primary glow replaces flat color. WCAG AA
-   contrast throughout (primary on dark = 4.7:1). */
+/* ── DARK MODE — The Consultant (Charcoal / Mocha) ──
+   Guide rationale: 82% of users have dark mode enabled.
+   Deep charcoal base (#1C1C1E → #2C2C2E → #3A3A3C) for
+   true depth hierarchy. Mocha accent lightened for dark
+   backgrounds — warm, sophisticated, never cold. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --surface-base:     232 30% 7%;
-    --surface-subtle:   232 26% 10%;
-    --surface-card:     232 26% 11%;
-    --surface-elevated: 232 22% 16%;
-    --surface-overlay:  232 22% 16%;
+    --surface-base:     240 3% 11%;    /* #1C1C1E — charcoal base */
+    --surface-subtle:   240 2% 14%;    /* #232325 — slightly lighter */
+    --surface-card:     240 2% 17%;    /* #2B2B2D — card layer */
+    --surface-elevated: 240 2% 23%;    /* #393939 — elevated layer */
+    --surface-overlay:  240 2% 23%;
 
-    --background:          232 30% 7%;    /* ≈ #0C0F1C — deep space */
-    --foreground:          220 18% 93%;   /* ≈ #ECEEF5 — soft off-white */
-    --card:                232 26% 11%;   /* ≈ #141829 — layer 1 */
-    --card-foreground:     220 18% 93%;
-    --popover:             232 22% 16%;   /* ≈ #1C2236 — layer 2 */
-    --popover-foreground:  220 18% 93%;
+    --background:          240 3% 11%;
+    --foreground:          40 16% 92%;   /* #EDE9E3 — warm off-white */
+    --card:                240 2% 17%;
+    --card-foreground:     40 16% 92%;
+    --popover:             240 2% 23%;
+    --popover-foreground:  40 16% 92%;
 
-    --primary:             231 90% 63%;   /* ≈ #4D6EF5 — vivid cobalt on dark */
-    --primary-foreground:  0 0% 100%;
+    --primary:             19 34% 62%;   /* #C08E78 — lighter mocha on dark */
+    --primary-foreground:  240 3% 11%;
 
-    --secondary:           174 80% 52%;   /* ≈ #1CD6C4 — bright teal */
-    --secondary-foreground: 232 30% 7%;
+    --secondary:           19 24% 46%;   /* #8C6758 — mid mocha */
+    --secondary-foreground: 40 16% 92%;
 
-    --accent:              262 82% 68%;   /* ≈ #9B6BF0 — violet glow */
-    --accent-foreground:   0 0% 100%;
+    --accent:              19 34% 62%;   /* #C08E78 — mocha glow */
+    --accent-foreground:   240 3% 11%;
 
-    --muted:               232 22% 28%;   /* ≈ #374060 */
-    --muted-foreground:    220 14% 68%;   /* ≈ #9BA3BC */
+    --muted:               240 2% 22%;   /* #373739 */
+    --muted-foreground:    240 3% 60%;   /* #999499 — accessible muted text */
 
-    --border:              232 24% 22%;   /* ≈ #27304A */
-    --border-subtle:       232 24% 18%;
-    --border-strong:       232 24% 32%;
+    --border:              240 2% 24%;   /* #3D3D3F */
+    --border-subtle:       240 2% 20%;
+    --border-strong:       240 2% 32%;
 
-    --input:               232 26% 16%;
-    --ring:                231 90% 63%;
+    --input:               240 2% 19%;
+    --ring:                19 34% 62%;   /* Mocha focus ring */
 
     --destructive:         6 80% 62%;
-    --destructive-foreground: 232 30% 7%;
+    --destructive-foreground: 240 3% 11%;
     --success:             152 68% 42%;
     --warning:             34 90% 60%;
 
-    --cta:                 231 90% 63%;
-    --cta-hover:           231 90% 57%;
+    --cta:                 19 34% 62%;
+    --cta-hover:           19 34% 54%;
 
-    --footer:              232 36% 5%;
-    --footer-foreground:   220 18% 90%;
+    --footer:              240 5% 6%;    /* #0F0F10 — deepest charcoal */
+    --footer-foreground:   40 12% 84%;
 
-    --glow-primary-sm:   0 2px 16px rgba(77, 110, 245, 0.32);
-    --glow-primary-md:   0 4px 32px rgba(77, 110, 245, 0.40);
-    --glow-primary-lg:   0 8px 56px rgba(77, 110, 245, 0.30);
-    --glow-card:         0 0 60px rgba(77, 110, 245, 0.08);
-    --glow-card-hover:   0 8px 40px rgba(77, 110, 245, 0.16);
-    --glow-secondary:    0 4px 24px rgba(28, 214, 196, 0.24);
-    --glow-accent:       0 4px 24px rgba(155, 107, 240, 0.28);
+    --glow-primary-sm:   0 2px 16px rgba(192, 142, 120, 0.28);
+    --glow-primary-md:   0 4px 32px rgba(192, 142, 120, 0.36);
+    --glow-primary-lg:   0 8px 56px rgba(192, 142, 120, 0.26);
+    --glow-card:         0 0 60px rgba(192, 142, 120, 0.06);
+    --glow-card-hover:   0 8px 40px rgba(192, 142, 120, 0.14);
+    --glow-secondary:    0 4px 24px rgba(140, 103, 88, 0.22);
+    --glow-accent:       0 4px 24px rgba(192, 142, 120, 0.28);
 
-    --sidebar:                    232 26% 11%;
-    --sidebar-foreground:         220 14% 80%;
-    --sidebar-border:             232 24% 18%;
-    --sidebar-ring:               231 90% 63%;
-    --sidebar-primary:            231 90% 63%;
-    --sidebar-primary-foreground: 232 30% 7%;
-    --sidebar-accent:             232 22% 16%;
-    --sidebar-accent-foreground:  220 14% 80%;
+    --sidebar:                    240 2% 17%;
+    --sidebar-foreground:         40 12% 80%;
+    --sidebar-border:             240 2% 22%;
+    --sidebar-ring:               19 34% 62%;
+    --sidebar-primary:            19 34% 62%;
+    --sidebar-primary-foreground: 240 3% 11%;
+    --sidebar-accent:             240 2% 22%;
+    --sidebar-accent-foreground:  40 12% 80%;
   }
 
   :root.theme-bold,
@@ -306,20 +307,20 @@
     --surface-elevated: 280 20% 18%;
     --surface-overlay:  280 20% 18%;
 
-    --background:          280 25% 9%;    /* ≈ #140D20 — deep plum-dark */
+    --background:          280 25% 9%;
     --foreground:          280 12% 93%;
     --card:                280 25% 13%;
     --card-foreground:     280 12% 93%;
     --popover:             280 20% 18%;
     --popover-foreground:  280 12% 93%;
 
-    --primary:             270 82% 62%;   /* ≈ #9040EC — vivid plum on dark */
+    --primary:             270 82% 62%;
     --primary-foreground:  0 0% 100%;
 
     --secondary:           270 60% 72%;
     --secondary-foreground: 280 25% 9%;
 
-    --accent:              36 92% 60%;    /* ≈ #F5A01E — warm champagne */
+    --accent:              36 92% 60%;
     --accent-foreground:   280 25% 9%;
 
     --muted:               280 22% 28%;
@@ -366,7 +367,7 @@
   }
 
   ::selection {
-    background-color: hsl(var(--primary) / 0.18);
+    background-color: hsl(var(--accent) / 0.20);
     color: inherit;
   }
 
@@ -400,41 +401,41 @@
 @layer utilities {
 
   /* ── TEXT GRADIENTS ──
-     All gradients are now cohesive — staying within the cobalt-indigo-violet
-     family. No more jarring blue-to-orange. */
+     Warm editorial palette: charcoal → warm brown → mocha.
+     Stays within the neutral-luxury family. */
 
-  /* Hero headline gradient — cobalt → violet (premium, editorial) */
+  /* Hero headline gradient — charcoal → mocha (premium, editorial) */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2545E6 0%, #6D28D9 50%, #7C3AED 100%);
+    background-image: linear-gradient(135deg, #1C1C1E 0%, #7D5444 50%, #A47864 100%);
   }
 
-  /* Primary identity gradient — cobalt → indigo → soft indigo-light */
+  /* Primary identity gradient — mocha family */
   .text-gradient-primary {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2545E6 0%, #4F46E5 50%, #818CF8 100%);
+    background-image: linear-gradient(135deg, #A47864 0%, #C09882 50%, #D4B4A2 100%);
   }
 
-  /* CTA gradient — cobalt → violet (replaces jarring orange) */
+  /* CTA gradient — mocha → warm amber */
   .text-gradient-cta {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2545E6 0%, #7C3AED 100%);
+    background-image: linear-gradient(135deg, #A47864 0%, #C8855A 100%);
   }
 
-  /* Hero section — indigo → violet → fuchsia accent */
+  /* Hero gradient — mocha → warm sienna → terracotta */
   .text-gradient-hero {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #4F46E5 0%, #7C3AED 55%, #C026D3 100%);
+    background-image: linear-gradient(135deg, #7D5444 0%, #A47864 55%, #C4805A 100%);
   }
 
   /* ── BACKGROUND GRADIENTS ── */
 
-  /* Hero blob / ambient glow — subtle indigo/violet/teal */
+  /* Hero blob / ambient glow — warm mocha/stone */
   .bg-gradient-hero {
     background-image: radial-gradient(
       ellipse 80% 60% at 60% 40%,
-      hsl(var(--primary) / 0.10) 0%,
-      hsl(var(--accent) / 0.06) 50%,
+      hsl(var(--accent) / 0.10) 0%,
+      hsl(var(--secondary) / 0.06) 50%,
       transparent 100%
     );
   }
@@ -452,9 +453,9 @@
   .bg-gradient-cta {
     background: linear-gradient(
       135deg,
-      hsl(var(--primary) / 0.22) 0%,
-      hsl(var(--accent) / 0.14) 50%,
-      hsl(var(--secondary) / 0.10) 100%
+      hsl(var(--accent) / 0.18) 0%,
+      hsl(var(--secondary) / 0.10) 50%,
+      hsl(var(--muted) / 0.12) 100%
     );
   }
 
@@ -482,7 +483,6 @@
 
   /* ── GLOW HELPERS ── */
 
-  /* Primary button / element glow */
   .glow-primary {
     box-shadow: var(--glow-primary-md);
   }
@@ -490,7 +490,6 @@
     box-shadow: var(--glow-primary-lg);
   }
 
-  /* Card ambient glow */
   .glow-card {
     box-shadow: var(--glow-card);
   }
@@ -498,17 +497,14 @@
     box-shadow: var(--glow-card-hover);
   }
 
-  /* Secondary / teal glow */
   .glow-secondary {
     box-shadow: var(--glow-secondary);
   }
 
-  /* Accent / violet glow */
   .glow-accent {
     box-shadow: var(--glow-accent);
   }
 
-  /* Subtle hero ambient shadow (replaces .blue-glow) */
   .blue-glow {
     box-shadow: var(--glow-primary-lg);
   }
@@ -524,7 +520,7 @@
     color: hsl(var(--destructive));
   }
   .info {
-    color: hsl(var(--primary));
+    color: hsl(var(--accent));
   }
 
   /* ── SURFACE HELPERS ── */
@@ -562,7 +558,7 @@
   will-change: transform, opacity;
 }
 
-/* Hero blobs — upgraded to use accent/secondary for richer ambiance */
+/* Hero blobs — warm mocha/stone ambiance */
 @keyframes hero-blob-pulse-1 {
   0%, 100% { transform: scale(1);    opacity: 0.65; }
   50%       { transform: scale(1.12); opacity: 1; }
@@ -599,11 +595,11 @@
 
 /* Hide scrollbar utility (used in horizontal chip scroll) */
 .scrollbar-none {
-  scrollbar-width: none;        /* Firefox */
-  -ms-overflow-style: none;     /* IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .scrollbar-none::-webkit-scrollbar {
-  display: none;                /* Chrome/Safari/Opera */
+  display: none;
 }
 
 /* Premium shimmer for loading states */
