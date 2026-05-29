@@ -19,35 +19,6 @@ const stats = [
   { label: "Satisfaction Rate", value: 94, suffix: "%" },
 ];
 
-const floatingCards = [
-  {
-    icon: Globe,
-    title: "Web Applications",
-    desc: "Full-stack, production-ready",
-    color: "from-blue-500/20 to-cyan-500/10",
-    iconColor: "text-blue-500",
-    delay: 0.5,
-    floatDelay: 0,
-  },
-  {
-    icon: Layers,
-    title: "Clean Architecture",
-    desc: "Scalable & maintainable",
-    color: "from-emerald-500/20 to-green-500/10",
-    iconColor: "text-emerald-500",
-    delay: 0.65,
-    floatDelay: 0.6,
-  },
-  {
-    icon: Code2,
-    title: "Modern Stack",
-    desc: "React, Node, TypeScript",
-    color: "from-violet-500/20 to-purple-500/10",
-    iconColor: "text-violet-500",
-    delay: 0.8,
-    floatDelay: 1.2,
-  },
-];
 
 const codeLines = [
   { parts: [{ t: "const", c: "text-violet-500" }, { t: " " }, { t: "project", c: "text-blue-400" }, { t: " = {", c: "text-foreground/60" }] },
@@ -55,7 +26,7 @@ const codeLines = [
   { parts: [{ t: "  quality", c: "text-emerald-500" }, { t: ": ", c: "text-foreground/60" }, { t: '"production-ready"', c: "text-amber-500" }, { t: ",", c: "text-foreground/60" }] },
   { parts: [{ t: "  delivery", c: "text-emerald-500" }, { t: ": ", c: "text-foreground/60" }, { t: '"on-time"', c: "text-amber-500" }, { t: ",", c: "text-foreground/60" }] },
   { parts: [{ t: "  budget", c: "text-emerald-500" }, { t: ": ", c: "text-foreground/60" }, { t: '"within-scope"', c: "text-amber-500" }, { t: ",", c: "text-foreground/60" }] },
-  { parts: [{ t: "  satisfaction", c: "text-emerald-500" }, { t: ": ", c: "text-foreground/60" }, { t: "99", c: "text-blue-400" }, { t: ",", c: "text-foreground/60" }] },
+  { parts: [{ t: "  satisfaction", c: "text-emerald-500" }, { t: ": ", c: "text-foreground/60" }, { t: "94", c: "text-blue-400" }, { t: ",", c: "text-foreground/60" }] },
   { parts: [{ t: "}", c: "text-foreground/60" }] },
   { parts: [{ t: "// Ready to build yours?", c: "text-muted-foreground/50" }] },
 ];
@@ -136,28 +107,6 @@ function TypewriterCode() {
   );
 }
 
-const floatVariants = {
-  float: (delay: number) => ({
-    y: [0, -8, 0],
-    transition: {
-      duration: 3.2,
-      delay,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }),
-};
-
-const pulseVariants = {
-  pulse: {
-    scale: [1, 1.03, 1],
-    transition: {
-      duration: 2.8,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
 
 export default function Hero() {
   return (
