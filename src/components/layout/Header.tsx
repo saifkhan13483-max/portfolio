@@ -201,12 +201,8 @@ export default function Header() {
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon" className="relative w-10 h-10">
+                <Button variant="ghost" size="icon" className="w-10 h-10">
                   <Menu className="w-5 h-5" />
-                  <span className="absolute top-1 right-1 flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-                  </span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] p-0">
