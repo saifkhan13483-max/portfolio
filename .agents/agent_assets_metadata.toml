@@ -83,3 +83,9 @@ id = "zee5rIZS2pasRZzc5E5Kp"
 uri = "file://SaifCraft_LinkedIn_Content_Calendar_July.md"
 type = "text"
 title = "LinkedIn Content Calendar — July 2026 (30 Posts)"
+
+[[outputs]]
+id = "SKZr0FFhVDdmNRkEeFMsL"
+uri = "file://website-color-guide.md"
+type = "text"
+title = "Website Color Selection Guide"
