@@ -4,10 +4,10 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "npx vite build",
-    "preview": "npx vite preview --port 5000 --host 0.0.0.0",
-    "check": "tsc"
+    "dev": "node_modules/.bin/vite",
+    "build": "node_modules/.bin/vite build",
+    "preview": "node_modules/.bin/vite preview --port 5000 --host 0.0.0.0",
+    "check": "node_modules/.bin/tsc"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
