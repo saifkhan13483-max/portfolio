@@ -191,7 +191,7 @@ export default function ProjectDetail() {
                   <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" data-testid="button-live-demo">
                     <Button
                       size="lg"
-                      className="h-10 sm:h-12 px-4 sm:px-7 rounded-xl text-xs sm:text-sm font-bold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/40"
+                      className="h-11 sm:h-12 px-5 sm:px-7 rounded-xl text-sm font-bold bg-primary hover:bg-primary/90 shadow-lg shadow-primary/40 transition-all duration-200 hover:-translate-y-0.5"
                     >
                       <Globe className="mr-1.5 sm:mr-2 h-4 w-4" />
                       <span>Live Project</span>
@@ -202,7 +202,7 @@ export default function ProjectDetail() {
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" data-testid="button-github-repo">
                     <Button
                       size="lg"
-                      className="h-10 sm:h-12 px-4 sm:px-7 rounded-xl text-xs sm:text-sm font-bold border border-white/15 text-white hover:bg-white/10 hover:border-white/30 bg-white/6 backdrop-blur-sm"
+                      className="h-11 sm:h-12 px-5 sm:px-7 rounded-xl text-sm font-bold border border-white/15 text-white hover:bg-white/10 hover:border-white/30 bg-white/6 backdrop-blur-sm transition-all duration-200"
                     >
                       <Github className="mr-1.5 sm:mr-2 h-4 w-4" />
                       <span>Source Code</span>
@@ -272,14 +272,14 @@ export default function ProjectDetail() {
                   <div className="p-3 flex flex-col gap-2 bg-muted/20">
                     {project.projectUrl && (
                       <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="sm" className="w-full rounded-xl font-bold bg-primary hover:bg-primary/90">
+                        <Button className="w-full h-11 rounded-xl font-bold text-sm bg-primary hover:bg-primary/90">
                           <ExternalLink className="mr-2 h-3.5 w-3.5" /> View Live Project
                         </Button>
                       </a>
                     )}
                     {project.githubUrl && (
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" size="sm" className="w-full rounded-xl font-bold">
+                        <Button variant="outline" className="w-full h-11 rounded-xl font-bold text-sm">
                           <Github className="mr-2 h-3.5 w-3.5" /> Source Code
                         </Button>
                       </a>
@@ -510,7 +510,7 @@ function SidebarRow({ icon, label, value, suffix }: { icon: React.ReactNode; lab
         {icon}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground leading-none mb-1">{label}</p>
+        <p className="text-xs font-black uppercase tracking-[0.15em] text-muted-foreground leading-none mb-1">{label}</p>
         <p className="text-sm font-semibold text-foreground truncate">{value}</p>
       </div>
       {suffix && <div className="shrink-0">{suffix}</div>}

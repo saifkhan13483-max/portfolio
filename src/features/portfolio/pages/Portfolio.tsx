@@ -115,7 +115,7 @@ export default function Portfolio() {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 data-testid={`filter-${cat.toLowerCase().replace(/\s+/g, "-")}`}
-                className={`flex-shrink-0 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 ${
+                className={`flex-shrink-0 h-10 px-4 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 ${
                   activeCategory === cat
                     ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
                     : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
@@ -184,7 +184,7 @@ export default function Portfolio() {
                 Have a project in mind?
               </h2>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto text-sm sm:text-base leading-relaxed">
-                Let's build something great together. Reach out and I'll get back to you within 24 hours.
+                Let's build something great together. Reach out and we'll get back to you within 24 hours.
               </p>
               <a
                 href="/contact"

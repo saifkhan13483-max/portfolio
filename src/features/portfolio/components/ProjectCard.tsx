@@ -71,7 +71,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
         {/* Mobile — always-visible pill */}
         <div className="sm:hidden absolute bottom-2.5 right-2.5 z-20">
-          <span className="inline-flex items-center gap-1 bg-black/65 backdrop-blur-sm text-white text-[11px] font-bold rounded-full px-3 py-1.5 shadow">
+          <span className="inline-flex items-center gap-1 bg-black/65 backdrop-blur-sm text-white text-xs font-bold rounded-full px-3 py-1.5 shadow">
             <Eye className="w-3 h-3" /> View
           </span>
         </div>
@@ -81,7 +81,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       <div className="flex flex-col flex-1 p-4 sm:p-5">
         {/* Category + Arrow */}
         <div className="flex items-start justify-between mb-2">
-          <p className="text-primary text-[10px] sm:text-[11px] font-black uppercase tracking-widest leading-none">
+          <p className="text-primary text-xs font-black uppercase tracking-widest leading-none">
             {project.category}
           </p>
           <Link href={`/portfolio/${project.id}`}>
@@ -115,7 +115,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             <Badge
               key={tech}
               variant="secondary"
-              className="bg-primary/8 text-primary border border-primary/20 hover:bg-primary/15 text-[10px] sm:text-[11px] px-2 py-0.5 font-semibold"
+              className="bg-primary/8 text-primary border border-primary/20 hover:bg-primary/15 text-xs px-2 py-0.5 font-semibold"
             >
               {tech}
             </Badge>
@@ -123,7 +123,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {(project.technologies?.length || 0) > 3 && (
             <Badge
               variant="secondary"
-              className="bg-muted text-muted-foreground border border-border text-[10px] sm:text-[11px] px-2 py-0.5"
+              className="bg-muted text-muted-foreground border border-border text-xs px-2 py-0.5"
             >
               +{project.technologies!.length - 3} more
             </Badge>

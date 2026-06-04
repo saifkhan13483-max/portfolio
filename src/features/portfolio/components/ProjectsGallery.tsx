@@ -63,7 +63,7 @@ export default function ProjectsGallery() {
                   key={category}
                   variant={activeCategory === category ? "default" : "outline"}
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full text-xs sm:text-sm h-8 sm:h-9 px-3 sm:px-4 shrink-0 ${
+                  className={`rounded-full text-xs sm:text-sm h-10 sm:h-11 px-4 sm:px-5 shrink-0 ${
                     activeCategory === category
                       ? "bg-primary text-primary-foreground border-primary"
                       : "border-border text-muted-foreground hover:text-foreground hover:border-primary/50"
