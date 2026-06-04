@@ -73,7 +73,7 @@ export default function ProjectDetail() {
             <div className="h-12 w-12 rounded-full border-[3px] border-primary/20" />
             <div className="absolute inset-0 h-12 w-12 animate-spin rounded-full border-[3px] border-transparent border-t-primary" />
           </div>
-          <p className="text-[11px] text-muted-foreground tracking-[0.2em] uppercase animate-pulse">Loading project</p>
+          <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase animate-pulse">Loading project</p>
         </div>
       </div>
     );
@@ -113,7 +113,7 @@ export default function ProjectDetail() {
           HERO — cinematic full-width with layered overlays
       ═══════════════════════════════════════════════════════ */}
       <section className="relative w-full overflow-hidden">
-        <div className="relative w-full flex flex-col">
+        <div className="relative w-full flex flex-col min-h-[320px] sm:min-h-[420px] lg:min-h-[500px]">
 
           {/* Background image — absolute fill */}
           <motion.div
@@ -355,7 +355,7 @@ export default function ProjectDetail() {
               <div className="relative p-5 sm:p-8 lg:p-10">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-10">
                   <div className="flex-1 min-w-0">
-                    <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-[10px] font-black uppercase tracking-[0.2em] px-2.5 py-1 rounded-full mb-3">
+                    <div className="inline-flex items-center gap-1.5 bg-primary/10 text-primary text-xs font-black uppercase tracking-[0.2em] px-2.5 py-1 rounded-full mb-3">
                       <Zap className="h-3 w-3" /> Work Together
                     </div>
                     <h3 className="text-lg sm:text-xl lg:text-2xl font-display font-bold text-foreground mb-2 leading-snug">
@@ -459,7 +459,7 @@ export default function ProjectDetail() {
                   Let's build something amazing together for your next project.
                 </p>
                 <Link href="/contact">
-                  <Button size="sm" className="w-full rounded-xl text-xs font-bold bg-primary hover:bg-primary/90" data-testid="button-sidebar-contact">
+                  <Button className="w-full h-10 rounded-xl text-xs font-bold bg-primary hover:bg-primary/90" data-testid="button-sidebar-contact">
                     Get in Touch <ArrowUpRight className="ml-1 h-3 w-3" />
                   </Button>
                 </Link>
@@ -485,7 +485,7 @@ function HeroBadge({ children, color }: { children: React.ReactNode; color: "pri
     sky:     "bg-sky-500/90 text-white border-sky-400/20 shadow-sky-500/25",
   };
   return (
-    <span className={`inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-bold tracking-[0.12em] uppercase shadow-md border backdrop-blur-sm ${styles[color]}`}>
+    <span className={`inline-flex items-center px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.12em] uppercase shadow-md border backdrop-blur-sm ${styles[color]}`}>
       {children}
     </span>
   );
@@ -496,7 +496,7 @@ function StatPill({ icon, label, value }: { icon: React.ReactNode; label: string
     <div className="flex items-center gap-2 sm:gap-2.5 px-4 sm:px-6 py-3.5 sm:py-5 first:pl-0 last:pr-0 shrink-0">
       <span className="shrink-0">{icon}</span>
       <div>
-        <p className="text-[9px] font-black uppercase tracking-[0.18em] text-muted-foreground leading-none mb-0.5 hidden sm:block">{label}</p>
+        <p className="text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground leading-none mb-0.5 hidden sm:block">{label}</p>
         <p className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">{value}</p>
       </div>
     </div>
@@ -544,7 +544,7 @@ function TechChip({ label }: { label: string }) {
       <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-md bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
         <Code2 className="h-2 w-2 sm:h-2.5 sm:w-2.5 text-primary" />
       </div>
-      <span className="text-[11px] sm:text-xs font-semibold text-foreground whitespace-nowrap">{label}</span>
+      <span className="text-xs font-semibold text-foreground whitespace-nowrap">{label}</span>
     </div>
   );
 }
