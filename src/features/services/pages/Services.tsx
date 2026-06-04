@@ -110,9 +110,9 @@ const pricingRules = [
 
 const steps = [
   { number: "01", title: "Discovery Call",          desc: "We talk about your business, goals, and the problem you need solved. You get a clear written scope within 48 hours." },
-  { number: "02", title: "Proposal & Contract",     desc: "I send a fixed-scope proposal with timeline, price, and exact deliverables. You sign and pay the upfront deposit." },
-  { number: "03", title: "Build with Weekly Demos", desc: "I build in focused sprints. You see a working demo every week — not just at the very end." },
-  { number: "04", title: "Launch & Handoff",        desc: "I deploy, record a walkthrough, hand over all code and docs, and stay available for 30 days post-launch." },
+  { number: "02", title: "Proposal & Contract",     desc: "We send a fixed-scope proposal with timeline, price, and exact deliverables. You sign and pay the upfront deposit." },
+  { number: "03", title: "Build with Weekly Demos", desc: "We build in focused sprints with parallel frontend, backend, and AI workstreams. You see a working demo every week." },
+  { number: "04", title: "Launch & Handoff",        desc: "We deploy, record a walkthrough, hand over all code and docs, and stay available for 30 days post-launch." },
 ];
 
 const outcomes = [
@@ -217,7 +217,7 @@ export default function Services() {
           >
             <div className="flex items-center gap-2 mb-5">
               <div className="w-1 h-1 rounded-full bg-primary" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">What I Offer</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-muted-foreground">What We Offer</span>
             </div>
             <h1 className="text-[2.1rem] sm:text-5xl lg:text-[56px] font-display font-bold text-foreground leading-[1.07] tracking-tight mb-5">
               Services &{" "}
@@ -396,7 +396,7 @@ export default function Services() {
               </div>
               <div>
                 <p className="text-sm font-bold text-foreground mb-1">Need something custom?</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">Describe your project and I'll put together a tailored proposal.</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">Describe your idea and we'll put together a tailored proposal.</p>
               </div>
               <Button size="sm" className="rounded-lg px-4 h-9 text-xs font-semibold shadow-sm shadow-primary/20 border-0" asChild>
                 <Link href="/contact">Get a Custom Quote <ChevronRight className="ml-1 w-3 h-3" /></Link>
@@ -440,7 +440,7 @@ export default function Services() {
           <SectionHeading
             label="Payment"
             title="Payment Structure"
-            subtitle="I never start work before the upfront payment — this protects both of us and keeps the project moving."
+            subtitle="We never start work before the upfront payment — this protects both of us and keeps the project moving."
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4">
@@ -472,7 +472,7 @@ export default function Services() {
           <SectionHeading
             label="Benchmarks"
             title="Market Rates by Experience"
-            subtitle={`Where market rates sit at each level — I operate at the Senior tier.`}
+            subtitle={`Where market rates sit at each level — we operate at the Senior tier.`}
           />
 
           {/* Desktop table */}
@@ -497,7 +497,7 @@ export default function Services() {
                       <div className="flex items-center gap-2">
                         {row.level}
                         {row.highlight && (
-                          <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold tracking-wide">← Me</span>
+                          <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold tracking-wide">← Us</span>
                         )}
                       </div>
                     </td>
@@ -522,7 +522,7 @@ export default function Services() {
                 <div className="flex items-center justify-between mb-3">
                   <span className={`font-bold text-sm ${row.highlight ? "text-primary" : "text-foreground"}`}>{row.level}</span>
                   {row.highlight && (
-                    <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold">← Me</span>
+                    <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold">← Us</span>
                   )}
                 </div>
                 <div className="grid grid-cols-2 gap-2">

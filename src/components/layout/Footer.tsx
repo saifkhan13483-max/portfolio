@@ -21,7 +21,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/75 text-sm leading-relaxed mb-6">
-              Hi, I'm Saif Khan — a freelance fullstack developer. I help startups and businesses build fast, custom web apps that solve real problems.
+              SaifCraft is a 10–15 person fullstack development team led by Saif Khan. We help startups and businesses build fast, custom web apps that solve real problems.
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com/saifcraft_dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">
@@ -39,22 +39,22 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Landing Page — from $250</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Business Website — from $700</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Custom Web App — from $2,500</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">AI Features — from $600</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Monthly Retainer — from $250/mo</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Landing Page — from $800</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Business Website — from $2,000</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Custom Web App — from $3,500</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">AI Features — from $1,200</span></Link></li>
+              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Monthly Retainer — from $550/mo</span></Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Navigate</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li><Link href="/about"><span className="hover:text-white transition-colors cursor-pointer">About Me</span></Link></li>
-              <li><Link href="/portfolio"><span className="hover:text-white transition-colors cursor-pointer">My Work</span></Link></li>
+              <li><Link href="/about"><span className="hover:text-white transition-colors cursor-pointer">About Us</span></Link></li>
+              <li><Link href="/portfolio"><span className="hover:text-white transition-colors cursor-pointer">Our Work</span></Link></li>
               <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Services & Pricing</span></Link></li>
               <li><Link href="/faq"><span className="hover:text-white transition-colors cursor-pointer">FAQ</span></Link></li>
-              <li><Link href="/contact"><span className="hover:text-white transition-colors cursor-pointer">Hire Me</span></Link></li>
+              <li><Link href="/contact"><span className="hover:text-white transition-colors cursor-pointer">Share Your Idea</span></Link></li>
             </ul>
           </div>
 

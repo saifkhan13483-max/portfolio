@@ -153,7 +153,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-5xl font-display font-bold leading-[1.1] tracking-tight mb-4"
             >
-              I build{" "}
+              We build{" "}
               <span className="text-gradient-primary inline-block">
                 fast, custom
               </span>{" "}
@@ -178,7 +178,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.2 }}
               className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg"
             >
-              Senior fullstack developer with{" "}
+              10–15 person fullstack team with{" "}
               <strong className="text-foreground font-semibold">7+ years of experience</strong>{" "}
               helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget.
             </motion.p>
@@ -224,7 +224,7 @@ export default function Hero() {
                 >
                   <Link href="/contact">
                     <span className="flex items-center justify-center gap-2">
-                      Hire Me
+                      Share Your Idea
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </Link>
@@ -237,7 +237,7 @@ export default function Hero() {
                   className="h-11 px-7 text-sm rounded-full border-border hover:bg-muted/60 transition-all w-full"
                   asChild
                 >
-                  <Link href="/portfolio">View My Work</Link>
+                  <Link href="/portfolio">View Our Work</Link>
                 </Button>
               </motion.div>
             </motion.div>

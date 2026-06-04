@@ -42,7 +42,7 @@ When logged in: Shows user avatar → dropdown with My Profile (/profile), Suppo
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  FOOTER (appears on every page)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Description: "Hi, I'm Saif Khan — a freelance fullstack developer."
+Description: "SaifCraft is a 10–15 person fullstack development team led by Saif Khan."
 Socials: Twitter · LinkedIn · GitHub
 Services column (links to /services):
   - Landing Page
@@ -50,7 +50,7 @@ Services column (links to /services):
   - Custom Web App
   - AI Features
   - Monthly Retainer
-Navigate column: About Me (/about) · My Work (/portfolio) · Services & Pricing (/services) · FAQ (/faq) · Hire Me (/contact)
+Navigate column: About Us (/about) · Our Work (/portfolio) · Services & Pricing (/services) · FAQ (/faq) · Share Your Idea (/contact)
 Contact column: contact@saifcraft.com · WhatsApp +92 318 8055850 · Available remotely worldwide
 Footer bottom links: FAQ · Privacy Policy (/privacy-policy) · Terms of Service (/terms-of-service)
 Copyright: © 2026 Saif Khan / SaifCraft. All rights reserved.
@@ -58,30 +58,30 @@ Copyright: © 2026 Saif Khan / SaifCraft. All rights reserved.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  PAGE 1: HOME PAGE (/)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Page title: "Saif Khan — Freelance Fullstack Developer | SaifCraft | React · Node.js · TypeScript"
+Page title: "SaifCraft — Fullstack Development Team | React · Node.js · tRPC · AI/LLMs"
 
 SECTION 1 — HERO:
-Headline: "I build fast, custom web apps that deliver results."
-Subheading: "Senior fullstack developer with 7+ years of experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
+Headline: "We build fast, custom web apps that deliver results."
+Subheading: "10–15 person fullstack team with 7+ years of experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
 Highlight badges: Fast Delivery · Clean Code · On Time & On Budget
-CTA buttons: "Hire Me" → /contact  ·  "View My Work" → /portfolio
-Tech stack badges shown: React · Node.js · TypeScript · PostgreSQL · AI/LLMs
+CTA buttons: "Share Your Idea" → /contact  ·  "View Our Work" → /portfolio
+Tech stack badges shown: React · TypeScript · Node.js · tRPC · PostgreSQL · Stripe · AI/LLMs
 Availability badge: "Available for New Projects" (green pulsing dot)
 Hero right panel shows animated code card (project.tsx), floating cards: Web Applications, Clean Architecture, Modern Stack
 Stats bar below hero: 48+ Projects Delivered · 29+ Happy Clients · 7+ Years Experience · 94% Satisfaction Rate (animated counters)
 
 SECTION 2 — ABOUT (on home page):
-Headline: "I help businesses build web apps that solve real problems."
-Bio: Freelance fullstack developer, 7+ years, React/Node.js/TypeScript/PostgreSQL specialist. 2 years AI integration.
+Headline: "We help businesses build web apps that solve real problems."
+Bio: 10–15 person fullstack team led by Saif Khan, 7+ years, React/Node.js/tRPC/TypeScript/PostgreSQL. 2+ years shipping AI-native features — chatbots, RAG pipelines, semantic search, agent workflows.
 Value cards: Fast Delivery · Clean Code · On Time & On Budget · Clear Communication
-CTA: "Read My Full Story" → /about
+CTA: "Read Our Story" → /about
 Profile card shows: Saif Khan, Senior Fullstack Developer, Available badge
 Specialization bars: React/Next.js 95% · Node.js APIs 92% · AI Feature Integration 85% · Database Design 88%
 Quick facts grid: Based in: Remote — Global · Response time: < 24 hours · Contract type: Fixed-scope · AI-ready: Yes — LLMs & RAG
 
 SECTION 3 — TECH STACK / SKILLS:
 Heading: "Tech Stack & Expertise"
-Subheading: "Battle-tested tools I use daily to build fast, scalable, production-ready apps."
+Subheading: "Battle-tested tools we use daily to build fast, scalable, production-ready apps."
 Skills by category (shown as chips in a table layout):
   Frontend: React (Expert) · Next.js (Expert) · TypeScript (Expert) · Tailwind CSS (Expert)
   Backend: Node.js (Expert) · Express (Expert) · tRPC (Advanced) · Prisma (Advanced)
@@ -107,7 +107,7 @@ c) Priya Sharma (CTO, LaunchPad SaaS) — "We went from idea to working MVP in u
 SECTION 6 — SOCIAL PROFILES:
 GitHub (@saifcraft-dev): 15+ public repos, real production projects, clean documented code
 LinkedIn (Saif Khan): 500+ connections, verified recommendations, weekly dev insights
-Twitter/X (@saifcraft_dev): Building in public, daily build updates, freelance tips
+Twitter/X (@saifcraft_dev): Building in public, daily build updates, team insights
 
 SECTION 7 — PROJECTS GALLERY:
 Shows live project cards loaded from Firebase Firestore (real-time data)

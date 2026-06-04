@@ -45,7 +45,7 @@ export default function ProjectsGallery() {
         <div className="flex flex-col gap-4 mb-8 sm:mb-10 md:mb-12">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-6">
             <div>
-              <p className="text-primary text-xs font-bold uppercase tracking-wider mb-2">My Work</p>
+              <p className="text-primary text-xs font-bold uppercase tracking-wider mb-2">Our Work</p>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-display font-bold text-foreground mb-2 sm:mb-3">
                 Recent Projects
               </h2>

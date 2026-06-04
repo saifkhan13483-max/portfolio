@@ -429,21 +429,21 @@ export default function Home() {
               className="order-last lg:order-first lg:col-span-3 flex flex-col gap-5"
             >
               <div>
-                <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">About Me</p>
+                <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2">About Us</p>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-foreground leading-[1.15] mb-3">
-                  I help businesses build web apps that{" "}
+                  We help businesses build web apps that{" "}
                   <span className="text-gradient-primary">solve real problems.</span>
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Senior fullstack developer. Direct communication. Results you can measure.
+                  Senior fullstack team. Direct communication. Results you can measure.
                 </p>
               </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                I'm a freelance fullstack developer with{" "}
+                We're a <strong className="text-foreground">10–15 person fullstack team</strong> led by Saif Khan with{" "}
                 <strong className="text-foreground">7+ years of experience</strong> building web apps from scratch —{" "}
-                specializing in <strong className="text-foreground">React, Node.js, TypeScript & PostgreSQL.</strong>{" "}
-                For the past <strong className="text-foreground">2 years I've integrated AI features</strong> into real products: chatbots, semantic search, content generation. You talk directly to the developer, not a project manager.
+                specializing in <strong className="text-foreground">React, Node.js, tRPC, TypeScript & PostgreSQL.</strong>{" "}
+                For the past <strong className="text-foreground">2 years we've shipped AI-native features</strong> — chatbots, RAG pipelines, semantic search, and agent workflows. You talk directly to Saif, not a project manager.
               </p>
 
               {/* Value cards — 1 col on mobile, 2 col on sm+ */}
@@ -476,7 +476,7 @@ export default function Home() {
                 >
                   <Link href="/about">
                     <span className="flex items-center justify-center sm:justify-start gap-2">
-                      Read My Full Story
+                      Read Our Story
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </Link>
@@ -503,7 +503,7 @@ export default function Home() {
               The Numbers Behind Every Decision
             </h2>
             <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
-              Every recommendation I make is grounded in data — not guesswork. Here's what the research says about what actually moves the needle.
+              Every recommendation we make is grounded in data — not guesswork. Here's what the research says about what actually moves the needle.
             </p>
           </motion.div>
 
@@ -604,13 +604,13 @@ export default function Home() {
             className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 sm:gap-4 mb-6 sm:mb-8"
           >
             <div>
-              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1.5">My Skills</p>
+              <p className="text-primary text-xs font-bold uppercase tracking-widest mb-1.5">Our Skills</p>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground">
                 Tech Stack & Expertise
               </h2>
             </div>
             <p className="text-sm text-muted-foreground sm:text-right sm:max-w-xs leading-relaxed">
-              Battle-tested tools I use daily to build fast, scalable, production-ready apps.
+              Battle-tested tools we use daily to build fast, scalable, production-ready apps.
             </p>
           </motion.div>
 
