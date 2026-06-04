@@ -393,7 +393,7 @@ export default function About() {
               </p>
 
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7 max-w-lg mx-auto lg:mx-0">
-                We build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">7 years</strong> of hands-on experience — clean code, honest timelines, and direct communication every step of the way.
+                I build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">7 years</strong> of my own hands-on experience — clean code, honest timelines, and direct communication every step of the way.
               </p>
 
               {/* Inline stat chips */}
