@@ -9,7 +9,7 @@ import {
   Sparkles, Box
 } from "lucide-react";
 import { useState, useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

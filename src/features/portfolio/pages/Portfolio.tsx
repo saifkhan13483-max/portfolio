@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { motion, AnimatePresence } from "framer-motion";

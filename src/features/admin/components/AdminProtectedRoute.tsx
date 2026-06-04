@@ -1,4 +1,4 @@
-import { useAuth } from "@/features/auth/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { useLocation } from "wouter";
 import React, { useEffect } from "react";
 import { Loader2 } from "lucide-react";

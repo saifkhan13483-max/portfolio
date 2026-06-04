@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import Hero from "@/features/home/components/Hero";
 import ProjectsGallery from "@/features/portfolio/components/ProjectsGallery";

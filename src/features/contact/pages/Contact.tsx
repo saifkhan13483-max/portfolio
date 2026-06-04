@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";

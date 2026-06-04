@@ -4,7 +4,7 @@ import { Link } from "wouter";
 import { Menu, LogIn, User as UserIcon, LayoutDashboard, LogOut, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { useAuth } from "@/features/auth/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { signInWithGoogle, signOut } from "@/lib/firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";

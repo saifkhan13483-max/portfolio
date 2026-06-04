@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import {
   Github, Linkedin, Twitter, Target, Lightbulb, Clock,

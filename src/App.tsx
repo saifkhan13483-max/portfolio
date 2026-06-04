@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import "./index.css";
-import { AuthProvider } from "@/features/auth/AuthContext";
+import { AuthProvider } from "@/context/AuthContext";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,12 +13,12 @@ const ChatBot = lazy(() => import("@/features/chatbot/components/ChatBot"));
 const Home = lazy(() => import("@/features/home/pages/Home"));
 const Portfolio = lazy(() => import("@/features/portfolio/pages/Portfolio"));
 const Services = lazy(() => import("@/features/services/pages/Services"));
-const About = lazy(() => import("@/pages/About"));
+const About = lazy(() => import("@/features/about/pages/About"));
 const Contact = lazy(() => import("@/features/contact/pages/Contact"));
-const FAQ = lazy(() => import("@/pages/FAQ"));
+const FAQ = lazy(() => import("@/features/faq/pages/FAQ"));
 const ProjectDetail = lazy(() => import("@/features/portfolio/pages/ProjectDetail"));
-const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
-const TermsOfService = lazy(() => import("@/pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("@/features/legal/pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("@/features/legal/pages/TermsOfService"));
 const AdminLogin = lazy(() => import("@/features/admin/pages/Login"));
 const AdminDashboard = lazy(() => import("@/features/admin/pages/Dashboard"));
 const OrdersManagement = lazy(() => import("@/features/admin/pages/Orders"));
@@ -26,7 +26,7 @@ const ProjectsManagement = lazy(() => import("@/features/admin/pages/Projects"))
 const ServicesManagement = lazy(() => import("@/features/admin/pages/Services"));
 const AdminLayout = lazy(() => import("@/features/admin/pages/AdminLayout"));
 const AdminProtectedRoute = lazy(() => import("@/features/admin/components/AdminProtectedRoute"));
-const ClientProfile = lazy(() => import("@/pages/ClientProfile"));
+const ClientProfile = lazy(() => import("@/features/profile/pages/ClientProfile"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 function PageLoader() {

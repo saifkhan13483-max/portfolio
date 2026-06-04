@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { updatePageSEO, addSchema, removeSchemas } from "@/utils/seo";
+import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown, ArrowRight, Search, Users, CreditCard,
