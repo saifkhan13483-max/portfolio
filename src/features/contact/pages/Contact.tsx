@@ -47,9 +47,9 @@ const stats = [
 ];
 
 const nextSteps = [
-  { icon: MessageSquare, step: "01", title: "Personal review",   desc: "Every inquiry is read by me personally. No bots, no templates." },
-  { icon: CalendarCheck, step: "02", title: "Discovery call",    desc: "A focused 20-min call to align on scope, timeline, and fit." },
-  { icon: FileText,      step: "03", title: "Detailed proposal", desc: "Fixed pricing, clear milestones, defined deliverables — no surprises." },
+  { icon: MessageSquare, step: "01", title: "We read your idea",    desc: "Every submission is reviewed personally by Saif and the team. No bots, no auto-replies." },
+  { icon: FileText,      step: "02", title: "We analyse feasibility", desc: "We assess whether your idea can be built, what it would take, and whether it's the right fit for us." },
+  { icon: CalendarCheck, step: "03", title: "We contact you",       desc: "If we can convert your idea into reality, a team member reaches out to you directly." },
 ];
 
 const services = [
@@ -118,7 +118,7 @@ export default function Contact() {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       });
-      toast({ title: "Inquiry sent!", description: "I'll get back to you within 24 hours." });
+      toast({ title: "Idea submitted!", description: "Our team will review it. If we can build it, we'll contact you directly." });
       form.reset();
     } catch {
       toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
@@ -170,14 +170,12 @@ export default function Contact() {
               transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             >
               <h1 className="text-[2.35rem] leading-[1.08] sm:text-5xl lg:text-[58px] font-display font-bold text-foreground tracking-tight mb-4 sm:mb-6">
-                Let's build
+                Describe your
                 <br />
-                <span className="text-primary">something great</span>
-                <br />
-                together.
+                <span className="text-primary">idea to us.</span>
               </h1>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md">
-                Tell me about your project. I'll read it personally, reply within 24 hours, and tell you exactly what I think — no sales pitch.
+                Tell us what you want to build. Our team will analyse your idea — if we can convert it into reality, a team member will contact you directly.
               </p>
             </motion.div>
 
@@ -271,7 +269,7 @@ export default function Contact() {
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
               <div className="px-4 sm:px-5 py-3.5 border-b border-border">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">What Happens Next</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">What Happens After You Submit</p>
               </div>
               <div className="p-4 sm:p-5">
                 {nextSteps.map(({ icon: Icon, step, title, desc }, i) => (
@@ -302,15 +300,15 @@ export default function Contact() {
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
               <div className="px-4 sm:px-5 py-3.5 border-b border-border">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Project Brief Tips</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Tips for a Strong Submission</p>
               </div>
               <div className="p-4 sm:p-5 space-y-3">
                 {[
-                  { label: "The problem",    desc: "Who uses it and what can't they do without it?" },
-                  { label: "Success metric", desc: "One measurable outcome for a successful launch." },
-                  { label: "Current stack",  desc: "Shopify, no-code, spreadsheets, or nothing yet?" },
-                  { label: "Budget range",   desc: "Approximate is fine. Helps calibrate scope." },
-                  { label: "Launch date",    desc: "Hard deadline or flexible? Rush = surcharge." },
+                  { label: "The core idea",    desc: "What do you want to build in one clear sentence?" },
+                  { label: "The problem",      desc: "What pain does it solve, and who experiences it?" },
+                  { label: "Target users",     desc: "Who will use it — consumers, businesses, a specific niche?" },
+                  { label: "Similar products", desc: "Are there existing tools? What would yours do better?" },
+                  { label: "Budget & timeline", desc: "Rough numbers are fine — helps us assess what's feasible." },
                 ].map(({ label, desc }) => (
                   <div key={label} className="flex items-start gap-2.5">
                     <CheckCircle2 className="w-3 h-3 text-primary mt-0.5 shrink-0" />
@@ -335,7 +333,7 @@ export default function Contact() {
               {/* Form header */}
               <div className="px-4 sm:px-6 py-4 border-b border-border flex items-center justify-between gap-3 flex-wrap">
                 <div>
-                  <h2 className="text-sm font-bold text-foreground">Project Inquiry</h2>
+                  <h2 className="text-sm font-bold text-foreground">Share Your Idea</h2>
                   <p className="text-xs text-muted-foreground mt-0.5">
                     Fields marked <span className="text-primary font-semibold">*</span> are required
                   </p>
@@ -487,11 +485,11 @@ export default function Contact() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="text-xs font-semibold text-foreground">
-                                Project Description <span className="text-primary">*</span>
+                                Your Idea <span className="text-primary">*</span>
                               </FormLabel>
                               <FormControl>
                                 <Textarea
-                                  placeholder="What problem are you solving? Who are the users? What does success look like?"
+                                  placeholder="Describe your idea — what do you want to build or create? The more detail you give, the better we can assess whether we can bring it to life."
                                   {...field}
                                   rows={5}
                                   className="bg-background border-border text-foreground resize-none text-sm rounded-lg focus-visible:ring-primary/25 min-h-[120px]"
@@ -509,7 +507,7 @@ export default function Contact() {
                     <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-border">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                        <span>No spam. I reply personally — never automated.</span>
+                        <span>We review every idea personally. If we can build it, we'll reach out.</span>
                       </div>
                       <Button
                         type="submit"
@@ -518,9 +516,9 @@ export default function Contact() {
                         data-testid="button-submit"
                       >
                         {createOrder.isPending ? (
-                          <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" />Sending…</>
+                          <><Loader2 className="mr-2 h-3.5 w-3.5 animate-spin" />Submitting…</>
                         ) : (
-                          <>Send Inquiry <ArrowRight className="ml-2 w-3.5 h-3.5" /></>
+                          <>Submit Your Idea <ArrowRight className="ml-2 w-3.5 h-3.5" /></>
                         )}
                       </Button>
                     </div>
