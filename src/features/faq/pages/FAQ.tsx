@@ -106,11 +106,11 @@ const faqs = [
       },
       {
         q: "Do you offer ongoing support after delivery?",
-        a: "Yes. All projects include 30 days of free post-launch support for bug fixes. After that, I offer monthly retainer packages starting at $550/month that cover bug fixes, updates, security patches, and priority response time.",
+        a: "Yes. All projects include 30 days of free post-launch support for bug fixes. After that, we offer monthly retainer packages starting at $550/month that cover bug fixes, updates, security patches, and priority response time.",
       },
       {
         q: "Will I own the code?",
-        a: "Yes — 100%. After final payment, all code, designs, and intellectual property transfer to you. I retain no rights to anything built for your project.",
+        a: "Yes — 100%. After final payment, all code, designs, and intellectual property transfer to you. We retain no rights to anything built for your project.",
       },
     ],
   },
@@ -119,7 +119,7 @@ const faqs = [
     items: [
       {
         q: "Should I validate my idea before building?",
-        a: "Yes — always. The #1 cause of startup failure is building a product nobody wants (67% of failures, per CB Insights). Before writing code, validate with a landing page, a simple prototype, or even a waitlist. I help clients think through this before quoting. A validated idea makes for a better project brief, a tighter scope, and a product that has a real shot at success.",
+        a: "Yes — always. The #1 cause of startup failure is building a product nobody wants (67% of failures, per CB Insights). Before writing code, validate with a landing page, a simple prototype, or even a waitlist. We help clients think through this before quoting. A validated idea makes for a better project brief, a tighter scope, and a product that has a real shot at success.",
       },
       {
         q: "Should I start with no-code tools or custom development?",
@@ -340,7 +340,7 @@ export default function FAQ() {
 
             <button
               onClick={() => setActiveCategory("All")}
-              className={`flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold border transition-all duration-200 ${
+              className={`flex-shrink-0 flex items-center gap-1 px-3 h-10 rounded-full text-xs font-semibold border transition-all duration-200 ${
                 activeCategory === "All"
                   ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
                   : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
@@ -359,7 +359,7 @@ export default function FAQ() {
                   onClick={() => setActiveCategory(section.category)}
                   data-testid={`filter-faq-${section.category.toLowerCase().replace(/\s+/g, "-")}`}
                   title={section.category}
-                  className={`flex-shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold border transition-all duration-200 whitespace-nowrap ${
+                  className={`flex-shrink-0 flex items-center gap-1.5 px-3 sm:px-3.5 h-10 rounded-full text-xs font-semibold border transition-all duration-200 whitespace-nowrap ${
                     isActive
                       ? "bg-primary text-primary-foreground border-primary shadow-md shadow-primary/20"
                       : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
@@ -485,7 +485,7 @@ export default function FAQ() {
               Still have a question?
             </h2>
             <p className="text-white/75 mb-7 max-w-sm mx-auto text-sm sm:text-base leading-relaxed">
-              Send me a message and I'll reply within 24 hours — no pressure, no sales pitch.
+              Send us a message and we'll reply within 24 hours — no pressure, no sales pitch.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
