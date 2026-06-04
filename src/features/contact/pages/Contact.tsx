@@ -144,7 +144,7 @@ export default function Contact() {
           <div className="absolute top-1/2 -left-20 h-[300px] w-[400px] rounded-full bg-secondary/5 blur-[80px]" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px]">
 
           {/* Availability badge */}
           <m.div
@@ -204,7 +204,7 @@ export default function Contact() {
       </section>
 
       {/* ─────────────────────── MAIN CONTENT ─────────────────────── */}
-      <section className="container mx-auto px-4 sm:px-6 max-w-6xl py-10 sm:py-16 lg:py-20">
+      <section className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] py-10 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] xl:grid-cols-[360px_1fr] gap-8 lg:gap-12 xl:gap-14 items-start">
 
           {/* ── Sidebar — shown below form on mobile, left on desktop ── */}

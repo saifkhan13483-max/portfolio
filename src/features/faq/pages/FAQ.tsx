@@ -286,7 +286,7 @@ export default function FAQ() {
           <div className="absolute bottom-0 left-1/2 h-[200px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-2xl" />
         </div>
 
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px]">
           <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -333,7 +333,7 @@ export default function FAQ() {
 
       {/* ── Category Filter Tabs ── */}
       <div className="sticky top-[64px] z-30 bg-background/90 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px]">
           {/* Mobile: wrap to 2 rows so all tabs are tap-accessible without swiping */}
           {/* Desktop: single row, no wrapping needed */}
           <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 py-3 sm:py-3.5">

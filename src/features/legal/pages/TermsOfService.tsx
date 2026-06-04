@@ -126,7 +126,7 @@ export default function TermsOfService() {
           <div className="absolute bottom-0 left-1/2 h-[200px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-2xl" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl 2xl:max-w-[1440px]">
           {/* Breadcrumb */}
           <m.div
             initial={{ opacity: 0, x: -12 }}
