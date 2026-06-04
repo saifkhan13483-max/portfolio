@@ -29,19 +29,19 @@ const pillars = [
   {
     icon: Target,
     title: "Results First",
-    desc: "I care about the outcome — not just shipping code. Every project has a clear success metric we agree on upfront.",
+    desc: "We care about the outcome — not just shipping code. Every project has a clear success metric we agree on upfront.",
     highlights: ["Clear KPIs from day one", "Outcome-driven sprints"],
   },
   {
     icon: Lightbulb,
     title: "Clean Code",
-    desc: "I write code your team can maintain and extend. No black boxes, no technical debt left behind.",
+    desc: "We write code your team can maintain and extend. No black boxes, no technical debt left behind.",
     highlights: ["Typed, documented codebase", "Scalable architecture"],
   },
   {
     icon: Clock,
     title: "On Time, Always",
-    desc: "I work in focused sprints with weekly demos. You see real progress every week — not just at the end.",
+    desc: "We work in focused sprints with weekly demos. You see real progress every week — not just at the end.",
     highlights: ["Weekly demos & updates", "Honest, realistic timelines"],
   },
 ];
@@ -115,6 +115,72 @@ const timeline = [
     type: "Agency",
     desc: "Started with React, grew into full-stack. Delivered 20+ projects ranging from landing pages to complex dashboards.",
     tags: ["React", "TypeScript", "Dashboards"],
+  },
+];
+
+const teamMembers = [
+  {
+    name: "Saif Khan",
+    role: "Founder & Lead Developer",
+    bio: "7+ years building production-ready web apps. Leads architecture decisions, client communication, and AI integrations on every project.",
+    avatar: "SK",
+    color: "bg-primary",
+    tags: ["React", "Node.js", "tRPC", "AI/LLMs"],
+    isFounder: true,
+  },
+  {
+    name: "Zain Ul Abideen",
+    role: "Senior Frontend Developer",
+    bio: "5+ years in React and Next.js. Pixel-perfect UI implementation, design system architecture, and animation engineering.",
+    avatar: "ZA",
+    color: "bg-blue-500",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind"],
+    isFounder: false,
+  },
+  {
+    name: "Ahmed Raza",
+    role: "Backend & API Engineer",
+    bio: "Designs and builds scalable REST and tRPC APIs. Expert in PostgreSQL schema design, query optimization, and Prisma.",
+    avatar: "AR",
+    color: "bg-emerald-500",
+    tags: ["Node.js", "tRPC", "PostgreSQL", "Prisma"],
+    isFounder: false,
+  },
+  {
+    name: "Bilal Hassan",
+    role: "AI / LLM Engineer",
+    bio: "Specializes in RAG pipelines, agent workflows, and embedding-based search. Ships AI into production — not just demos.",
+    avatar: "BH",
+    color: "bg-violet-500",
+    tags: ["OpenAI", "Anthropic", "RAG", "pgvector"],
+    isFounder: false,
+  },
+  {
+    name: "Usman Tariq",
+    role: "DevOps & Infrastructure",
+    bio: "Manages CI/CD pipelines, production infrastructure on Railway and Vercel, and zero-downtime deployment strategies.",
+    avatar: "UT",
+    color: "bg-orange-500",
+    tags: ["Docker", "Railway", "Vercel", "CI/CD"],
+    isFounder: false,
+  },
+  {
+    name: "Fatima Noor",
+    role: "UI/UX Designer",
+    bio: "Crafts clean, conversion-focused interfaces and design systems. Works directly with frontend to ensure pixel-perfect results.",
+    avatar: "FN",
+    color: "bg-pink-500",
+    tags: ["Figma", "Design Systems", "Prototyping"],
+    isFounder: false,
+  },
+  {
+    name: "Hamza Malik",
+    role: "QA & Testing Lead",
+    bio: "Every release goes through Hamza. Owns automated and manual QA so bugs are caught before your users ever see them.",
+    avatar: "HM",
+    color: "bg-amber-500",
+    tags: ["E2E Testing", "Performance", "Accessibility"],
+    isFounder: false,
   },
 ];
 
@@ -364,11 +430,11 @@ export default function About() {
               <div className="flex flex-wrap gap-3 mb-7">
                 <Button asChild size="lg" className="rounded-full px-7 h-11 font-bold shadow-md shadow-primary/20">
                   <Link href="/contact">
-                    Hire Me <ArrowRight className="ml-2 w-4 h-4" />
+                    Share Your Idea <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="rounded-full px-7 h-11 font-bold border-border hover:border-primary/40">
-                  <Link href="/portfolio">View My Work</Link>
+                  <Link href="/portfolio">View Our Work</Link>
                 </Button>
               </div>
 
@@ -442,7 +508,7 @@ export default function About() {
 
             {/* Side card: what I can help with */}
             <div className="bg-card border border-border rounded-2xl p-5 space-y-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">What I can help with</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">What we can help with</p>
               <ul className="space-y-2.5">
                 {[
                   "Custom Web Applications",
@@ -468,11 +534,81 @@ export default function About() {
           </div>
         </div>
 
+        {/* ── Meet the Team ── */}
+        <div>
+          <SectionHeading
+            label="The Team"
+            title="Meet the People Behind SaifCraft"
+            subtitle="A tight-knit group of 10–15 remote specialists across frontend, backend, AI/ML, design, and QA — led by Saif Khan."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {teamMembers.map((member, i) => (
+              <motion.div
+                key={member.name}
+                custom={i}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className={`bg-card border rounded-2xl p-5 flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${
+                  member.isFounder ? "border-primary/40 lg:col-span-1" : "border-border hover:border-primary/30"
+                }`}
+              >
+                {/* Avatar + name row */}
+                <div className="flex items-center gap-3">
+                  <div className={`w-12 h-12 rounded-2xl ${member.color} flex items-center justify-center text-white text-sm font-black shrink-0 shadow-md`}>
+                    {member.avatar}
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-sm font-bold text-foreground leading-tight truncate">{member.name}</p>
+                    <p className="text-[11px] text-primary font-semibold leading-tight mt-0.5">{member.role}</p>
+                    {member.isFounder && (
+                      <span className="inline-block text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-full mt-1">
+                        Founder
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Bio */}
+                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{member.bio}</p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {member.tags.map(tag => (
+                    <span key={tag} className="text-[10px] font-semibold bg-muted text-muted-foreground border border-border rounded-md px-2 py-0.5">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+
+            {/* +More card */}
+            <motion.div
+              custom={teamMembers.length}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="border border-dashed border-primary/25 bg-primary/[0.02] rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-2 min-h-[180px]"
+            >
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <Users className="w-5 h-5 text-primary" />
+              </div>
+              <p className="text-sm font-bold text-foreground">+8 more</p>
+              <p className="text-[11px] text-muted-foreground leading-relaxed">
+                Additional specialists across mobile, data engineering, and security.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
         {/* ── Time Breakdown ── */}
         <div>
           <SectionHeading
             label="Transparency"
-            title="How I Actually Spend My Time"
+            title="How We Actually Spend Our Time"
             subtitle="Only 42% of a senior developer's working hours go into writing code. Here's what the other 58% looks like — and why it matters for your project."
           />
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
@@ -511,18 +647,18 @@ export default function About() {
                 When you hire a senior developer, you're paying for the full system: the scoping that prevents expensive pivots, the communication that keeps you aligned, the QA that catches issues before your users do.
               </p>
               <p className="text-sm text-foreground font-semibold">
-                That's why I charge for outcomes, not hours. The time breakdown above is what makes delivery predictable and quality consistent.
+                That's why we charge for outcomes, not hours. The time breakdown above is what makes delivery predictable and quality consistent.
               </p>
             </div>
           </div>
         </div>
 
-        {/* ── How I Work ── */}
+        {/* ── How We Work ── */}
         <div>
           <SectionHeading
             label="Process"
-            title="How I Work"
-            subtitle="Three principles that guide every project I take on."
+            title="How We Work"
+            subtitle="Three principles that guide every project we take on."
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {pillars.map((p, i) => (
@@ -557,8 +693,8 @@ export default function About() {
         <div>
           <SectionHeading
             label="Skills"
-            title="My Core Stack"
-            subtitle="Technologies I use every day to build production-ready applications."
+            title="Our Core Stack"
+            subtitle="Technologies we use every day to build production-ready applications."
           />
           <div className="space-y-6">
             {stackGroups.map((group, gi) => (
@@ -787,7 +923,7 @@ export default function About() {
               Ready to work together?
             </h2>
             <p className="text-white/75 mb-8 max-w-md mx-auto text-sm sm:text-base leading-relaxed">
-              Tell me about your project and I'll get back to you within 24 hours.
+              Tell us about your idea and we'll get back to you within 24 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
@@ -805,7 +941,7 @@ export default function About() {
                 className="rounded-full px-8 h-12 sm:h-14 text-sm sm:text-base font-bold text-white border-white/30 hover:bg-white/10 hover:border-white/50 bg-transparent"
                 asChild
               >
-                <Link href="/portfolio">See My Work</Link>
+                <Link href="/portfolio">See Our Work</Link>
               </Button>
             </div>
           </div>
