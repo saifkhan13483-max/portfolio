@@ -409,7 +409,7 @@ export default function Home() {
                 {[
                   { label: "Based in", value: "Remote — Global" },
                   { label: "Response time", value: "< 24 hours" },
-                  { label: "Contract type", value: "Fixed-scope" },
+                  { label: "Team size", value: "10–50 People" },
                   { label: "AI-ready", value: "Yes — LLMs & RAG" },
                 ].map((fact) => (
                   <div key={fact.label} className="bg-card border border-border rounded-xl px-3 py-2.5">

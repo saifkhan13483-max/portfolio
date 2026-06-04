@@ -337,6 +337,7 @@ export default function About() {
                 {[
                   { Icon: MapPin,    text: "Remote — Global" },
                   { Icon: Briefcase, text: "Freelance / Contract" },
+                  { Icon: Users,     text: "10–50 Person Team" },
                   { Icon: Mail,      text: "contact@saifcraft.com" },
                 ].map(({ Icon, text }) => (
                   <span key={text} className="flex items-center gap-1.5">
@@ -422,7 +423,7 @@ export default function About() {
                 I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
-                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you talk directly to the developer doing the work. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
+                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you get me — directly — backed by a <strong className="text-foreground font-semibold">10–50 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
               </p>
             </div>
 
