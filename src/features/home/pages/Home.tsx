@@ -313,7 +313,7 @@ export default function Home() {
 
       {/* 2. ABOUT — inline per guide */}
       <section id="about" className="py-10 sm:py-16 border-t border-border overflow-hidden">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
           <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 lg:items-start">
 
             {/* RIGHT: Profile card — shown FIRST on mobile, second on desktop */}
@@ -490,7 +490,7 @@ export default function Home() {
 
       {/* 2.5 — INDUSTRY CONTEXT / PROOF */}
       <section className="py-10 sm:py-14 border-t border-border">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
           <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -593,7 +593,7 @@ export default function Home() {
 
       {/* 3. SKILLS / TECH STACK */}
       <section id="skills" className="py-10 sm:py-16 border-t border-border bg-card/20">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
           {/* Header */}
           <m.div
@@ -708,7 +708,7 @@ export default function Home() {
 
       {/* 5. SERVICES PREVIEW */}
       <section id="services" className="py-10 sm:py-16 lg:py-24 border-t border-border bg-card/20">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
           {/* Header */}
           <m.div
@@ -848,7 +848,7 @@ export default function Home() {
 
       {/* 5.5 — MY PROCESS */}
       <section className="py-10 sm:py-16 lg:py-24 border-t border-border">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -926,7 +926,7 @@ export default function Home() {
 
       {/* 6. TESTIMONIALS / SOCIAL PROOF */}
       <section id="testimonials" className="py-10 sm:py-16 lg:py-24 border-t border-border">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
           {/* Header */}
           <m.div
@@ -1070,7 +1070,7 @@ export default function Home() {
 
       {/* 7. PLATFORMS — Find me on */}
       <section id="platforms" className="py-10 sm:py-16 lg:py-24 border-t border-border bg-card/20">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
           {/* Header */}
           <m.div

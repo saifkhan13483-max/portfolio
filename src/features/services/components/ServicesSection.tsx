@@ -8,7 +8,7 @@ export default function ServicesSection() {
   if (isLoading) {
     return (
       <section className="py-24 border-t border-border">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
           <div className="text-center mb-16">
             <div className="h-10 w-64 bg-card rounded-lg animate-pulse mx-auto mb-4" />
             <div className="h-5 w-96 bg-card rounded animate-pulse mx-auto" />
@@ -25,7 +25,7 @@ export default function ServicesSection() {
 
   return (
     <section id="services" className="py-24 border-t border-border bg-background">
-      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
         <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

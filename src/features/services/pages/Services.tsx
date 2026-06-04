@@ -208,7 +208,7 @@ export default function Services() {
           <div className="absolute -top-32 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-primary/5 blur-[70px]" />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px]">
           <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -234,7 +234,7 @@ export default function Services() {
 
         {/* Outcomes strip */}
         <div className="mt-10 sm:mt-16 border-t border-border">
-          <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px]">
+          <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px]">
             <div className="py-4 sm:py-5">
               <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-3 sm:mb-0 sm:inline sm:mr-5">
                 Real outcomes
@@ -265,7 +265,7 @@ export default function Services() {
       </section>
 
       {/* ─── Main content ─────────────────────────────────────── */}
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] py-10 sm:py-16 lg:py-20 space-y-16 sm:space-y-24 lg:space-y-28">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px] py-10 sm:py-16 lg:py-20 space-y-16 sm:space-y-24 lg:space-y-28">
 
         {/* ── Packages ── */}
         <div>

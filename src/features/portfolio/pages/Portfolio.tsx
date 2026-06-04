@@ -62,7 +62,7 @@ export default function Portfolio() {
           <div className="absolute bottom-0 left-1/2 h-[200px] w-[500px] -translate-x-1/2 rounded-full bg-primary/5 blur-2xl" />
         </div>
 
-        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px]">
+        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px]">
           <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export default function Portfolio() {
 
       {/* ── Category Filters ── */}
       <section className="sticky top-[64px] z-30 bg-background/90 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px]">
+        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px]">
           <div className="flex items-center gap-2 overflow-x-auto scrollbar-hide py-3 sm:py-4 no-scrollbar">
             {(isLoading ? CATEGORIES : categories).map((cat) => (
               <button
@@ -129,7 +129,7 @@ export default function Portfolio() {
       </section>
 
       {/* ── Grid ── */}
-      <section className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px] py-10 sm:py-16">
+      <section className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px] py-10 sm:py-16">
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -173,7 +173,7 @@ export default function Portfolio() {
       {/* ── Bottom CTA ── */}
       {!isLoading && (
         <section className="border-t border-border bg-card">
-          <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px] py-14 sm:py-20 text-center">
+          <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px] py-14 sm:py-20 text-center">
             <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

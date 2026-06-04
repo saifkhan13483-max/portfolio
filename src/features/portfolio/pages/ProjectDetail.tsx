@@ -136,7 +136,7 @@ export default function ProjectDetail() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#08091a]/55 via-transparent to-transparent" />
 
           {/* All hero content stacked naturally */}
-          <div className="relative z-10 px-4 sm:px-8 lg:px-14 xl:px-20 pt-5 sm:pt-6 pb-8 sm:pb-11 lg:pb-13 max-w-7xl 2xl:max-w-[1440px] mx-auto w-full">
+          <div className="relative z-10 px-4 sm:px-8 lg:px-14 xl:px-20 pt-5 sm:pt-6 pb-8 sm:pb-11 lg:pb-13 max-w-7xl 2xl:max-w-[1600px] mx-auto w-full">
 
             {/* Breadcrumb */}
             <m.div {...fadeIn(0.05)} className="mb-5 sm:mb-7">
@@ -295,7 +295,7 @@ export default function ProjectDetail() {
       {/* ═══════════════════════════════════════════════════════
           BODY — sidebar + main
       ═══════════════════════════════════════════════════════ */}
-      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-14 xl:px-20 py-8 sm:py-12 lg:py-16">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-14 xl:px-20 py-8 sm:py-12 lg:py-16">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-16">
 
           {/* ── MAIN CONTENT ──────────────────────────────── */}

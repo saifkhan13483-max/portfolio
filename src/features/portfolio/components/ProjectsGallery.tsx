@@ -26,7 +26,7 @@ export default function ProjectsGallery() {
   if (isLoading) {
     return (
       <section className="py-12 sm:py-20 bg-card/30 border-t border-border">
-        <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[1, 2, 3].map((i) => (
               <div key={i} className="aspect-video bg-card rounded-2xl animate-pulse border border-border" />
@@ -39,7 +39,7 @@ export default function ProjectsGallery() {
 
   return (
     <section id="portfolio" className="py-12 sm:py-16 lg:py-24 bg-card/20 border-t border-border">
-      <div className="max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
         {/* Header */}
         <div className="flex flex-col gap-4 mb-8 sm:mb-10 md:mb-12">

@@ -331,7 +331,7 @@ export default function About() {
           <div className="absolute bottom-0 -right-20 h-[300px] w-[300px] rounded-full bg-secondary/6 blur-3xl" />
         </div>
 
-        <div className="container mx-auto px-4 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px]">
+        <div className="container mx-auto px-4 max-w-6xl xl:max-w-7xl 2xl:max-w-[1600px]">
           <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 lg:gap-16 items-center pb-16 sm:pb-20">
 
             {/* ── Left: Photo ── */}
@@ -463,7 +463,7 @@ export default function About() {
 
       {/* ── Stats Bar ── */}
       <section className="border-y border-border bg-card">
-        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px]">
+        <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px]">
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-border">
             {stats.map(({ icon: Icon, value, label }, i) => (
               <m.div
@@ -488,7 +488,7 @@ export default function About() {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1440px] py-14 sm:py-20 space-y-20 sm:space-y-28">
+      <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px] py-14 sm:py-20 space-y-20 sm:space-y-28">
 
         {/* ── My Story ── */}
         <div>
