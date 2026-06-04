@@ -370,7 +370,7 @@ export default function About() {
               {/* Floating experience badge — top right */}
               <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground rounded-2xl px-3.5 py-2 shadow-lg shadow-primary/25 text-center">
                 <p className="text-lg font-black leading-none">7+</p>
-                <p className="text-[10px] font-semibold uppercase tracking-wide opacity-90 leading-none mt-0.5">Years</p>
+                <p className="text-xs font-semibold uppercase tracking-wide opacity-90 leading-none mt-0.5">Years</p>
               </div>
             </motion.div>
 
@@ -379,10 +379,10 @@ export default function About() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="flex flex-col"
+              className="flex flex-col items-center lg:items-start text-center lg:text-left"
             >
-              <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full w-fit mb-5">
-                About Me
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full w-fit mb-5">
+                About Us
               </span>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-black text-foreground mb-2 leading-[1.05] tracking-tight">
@@ -392,12 +392,12 @@ export default function About() {
                 Senior Fullstack Developer &amp; AI Integration Specialist
               </p>
 
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7 max-w-lg">
-                I build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">7 years</strong> of hands-on experience — clean code, honest timelines, and direct communication every step of the way.
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-7 max-w-lg mx-auto lg:mx-0">
+                We build fast, production-ready web apps for startups and growing businesses worldwide. Over <strong className="text-foreground font-semibold">7 years</strong> of hands-on experience — clean code, honest timelines, and direct communication every step of the way.
               </p>
 
               {/* Inline stat chips */}
-              <div className="flex flex-wrap gap-2.5 mb-7">
+              <div className="flex flex-wrap gap-2.5 mb-7 justify-center lg:justify-start">
                 {[
                   { value: "48+", label: "Projects" },
                   { value: "29+", label: "Clients" },
@@ -412,7 +412,7 @@ export default function About() {
               </div>
 
               {/* Info row */}
-              <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8 text-sm text-muted-foreground">
+              <div className="flex flex-wrap gap-x-5 gap-y-2 mb-8 text-sm text-muted-foreground justify-center lg:justify-start">
                 {[
                   { Icon: MapPin,    text: "Remote — Global" },
                   { Icon: Briefcase, text: "Freelance / Contract" },
@@ -427,7 +427,7 @@ export default function About() {
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap gap-3 mb-7">
+              <div className="flex flex-wrap gap-3 mb-7 justify-center lg:justify-start">
                 <Button asChild size="lg" className="rounded-full px-7 h-11 font-bold shadow-md shadow-primary/20">
                   <Link href="/contact">
                     Share Your Idea <ArrowRight className="ml-2 w-4 h-4" />
@@ -439,7 +439,7 @@ export default function About() {
               </div>
 
               {/* Socials */}
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 justify-center lg:justify-start">
                 {[
                   { href: "https://github.com/saifcraft-dev",    Icon: Github,   label: "GitHub"   },
                   { href: "https://www.linkedin.com/in/saifcraft-dev/", Icon: Linkedin, label: "LinkedIn" },
@@ -449,7 +449,7 @@ export default function About() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="w-9 h-9 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
+                    className="w-11 h-11 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -480,7 +480,7 @@ export default function About() {
                 </div>
                 <div className="text-center sm:text-left">
                   <p className="text-2xl sm:text-3xl font-display font-bold text-primary leading-none mb-0.5">{value}</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider font-semibold">{label}</p>
+                  <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{label}</p>
                 </div>
               </motion.div>
             ))}
@@ -492,17 +492,17 @@ export default function About() {
 
         {/* ── My Story ── */}
         <div>
-          <SectionHeading label="Background" title="My Story" />
+          <SectionHeading label="Background" title="Our Story" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                I'm a self-driven fullstack developer with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. I push back on bad assumptions before a single line of code is written.
+                We're a team of fullstack engineers with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. We've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. We push back on bad assumptions before a single line of code is written.
               </p>
               <p>
-                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
+                We specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and we build with these modern primitives from day one. Over the past 2+ years we've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets us deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
-                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you get me — directly — backed by a <strong className="text-foreground font-semibold">10–15 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
+                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a development partner they can trust, not just a ticket-taker. That's the role we fill. When you hire us, you work directly with Saif — backed by a <strong className="text-foreground font-semibold">10–15 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
               </p>
             </div>
 
@@ -525,7 +525,7 @@ export default function About() {
                   </li>
                 ))}
               </ul>
-              <Button asChild className="w-full rounded-xl h-10 font-semibold">
+              <Button asChild className="w-full rounded-xl h-11 font-semibold">
                 <Link href="/contact">
                   <Mail className="mr-2 h-4 w-4" /> Start a Project
                 </Link>
@@ -561,9 +561,9 @@ export default function About() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-foreground leading-tight truncate">{member.name}</p>
-                    <p className="text-[11px] text-primary font-semibold leading-tight mt-0.5">{member.role}</p>
+                    <p className="text-xs text-primary font-semibold leading-tight mt-0.5">{member.role}</p>
                     {member.isFounder && (
-                      <span className="inline-block text-[9px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-full mt-1">
+                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-full mt-1">
                         Founder
                       </span>
                     )}
@@ -576,7 +576,7 @@ export default function About() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-1.5">
                   {member.tags.map(tag => (
-                    <span key={tag} className="text-[10px] font-semibold bg-muted text-muted-foreground border border-border rounded-md px-2 py-0.5">
+                    <span key={tag} className="text-xs font-semibold bg-muted text-muted-foreground border border-border rounded-md px-2 py-0.5">
                       {tag}
                     </span>
                   ))}
@@ -597,7 +597,7 @@ export default function About() {
                 <Users className="w-5 h-5 text-primary" />
               </div>
               <p className="text-sm font-bold text-foreground">+8 more</p>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Additional specialists across mobile, data engineering, and security.
               </p>
             </motion.div>
@@ -707,7 +707,7 @@ export default function About() {
                 className="bg-card border border-border rounded-2xl p-5 sm:p-6"
               >
                 <div className="flex items-center gap-2 mb-5">
-                  <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${group.color} ${group.bg} border-current/20`}>
+                  <span className={`text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border ${group.color} ${group.bg} border-current/20`}>
                     {group.label}
                   </span>
                 </div>
@@ -760,10 +760,10 @@ export default function About() {
                 >
                   {/* Left: year + type */}
                   <div className="sm:w-[160px] shrink-0 flex sm:flex-col sm:items-end sm:pr-6 gap-2 sm:gap-1.5 sm:pt-1">
-                    <span className="inline-block bg-primary text-primary-foreground text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
+                    <span className="inline-block bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
                       {item.year}
                     </span>
-                    <span className="text-[11px] text-muted-foreground font-medium">{item.type}</span>
+                    <span className="text-xs text-muted-foreground font-medium">{item.type}</span>
                   </div>
 
                   {/* Dot — centered on the line */}
@@ -801,7 +801,7 @@ export default function About() {
           <SectionHeading
             label="Social Proof"
             title="What Clients Say"
-            subtitle="Real feedback from people I've worked with."
+            subtitle="Real feedback from people we've worked with."
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map((t, i) => (
@@ -822,7 +822,7 @@ export default function About() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-semibold text-foreground truncate">{t.name}</p>
-                    <p className="text-[11px] text-muted-foreground truncate">{t.role}</p>
+                    <p className="text-xs text-muted-foreground truncate">{t.role}</p>
                   </div>
                   <div className="ml-auto flex gap-0.5 flex-shrink-0">
                     {Array.from({ length: t.stars }).map((_, si) => (
