@@ -15,6 +15,7 @@ import {
   SiReact, SiNodedotjs, SiTypescript, SiPostgresql,
   SiTailwindcss, SiNextdotjs, SiOpenai,
   SiDocker, SiPrisma, SiSupabase, SiVercel, SiStripe,
+  SiRailway, SiExpress,
 } from "react-icons/si";
 
 const stats = [
@@ -63,20 +64,32 @@ const stackGroups = [
     bg: "bg-emerald-500/8",
     skills: [
       { icon: SiNodedotjs,  name: "Node.js",    color: "#68A063" },
+      { icon: SiExpress,    name: "Express / tRPC", color: "#404040" },
       { icon: SiPostgresql, name: "PostgreSQL",  color: "#336791" },
       { icon: SiPrisma,     name: "Prisma",      color: "#2D3748" },
       { icon: SiSupabase,   name: "Supabase",    color: "#3ECF8E" },
     ],
   },
   {
-    label: "AI & Cloud",
+    label: "AI / LLMs",
     color: "text-violet-500",
     bg: "bg-violet-500/8",
     skills: [
-      { icon: SiOpenai,   name: "AI / LLMs",  color: "#10A37F" },
-      { icon: SiDocker,   name: "Docker",      color: "#2496ED" },
-      { icon: SiVercel,   name: "Vercel",      color: "#000000" },
-      { icon: SiStripe,   name: "Stripe",      color: "#635BFF" },
+      { icon: SiOpenai,   name: "OpenAI",       color: "#10A37F" },
+      { icon: SiOpenai,   name: "Anthropic",    color: "#D97706" },
+      { icon: SiPostgresql, name: "RAG / pgvector", color: "#336791" },
+      { icon: SiNodedotjs,  name: "Agent Workflows", color: "#68A063" },
+    ],
+  },
+  {
+    label: "DevOps & Payments",
+    color: "text-orange-500",
+    bg: "bg-orange-500/8",
+    skills: [
+      { icon: SiVercel,    name: "Vercel",    color: "#000000" },
+      { icon: SiRailway,   name: "Railway",   color: "#0B0D0E" },
+      { icon: SiDocker,    name: "Docker",    color: "#2496ED" },
+      { icon: SiStripe,    name: "Stripe",    color: "#635BFF" },
     ],
   },
 ];
@@ -337,7 +350,7 @@ export default function About() {
                 {[
                   { Icon: MapPin,    text: "Remote — Global" },
                   { Icon: Briefcase, text: "Freelance / Contract" },
-                  { Icon: Users,     text: "10–50 Person Team" },
+                  { Icon: Users,     text: "10–15 Person Team" },
                   { Icon: Mail,      text: "contact@saifcraft.com" },
                 ].map(({ Icon, text }) => (
                   <span key={text} className="flex items-center gap-1.5">
@@ -423,7 +436,7 @@ export default function About() {
                 I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
-                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you get me — directly — backed by a <strong className="text-foreground font-semibold">10–50 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
+                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you get me — directly — backed by a <strong className="text-foreground font-semibold">10–15 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
               </p>
             </div>
 
@@ -681,6 +694,77 @@ export default function About() {
                     ))}
                   </div>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Unfair Advantages ── */}
+        <div>
+          <SectionHeading
+            label="Why Us"
+            title="Our Unfair Advantages"
+            subtitle="What sets SaifCraft apart from any other agency or freelancer you could hire."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Users,
+                title: "Public Builder Presence",
+                desc: "Active on GitHub, LinkedIn, and @saifcraft_dev on X — you can verify our work, track our builds in public, and see exactly how we operate before you hire us.",
+                color: "text-blue-500",
+                bg: "bg-blue-500/10",
+              },
+              {
+                icon: Award,
+                title: "29+ Warm Client Relationships",
+                desc: "A network of satisfied past clients who refer new work and act as design partners — not a cold sales funnel. Our reputation is our pipeline.",
+                color: "text-emerald-500",
+                bg: "bg-emerald-500/10",
+              },
+              {
+                icon: Zap,
+                title: "Lean Team, Low Overhead",
+                desc: "10–15 remote specialists means we can profitably serve niches too small for VC-backed competitors — while moving faster than any traditional agency.",
+                color: "text-violet-500",
+                bg: "bg-violet-500/10",
+              },
+              {
+                icon: Lightbulb,
+                title: "Insider Startup Knowledge",
+                desc: "48+ delivered projects across SaaS, internal tools, AI products, dashboards, and marketplaces gives us firsthand knowledge of what early-stage startups actually struggle with.",
+                color: "text-amber-500",
+                bg: "bg-amber-500/10",
+              },
+              {
+                icon: Clock,
+                title: "Ship MVPs in Weeks, Not Months",
+                desc: "We can ship a polished, well-tested MVP faster than 95% of early-stage startups — using AI-assisted workflows that cut delivery time by 40–60% without sacrificing quality.",
+                color: "text-rose-500",
+                bg: "bg-rose-500/10",
+              },
+              {
+                icon: Target,
+                title: "Parallel Workstreams",
+                desc: "Multiple engineers working simultaneously on frontend, backend, and AI layers — so your project never bottlenecks on a single developer's calendar.",
+                color: "text-primary",
+                bg: "bg-primary/10",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                className="bg-card border border-border rounded-2xl p-6 hover:border-primary/35 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group"
+              >
+                <div className={`w-11 h-11 rounded-xl ${item.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-5 h-5 ${item.color}`} />
+                </div>
+                <h3 className="text-sm sm:text-base font-display font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>

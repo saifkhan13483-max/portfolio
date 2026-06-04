@@ -20,7 +20,7 @@ LinkedIn: linkedin.com/in/saifcraft-dev  (href: https://www.linkedin.com/in/saif
 Twitter/X: @saifcraft_dev
 Response time: Within 24 hours — guaranteed
 Work type: Freelance / Contract / Fixed-scope preferred
-Team size: 10–50 person team (frontend, backend, AI/ML, QA, and design)
+Team size: 10–15 person team (frontend, backend, AI/ML, QA, and design)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  SITE-WIDE STATS (appear across pages)

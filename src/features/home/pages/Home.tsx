@@ -38,7 +38,7 @@ const skillCategories = [
     dot: "bg-emerald-500",
     skills: [
       { icon: SiNodedotjs, name: "Node.js", color: "#68A063", level: "Expert" },
-      { icon: SiGraphql, name: "GraphQL", color: "#E10098", level: "Advanced" },
+      { icon: SiGraphql, name: "tRPC / REST", color: "#E10098", level: "Expert" },
       { icon: SiPrisma, name: "Prisma", color: "#2D3748", level: "Advanced" },
       { icon: SiFirebase, name: "Firebase", color: "#FFCA28", level: "Advanced" },
     ],
@@ -409,7 +409,7 @@ export default function Home() {
                 {[
                   { label: "Based in", value: "Remote — Global" },
                   { label: "Response time", value: "< 24 hours" },
-                  { label: "Team size", value: "10–50 People" },
+                  { label: "Team size", value: "10–15 People" },
                   { label: "AI-ready", value: "Yes — LLMs & RAG" },
                 ].map((fact) => (
                   <div key={fact.label} className="bg-card border border-border rounded-xl px-3 py-2.5">
