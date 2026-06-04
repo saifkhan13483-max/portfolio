@@ -358,11 +358,20 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.65;
     letter-spacing: 0.3px;
+    overflow-x: clip;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   ::selection {

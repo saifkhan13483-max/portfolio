@@ -129,7 +129,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT: Content */}
-          <div className="flex flex-col items-start text-left">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             {/* Available badge */}
             <motion.div
               initial={{ opacity: 0, y: -12, scale: 0.92 }}
@@ -176,7 +176,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg"
+              className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg mx-auto sm:mx-0"
             >
               10–15 person fullstack team with{" "}
               <strong className="text-foreground font-semibold">7+ years of experience</strong>{" "}
@@ -190,7 +190,7 @@ export default function Hero() {
               variants={{
                 visible: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } },
               }}
-              className="flex flex-wrap gap-2 mb-5"
+              className="flex flex-wrap justify-center sm:justify-start gap-2 mb-5"
             >
               {highlights.map((h) => (
                 <motion.div
@@ -249,7 +249,7 @@ export default function Hero() {
               variants={{
                 visible: { transition: { staggerChildren: 0.08, delayChildren: 0.55 } },
               }}
-              className="flex flex-wrap items-center gap-1.5"
+              className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5"
             >
               <motion.span
                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}

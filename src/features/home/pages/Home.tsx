@@ -870,7 +870,7 @@ export default function Home() {
 
           <div className="relative">
             <div className="hidden lg:block absolute top-[2.6rem] left-[10%] right-[10%] h-px bg-border z-0" />
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-4 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-4 relative z-10">
               {[
                 { icon: Users, step: "01", title: "Discovery", desc: "We align on your problem, your users, and the single most important thing the MVP must do. Hard questions first, code later.", color: "text-blue-500", bg: "bg-blue-500/10" },
                 { icon: Shield, step: "02", title: "Scope & Contract", desc: "A precise fixed-scope document — every deliverable described, every exclusion named. You sign, pay the deposit, we start.", color: "text-emerald-500", bg: "bg-emerald-500/10" },
@@ -1058,7 +1058,7 @@ export default function Home() {
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">29+ clients</span> have trusted me with their products.{" "}
+              <span className="font-semibold text-foreground">29+ clients</span> have trusted us with their products.{" "}
               <Link href="/contact" className="text-primary hover:underline font-medium">
                 Become the next.
               </Link>
@@ -1083,14 +1083,14 @@ export default function Home() {
             <div>
               <div className="inline-flex items-center gap-2 bg-primary/8 border border-primary/15 rounded-full px-4 py-1.5 mb-4">
                 <ExternalLink className="w-3.5 h-3.5 text-primary" />
-                <p className="text-primary text-xs font-bold uppercase tracking-wider">Find Me Online</p>
+                <p className="text-primary text-xs font-bold uppercase tracking-wider">Find Us Online</p>
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-foreground">
-                Where to Hire or Follow Me
+                Where to Find & Work With Us
               </h2>
             </div>
             <p className="text-sm text-muted-foreground sm:text-right sm:max-w-xs leading-relaxed shrink-0">
-              Prefer a platform with built-in protection, or a direct hire? I'm reachable on all major channels.
+              Prefer a platform with built-in protection, or a direct hire? We're reachable on all major channels.
             </p>
           </motion.div>
 
@@ -1184,13 +1184,13 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">Prefer to skip the platforms?</p>
-                <p className="text-xs text-muted-foreground">You can reach me directly — I reply within 24 hours.</p>
+                <p className="text-xs text-muted-foreground">You can reach us directly — we reply within 24 hours.</p>
               </div>
             </div>
             <Button className="rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-5 shrink-0 group" asChild>
               <Link href="/contact">
                 <span className="flex items-center gap-2">
-                  Contact Me Directly
+                  Contact Us Directly
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
