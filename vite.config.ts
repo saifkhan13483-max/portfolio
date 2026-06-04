@@ -159,13 +159,17 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     assetsDir: "assets",
-    chunkSizeWarningLimit: 2000,
+    target: "esnext",
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
         manualChunks: {
           "vendor-react": ["react", "react-dom"],
           "vendor-motion": ["framer-motion"],
-          "vendor-firebase": ["firebase/app", "firebase/auth", "firebase/firestore"],
+          "vendor-firebase-app": ["firebase/app"],
+          "vendor-firebase-auth": ["firebase/auth"],
+          "vendor-firebase-firestore": ["firebase/firestore"],
           "vendor-ui": ["@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-tooltip"],
           "vendor-icons": ["lucide-react", "react-icons"],
           "vendor-query": ["@tanstack/react-query"],

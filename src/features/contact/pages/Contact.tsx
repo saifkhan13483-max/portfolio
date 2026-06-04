@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { useCreateOrder } from "@/hooks/use-orders";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Loader2, Mail, Github, Linkedin, Twitter, Clock,
   ArrowRight, CheckCircle2, Send, MessageSquare,
@@ -147,7 +147,7 @@ export default function Contact() {
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
 
           {/* Availability badge */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
@@ -158,13 +158,13 @@ export default function Contact() {
               Available for new projects
             </div>
             <div className="h-px flex-1 max-w-[60px] bg-border hidden sm:block" />
-          </motion.div>
+          </m.div>
 
           {/* Hero grid: headline left, stats right */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end pb-10 sm:pb-14 lg:pb-20">
 
             {/* Headline */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
@@ -177,10 +177,10 @@ export default function Contact() {
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md">
                 Tell us what you want to build. Our team will analyse your idea — if we can convert it into reality, a team member will contact you directly.
               </p>
-            </motion.div>
+            </m.div>
 
             {/* Stats grid */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
@@ -195,7 +195,7 @@ export default function Contact() {
                   <span className="text-xs text-muted-foreground font-medium">{label}</span>
                 </div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -211,7 +211,7 @@ export default function Contact() {
           <div className="order-2 lg:order-1 space-y-4">
 
             {/* Contact info */}
-            <motion.div
+            <m.div
               variants={fadeUp} initial="hidden" animate="show" custom={0}
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
@@ -261,10 +261,10 @@ export default function Contact() {
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Process */}
-            <motion.div
+            <m.div
               variants={fadeUp} initial="hidden" animate="show" custom={1}
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
@@ -292,10 +292,10 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Brief tips */}
-            <motion.div
+            <m.div
               variants={fadeUp} initial="hidden" animate="show" custom={2}
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
@@ -319,12 +319,12 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
 
           {/* ── Form — shown first on mobile ── */}
-          <motion.div
+          <m.div
             variants={fadeUp} initial="hidden" animate="show" custom={0.5}
             className="order-1 lg:order-2"
           >
@@ -527,7 +527,7 @@ export default function Contact() {
                 </Form>
               </div>
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
       </section>

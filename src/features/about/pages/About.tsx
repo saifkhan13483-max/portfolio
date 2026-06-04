@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
@@ -218,7 +218,7 @@ const fadeUp = {
 
 function SectionHeading({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -230,7 +230,7 @@ function SectionHeading({ label, title, subtitle }: { label: string; title: stri
       </span>
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-display font-bold text-foreground mb-3">{title}</h2>
       {subtitle && <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">{subtitle}</p>}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -335,7 +335,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 lg:gap-16 items-center pb-16 sm:pb-20">
 
             {/* ── Left: Photo ── */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -372,10 +372,10 @@ export default function About() {
                 <p className="text-lg font-black leading-none">7+</p>
                 <p className="text-xs font-semibold uppercase tracking-wide opacity-90 leading-none mt-0.5">Years</p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* ── Right: Text ── */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
@@ -455,7 +455,7 @@ export default function About() {
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
         </div>
@@ -466,7 +466,7 @@ export default function About() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-border">
             {stats.map(({ icon: Icon, value, label }, i) => (
-              <motion.div
+              <m.div
                 key={label}
                 custom={i}
                 initial="hidden"
@@ -482,7 +482,7 @@ export default function About() {
                   <p className="text-2xl sm:text-3xl font-display font-bold text-primary leading-none mb-0.5">{value}</p>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">{label}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -543,7 +543,7 @@ export default function About() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {teamMembers.map((member, i) => (
-              <motion.div
+              <m.div
                 key={member.name}
                 custom={i}
                 initial="hidden"
@@ -581,11 +581,11 @@ export default function About() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
 
             {/* +More card */}
-            <motion.div
+            <m.div
               custom={teamMembers.length}
               initial="hidden"
               whileInView="show"
@@ -600,7 +600,7 @@ export default function About() {
               <p className="text-xs text-muted-foreground leading-relaxed">
                 Additional specialists across mobile, data engineering, and security.
               </p>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -627,7 +627,7 @@ export default function About() {
                     <span className="text-xs font-bold text-muted-foreground">{item.pct}%</span>
                   </div>
                   <div className="h-2 bg-muted rounded-full overflow-hidden">
-                    <motion.div
+                    <m.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${item.pct}%` }}
                       viewport={{ once: true }}
@@ -662,7 +662,7 @@ export default function About() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {pillars.map((p, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 custom={i}
                 initial="hidden"
@@ -684,7 +684,7 @@ export default function About() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -698,7 +698,7 @@ export default function About() {
           />
           <div className="space-y-6">
             {stackGroups.map((group, gi) => (
-              <motion.div
+              <m.div
                 key={group.label}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -713,7 +713,7 @@ export default function About() {
                 </div>
                 <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-4 gap-4">
                   {group.skills.map((s, i) => (
-                    <motion.div
+                    <m.div
                       key={s.name}
                       custom={i}
                       initial="hidden"
@@ -731,10 +731,10 @@ export default function About() {
                         }} className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <span className="text-xs font-semibold text-foreground hidden sm:block">{s.name}</span>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -749,7 +749,7 @@ export default function About() {
 
             <div className="space-y-8 sm:space-y-10">
               {timeline.map((item, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   custom={i}
                   initial="hidden"
@@ -790,7 +790,7 @@ export default function About() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -805,7 +805,7 @@ export default function About() {
           />
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
             {testimonials.map((t, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 custom={i}
                 initial="hidden"
@@ -830,7 +830,7 @@ export default function About() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -887,7 +887,7 @@ export default function About() {
                 bg: "bg-primary/10",
               },
             ].map((item, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 custom={i}
                 initial="hidden"
@@ -901,13 +901,13 @@ export default function About() {
                 </div>
                 <h3 className="text-sm sm:text-base font-display font-bold text-foreground mb-2">{item.title}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
 
         {/* ── CTA ── */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -945,7 +945,7 @@ export default function About() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
       </div>
     </div>

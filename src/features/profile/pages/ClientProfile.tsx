@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { updatePageSEO } from "@/lib/seo";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/context/AuthContext";
 import { useOrders } from "@/hooks/use-orders";
 import { signOut } from "@/lib/firebase/auth";
@@ -96,7 +96,7 @@ function OrderCard({ order, index }: { order: Order; index: number }) {
     : "—";
 
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       initial="hidden"
       animate="show"
@@ -156,7 +156,7 @@ function OrderCard({ order, index }: { order: Order; index: number }) {
           </span>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -276,7 +276,7 @@ export default function ClientProfile() {
         </div>
 
         <div className="container mx-auto px-4 max-w-5xl">
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -308,7 +308,7 @@ export default function ClientProfile() {
               <div className="flex flex-col sm:flex-row items-center sm:items-center gap-2 mb-2">
                 <AnimatePresence mode="wait">
                   {editingName ? (
-                    <motion.div
+                    <m.div
                       key="edit"
                       initial={{ opacity: 0, scale: 0.97 }}
                       animate={{ opacity: 1, scale: 1 }}
@@ -342,9 +342,9 @@ export default function ClientProfile() {
                       >
                         <X className="w-4 h-4" />
                       </Button>
-                    </motion.div>
+                    </m.div>
                   ) : (
-                    <motion.div
+                    <m.div
                       key="view"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -366,7 +366,7 @@ export default function ClientProfile() {
                       >
                         <Edit3 className="w-3.5 h-3.5" />
                       </Button>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>
@@ -425,7 +425,7 @@ export default function ClientProfile() {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -433,7 +433,7 @@ export default function ClientProfile() {
       <section className="container mx-auto px-4 max-w-5xl pb-24 space-y-10">
 
         {/* ── Stats ── */}
-        <motion.div
+        <m.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
@@ -441,7 +441,7 @@ export default function ClientProfile() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-4"
         >
           {statCards.map(({ label, value, icon: Icon, color, bg }, i) => (
-            <motion.div
+            <m.div
               key={label}
               variants={fadeUp}
               initial="hidden"
@@ -457,13 +457,13 @@ export default function ClientProfile() {
                 <p className={`text-2xl font-display font-bold ${color}`}>{value}</p>
                 <p className="text-xs text-muted-foreground font-medium mt-0.5">{label}</p>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* ── Orders Section ── */}
         <div>
-          <motion.div
+          <m.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
@@ -485,14 +485,14 @@ export default function ClientProfile() {
                 New Inquiry
               </Link>
             </Button>
-          </motion.div>
+          </m.div>
 
           {ordersLoading ? (
             <div className="flex items-center justify-center py-16">
               <Loader2 className="w-6 h-6 animate-spin text-primary" />
             </div>
           ) : myOrders.length === 0 ? (
-            <motion.div
+            <m.div
               variants={fadeUp}
               initial="hidden"
               animate="show"
@@ -513,7 +513,7 @@ export default function ClientProfile() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-            </motion.div>
+            </m.div>
           ) : (
             <div className="space-y-4">
               {myOrders
@@ -529,7 +529,7 @@ export default function ClientProfile() {
         <Separator />
 
         {/* ── Quick Links ── */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={5}>
+        <m.div variants={fadeUp} initial="hidden" animate="show" custom={5}>
           <h2 className="text-xl font-display font-bold text-foreground mb-5">Explore SaifCraft</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
@@ -555,7 +555,7 @@ export default function ClientProfile() {
                 color: "bg-secondary/20 text-secondary",
               },
             ].map(({ href, icon: Icon, title, desc, color }, i) => (
-              <motion.div
+              <m.div
                 key={href}
                 variants={fadeUp}
                 initial="hidden"
@@ -573,13 +573,13 @@ export default function ClientProfile() {
                   <p className="text-sm font-bold text-foreground mb-1 group-hover:text-primary transition-colors">{title}</p>
                   <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* ── Account Info ── */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6}>
+        <m.div variants={fadeUp} initial="hidden" animate="show" custom={6}>
           <h2 className="text-xl font-display font-bold text-foreground mb-5">Account Details</h2>
           <div className="bg-card border border-border rounded-2xl divide-y divide-border">
             {[
@@ -628,10 +628,10 @@ export default function ClientProfile() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* ── Danger Zone ── */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={7}>
+        <m.div variants={fadeUp} initial="hidden" animate="show" custom={7}>
           <div className="bg-destructive/5 border border-destructive/20 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-sm font-bold text-foreground">Sign Out</h3>
@@ -647,7 +647,7 @@ export default function ClientProfile() {
               Sign Out
             </Button>
           </div>
-        </motion.div>
+        </m.div>
 
       </section>
     </div>

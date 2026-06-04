@@ -1,0 +1,1 @@
+- [LazyMotion migration](lazymotion-migration.md) — use `m` + LazyMotion wrapper instead of `motion`; strict mode catches regressions at dev time.

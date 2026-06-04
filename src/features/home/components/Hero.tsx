@@ -1,4 +1,4 @@
-import { motion, animate } from "framer-motion";
+import { m, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -84,7 +84,7 @@ function TypewriterCode() {
   return (
     <div className="px-4 py-4 font-mono text-[11px] leading-5 space-y-0.5 min-h-[130px]">
       {codeLines.map((line, li) => (
-        <motion.p
+        <m.p
           key={li}
           initial={{ opacity: 0, x: -6 }}
           animate={li < visibleLines ? { opacity: 1, x: 0 } : { opacity: 0, x: -6 }}
@@ -95,13 +95,13 @@ function TypewriterCode() {
             <span key={pi} className={part.c || "text-foreground/80"}>{part.t}</span>
           ))}
           {cursorLine === li && (
-            <motion.span
+            <m.span
               animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 0.8, repeat: Infinity }}
               className="inline-block w-[2px] h-[12px] bg-primary ml-0.5 align-middle"
             />
           )}
-        </motion.p>
+        </m.p>
       ))}
     </div>
   );
@@ -131,7 +131,7 @@ export default function Hero() {
           {/* LEFT: Content */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             {/* Available badge */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -12, scale: 0.92 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
@@ -144,10 +144,10 @@ export default function Hero() {
               <span className="text-[11px] font-semibold text-primary tracking-widest uppercase">
                 Available for New Projects
               </span>
-            </motion.div>
+            </m.div>
 
             {/* Headline with word-by-word reveal */}
-            <motion.h1
+            <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -161,7 +161,7 @@ export default function Hero() {
               web apps that{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">deliver results.</span>
-                <motion.span
+                <m.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
@@ -169,10 +169,10 @@ export default function Hero() {
                   className="absolute bottom-1 left-0 w-full h-2.5 bg-primary/12 -skew-x-2 rounded"
                 />
               </span>
-            </motion.h1>
+            </m.h1>
 
             {/* Description */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2 }}
@@ -181,10 +181,10 @@ export default function Hero() {
               10–15 person fullstack team with{" "}
               <strong className="text-foreground font-semibold">7+ years of experience</strong>{" "}
               helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget.
-            </motion.p>
+            </m.p>
 
             {/* Highlights — staggered */}
-            <motion.div
+            <m.div
               initial="hidden"
               animate="visible"
               variants={{
@@ -193,7 +193,7 @@ export default function Hero() {
               className="flex flex-wrap justify-center sm:justify-start gap-2 mb-5"
             >
               {highlights.map((h) => (
-                <motion.div
+                <m.div
                   key={h.text}
                   variants={{
                     hidden: { opacity: 0, y: 10, scale: 0.9 },
@@ -205,18 +205,18 @@ export default function Hero() {
                 >
                   <h.icon className="w-3 h-3 text-primary" />
                   {h.text}
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
 
             {/* CTA Buttons */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.42 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 mb-6 w-full sm:w-auto"
             >
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <m.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="lg"
                   className="h-11 px-7 text-sm rounded-full group btn-cta border-0 shadow-md shadow-primary/20 w-full"
@@ -229,8 +229,8 @@ export default function Hero() {
                     </span>
                   </Link>
                 </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              </m.div>
+              <m.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="lg"
                   variant="outline"
@@ -239,11 +239,11 @@ export default function Hero() {
                 >
                   <Link href="/portfolio">View Our Work</Link>
                 </Button>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
 
             {/* Tech Stack — staggered badges */}
-            <motion.div
+            <m.div
               initial="hidden"
               animate="visible"
               variants={{
@@ -251,14 +251,14 @@ export default function Hero() {
               }}
               className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5"
             >
-              <motion.span
+              <m.span
                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
                 className="text-[10px] text-muted-foreground/60 font-semibold uppercase tracking-widest mr-1"
               >
                 Stack:
-              </motion.span>
+              </m.span>
               {techBadges.map((tech) => (
-                <motion.span
+                <m.span
                   key={tech}
                   variants={{
                     hidden: { opacity: 0, scale: 0.8, y: 6 },
@@ -269,15 +269,15 @@ export default function Hero() {
                   className="text-[11px] font-mono bg-primary/8 text-primary/80 border border-primary/15 rounded-md px-2 py-0.5 cursor-default"
                 >
                   {tech}
-                </motion.span>
+                </m.span>
               ))}
-            </motion.div>
+            </m.div>
           </div>
 
           {/* RIGHT: Visual Panel — scattered absolute layout */}
           <div className="relative hidden lg:block h-[460px]">
             {/* Main code card — top-left */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.65, delay: 0.25, type: "spring", stiffness: 120 }}
@@ -293,10 +293,10 @@ export default function Hero() {
                 <span className="text-xs text-muted-foreground font-mono">project.tsx</span>
               </div>
               <TypewriterCode />
-            </motion.div>
+            </m.div>
 
             {/* Star rating badge — top-right */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, scale: 0.75 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 160 }}
@@ -305,22 +305,22 @@ export default function Hero() {
             >
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.6 + i * 0.08, type: "spring", stiffness: 200 }}
                   >
                     <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
               <span className="text-xs font-semibold text-foreground">5.0</span>
               <span className="text-xs text-muted-foreground">· 29+ clients</span>
-            </motion.div>
+            </m.div>
 
             {/* Web Applications — mid-right */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 24, scale: 0.9 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5, type: "spring", stiffness: 130 }}
@@ -337,10 +337,10 @@ export default function Hero() {
                   <div className="text-[11px] text-muted-foreground">Full-stack, production-ready</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Clean Architecture — bottom-left */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -24, scale: 0.9 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.65, type: "spring", stiffness: 130 }}
@@ -358,10 +358,10 @@ export default function Hero() {
                   <div className="text-[11px] text-muted-foreground">Scalable & maintainable</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Modern Stack — bottom-right */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8, type: "spring", stiffness: 130 }}
@@ -379,19 +379,19 @@ export default function Hero() {
                   <div className="text-[11px] text-muted-foreground">React, Node, TypeScript</div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
         {/* Stats bar with animated counters */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.55 }}
           className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
         >
           {stats.map((stat, i) => (
-            <motion.div
+            <m.div
               key={i}
               whileHover={{ y: -4 }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -401,12 +401,12 @@ export default function Hero() {
               <div className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold">
                 {stat.label}
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Industry Trust Strip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1.1 }}
@@ -426,7 +426,7 @@ export default function Hero() {
               <span className="text-[10px] text-muted-foreground/70">{item.label}</span>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

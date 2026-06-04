@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import {
   ChevronDown, ArrowRight, Search, Users, CreditCard,
   FileText, Zap, ShieldCheck, MessageCircle,
@@ -196,7 +196,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -206,7 +206,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
             <div className="px-5 sm:px-6 pb-5 pt-3 text-muted-foreground text-sm sm:text-base leading-relaxed border-t border-border/60 bg-primary/2">
               {a}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>
@@ -287,7 +287,7 @@ export default function FAQ() {
         </div>
 
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -327,7 +327,7 @@ export default function FAQ() {
                 </button>
               )}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -382,7 +382,7 @@ export default function FAQ() {
 
         {/* Search result count */}
         {search && (
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-sm text-muted-foreground mb-6"
@@ -390,12 +390,12 @@ export default function FAQ() {
             {totalResults === 0
               ? "No results found. Try a different keyword."
               : `${totalResults} result${totalResults !== 1 ? "s" : ""} for "${search}"`}
-          </motion.p>
+          </m.p>
         )}
 
         <AnimatePresence mode="wait">
           {filtered.length === 0 ? (
-            <motion.div
+            <m.div
               key="empty"
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -410,9 +410,9 @@ export default function FAQ() {
               >
                 Clear filters
               </button>
-            </motion.div>
+            </m.div>
           ) : (
-            <motion.div
+            <m.div
               key={activeCategory + search}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -440,7 +440,7 @@ export default function FAQ() {
                       {section.items.map((item, ii) => {
                         const key = `${si}-${ii}`;
                         return (
-                          <motion.div
+                          <m.div
                             key={ii}
                             initial={{ opacity: 0, y: 12 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -453,19 +453,19 @@ export default function FAQ() {
                               isOpen={!!openItems[key]}
                               onToggle={() => toggleItem(key)}
                             />
-                          </motion.div>
+                          </m.div>
                         );
                       })}
                     </div>
                   </div>
                 );
               })}
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
 
         {/* ── CTA Banner ── */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -507,7 +507,7 @@ export default function FAQ() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
       </div>
     </div>

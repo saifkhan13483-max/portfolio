@@ -1,6 +1,6 @@
 import { useRoute, Link } from "wouter";
 import { useProject } from "@/hooks/use-projects";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
   ArrowLeft, ExternalLink, Github, Calendar, Tag,
@@ -116,7 +116,7 @@ export default function ProjectDetail() {
         <div className="relative w-full flex flex-col min-h-[320px] sm:min-h-[420px] lg:min-h-[500px]">
 
           {/* Background image — absolute fill */}
-          <motion.div
+          <m.div
             initial={{ scale: 1.07 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2, ease: "easeOut" }}
@@ -127,7 +127,7 @@ export default function ProjectDetail() {
               alt={project.title}
               className="w-full h-full object-cover"
             />
-          </motion.div>
+          </m.div>
 
           {/* Layered overlays */}
           <div className="absolute inset-0 bg-[#08091a]/50" />
@@ -139,7 +139,7 @@ export default function ProjectDetail() {
           <div className="relative z-10 px-4 sm:px-8 lg:px-14 xl:px-20 pt-5 sm:pt-6 pb-8 sm:pb-11 lg:pb-13 max-w-7xl mx-auto w-full">
 
             {/* Breadcrumb */}
-            <motion.div {...fadeIn(0.05)} className="mb-5 sm:mb-7">
+            <m.div {...fadeIn(0.05)} className="mb-5 sm:mb-7">
               <Link href="/portfolio">
                 <button
                   className="inline-flex items-center gap-1.5 text-white/40 hover:text-white/75 transition-colors text-xs font-medium group"
@@ -151,10 +151,10 @@ export default function ProjectDetail() {
                   <span className="text-white/50 truncate max-w-[140px] sm:max-w-xs">{project.title}</span>
                 </button>
               </Link>
-            </motion.div>
+            </m.div>
 
               {/* Status badges row */}
-              <motion.div {...fadeUp(0.12)} className="flex flex-wrap gap-2 mb-3 sm:mb-4">
+              <m.div {...fadeUp(0.12)} className="flex flex-wrap gap-2 mb-3 sm:mb-4">
                 <HeroBadge color="primary">{project.category}</HeroBadge>
                 {project.featured && (
                   <HeroBadge color="amber">
@@ -166,27 +166,27 @@ export default function ProjectDetail() {
                     ? <><CheckCircle2 className="w-2.5 h-2.5 mr-1" /> Completed</>
                     : <><Clock className="w-2.5 h-2.5 mr-1" /> In Progress</>}
                 </HeroBadge>
-              </motion.div>
+              </m.div>
 
               {/* Title */}
-              <motion.h1
+              <m.h1
                 {...fadeUp(0.2)}
                 className="font-display font-bold text-white leading-[1.05] tracking-tight mb-3 sm:mb-4"
                 style={{ fontSize: "clamp(1.6rem, 5vw, 3.5rem)" }}
               >
                 {project.title}
-              </motion.h1>
+              </m.h1>
 
               {/* Short desc — hide on tiny screens to save space */}
-              <motion.p
+              <m.p
                 {...fadeUp(0.28)}
                 className="hidden sm:block text-sm sm:text-base lg:text-lg text-white/50 leading-relaxed max-w-2xl mb-6 sm:mb-7"
               >
                 {project.description}
-              </motion.p>
+              </m.p>
 
               {/* CTA row */}
-              <motion.div {...fadeUp(0.35)} className="flex flex-wrap gap-2.5 sm:gap-3">
+              <m.div {...fadeUp(0.35)} className="flex flex-wrap gap-2.5 sm:gap-3">
                 {project.projectUrl && (
                   <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" data-testid="button-live-demo">
                     <Button
@@ -209,7 +209,7 @@ export default function ProjectDetail() {
                     </Button>
                   </a>
                 )}
-              </motion.div>
+              </m.div>
           </div>
         </div>
       </section>
@@ -235,14 +235,14 @@ export default function ProjectDetail() {
             <Box className="h-4 w-4 text-primary" />
             <span>Project Details</span>
           </div>
-          <motion.div animate={{ rotate: mobileMetaOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
+          <m.div animate={{ rotate: mobileMetaOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
             <ChevronDown className="h-4 w-4 text-muted-foreground" />
-          </motion.div>
+          </m.div>
         </button>
 
         <AnimatePresence>
           {mobileMetaOpen && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -287,7 +287,7 @@ export default function ProjectDetail() {
                   </div>
                 )}
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
       </div>
@@ -305,7 +305,7 @@ export default function ProjectDetail() {
             <ContentSection title="About the Project" icon={<Code2 className="h-4 w-4 text-primary" />}>
               <div className="space-y-4">
                 {paragraphs.map((para, i) => (
-                  <motion.p
+                  <m.p
                     key={i}
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export default function ProjectDetail() {
                     className="text-sm sm:text-base text-muted-foreground leading-[2]"
                   >
                     {para}
-                  </motion.p>
+                  </m.p>
                 ))}
               </div>
             </ContentSection>
@@ -324,7 +324,7 @@ export default function ProjectDetail() {
               <ContentSection title="Technologies Used" icon={<Layers className="h-4 w-4 text-primary" />}>
                 <div className="flex flex-wrap gap-2 sm:gap-2.5">
                   {project.technologies.map((tech, i) => (
-                    <motion.div
+                    <m.div
                       key={tech}
                       initial={{ opacity: 0, scale: 0.8, y: 6 }}
                       whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -333,14 +333,14 @@ export default function ProjectDetail() {
                       data-testid={`tech-chip-${i}`}
                     >
                       <TechChip label={tech} />
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               </ContentSection>
             )}
 
             {/* CTA Banner */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -388,13 +388,13 @@ export default function ProjectDetail() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
 
           </main>
 
           {/* ── SIDEBAR (desktop only) ─────────────────────── */}
           <aside className="hidden lg:block w-[268px] xl:w-[290px] shrink-0">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55, delay: 0.2, ease }}
@@ -464,7 +464,7 @@ export default function ProjectDetail() {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </m.div>
           </aside>
 
         </div>
@@ -520,7 +520,7 @@ function SidebarRow({ icon, label, value, suffix }: { icon: React.ReactNode; lab
 
 function ContentSection({ title, icon, children }: { title: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -534,7 +534,7 @@ function ContentSection({ title, icon, children }: { title: string; icon: React.
         <h2 className="text-base sm:text-lg lg:text-xl font-display font-bold text-foreground tracking-tight">{title}</h2>
       </div>
       {children}
-    </motion.section>
+    </m.section>
   );
 }
 

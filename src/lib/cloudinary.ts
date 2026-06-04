@@ -4,6 +4,12 @@ interface CloudinaryUploadResult {
   format: string;
 }
 
+export function optimizeCloudinaryUrl(url: string): string {
+  if (!url?.includes("res.cloudinary.com")) return url;
+  if (url.includes("/upload/f_auto")) return url;
+  return url.replace("/upload/", "/upload/f_auto,q_auto,w_auto/");
+}
+
 export const uploadToCloudinary = async (file: File): Promise<string> => {
   const formData = new FormData();
   formData.append('file', file);

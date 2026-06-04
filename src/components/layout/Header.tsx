@@ -7,7 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/context/AuthContext";
 import { signInWithGoogle, signOut } from "@/lib/firebase/auth";
 import { useToast } from "@/hooks/use-toast";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import { 
   DropdownMenu, 
@@ -109,7 +109,7 @@ export default function Header() {
               >
                 {item.label}
                 {location === item.href && (
-                  <motion.div
+                  <m.div
                     layoutId="header-underline"
                     className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary rounded-full"
                   />

@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { ArrowRight, Briefcase } from "lucide-react";
 
@@ -80,13 +80,13 @@ export default function ProjectsGallery() {
         {/* Project grid */}
         {filteredProjects.length > 0 ? (
           <>
-            <motion.div
+            <m.div
               layout
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-8"
             >
               <AnimatePresence mode="popLayout">
                 {filteredProjects.map((project) => (
-                  <motion.div
+                  <m.div
                     key={project.id}
                     layout
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -95,10 +95,10 @@ export default function ProjectsGallery() {
                     transition={{ duration: 0.3 }}
                   >
                     <ProjectCard project={project} />
-                  </motion.div>
+                  </m.div>
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
 
             <div className="text-center mt-8 sm:mt-12">
               <Button

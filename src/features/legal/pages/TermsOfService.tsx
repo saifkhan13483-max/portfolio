@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useEffect } from "react";
 import { ScrollText, ArrowLeft, Home } from "lucide-react";
 import { Link } from "wouter";
@@ -128,7 +128,7 @@ export default function TermsOfService() {
 
         <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
           {/* Breadcrumb */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
@@ -143,9 +143,9 @@ export default function TermsOfService() {
             </Link>
             <span className="text-border text-xs">/</span>
             <span className="text-xs sm:text-sm text-foreground font-medium">Terms of Service</span>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -166,7 +166,7 @@ export default function TermsOfService() {
             </p>
 
             <p className="mt-3 sm:mt-4 text-xs text-muted-foreground/70">Last updated: May 2026</p>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -174,7 +174,7 @@ export default function TermsOfService() {
       <section className="container mx-auto px-4 sm:px-6 max-w-3xl pb-14 sm:pb-20 lg:pb-28">
         <div className="space-y-8 sm:space-y-10">
           {sections.map(({ title, body }, i) => (
-            <motion.div
+            <m.div
               key={title}
               variants={fadeUp}
               initial="hidden"
@@ -195,12 +195,12 @@ export default function TermsOfService() {
                   </p>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 
         {/* Bottom navigation */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -218,7 +218,7 @@ export default function TermsOfService() {
               ← Privacy Policy
             </span>
           </Link>
-        </motion.div>
+        </m.div>
       </section>
 
     </div>

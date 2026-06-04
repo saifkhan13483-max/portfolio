@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useServices } from "@/hooks/use-services";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import {
@@ -133,7 +133,7 @@ const fadeUp = {
 
 function SectionHeading({ label, title, subtitle }: { label: string; title: string; subtitle?: string }) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -146,7 +146,7 @@ function SectionHeading({ label, title, subtitle }: { label: string; title: stri
       </div>
       <h2 className="text-xl sm:text-2xl lg:text-[1.85rem] font-display font-bold text-foreground tracking-tight mb-3 leading-tight">{title}</h2>
       {subtitle && <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">{subtitle}</p>}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -209,7 +209,7 @@ export default function Services() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -229,7 +229,7 @@ export default function Services() {
             <Button asChild className="h-11 px-6 text-sm font-semibold rounded-full shadow-md shadow-primary/15 border-0 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5">
               <Link href="/contact">Start a Project <ArrowRight className="ml-2 w-3.5 h-3.5" /></Link>
             </Button>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Outcomes strip */}
@@ -241,7 +241,7 @@ export default function Services() {
               </p>
               <div className="grid grid-cols-2 sm:inline-grid sm:grid-cols-4 gap-3 sm:gap-0 sm:divide-x sm:divide-border">
                 {outcomes.map(({ icon: Icon, stat, label, color }, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -256,7 +256,7 @@ export default function Services() {
                       <p className={`text-sm font-black leading-none mb-0.5 ${color}`}>{stat}</p>
                       <p className="text-xs text-muted-foreground leading-tight">{label}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function Services() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {useFirestoreServices
               ? activeFirestoreServices.map((svc, idx) => (
-                  <motion.div
+                  <m.div
                     key={svc.id} custom={idx}
                     initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                     className="relative rounded-xl border border-border bg-card flex flex-col hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/8 transition-all duration-200"
@@ -320,10 +320,10 @@ export default function Services() {
                         )}
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))
               : packages.map((pkg, idx) => (
-                  <motion.div
+                  <m.div
                     key={pkg.id} custom={idx}
                     initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                     className={`relative rounded-xl border flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${
@@ -381,12 +381,12 @@ export default function Services() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))
             }
 
             {/* Custom CTA card */}
-            <motion.div
+            <m.div
               custom={useFirestoreServices ? activeFirestoreServices.length : packages.length}
               initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
               className="rounded-xl border border-dashed border-primary/25 bg-primary/[0.02] flex flex-col items-center justify-center p-6 sm:p-8 text-center gap-4 min-h-[200px]"
@@ -401,7 +401,7 @@ export default function Services() {
               <Button size="sm" className="rounded-lg px-4 h-9 text-xs font-semibold shadow-sm shadow-primary/20 border-0" asChild>
                 <Link href="/contact">Get a Custom Quote <ChevronRight className="ml-1 w-3 h-3" /></Link>
               </Button>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -417,7 +417,7 @@ export default function Services() {
             <div className="hidden lg:block absolute top-[22px] left-6 right-6 h-px bg-border z-0" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative z-10">
               {steps.map((step, i) => (
-                <motion.div
+                <m.div
                   key={i} custom={i}
                   initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                   className="flex flex-row lg:flex-col items-start gap-4 lg:gap-0"
@@ -429,7 +429,7 @@ export default function Services() {
                     <h3 className="text-sm font-bold text-foreground mb-1">{step.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -445,7 +445,7 @@ export default function Services() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-4">
             {paymentStructure.map((row, i) => (
-              <motion.div
+              <m.div
                 key={i} custom={i}
                 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                 className="bg-card border border-border rounded-xl p-4 sm:p-5 flex items-center gap-4 hover:border-primary/25 transition-colors"
@@ -455,7 +455,7 @@ export default function Services() {
                   <p className="text-xs font-bold text-foreground mb-0.5">{row.size}</p>
                   <p className="text-xs text-muted-foreground">{row.structure}</p>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
@@ -514,7 +514,7 @@ export default function Services() {
           {/* Mobile cards */}
           <div className="sm:hidden space-y-3">
             {pricingTable.map((row, i) => (
-              <motion.div
+              <m.div
                 key={i} custom={i}
                 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                 className={`rounded-xl border p-4 ${row.highlight ? "border-primary/40 bg-primary/[0.04]" : "border-border bg-card"}`}
@@ -538,7 +538,7 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -554,7 +554,7 @@ export default function Services() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
             {/* Comparison */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 className="bg-card border border-border rounded-xl p-5"
               >
@@ -575,9 +575,9 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
 
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: 0.08 }}
                 className="bg-primary/[0.03] border border-primary/25 rounded-xl p-5"
@@ -599,11 +599,11 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </m.div>
             </div>
 
             {/* Quote + stats */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ delay: 0.12 }}
               className="flex flex-col gap-4"
@@ -626,7 +626,7 @@ export default function Services() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         </div>
 
@@ -639,7 +639,7 @@ export default function Services() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {pricingRules.map(({ icon: Icon, text }, i) => (
-              <motion.div
+              <m.div
                 key={i} custom={i}
                 initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
                 className="bg-card border border-border rounded-xl p-4 sm:p-5 flex items-start gap-3.5 hover:border-primary/25 hover:bg-primary/[0.02] transition-all duration-200"
@@ -648,13 +648,13 @@ export default function Services() {
                   <Icon className="w-3.5 h-3.5 text-primary" />
                 </div>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{text}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
 
         {/* ── CTA Banner ── */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -688,7 +688,7 @@ export default function Services() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
       </div>
     </div>

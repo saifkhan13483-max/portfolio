@@ -1,6 +1,6 @@
 import { useServices } from "@/hooks/use-services";
 import { ServiceCard } from "@/features/services/components/ServiceCard";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export default function ServicesSection() {
   const { data: services, isLoading } = useServices();
@@ -26,7 +26,7 @@ export default function ServicesSection() {
   return (
     <section id="services" className="py-24 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,7 +38,7 @@ export default function ServicesSection() {
           <p className="text-muted-foreground text-lg">
             Fixed-scope packages with clear deliverables and transparent starting prices. No surprises.
           </p>
-        </motion.div>
+        </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services?.map((service, idx) => (

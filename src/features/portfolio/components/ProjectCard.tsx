@@ -1,8 +1,9 @@
 import type { Project } from "@/types";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ExternalLink, Eye, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "wouter";
+import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
 
 interface ProjectCardProps {
   project: Project;
@@ -13,7 +14,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [, navigate] = useLocation();
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -29,10 +30,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-400 z-10" />
 
         <img
-          src={project.imageUrl}
+          src={optimizeCloudinaryUrl(project.imageUrl)}
           alt={project.title}
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Featured badge */}
@@ -151,6 +153,6 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           </div>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 }

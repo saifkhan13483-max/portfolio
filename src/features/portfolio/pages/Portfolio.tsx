@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Briefcase, Sparkles } from "lucide-react";
 
 const CATEGORIES = ["All", "Web App", "E-Commerce", "Mobile", "SaaS", "Full-Stack"];
@@ -63,7 +63,7 @@ export default function Portfolio() {
         </div>
 
         <div className="container mx-auto px-4 max-w-7xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -102,7 +102,7 @@ export default function Portfolio() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -146,7 +146,7 @@ export default function Portfolio() {
           </div>
         ) : (
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={activeCategory}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -165,7 +165,7 @@ export default function Portfolio() {
                   <p className="text-lg font-medium">No projects in this category yet.</p>
                 </div>
               )}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         )}
       </section>
@@ -174,7 +174,7 @@ export default function Portfolio() {
       {!isLoading && (
         <section className="border-t border-border bg-card">
           <div className="container mx-auto px-4 max-w-7xl py-14 sm:py-20 text-center">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -193,7 +193,7 @@ export default function Portfolio() {
               >
                 Start a Conversation
               </a>
-            </motion.div>
+            </m.div>
           </div>
         </section>
       )}

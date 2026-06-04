@@ -5,7 +5,7 @@ import Hero from "@/features/home/components/Hero";
 import ProjectsGallery from "@/features/portfolio/components/ProjectsGallery";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Quote, Star, ArrowRight, Zap, Shield, Clock, HeartHandshake,
   ExternalLink, Globe, Monitor, Code2, Bot, RefreshCcw, Check,
@@ -317,7 +317,7 @@ export default function Home() {
           <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 lg:items-start">
 
             {/* RIGHT: Profile card — shown FIRST on mobile, second on desktop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -379,7 +379,7 @@ export default function Home() {
                     { label: "AI Feature Integration", pct: 85 },
                     { label: "Database Design", pct: 88 },
                   ].map((skill, i) => (
-                    <motion.div
+                    <m.div
                       key={skill.label}
                       initial={{ opacity: 0, x: 8 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -391,7 +391,7 @@ export default function Home() {
                         <span className="text-muted-foreground">{skill.pct}%</span>
                       </div>
                       <div className="h-1.5 bg-muted rounded-full overflow-hidden">
-                        <motion.div
+                        <m.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.pct}%` }}
                           viewport={{ once: true }}
@@ -399,7 +399,7 @@ export default function Home() {
                           className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
                         />
                       </div>
-                    </motion.div>
+                    </m.div>
                   ))}
                 </div>
               </div>
@@ -418,10 +418,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
 
             {/* LEFT: Headline + text + values */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -449,7 +449,7 @@ export default function Home() {
               {/* Value cards — 1 col on mobile, 2 col on sm+ */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {values.map((v, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -464,7 +464,7 @@ export default function Home() {
                       <p className="text-xs font-semibold text-foreground mb-0.5">{v.title}</p>
                       <p className="text-[11px] text-muted-foreground leading-relaxed">{v.desc}</p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -482,7 +482,7 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
-            </motion.div>
+            </m.div>
 
           </div>
         </div>
@@ -491,7 +491,7 @@ export default function Home() {
       {/* 2.5 — INDUSTRY CONTEXT / PROOF */}
       <section className="py-10 sm:py-14 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -505,7 +505,7 @@ export default function Home() {
             <p className="text-sm text-muted-foreground mt-2 max-w-xl mx-auto">
               Every recommendation we make is grounded in data — not guesswork. Here's what the research says about what actually moves the needle.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {[
@@ -570,7 +570,7 @@ export default function Home() {
                 icon: Users,
               },
             ].map((item, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -585,7 +585,7 @@ export default function Home() {
                 <div className={`text-4xl sm:text-5xl font-display font-black ${item.accent} mb-1 leading-none`}>{item.stat}</div>
                 <div className="text-sm font-bold text-foreground mb-2">{item.context}</div>
                 <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">{item.detail}</p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -596,7 +596,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -612,12 +612,12 @@ export default function Home() {
             <p className="text-sm text-muted-foreground sm:text-right sm:max-w-xs leading-relaxed">
               Battle-tested tools we use daily to build fast, scalable, production-ready apps.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Category rows */}
           <div className="bg-card border border-border rounded-2xl overflow-hidden divide-y divide-border">
             {skillCategories.map((cat, ci) => (
-              <motion.div
+              <m.div
                 key={cat.label}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -667,12 +667,12 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Legend + stats row */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -699,7 +699,7 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -711,7 +711,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -729,12 +729,12 @@ export default function Home() {
               Fixed-scope packages with clear deliverables and transparent pricing.<br className="hidden sm:block" />
               No hourly surprises. No hidden fees. Just results.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Cards grid — 2 cols on md, 3 on lg */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-6 sm:mb-8">
             {servicePreview.map((s, i) => (
-              <motion.div
+              <m.div
                 key={s.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -805,12 +805,12 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Bottom strip — guarantee + CTA */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -842,14 +842,14 @@ export default function Home() {
                 </span>
               </Link>
             </Button>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
       {/* 5.5 — MY PROCESS */}
       <section className="py-10 sm:py-16 lg:py-24 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -866,7 +866,7 @@ export default function Home() {
             <p className="text-sm sm:text-base text-muted-foreground px-2 leading-relaxed">
               Every project follows the same 5-step process — refined across 48+ deliveries. No guesswork, no surprises.
             </p>
-          </motion.div>
+          </m.div>
 
           <div className="relative">
             <div className="hidden lg:block absolute top-[2.6rem] left-[10%] right-[10%] h-px bg-border z-0" />
@@ -878,7 +878,7 @@ export default function Home() {
                 { icon: Award, step: "04", title: "Review & Refine", desc: "Milestone check-ins, QA across devices and browsers, up to 3 revision rounds included in every contract.", color: "text-amber-500", bg: "bg-amber-500/10" },
                 { icon: Zap, step: "05", title: "Launch & Handoff", desc: "Production deployment, Loom walkthrough, full code ownership, docs, and 30 days of post-launch support.", color: "text-primary", bg: "bg-primary/10" },
               ].map((s, i) => (
-                <motion.div
+                <m.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -896,12 +896,12 @@ export default function Home() {
                   </div>
                   <h3 className="text-xs sm:text-sm font-display font-bold text-foreground mb-1 sm:mb-2">{s.title}</h3>
                   <p className="text-[11px] sm:text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -920,7 +920,7 @@ export default function Home() {
                 </span>
               </Link>
             </Button>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 
@@ -929,7 +929,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -946,10 +946,10 @@ export default function Home() {
             <p className="text-sm sm:text-base text-muted-foreground px-2 leading-relaxed">
               Not just "great work" — real problems solved, real numbers delivered.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Aggregate trust stats strip */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -972,12 +972,12 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </motion.div>
+          </m.div>
 
           {/* Testimonial cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
             {testimonials.map((t, i) => (
-              <motion.div
+              <m.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1040,12 +1040,12 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             ))}
           </div>
 
           {/* Bottom trust note */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1063,7 +1063,7 @@ export default function Home() {
                 Become the next.
               </Link>
             </p>
-          </motion.div>
+          </m.div>
 
         </div>
       </section>
@@ -1073,7 +1073,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Header */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1092,12 +1092,12 @@ export default function Home() {
             <p className="text-sm text-muted-foreground sm:text-right sm:max-w-xs leading-relaxed shrink-0">
               Prefer a platform with built-in protection, or a direct hire? We're reachable on all major channels.
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Platform cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {platforms.map((p, i) => (
-              <motion.a
+              <m.a
                 key={p.name}
                 href={p.href}
                 target="_blank"
@@ -1166,12 +1166,12 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </motion.a>
+              </m.a>
             ))}
           </div>
 
           {/* Bottom nudge */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1195,7 +1195,7 @@ export default function Home() {
                 </span>
               </Link>
             </Button>
-          </motion.div>
+          </m.div>
 
         </div>
       </section>
@@ -1205,7 +1205,7 @@ export default function Home() {
         <div className="absolute -top-[50%] left-[20%] w-[60%] h-[60%] bg-primary/20 blur-[150px] rounded-full" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1242,7 +1242,7 @@ export default function Home() {
                 <Link href="/faq">Read the FAQ</Link>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </section>
 

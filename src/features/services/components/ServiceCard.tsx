@@ -1,5 +1,5 @@
 import type { Service } from "@/types";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Check, Code, Smartphone, Palette, Cloud, Database, ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
@@ -20,7 +20,7 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
   const Icon = icons[service.category] || icons.default;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -58,6 +58,6 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
           </div>
         </div>
       </Card>
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, User, Sparkles } from "lucide-react";
 import { geminiChat, ChatMessage, buildChatbotPrompt } from "@/features/chatbot/lib/groq-client";
 
@@ -101,7 +101,7 @@ function TypingDots() {
   return (
     <div className="flex items-center gap-1 py-1 px-0.5">
       {[0, 1, 2].map((i) => (
-        <motion.span
+        <m.span
           key={i}
           className="w-2 h-2 rounded-full bg-primary/60 block"
           animate={{ y: [0, -5, 0] }}
@@ -244,7 +244,7 @@ export default function ChatBot() {
   return (
     <>
       {/* ── Toggle Button ── */}
-      <motion.button
+      <m.button
         onClick={() => setOpen((v) => !v)}
         data-testid="button-chatbot-toggle"
         aria-label={open ? "Close chat" : "Open chat"}
@@ -254,23 +254,23 @@ export default function ChatBot() {
       >
         <AnimatePresence mode="wait">
           {open ? (
-            <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>
+            <m.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.18 }}>
               <X className="w-6 h-6 text-white" />
-            </motion.span>
+            </m.span>
           ) : (
-            <motion.span key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}>
+            <m.span key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.18 }}>
               <MessageCircle className="w-6 h-6 text-white" />
-            </motion.span>
+            </m.span>
           )}
         </AnimatePresence>
-      </motion.button>
+      </m.button>
 
       {/* ── Chat Window ── */}
       <AnimatePresence>
         {open && (
           <>
             {/* Mobile backdrop */}
-            <motion.div
+            <m.div
               key="backdrop"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -280,7 +280,7 @@ export default function ChatBot() {
               onClick={() => setOpen(false)}
             />
 
-            <motion.div
+            <m.div
               key="chatwindow"
               ref={chatWindowRef}
               initial={{ opacity: 0, y: 20, scale: 0.96 }}
@@ -335,7 +335,7 @@ export default function ChatBot() {
                 className="flex-1 overflow-y-auto overscroll-contain px-4 py-4 space-y-4 min-h-0 bg-muted/20"
               >
                 {messages.map((msg, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     data-testid={`message-${msg.role}-${i}`}
                     initial={{ opacity: 0, y: 8 }}
@@ -365,13 +365,13 @@ export default function ChatBot() {
                     >
                       <MessageFormatter content={msg.content} isUser={msg.role === "user"} />
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
 
                 {/* ── Typing indicator ── */}
                 <AnimatePresence>
                   {loading && (
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
@@ -383,7 +383,7 @@ export default function ChatBot() {
                       <div className="bg-card border border-border rounded-2xl rounded-tl-sm px-3.5 py-2 shadow-sm">
                         <TypingDots />
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
@@ -407,7 +407,7 @@ export default function ChatBot() {
                   className="flex-1 bg-muted/40 border border-border rounded-2xl px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/40 disabled:opacity-60 transition-all resize-none overflow-hidden max-h-[100px] touch-manipulation"
                   style={{ fontSize: "16px" /* Prevents iOS zoom on focus */ }}
                 />
-                <motion.button
+                <m.button
                   onClick={() => sendMessage(input)}
                   disabled={loading || !input.trim()}
                   data-testid="button-send-message"
@@ -416,9 +416,9 @@ export default function ChatBot() {
                   className="w-11 h-11 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all shrink-0 shadow-sm touch-manipulation"
                 >
                   <Send className="w-4 h-4" />
-                </motion.button>
+                </m.button>
               </div>
-            </motion.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>
