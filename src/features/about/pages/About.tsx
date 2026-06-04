@@ -382,7 +382,7 @@ export default function About() {
               className="flex flex-col items-center lg:items-start text-center lg:text-left"
             >
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full w-fit mb-5">
-                About Us
+                About Me
               </span>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-black text-foreground mb-2 leading-[1.05] tracking-tight">
