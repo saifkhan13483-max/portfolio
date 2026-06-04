@@ -239,7 +239,7 @@ export default function About() {
   useEffect(() => {
     updatePageSEO({
       title: "About Saif Khan | Fullstack Developer & AI Specialist | SaifCraft",
-      description: "7+ years building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery.",
+      description: "Saif Khan: 7+ years of personal fullstack experience building production-ready web apps with React, Node.js & TypeScript. AI integration specialist. Direct communication, clean code, on-time delivery.",
       path: "/about",
     });
 
@@ -258,7 +258,7 @@ export default function About() {
       "@id": "https://portfolio-wheat-iota-47.vercel.app/#person",
       "name": "Saif Khan",
       "jobTitle": "Senior Freelance Fullstack Developer",
-      "description": "Senior fullstack developer with 7+ years of experience building React, Node.js, TypeScript, and AI-integrated web applications for startups and businesses worldwide.",
+      "description": "Saif Khan is a senior fullstack developer with 7+ years of personal experience building React, Node.js, TypeScript, and AI-integrated web applications for startups and businesses worldwide.",
       "url": "https://portfolio-wheat-iota-47.vercel.app/about",
       "image": "https://res.cloudinary.com/de2wrwg6e/image/upload/v1778032828/khjghjfgjhfgh_lnkk4d.png",
       "email": "contact@saifcraft.com",
@@ -496,7 +496,7 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                We're a team of fullstack engineers with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. We've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. We push back on bad assumptions before a single line of code is written.
+                We're a fullstack team led by Saif Khan, who has <strong className="text-foreground font-semibold">7+ years of his own experience</strong> building web applications from scratch. We've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. We push back on bad assumptions before a single line of code is written.
               </p>
               <p>
                 We specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and we build with these modern primitives from day one. Over the past 2+ years we've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets us deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.

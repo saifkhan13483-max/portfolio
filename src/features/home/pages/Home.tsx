@@ -440,10 +440,10 @@ export default function Home() {
               </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We're a <strong className="text-foreground">10–15 person fullstack team</strong> led by Saif Khan with{" "}
-                <strong className="text-foreground">7+ years of experience</strong> building web apps from scratch —{" "}
+                We're a <strong className="text-foreground">10–15 person fullstack team</strong> led by Saif Khan, who personally has{" "}
+                <strong className="text-foreground">7+ years of fullstack experience</strong> building web apps from scratch —{" "}
                 specializing in <strong className="text-foreground">React, Node.js, tRPC, TypeScript & PostgreSQL.</strong>{" "}
-                For the past <strong className="text-foreground">2 years we've shipped AI-native features</strong> — chatbots, RAG pipelines, semantic search, and agent workflows. You talk directly to Saif, not a project manager.
+                For the past <strong className="text-foreground">2 years he's shipped AI-native features</strong> — chatbots, RAG pipelines, semantic search, and agent workflows. You talk directly to Saif, not a project manager.
               </p>
 
               {/* Value cards — 1 col on mobile, 2 col on sm+ */}
