@@ -29,7 +29,7 @@ import { Service } from "@/types";
 import { Plus, Pencil, Trash2, Loader2, X, Layers, Search, Clock, DollarSign, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useImageUpload } from "@/hooks/use-image-upload";
+import { useImageUpload } from "@/features/admin/hooks/use-image-upload";
 
 export default function ServicesManagement() {
   const { data: services, isLoading } = useServices();

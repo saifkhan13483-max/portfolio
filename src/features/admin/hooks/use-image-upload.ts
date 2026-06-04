@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { uploadToCloudinary } from '../lib/cloudinary';
-import { useToast } from './use-toast';
+import { uploadToCloudinary } from '@/lib/cloudinary';
+import { useToast } from '@/hooks/use-toast';
 
 export const useImageUpload = () => {
   const { toast } = useToast();

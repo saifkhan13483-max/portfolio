@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, User, Sparkles } from "lucide-react";
-import { geminiChat, ChatMessage, buildChatbotPrompt } from "@/features/chatbot/lib/groq-client";
+import { geminiChat, ChatMessage, buildChatbotPrompt } from "@/features/chatbot/services/groq-client";
 
 interface Message {
   role: "user" | "assistant";

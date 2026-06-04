@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { updatePageSEO } from "@/lib/seo";
 import { m, AnimatePresence } from "framer-motion";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/features/auth/context/AuthContext";
 import { useOrders } from "@/hooks/use-orders";
 import { signOut } from "@/lib/firebase/auth";
 import { updateProfile } from "firebase/auth";
