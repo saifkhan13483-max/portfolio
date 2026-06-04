@@ -606,6 +606,17 @@
   100% { transform: scale(0.9); opacity: 0.7; }
 }
 
+/* ── WIDE DESKTOP SCALING (≥ 1536px / 2xl) ──────────────────────────
+   Bumps the root font-size from 16px → 18px so all rem-based Tailwind
+   classes (text, padding, gap, border-radius, etc.) scale up ~12.5%
+   proportionally. Container widths are in px so they are unaffected.
+   ─────────────────────────────────────────────────────────────────── */
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 /* Hide scrollbar utility (used in horizontal chip scroll) */
 .scrollbar-none {
   scrollbar-width: none;        /* Firefox */
