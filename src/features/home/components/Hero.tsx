@@ -404,35 +404,6 @@ export default function Hero() {
           ))}
         </m.div>
 
-        {/* Industry Trust Strip */}
-        <m.div
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.1 }}
-          className="mt-6 pt-5 border-t border-border/50"
-        >
-          <div className="flex flex-wrap items-center justify-center gap-x-1 gap-y-3">
-            <span className="text-[11px] text-muted-foreground/50 font-bold uppercase tracking-[0.18em] shrink-0 hidden sm:block mr-3">
-              Why it matters:
-            </span>
-            {[
-              { stat: "TypeScript #1", label: "most used language on GitHub 2025" },
-              { stat: "3×", label: "more conversions at 1s load vs 5s" },
-              { stat: "100%", label: "faster growth for AI-native SaaS" },
-              { stat: "36%", label: "of new startups are solo-founded" },
-            ].map((item, i, arr) => (
-              <div key={item.stat} className="flex items-center gap-1">
-                <div className="flex items-center gap-2 bg-primary/6 dark:bg-primary/10 border border-primary/15 rounded-full px-3.5 py-1.5 cursor-default hover:bg-primary/10 transition-colors">
-                  <span className="text-sm font-extrabold text-primary leading-none">{item.stat}</span>
-                  <span className="text-xs text-muted-foreground/80 leading-none hidden sm:block">{item.label}</span>
-                </div>
-                {i < arr.length - 1 && (
-                  <span className="text-border/60 text-sm mx-1 hidden sm:block">·</span>
-                )}
-              </div>
-            ))}
-          </div>
-        </m.div>
       </div>
     </section>
   );
