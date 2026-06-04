@@ -10,7 +10,7 @@ export const SITE_KNOWLEDGE_BASE = `
 Full name: Saif Khan
 Brand name: SaifCraft
 Title: Senior Fullstack Developer & AI Integration Specialist
-Experience: 7+ years fullstack development · 2+ years AI integration (production)
+Experience: Saif personally has 7+ years fullstack development · 2+ years AI integration (production) — this is his own experience, not the team's combined total
 Location: Multan, Punjab, Pakistan — works worldwide (US, UK, Europe, Middle East, SE Asia)
 Availability: Available for new projects — starting June 2026
 Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
@@ -71,7 +71,7 @@ Meta description: Senior fullstack developer for React, Node.js & AI web apps. F
 
 SECTION 1 — HERO:
 Headline: "We build fast, custom web apps that deliver results."
-Subheading: "10–15 person fullstack team with 7+ years of experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
+Subheading: "10–15 person fullstack team led by Saif Khan, who has 7+ years of personal experience, helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
 Highlight badges: Fast Delivery · Clean Code · On Time & On Budget
 CTA buttons: "Share Your Idea" → /contact  ·  "View Our Work" → /portfolio
 Tech stack badges: React · TypeScript · Node.js · tRPC · PostgreSQL · Stripe · AI/LLMs
@@ -80,7 +80,7 @@ Stats bar: 48+ Projects Delivered · 29+ Happy Clients · 7+ Years Experience ·
 
 SECTION 2 — ABOUT SUMMARY:
 Headline: "We help businesses build web apps that solve real problems."
-Bio: 10–15 person fullstack team led by Saif Khan, 7+ years, React/Node.js/tRPC/TypeScript/PostgreSQL. 2+ years shipping AI-native features — chatbots, RAG pipelines, semantic search, agent workflows.
+Bio: 10–15 person fullstack team led by Saif Khan. Saif personally has 7+ years of experience with React/Node.js/tRPC/TypeScript/PostgreSQL, and 2+ years shipping AI-native features — chatbots, RAG pipelines, semantic search, agent workflows.
 Value cards: Fast Delivery · Clean Code · On Time & On Budget · Clear Communication
 CTA: "Read Our Story" → /about
 Specialization bars: React/Next.js 95% · Node.js APIs 92% · AI Feature Integration 85% · Database Design 88%
@@ -271,8 +271,8 @@ Social icons: GitHub · LinkedIn · Twitter
 STATS BAR: 7+ Years Experience · 48+ Projects Delivered · 29+ Happy Clients · 94% Satisfaction Rate
 
 MY STORY:
-7+ years fullstack, early-stage startups and SMBs. React/Node.js/TypeScript/PostgreSQL specialist.
-2 years AI features in production (chatbots, semantic search, content generation, recommendation engines).
+Saif personally has 7+ years of fullstack experience with early-stage startups and SMBs. React/Node.js/TypeScript/PostgreSQL specialist.
+2 years building AI features in production (chatbots, semantic search, content generation, recommendation engines).
 "When you hire me, you're not handing your project off to a project manager — you talk directly to the developer doing the work."
 What we can help with: Custom Web Applications · SaaS Product Development · AI/LLM Integrations · E-Commerce Platforms · API Design & Integration · Performance Optimization · Technical Consulting
 CTA: "Start a Project" → /contact
@@ -564,7 +564,7 @@ INTENT: "Show me past work / examples"
 → /portfolio — 48+ real projects with descriptions, tech stacks, and live links.
 
 INTENT: "Who is Saif Khan?"
-→ Senior fullstack developer & AI specialist with 7+ years experience. 10–15 person team. 48+ projects, 94% satisfaction rate. More at /about.
+→ Saif Khan is a senior fullstack developer & AI specialist with 7+ years of his own personal experience. He leads a 10–15 person team. 48+ projects, 94% satisfaction rate. More at /about.
 
 INTENT: "How does the process work?"
 → 4 steps: Discovery call → Proposal & contract → Build with weekly demos → Launch & handoff. Details at /services.
