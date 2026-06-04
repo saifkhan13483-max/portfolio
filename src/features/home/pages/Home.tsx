@@ -652,7 +652,7 @@ export default function Home() {
                         data-testid={`badge-tech-${tech.name.toLowerCase().replace(/\s+/g, "-")}`}
                       >
                         <tech.icon style={{ color:
-                          (tech.name === "Next.js" || tech.name === "Vercel") ? (isDark ? "#ffffff" : "#111827") :
+                          (tech.name === "Next.js" || tech.name === "Vercel" || tech.name === "Railway") ? (isDark ? "#ffffff" : "#0B0D0E") :
                           tech.name === "Prisma" ? (isDark ? "#cbd5e0" : "#2D3748") :
                           tech.name === "PostgreSQL" ? (isDark ? "#76b5e8" : "#336791") :
                           tech.color

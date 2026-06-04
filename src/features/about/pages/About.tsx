@@ -724,7 +724,7 @@ export default function About() {
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-background border border-border flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 group-hover:shadow-sm transition-all duration-300 flex-shrink-0">
                         <s.icon style={{ color:
-                          (s.name === "Next.js" || s.name === "Vercel") ? (isDark ? "#ffffff" : "#111827") :
+                          (s.name === "Next.js" || s.name === "Vercel" || s.name === "Railway") ? (isDark ? "#ffffff" : "#0B0D0E") :
                           s.name === "Prisma" ? (isDark ? "#cbd5e0" : "#2D3748") :
                           s.name === "PostgreSQL" ? (isDark ? "#76b5e8" : "#336791") :
                           s.color
