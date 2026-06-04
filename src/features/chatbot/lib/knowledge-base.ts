@@ -83,10 +83,11 @@ Heading: "Tech Stack & Expertise"
 Subheading: "Battle-tested tools I use daily to build fast, scalable, production-ready apps."
 Skills by category (shown as chips in a table layout):
   Frontend: React (Expert) · Next.js (Expert) · TypeScript (Expert) · Tailwind CSS (Expert)
-  Backend: Node.js (Expert) · GraphQL (Advanced) · Prisma (Advanced) · Firebase (Advanced)
-  Database: PostgreSQL (Expert) · MongoDB (Expert) · Redis (Advanced)
-  DevOps & Tools: Docker (Advanced) · Vercel (Expert) · Git (Expert)
-  AI / LLMs: OpenAI API (Advanced)
+  Backend: Node.js (Expert) · Express (Expert) · tRPC (Advanced) · Prisma (Advanced)
+  Database: PostgreSQL (Expert) · Supabase (Advanced) · MongoDB (Advanced)
+  DevOps & Tools: Docker (Advanced) · Vercel (Expert) · Railway (Intermediate) · Git (Expert)
+  Auth & Payments: Stripe (Advanced) · Clerk / NextAuth (Advanced)
+  AI / LLMs: OpenAI API (Advanced) · Anthropic / Claude (Advanced) · RAG Pipelines (Advanced) · Vector DBs (Advanced) · Agent Workflows (Advanced)
 
 SECTION 4 — SERVICE PREVIEW (5 cards):
 Each card links to /services. Cards shown:

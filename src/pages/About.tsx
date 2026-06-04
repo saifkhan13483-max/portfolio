@@ -13,8 +13,8 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import {
   SiReact, SiNodedotjs, SiTypescript, SiPostgresql,
-  SiTailwindcss, SiNextdotjs, SiFirebase, SiOpenai,
-  SiDocker, SiGit, SiMongodb, SiGraphql,
+  SiTailwindcss, SiNextdotjs, SiOpenai,
+  SiDocker, SiPrisma, SiSupabase, SiVercel, SiStripe,
 } from "react-icons/si";
 
 const stats = [
@@ -64,8 +64,8 @@ const stackGroups = [
     skills: [
       { icon: SiNodedotjs,  name: "Node.js",    color: "#68A063" },
       { icon: SiPostgresql, name: "PostgreSQL",  color: "#336791" },
-      { icon: SiMongodb,    name: "MongoDB",     color: "#47A248" },
-      { icon: SiGraphql,    name: "GraphQL",     color: "#E10098" },
+      { icon: SiPrisma,     name: "Prisma",      color: "#2D3748" },
+      { icon: SiSupabase,   name: "Supabase",    color: "#3ECF8E" },
     ],
   },
   {
@@ -73,10 +73,10 @@ const stackGroups = [
     color: "text-violet-500",
     bg: "bg-violet-500/8",
     skills: [
-      { icon: SiOpenai,    name: "AI / LLMs",  color: "#10A37F" },
-      { icon: SiFirebase,  name: "Firebase",   color: "#FFCA28" },
-      { icon: SiDocker,    name: "Docker",     color: "#2496ED" },
-      { icon: SiGit,       name: "Git / CI",   color: "#F05032" },
+      { icon: SiOpenai,   name: "AI / LLMs",  color: "#10A37F" },
+      { icon: SiDocker,   name: "Docker",      color: "#2496ED" },
+      { icon: SiVercel,   name: "Vercel",      color: "#000000" },
+      { icon: SiStripe,   name: "Stripe",      color: "#635BFF" },
     ],
   },
 ];
@@ -284,7 +284,7 @@ export default function About() {
                 </span>
                 <div>
                   <p className="text-sm font-bold text-foreground leading-none">Available for Projects</p>
-                  <p className="text-[11px] text-muted-foreground mt-0.5">Starting July 2026</p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">Available Now</p>
                 </div>
               </div>
 
@@ -419,7 +419,7 @@ export default function About() {
                 I'm a self-driven fullstack developer with <strong className="text-foreground font-semibold">7+ years of experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. I push back on bad assumptions before a single line of code is written.
               </p>
               <p>
-                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, and PostgreSQL</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, and content generation pipelines. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
+                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
                 The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a developer who acts as a trusted partner, not just a ticket-taker. That's the role I fill. When you hire me, you talk directly to the developer doing the work. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
@@ -433,10 +433,10 @@ export default function About() {
                 {[
                   "Custom Web Applications",
                   "SaaS Product Development",
-                  "AI / LLM Integrations",
+                  "AI / LLM & RAG Integrations",
                   "E-Commerce Platforms",
                   "API Design & Integration",
-                  "Performance Optimization",
+                  "Stripe & Payment Integrations",
                   "Technical Consulting",
                 ].map(item => (
                   <li key={item} className="flex items-center gap-2 text-sm text-foreground">
