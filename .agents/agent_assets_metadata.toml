@@ -89,3 +89,9 @@ id = "SKZr0FFhVDdmNRkEeFMsL"
 uri = "file://website-color-guide.md"
 type = "text"
 title = "Website Color Guide v2.0 — Deep Research Edition"
+
+[[outputs]]
+id = "C0kEIWEHYI0CgiBc7_pJk"
+uri = "file://saifkhan-linkedin-post.txt"
+type = "text"
+title = "LinkedIn Post + Image Prompt — Saif Khan"
