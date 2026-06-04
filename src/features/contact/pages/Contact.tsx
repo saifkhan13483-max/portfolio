@@ -140,7 +140,7 @@ export default function Contact() {
           }}
         />
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[100px]" />
+          <div className="absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[60px]" />
           <div className="absolute top-1/2 -left-20 h-[300px] w-[400px] rounded-full bg-secondary/5 blur-[80px]" />
         </div>
 

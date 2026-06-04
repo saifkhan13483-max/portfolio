@@ -3,7 +3,7 @@ import { m } from "framer-motion";
 import { ExternalLink, Eye, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "wouter";
-import { optimizeCloudinaryUrl } from "@/lib/cloudinary";
+import { getCloudinaryCardUrl } from "@/lib/cloudinary";
 
 interface ProjectCardProps {
   project: Project;
@@ -30,8 +30,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/35 transition-colors duration-400 z-10" />
 
         <img
-          src={optimizeCloudinaryUrl(project.imageUrl)}
+          src={getCloudinaryCardUrl(project.imageUrl)}
           alt={project.title}
+          width={800}
+          height={450}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
           loading="lazy"
           decoding="async"

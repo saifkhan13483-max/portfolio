@@ -168,8 +168,8 @@ export default function ChatBot() {
       el.style.top = `${vv.offsetTop}px`;
     };
 
-    vv.addEventListener("resize", update);
-    vv.addEventListener("scroll", update);
+    vv.addEventListener("resize", update, { passive: true });
+    vv.addEventListener("scroll", update, { passive: true });
     update();
 
     return () => {

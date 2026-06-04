@@ -44,7 +44,7 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -92,7 +92,7 @@ export default function Header() {
         <div className="h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <img src={logo} alt="SaifCraft Logo" className="h-9 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300" />
+            <img src={logo} alt="SaifCraft Logo" width={120} height={36} className="h-9 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -209,7 +209,7 @@ export default function Header() {
                 <div className="flex flex-col h-full">
                   {/* Mobile Header */}
                   <div className="flex items-center gap-2 px-6 py-4 border-b">
-                    <img src={logo} alt="SaifCraft Logo" className="h-7 w-auto object-contain" />
+                    <img src={logo} alt="SaifCraft Logo" width={96} height={28} className="h-7 w-auto object-contain" />
                   </div>
 
                   {/* Mobile Nav */}

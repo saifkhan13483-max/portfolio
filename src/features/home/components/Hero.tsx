@@ -113,9 +113,8 @@ export default function Hero() {
     <section className="relative pt-8 sm:pt-12 pb-10 sm:pb-14 overflow-hidden">
       {/* Background Blobs — CSS animations (no JS overhead) */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="hero-blob-1 absolute -top-[15%] right-0 w-[55%] h-[70%] bg-primary/10 blur-[140px] rounded-full" />
-        <div className="hero-blob-2 absolute top-[50%] -left-[5%] w-[40%] h-[50%] bg-secondary/8 blur-[120px] rounded-full" />
-        <div className="hero-blob-3 absolute top-[20%] left-[40%] w-[25%] h-[30%] bg-primary/5 blur-[100px] rounded-full" />
+        <div className="hero-blob-1 absolute -top-[15%] right-0 w-[55%] h-[70%] bg-primary/10 blur-[80px] rounded-full" />
+        <div className="hero-blob-2 absolute top-[50%] -left-[5%] w-[40%] h-[50%] bg-secondary/8 blur-[70px] rounded-full" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -125,7 +124,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
           {/* LEFT: Content */}

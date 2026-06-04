@@ -205,7 +205,7 @@ export default function Services() {
           }}
         />
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -top-32 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
+          <div className="absolute -top-32 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-primary/5 blur-[70px]" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">

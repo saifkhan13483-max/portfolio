@@ -7,7 +7,19 @@ interface CloudinaryUploadResult {
 export function optimizeCloudinaryUrl(url: string): string {
   if (!url?.includes("res.cloudinary.com")) return url;
   if (url.includes("/upload/f_auto")) return url;
-  return url.replace("/upload/", "/upload/f_auto,q_auto,w_auto/");
+  return url.replace("/upload/", "/upload/f_auto,q_auto,c_limit,w_1280/");
+}
+
+export function getCloudinaryCardUrl(url: string): string {
+  if (!url?.includes("res.cloudinary.com")) return url;
+  if (url.includes("/upload/f_auto")) return url;
+  return url.replace("/upload/", "/upload/f_auto,q_auto,c_fill,w_800,h_450/");
+}
+
+export function getCloudinaryThumbUrl(url: string): string {
+  if (!url?.includes("res.cloudinary.com")) return url;
+  if (url.includes("/upload/f_auto")) return url;
+  return url.replace("/upload/", "/upload/f_auto,q_auto,c_fill,w_400,h_225/");
 }
 
 export const uploadToCloudinary = async (file: File): Promise<string> => {

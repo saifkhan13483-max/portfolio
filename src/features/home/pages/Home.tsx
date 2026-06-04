@@ -1202,7 +1202,7 @@ export default function Home() {
 
       {/* 8. CTA */}
       <section id="contact-cta" className="py-14 sm:py-20 lg:py-32 relative overflow-hidden border-t border-border bg-[hsl(var(--footer))]">
-        <div className="absolute -top-[50%] left-[20%] w-[60%] h-[60%] bg-primary/20 blur-[150px] rounded-full" />
+        <div className="absolute -top-[50%] left-[20%] w-[60%] h-[60%] bg-primary/20 blur-[80px] rounded-full" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <m.div
