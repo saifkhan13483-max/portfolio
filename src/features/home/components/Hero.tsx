@@ -10,7 +10,7 @@ const highlights = [
   { icon: Clock, text: "On Time & On Budget" },
 ];
 
-const techBadges = ["React", "TypeScript", "Node.js", "Supabase", "Stripe", "AI / LLMs"];
+const techBadges = ["React", "TypeScript", "Node.js", "tRPC", "PostgreSQL", "Stripe", "AI / LLMs"];
 
 const stats = [
   { label: "Projects Delivered", value: 48, suffix: "+" },
