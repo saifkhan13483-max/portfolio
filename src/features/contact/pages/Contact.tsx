@@ -192,7 +192,7 @@ export default function Contact() {
                   className="border border-border bg-card rounded-xl p-3.5 sm:p-5 flex flex-col gap-1"
                 >
                   <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">{value}</span>
-                  <span className="text-[11px] sm:text-xs text-muted-foreground font-medium">{label}</span>
+                  <span className="text-xs text-muted-foreground font-medium">{label}</span>
                 </div>
               ))}
             </motion.div>
@@ -216,7 +216,7 @@ export default function Contact() {
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
               <div className="px-4 sm:px-5 py-3.5 border-b border-border">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Contact</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">Contact</p>
               </div>
               <div className="p-4 sm:p-5 space-y-3.5">
                 {[
@@ -231,7 +231,7 @@ export default function Contact() {
                       <Icon className="w-3 h-3 text-muted-foreground" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted-foreground/60 mb-0.5">{label}</p>
+                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted-foreground/60 mb-0.5">{label}</p>
                       {href ? (
                         <a href={href} className="text-xs font-medium text-foreground hover:text-primary transition-colors truncate block">
                           {value}
@@ -255,9 +255,9 @@ export default function Contact() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="w-7 h-7 rounded-md border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+                    className="w-10 h-10 rounded-md border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
                   >
-                    <Icon className="w-3 h-3" />
+                    <Icon className="w-4 h-4" />
                   </a>
                 ))}
               </div>
@@ -269,7 +269,7 @@ export default function Contact() {
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
               <div className="px-4 sm:px-5 py-3.5 border-b border-border">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">What Happens After You Submit</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">What Happens After You Submit</p>
               </div>
               <div className="p-4 sm:p-5">
                 {nextSteps.map(({ icon: Icon, step, title, desc }, i) => (
@@ -284,7 +284,7 @@ export default function Contact() {
                     </div>
                     <div className={`${i < nextSteps.length - 1 ? "pb-4" : ""} pt-0.5`}>
                       <div className="flex items-center gap-1.5 mb-0.5">
-                        <span className="text-[9px] font-bold text-primary/50 tracking-widest tabular-nums">{step}</span>
+                        <span className="text-[10px] font-bold text-primary/50 tracking-widest tabular-nums">{step}</span>
                         <p className="text-xs font-semibold text-foreground">{title}</p>
                       </div>
                       <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
@@ -300,7 +300,7 @@ export default function Contact() {
               className="rounded-xl border border-border bg-card overflow-hidden"
             >
               <div className="px-4 sm:px-5 py-3.5 border-b border-border">
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground">Tips for a Strong Submission</p>
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">Tips for a Strong Submission</p>
               </div>
               <div className="p-4 sm:p-5 space-y-3">
                 {[
@@ -351,7 +351,7 @@ export default function Contact() {
                     {/* About You */}
                     <div>
                       <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground whitespace-nowrap">About You</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground whitespace-nowrap">About You</span>
                         <div className="h-px flex-1 bg-border" />
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -367,7 +367,7 @@ export default function Contact() {
                                 <Input
                                   placeholder="Jane Smith"
                                   {...field}
-                                  className="h-10 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
+                                  className="h-11 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
                                   data-testid="input-name"
                                 />
                               </FormControl>
@@ -388,7 +388,7 @@ export default function Contact() {
                                   placeholder="jane@company.com"
                                   type="email"
                                   {...field}
-                                  className="h-10 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
+                                  className="h-11 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
                                   data-testid="input-email"
                                 />
                               </FormControl>
@@ -402,7 +402,7 @@ export default function Contact() {
                     {/* Project Details */}
                     <div>
                       <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                        <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground whitespace-nowrap">Project Details</span>
+                        <span className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground whitespace-nowrap">Project Details</span>
                         <div className="h-px flex-1 bg-border" />
                       </div>
                       <div className="space-y-4">
@@ -418,7 +418,7 @@ export default function Contact() {
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                   <FormControl>
                                     <SelectTrigger
-                                      className="h-10 text-sm bg-background border-border rounded-lg"
+                                      className="h-11 text-sm bg-background border-border rounded-lg"
                                       data-testid="select-service"
                                     >
                                       <SelectValue placeholder="Select a service" />
@@ -441,13 +441,13 @@ export default function Contact() {
                               <FormItem>
                                 <FormLabel className="text-xs font-semibold text-foreground">
                                   Budget Range{" "}
-                                  <span className="text-muted-foreground font-normal normal-case text-[11px]">(optional)</span>
+                                  <span className="text-muted-foreground font-normal normal-case text-xs">(optional)</span>
                                 </FormLabel>
                                 <FormControl>
                                   <Input
                                     placeholder="e.g. $3,000 – $8,000"
                                     {...field}
-                                    className="h-10 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
+                                    className="h-11 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
                                     data-testid="input-budget"
                                   />
                                 </FormControl>
@@ -464,13 +464,13 @@ export default function Contact() {
                             <FormItem>
                               <FormLabel className="text-xs font-semibold text-foreground">
                                 Desired Timeline{" "}
-                                <span className="text-muted-foreground font-normal normal-case text-[11px]">(optional)</span>
+                                <span className="text-muted-foreground font-normal normal-case text-xs">(optional)</span>
                               </FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="e.g. 6 weeks, by end of Q3, flexible"
                                   {...field}
-                                  className="h-10 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
+                                  className="h-11 text-sm bg-background border-border rounded-lg focus-visible:ring-primary/25"
                                   data-testid="input-timeline"
                                 />
                               </FormControl>
@@ -511,7 +511,7 @@ export default function Contact() {
                       </div>
                       <Button
                         type="submit"
-                        className="h-10 px-5 text-sm font-semibold rounded-lg bg-primary hover:bg-primary/90 shadow-md shadow-primary/15 border-0 w-full sm:w-auto shrink-0"
+                        className="h-11 px-5 text-sm font-semibold rounded-lg bg-primary hover:bg-primary/90 shadow-md shadow-primary/15 border-0 w-full sm:w-auto shrink-0"
                         disabled={createOrder.isPending}
                         data-testid="button-submit"
                       >
