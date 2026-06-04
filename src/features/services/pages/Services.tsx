@@ -213,7 +213,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
+            className="max-w-3xl flex flex-col items-center sm:items-start text-center sm:text-left"
           >
             <div className="flex items-center gap-2 mb-5">
               <div className="w-1 h-1 rounded-full bg-primary" />
@@ -226,7 +226,7 @@ export default function Services() {
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl mb-8">
               Fixed-scope packages with transparent pricing. No hourly billing, no scope surprises — you know exactly what you're getting before we start.
             </p>
-            <Button asChild className="h-10 px-5 text-sm font-semibold rounded-lg shadow-md shadow-primary/15 border-0">
+            <Button asChild className="h-11 px-6 text-sm font-semibold rounded-full shadow-md shadow-primary/15 border-0 transition-all duration-200 hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5">
               <Link href="/contact">Start a Project <ArrowRight className="ml-2 w-3.5 h-3.5" /></Link>
             </Button>
           </motion.div>
@@ -236,7 +236,7 @@ export default function Services() {
         <div className="mt-10 sm:mt-16 border-t border-border">
           <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
             <div className="py-4 sm:py-5">
-              <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-3 sm:mb-0 sm:inline sm:mr-5">
+              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground mb-3 sm:mb-0 sm:inline sm:mr-5">
                 Real outcomes
               </p>
               <div className="grid grid-cols-2 sm:inline-grid sm:grid-cols-4 gap-3 sm:gap-0 sm:divide-x sm:divide-border">
@@ -249,12 +249,12 @@ export default function Services() {
                     transition={{ delay: i * 0.07, duration: 0.4 }}
                     className="flex items-center gap-2.5 sm:px-6 first:sm:pl-0"
                   >
-                    <div className="w-7 h-7 rounded-md bg-card border border-border flex items-center justify-center shrink-0">
-                      <Icon className={`w-3 h-3 ${color}`} />
+                    <div className="w-8 h-8 rounded-md bg-card border border-border flex items-center justify-center shrink-0">
+                      <Icon className={`w-3.5 h-3.5 ${color}`} />
                     </div>
                     <div>
-                      <p className={`text-xs font-black leading-none mb-0.5 ${color}`}>{stat}</p>
-                      <p className="text-[10px] text-muted-foreground leading-tight">{label}</p>
+                      <p className={`text-sm font-black leading-none mb-0.5 ${color}`}>{stat}</p>
+                      <p className="text-xs text-muted-foreground leading-tight">{label}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -281,7 +281,7 @@ export default function Services() {
                   <motion.div
                     key={svc.id} custom={idx}
                     initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
-                    className="relative rounded-xl border border-border bg-card flex flex-col hover:border-primary/30 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/5 transition-all duration-200"
+                    className="relative rounded-xl border border-border bg-card flex flex-col hover:border-primary/30 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/8 transition-all duration-200"
                     data-testid={`card-service-${svc.id}`}
                   >
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
@@ -326,10 +326,10 @@ export default function Services() {
                   <motion.div
                     key={pkg.id} custom={idx}
                     initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}
-                    className={`relative rounded-xl border flex flex-col transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
+                    className={`relative rounded-xl border flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${
                       pkg.highlight
-                        ? "border-primary/40 bg-primary/[0.03] shadow-md shadow-primary/8 hover:shadow-primary/12"
-                        : "border-border bg-card hover:border-primary/30 hover:shadow-primary/5"
+                        ? "border-primary/40 bg-primary/[0.03] shadow-md shadow-primary/10 hover:shadow-primary/15"
+                        : "border-border bg-card hover:border-primary/30 hover:shadow-primary/8"
                     }`}
                     data-testid={`card-package-${pkg.id}`}
                   >
@@ -373,7 +373,7 @@ export default function Services() {
                           <RefreshCw className="w-3 h-3 text-primary shrink-0" />{pkg.revisions}
                         </div>
                         <div className="pt-2 flex items-center justify-between">
-                          <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
+                          <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
                           <div className="text-right">
                             <span className="text-base sm:text-lg font-display font-bold text-foreground">{pkg.price}</span>
                             {pkg.priceTo && <span className="text-xs text-muted-foreground"> – {pkg.priceTo}</span>}
@@ -548,7 +548,7 @@ export default function Services() {
           <SectionHeading
             label="Philosophy"
             title="Why Fixed-Scope Beats Hourly"
-            subtitle="I charged hourly for the first two years of my freelance career. Here's what I learned from switching."
+            subtitle="Hourly billing punishes efficiency and creates budget anxiety. Fixed-scope aligns both sides around one thing: the result."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6">
@@ -670,18 +670,18 @@ export default function Services() {
               Not sure which package fits?
             </h2>
             <p className="text-white/70 mb-7 text-sm sm:text-base leading-relaxed">
-              Describe your project and I'll recommend the right package and put together a clear proposal.
+              Describe your project and we'll recommend the right package and put together a clear proposal.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Button
-                className="h-10 px-6 text-sm font-semibold rounded-lg bg-white text-primary hover:bg-white/90 shadow-md border-0 w-full sm:w-auto"
+                className="h-11 px-6 text-sm font-semibold rounded-full bg-white text-primary hover:bg-white/90 hover:-translate-y-0.5 shadow-md border-0 w-full sm:w-auto transition-all duration-200"
                 asChild
               >
                 <Link href="/contact">Get a Free Quote <ArrowRight className="ml-2 w-3.5 h-3.5" /></Link>
               </Button>
               <Button
                 variant="outline"
-                className="h-10 px-6 text-sm font-semibold rounded-lg text-white border-white/25 hover:bg-white/10 hover:border-white/40 bg-transparent w-full sm:w-auto"
+                className="h-11 px-6 text-sm font-semibold rounded-full text-white border-white/25 hover:bg-white/10 hover:border-white/40 bg-transparent w-full sm:w-auto transition-all duration-200"
                 asChild
               >
                 <Link href="/faq">Read the FAQ</Link>
