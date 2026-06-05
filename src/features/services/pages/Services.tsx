@@ -472,7 +472,7 @@ export default function Services() {
           <SectionHeading
             label="Benchmarks"
             title="Market Rates by Experience"
-            subtitle={`Where market rates sit at each level — we operate at the Senior tier.`}
+            subtitle={`Where market rates sit at each level — I operate at the Senior tier.`}
           />
 
           {/* Desktop table */}
