@@ -1,23 +1,20 @@
 import { Link } from "wouter";
 import { Twitter, Linkedin, Github, Mail, MapPin } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
-import { useDarkMode } from "@/hooks/use-dark-mode";
-
-const logoLight = "/logo-light.png";
-const logoDark = "/logo-dark.png";
+import { LOGO_DARK } from "@/lib/constants";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const isDark = useDarkMode();
 
   return (
     <footer className="bg-[hsl(var(--footer))] pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
           <div className="col-span-1">
             <Link href="/">
               <div className="mb-6 cursor-pointer">
-                <img src={logoDark} alt="SaifCraft Logo" className="h-9 w-auto object-contain" />
+                <img src={LOGO_DARK} alt="SaifCraft Logo" className="h-9 w-auto object-contain" />
               </div>
             </Link>
             <p className="text-white/75 text-sm leading-relaxed mb-6">
@@ -36,6 +33,7 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Services Column */}
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-3 text-sm text-white/70">
@@ -47,6 +45,7 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Navigate Column */}
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Navigate</h4>
             <ul className="space-y-3 text-sm text-white/70">
@@ -58,6 +57,7 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact Column */}
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Contact</h4>
             <ul className="space-y-4 text-sm text-white/70">
@@ -67,7 +67,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <SiWhatsapp className="w-4 h-4 text-primary shrink-0" />
-                <a href="https://wa.me/923188055850" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+92 318 8055850</a>
+                <a href="https://wa.me/923188055850" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  +92 318 8055850
+                </a>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -77,6 +79,7 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="border-t border-white/15 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/55">
           <p>&copy; {currentYear} Saif Khan / SaifCraft. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">

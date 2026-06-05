@@ -1,1 +1,3 @@
 - [LazyMotion migration](lazymotion-migration.md) — use `m` + LazyMotion wrapper instead of `motion`; strict mode catches regressions at dev time.
+- [Groq relay architecture](groq-relay-architecture.md) — shared relay at `src/lib/server/groq-relay.ts`; both `vite.config.ts` and `api/chat.ts` import from it.
+- [Admin order-status constants](admin-order-status.md) — `src/features/admin/constants/order-status.ts` owns `STATUS_CONFIG` + `PRIORITY_CONFIG`; `ClientProfile.tsx` has a separate client-facing config.

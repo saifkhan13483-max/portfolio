@@ -9,6 +9,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Switch, Route, Redirect, useLocation } from "wouter";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { ErrorBoundary } from "@/components/layout/ErrorBoundary";
+
 const ChatBot = lazy(() => import("@/features/chatbot/components/ChatBot"));
 
 const Home = lazy(() => import("@/features/home/pages/Home"));
@@ -40,38 +42,40 @@ function PageLoader() {
 
 function AdminRoutes() {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Switch>
-        <Route path="/admin/login" component={AdminLogin} />
-        <Route path="/admin">
-          <Redirect to="/admin/dashboard" />
-        </Route>
-        <Route path="/admin/:rest*">
-          {() => (
-            <AdminProtectedRoute>
-              <AdminLayout>
-                <Switch>
-                  <Route path="/admin/dashboard">
-                    <AdminDashboard />
-                  </Route>
-                  <Route path="/admin/orders">
-                    <OrdersManagement />
-                  </Route>
-                  <Route path="/admin/projects">
-                    <ProjectsManagement />
-                  </Route>
-                  <Route path="/admin/services">
-                    <ServicesManagement />
-                  </Route>
-                  <Route component={NotFound} />
-                </Switch>
-              </AdminLayout>
-            </AdminProtectedRoute>
-          )}
-        </Route>
-        <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={<PageLoader />}>
+        <Switch>
+          <Route path="/admin/login" component={AdminLogin} />
+          <Route path="/admin">
+            <Redirect to="/admin/dashboard" />
+          </Route>
+          <Route path="/admin/:rest*">
+            {() => (
+              <AdminProtectedRoute>
+                <AdminLayout>
+                  <Switch>
+                    <Route path="/admin/dashboard">
+                      <AdminDashboard />
+                    </Route>
+                    <Route path="/admin/orders">
+                      <OrdersManagement />
+                    </Route>
+                    <Route path="/admin/projects">
+                      <ProjectsManagement />
+                    </Route>
+                    <Route path="/admin/services">
+                      <ServicesManagement />
+                    </Route>
+                    <Route component={NotFound} />
+                  </Switch>
+                </AdminLayout>
+              </AdminProtectedRoute>
+            )}
+          </Route>
+          <Route component={NotFound} />
+        </Switch>
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
@@ -80,21 +84,23 @@ function PublicRoutes() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">
-        <Suspense fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/portfolio" component={Portfolio} />
-            <Route path="/portfolio/:id" component={ProjectDetail} />
-            <Route path="/services" component={Services} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/faq" component={FAQ} />
-            <Route path="/privacy-policy" component={PrivacyPolicy} />
-            <Route path="/terms-of-service" component={TermsOfService} />
-            <Route path="/profile" component={ClientProfile} />
-            <Route component={NotFound} />
-          </Switch>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoader />}>
+            <Switch>
+              <Route path="/" component={Home} />
+              <Route path="/portfolio" component={Portfolio} />
+              <Route path="/portfolio/:id" component={ProjectDetail} />
+              <Route path="/services" component={Services} />
+              <Route path="/about" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/faq" component={FAQ} />
+              <Route path="/privacy-policy" component={PrivacyPolicy} />
+              <Route path="/terms-of-service" component={TermsOfService} />
+              <Route path="/profile" component={ClientProfile} />
+              <Route component={NotFound} />
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
       <Suspense fallback={null}>

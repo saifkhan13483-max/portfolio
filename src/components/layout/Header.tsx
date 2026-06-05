@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "wouter";
-import { Link } from "wouter";
-import { Menu, LogIn, User as UserIcon, LayoutDashboard, LogOut, ArrowRight } from "lucide-react";
+import { useLocation, Link } from "wouter";
+import { Menu, LogIn, User as UserIcon, LayoutDashboard, LogOut, ArrowRight, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/features/auth/context/AuthContext";
@@ -9,26 +8,24 @@ import { signInWithGoogle, signOut } from "@/lib/firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { m } from "framer-motion";
 import { useDarkMode } from "@/hooks/use-dark-mode";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuLabel, 
-  DropdownMenuSeparator, 
-  DropdownMenuTrigger 
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
-const logoLight = "/logo-light.png";
-const logoDark = "/logo-dark.png";
+import { LOGO_LIGHT, LOGO_DARK } from "@/lib/constants";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "Home",      href: "/" },
+  { label: "Services",  href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "About",     href: "/about" },
+  { label: "FAQ",       href: "/faq" },
+  { label: "Contact",   href: "/contact" },
 ];
 
 export default function Header() {
@@ -38,12 +35,10 @@ export default function Header() {
   const { user, isAdmin } = useAuth();
   const { toast } = useToast();
   const isDark = useDarkMode();
-  const logo = isDark ? logoDark : logoLight;
+  const logo = isDark ? LOGO_DARK : LOGO_LIGHT;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -51,32 +46,18 @@ export default function Header() {
   const handleLogin = async () => {
     try {
       await signInWithGoogle();
-      toast({
-        title: "Success",
-        description: "Logged in successfully",
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to login",
-        variant: "destructive",
-      });
+      toast({ title: "Success", description: "Logged in successfully" });
+    } catch {
+      toast({ title: "Error", description: "Failed to login", variant: "destructive" });
     }
   };
 
   const handleLogout = async () => {
     try {
       await signOut();
-      toast({
-        title: "Success",
-        description: "Logged out successfully",
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to logout",
-        variant: "destructive",
-      });
+      toast({ title: "Success", description: "Logged out successfully" });
+    } catch {
+      toast({ title: "Error", description: "Failed to logout", variant: "destructive" });
     }
   };
 
@@ -92,18 +73,24 @@ export default function Header() {
         <div className="h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-            <img src={logo} alt="SaifCraft Logo" width={120} height={36} className="h-9 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300" />
+            <img
+              src={logo}
+              alt="SaifCraft Logo"
+              width={120}
+              height={36}
+              className="h-9 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <Link 
-                key={item.href} 
+              <Link
+                key={item.href}
                 href={item.href}
                 className={`px-3 py-2 text-sm font-medium transition-colors rounded-lg relative group ${
-                  location === item.href 
-                    ? "text-foreground" 
+                  location === item.href
+                    ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -138,7 +125,9 @@ export default function Header() {
                   <Button variant="ghost" className="relative h-9 w-9 rounded-full p-0 hover:bg-primary/10">
                     <Avatar className="h-9 w-9">
                       <AvatarImage src={user.photoURL || ""} alt={user.displayName || ""} />
-                      <AvatarFallback className="bg-primary/20 font-semibold">{user.displayName?.charAt(0) || "U"}</AvatarFallback>
+                      <AvatarFallback className="bg-primary/20 font-semibold">
+                        {user.displayName?.charAt(0) || "U"}
+                      </AvatarFallback>
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
@@ -152,45 +141,39 @@ export default function Header() {
                   <DropdownMenuSeparator />
                   {isAdmin && (
                     <DropdownMenuItem asChild>
-                      <Link 
-                        href="/admin"
-                        className="flex items-center gap-2 cursor-pointer w-full"
-                      >
+                      <Link href="/admin" className="flex items-center gap-2 cursor-pointer w-full">
                         <LayoutDashboard className="w-4 h-4" />
                         <span>Admin Dashboard</span>
                       </Link>
                     </DropdownMenuItem>
                   )}
                   <DropdownMenuItem asChild>
-                    <Link 
-                      href="/profile"
-                      className="flex items-center gap-2 cursor-pointer w-full"
-                    >
+                    <Link href="/profile" className="flex items-center gap-2 cursor-pointer w-full">
                       <UserIcon className="w-4 h-4" />
                       <span>My Profile</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link 
-                      href="/contact"
-                      className="flex items-center gap-2 cursor-pointer w-full"
-                    >
-                      <UserIcon className="w-4 h-4" />
+                    <Link href="/contact" className="flex items-center gap-2 cursor-pointer w-full">
+                      <MessageSquare className="w-4 h-4" />
                       <span>Support / Contact</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout} className="text-destructive focus:text-destructive cursor-pointer">
+                  <DropdownMenuItem
+                    onClick={handleLogout}
+                    className="text-destructive focus:text-destructive cursor-pointer"
+                  >
                     <LogOut className="w-4 h-4 mr-2" />
                     <span>Log out</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button 
-                onClick={handleLogin} 
-                variant="outline" 
-                size="sm" 
+              <Button
+                onClick={handleLogin}
+                variant="outline"
+                size="sm"
                 className="hidden sm:inline-flex gap-2 rounded-full px-5"
               >
                 <LogIn className="w-4 h-4" />
@@ -215,13 +198,13 @@ export default function Header() {
                   {/* Mobile Nav */}
                   <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-1">
                     {navItems.map((item) => (
-                      <Link 
-                        key={item.href} 
+                      <Link
+                        key={item.href}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
-                          location === item.href 
-                            ? "bg-primary/10 text-primary" 
+                          location === item.href
+                            ? "bg-primary/10 text-primary"
                             : "text-foreground/70 hover:text-foreground hover:bg-card/50"
                         }`}
                       >
@@ -257,10 +240,7 @@ export default function Header() {
                         )}
                         <Button
                           variant="destructive"
-                          onClick={() => {
-                            handleLogout();
-                            setMobileMenuOpen(false);
-                          }}
+                          onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
                           className="w-full justify-start gap-2 rounded-lg"
                         >
                           <LogOut className="w-4 h-4" />
@@ -268,11 +248,8 @@ export default function Header() {
                         </Button>
                       </>
                     ) : (
-                      <Button 
-                        onClick={() => {
-                          handleLogin();
-                          setMobileMenuOpen(false);
-                        }} 
+                      <Button
+                        onClick={() => { handleLogin(); setMobileMenuOpen(false); }}
                         className="w-full justify-start gap-2 rounded-lg"
                       >
                         <LogIn className="w-4 h-4" />

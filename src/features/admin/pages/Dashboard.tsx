@@ -1,3 +1,4 @@
+import type { ElementType } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import {
   ShoppingBag,
@@ -15,28 +16,22 @@ import { useProjects } from "@/hooks/use-projects";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Order, Project } from "@/types";
+import type { Order, Project } from "@/types";
 import { Link } from "wouter";
-import { format } from "date-fns";
+import { formatDate } from "@/lib/utils";
 import { STATUS_CONFIG } from "@/features/admin/constants/order-status";
 
-function MetricCard({
-  title,
-  value,
-  description,
-  icon: Icon,
-  gradient,
-  href,
-  loading,
-}: {
+interface MetricCardProps {
   title: string;
   value: number;
   description: string;
-  icon: React.ElementType;
+  icon: ElementType;
   gradient: string;
   href: string;
   loading: boolean;
-}) {
+}
+
+function MetricCard({ title, value, description, icon: Icon, gradient, href, loading }: MetricCardProps) {
   return (
     <Link href={href}>
       <div className={`group relative overflow-hidden rounded-2xl p-5 cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg ${gradient}`}>
@@ -64,15 +59,18 @@ export default function AdminDashboard() {
   const { data: orders, isLoading: ordersLoading } = useOrders();
   const { data: projects, isLoading: projectsLoading } = useProjects();
 
-  const pendingCount = (orders as Order[] | undefined)?.filter(o => o.status === "pending").length || 0;
-  const inProgressCount = (orders as Order[] | undefined)?.filter(o => o.status === "in-progress").length || 0;
-  const completedProjects = (projects as Project[] | undefined)?.filter(p => p.completedDate).length || 0;
-  const activeProjects = (projects as Project[] | undefined)?.filter(p => !p.completedDate).length || 0;
+  const pendingCount     = orders?.filter(o => o.status === "pending").length ?? 0;
+  const inProgressCount  = orders?.filter(o => o.status === "in-progress").length ?? 0;
+  const completedOrders  = orders?.filter(o => o.status === "completed").length ?? 0;
+  const cancelledOrders  = orders?.filter(o => o.status === "cancelled").length ?? 0;
+  const completedProjects = projects?.filter(p => p.completedDate).length ?? 0;
+  const activeProjects    = projects?.filter(p => !p.completedDate).length ?? 0;
+  const featuredProjects  = projects?.filter(p => p.featured).length ?? 0;
 
   const metrics = [
     {
       title: "Total Orders",
-      value: orders?.length || 0,
+      value: orders?.length ?? 0,
       icon: ShoppingBag,
       description: "All-time requests",
       gradient: "bg-gradient-to-br from-[hsl(231,82%,52%)] to-[hsl(231,82%,38%)]",
@@ -108,8 +106,8 @@ export default function AdminDashboard() {
     },
   ];
 
-  const recentOrders = (orders as Order[] | undefined)?.slice(0, 6) || [];
-  const recentProjects = (projects as Project[] | undefined)?.slice(0, 5) || [];
+  const recentOrders   = orders?.slice(0, 6) ?? [];
+  const recentProjects = projects?.slice(0, 5) ?? [];
 
   return (
     <div className="p-6 space-y-7 max-w-7xl mx-auto">
@@ -164,7 +162,7 @@ export default function AdminDashboard() {
 
       {/* Bottom Grid */}
       <div className="grid gap-6 lg:grid-cols-5">
-        {/* Recent Orders — wider */}
+        {/* Recent Orders */}
         <Card className="lg:col-span-3 border-border/60 shadow-sm">
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
@@ -189,19 +187,19 @@ export default function AdminDashboard() {
               <div className="space-y-1.5">
                 {recentOrders.map((order: Order) => (
                   <div key={order.id} className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:border-border hover:bg-muted/30 transition-all group">
-                    <div className={`h-2 w-2 rounded-full flex-shrink-0 ${STATUS_CONFIG[order.status]?.dot || "bg-muted-foreground/40"}`} />
+                    <div className={`h-2 w-2 rounded-full flex-shrink-0 ${STATUS_CONFIG[order.status]?.dot ?? "bg-muted-foreground/40"}`} />
                     <div className="min-w-0 flex-1">
                       <p className="font-medium text-sm truncate">{order.clientName}</p>
                       <p className="text-xs text-muted-foreground truncate">{order.serviceType}</p>
                     </div>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <span className="text-[10px] text-muted-foreground hidden sm:block">
-                        {order.createdAt ? (() => {
-                          const d = new Date(order.createdAt);
-                          return isNaN(d.getTime()) ? "" : format(d, "MMM d");
-                        })() : ""}
+                        {formatDate(order.createdAt, "MMM d", "")}
                       </span>
-                      <Badge className={`text-[10px] px-2 py-0.5 border font-medium capitalize ${STATUS_CONFIG[order.status]?.badge || ""}`} variant="outline">
+                      <Badge
+                        className={`text-[10px] px-2 py-0.5 border font-medium capitalize ${STATUS_CONFIG[order.status]?.badge ?? ""}`}
+                        variant="outline"
+                      >
                         {order.status}
                       </Badge>
                     </div>
@@ -220,7 +218,7 @@ export default function AdminDashboard() {
           </CardContent>
         </Card>
 
-        {/* Recent Projects — narrower */}
+        {/* Recent Projects */}
         <Card className="lg:col-span-2 border-border/60 shadow-sm">
           <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
@@ -260,11 +258,7 @@ export default function AdminDashboard() {
                       <p className="font-medium text-sm truncate">{project.title}</p>
                       <p className="text-xs text-muted-foreground truncate">{project.category}</p>
                     </div>
-                    {project.completedDate ? (
-                      <div className="h-1.5 w-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
-                    ) : (
-                      <div className="h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
-                    )}
+                    <div className={`h-1.5 w-1.5 rounded-full flex-shrink-0 ${project.completedDate ? "bg-emerald-500" : "bg-blue-500"}`} />
                   </div>
                 ))}
               </div>
@@ -285,13 +279,13 @@ export default function AdminDashboard() {
         </Card>
       </div>
 
-      {/* Quick stats row */}
+      {/* Quick stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: "Total Projects", value: (projects?.length || 0), sub: `${activeProjects} active` },
-          { label: "Completed Orders", value: (orders as Order[] | undefined)?.filter(o => o.status === "completed").length || 0, sub: "all time" },
-          { label: "Cancelled", value: (orders as Order[] | undefined)?.filter(o => o.status === "cancelled").length || 0, sub: "orders" },
-          { label: "Featured Projects", value: (projects as Project[] | undefined)?.filter(p => p.featured).length || 0, sub: "highlighted" },
+          { label: "Total Projects",    value: projects?.length ?? 0, sub: `${activeProjects} active` },
+          { label: "Completed Orders",  value: completedOrders,       sub: "all time" },
+          { label: "Cancelled",         value: cancelledOrders,       sub: "orders" },
+          { label: "Featured Projects", value: featuredProjects,      sub: "highlighted" },
         ].map(stat => (
           <div key={stat.label} className="bg-white rounded-xl border border-border/60 p-4 shadow-sm">
             <p className="text-2xl font-bold tracking-tight">{stat.value}</p>

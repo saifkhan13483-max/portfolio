@@ -11,12 +11,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useOrders, useUpdateOrder } from "@/hooks/use-orders";
-import { Order } from "@/types";
+import type { Order } from "@/types";
 import {
   MoreHorizontal, Eye, Clock, CheckCircle2, XCircle, AlertCircle,
   Search, ShoppingBag, Mail, Calendar, DollarSign, Tag, Filter,
 } from "lucide-react";
-import { format } from "date-fns";
+import { formatDate } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   DropdownMenu,
@@ -28,15 +28,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { STATUS_CONFIG, PRIORITY_CONFIG } from "@/features/admin/constants/order-status";
 
-const statusTabs = ["all", "pending", "in-progress", "completed", "cancelled"] as const;
-type StatusTab = typeof statusTabs[number];
+const STATUS_TABS = ["all", "pending", "in-progress", "completed", "cancelled"] as const;
+type StatusTab = typeof STATUS_TABS[number];
 
-const tabLabels: Record<string, string> = {
-  all: "All",
-  pending: "Pending",
+const TAB_LABELS: Record<StatusTab, string> = {
+  all:         "All",
+  pending:     "Pending",
   "in-progress": "In Progress",
-  completed: "Completed",
-  cancelled: "Cancelled",
+  completed:   "Completed",
+  cancelled:   "Cancelled",
 };
 
 export default function OrdersManagement() {
@@ -51,8 +51,7 @@ export default function OrdersManagement() {
 
   const filtered = useMemo(() => {
     if (!orders) return [];
-    let list = orders as Order[];
-    if (activeTab !== "all") list = list.filter(o => o.status === activeTab);
+    let list: Order[] = activeTab !== "all" ? orders.filter(o => o.status === activeTab) : [...orders];
     if (search.trim()) {
       const q = search.toLowerCase();
       list = list.filter(
@@ -65,24 +64,26 @@ export default function OrdersManagement() {
     return list;
   }, [orders, activeTab, search]);
 
-  const counts = useMemo(() => {
-    if (!orders) return {} as Record<string, number>;
-    const o = orders as Order[];
+  const counts = useMemo<Record<StatusTab, number>>(() => {
+    if (!orders) return { all: 0, pending: 0, "in-progress": 0, completed: 0, cancelled: 0 };
     return {
-      all: o.length,
-      pending: o.filter(x => x.status === "pending").length,
-      "in-progress": o.filter(x => x.status === "in-progress").length,
-      completed: o.filter(x => x.status === "completed").length,
-      cancelled: o.filter(x => x.status === "cancelled").length,
+      all:           orders.length,
+      pending:       orders.filter(o => o.status === "pending").length,
+      "in-progress": orders.filter(o => o.status === "in-progress").length,
+      completed:     orders.filter(o => o.status === "completed").length,
+      cancelled:     orders.filter(o => o.status === "cancelled").length,
     };
   }, [orders]);
+
+  const clearFilters = () => { setSearch(""); setActiveTab("all"); };
+  const hasFilters = search || activeTab !== "all";
 
   if (isLoading) {
     return (
       <div className="p-6 space-y-5 max-w-7xl mx-auto">
         <Skeleton className="h-8 w-52" />
         <div className="flex gap-2">
-          {[1,2,3,4,5].map(i => <Skeleton key={i} className="h-8 w-24 rounded-lg" />)}
+          {[1, 2, 3, 4, 5].map(i => <Skeleton key={i} className="h-8 w-24 rounded-lg" />)}
         </div>
         <Skeleton className="h-[400px] w-full rounded-2xl" />
       </div>
@@ -100,20 +101,14 @@ export default function OrdersManagement() {
           </p>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
-          {Object.entries(STATUS_CONFIG).map(([key, cfg]) => {
-            const count = counts[key as keyof typeof counts] || 0;
-            if (key === "pending" && count > 0) {
-              return (
-                <div key={key} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200">
-                  <div className="h-1.5 w-1.5 rounded-full bg-amber-500" />
-                  <span className="text-xs font-semibold text-amber-700">{count} pending</span>
-                </div>
-              );
-            }
-            return null;
-          })}
+          {counts.pending > 0 && (
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-50 border border-amber-200">
+              <div className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+              <span className="text-xs font-semibold text-amber-700">{counts.pending} pending</span>
+            </div>
+          )}
           <Badge variant="outline" className="px-3 py-1.5 text-sm font-medium">
-            {orders?.length || 0} Total
+            {orders?.length ?? 0} Total
           </Badge>
         </div>
       </div>
@@ -132,7 +127,7 @@ export default function OrdersManagement() {
         </div>
         <div className="flex gap-1.5 flex-wrap">
           <Filter className="h-4 w-4 text-muted-foreground mt-2.5 flex-shrink-0" />
-          {statusTabs.map(tab => (
+          {STATUS_TABS.map(tab => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -144,20 +139,18 @@ export default function OrdersManagement() {
               }`}
               style={activeTab === tab ? { boxShadow: "0 2px 8px rgba(37,69,230,0.25)" } : {}}
             >
-              {tabLabels[tab]}
-              {counts[tab as keyof typeof counts] !== undefined && (
-                <span className={`ml-1.5 px-1.5 rounded-full text-[10px] font-semibold ${
-                  activeTab === tab ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
-                }`}>
-                  {counts[tab as keyof typeof counts]}
-                </span>
-              )}
+              {TAB_LABELS[tab]}
+              <span className={`ml-1.5 px-1.5 rounded-full text-[10px] font-semibold ${
+                activeTab === tab ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
+              }`}>
+                {counts[tab]}
+              </span>
             </button>
           ))}
         </div>
       </div>
 
-      {/* Table Card */}
+      {/* Table */}
       <div className="bg-white rounded-2xl border border-border/60 shadow-sm overflow-hidden">
         {/* Table Header */}
         <div className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-4 px-5 py-3 border-b border-border/60 bg-muted/20">
@@ -168,22 +161,21 @@ export default function OrdersManagement() {
           <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wide text-right">Actions</span>
         </div>
 
-        {/* Rows */}
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 text-center px-4">
             <div className="h-14 w-14 rounded-2xl bg-muted flex items-center justify-center mb-4">
               <ShoppingBag className="h-6 w-6 text-muted-foreground/30" />
             </div>
             <p className="text-sm font-semibold text-muted-foreground">
-              {search || activeTab !== "all" ? "No orders match your filters." : "No orders yet."}
+              {hasFilters ? "No orders match your filters." : "No orders yet."}
             </p>
             <p className="text-xs text-muted-foreground/60 mt-1 max-w-xs">
-              {search || activeTab !== "all"
+              {hasFilters
                 ? "Try adjusting your search or filter."
                 : "When clients submit inquiries through your contact form, they'll appear here."}
             </p>
-            {(search || activeTab !== "all") && (
-              <Button variant="outline" size="sm" className="mt-4 h-8 text-xs" onClick={() => { setSearch(""); setActiveTab("all"); }}>
+            {hasFilters && (
+              <Button variant="outline" size="sm" className="mt-4 h-8 text-xs" onClick={clearFilters}>
                 Clear filters
               </Button>
             )}
@@ -191,15 +183,18 @@ export default function OrdersManagement() {
         ) : (
           <div className="divide-y divide-border/50">
             {filtered.map((order: Order) => {
-              const cfg = STATUS_CONFIG[order.status] || STATUS_CONFIG.pending;
+              const cfg = STATUS_CONFIG[order.status] ?? STATUS_CONFIG.pending;
               const StatusIcon = cfg.icon;
               return (
-                <div key={order.id} className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-4 px-5 py-4 items-center hover:bg-muted/20 transition-colors group">
+                <div
+                  key={order.id}
+                  className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-4 px-5 py-4 items-center hover:bg-muted/20 transition-colors group"
+                >
                   {/* Client */}
                   <div className="flex items-center gap-3 min-w-0">
                     <div className="h-8 w-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                       <span className="text-[11px] font-bold text-primary">
-                        {order.clientName?.charAt(0)?.toUpperCase() || "?"}
+                        {order.clientName?.charAt(0)?.toUpperCase() ?? "?"}
                       </span>
                     </div>
                     <div className="min-w-0">
@@ -212,7 +207,10 @@ export default function OrdersManagement() {
                   <div>
                     <Badge variant="secondary" className="font-normal text-xs">{order.serviceType}</Badge>
                     {order.priority && (
-                      <Badge variant="outline" className={`ml-1.5 text-[10px] font-normal capitalize ${PRIORITY_CONFIG[order.priority]?.badge || ""}`}>
+                      <Badge
+                        variant="outline"
+                        className={`ml-1.5 text-[10px] font-normal capitalize ${PRIORITY_CONFIG[order.priority]?.badge ?? ""}`}
+                      >
                         {order.priority}
                       </Badge>
                     )}
@@ -220,16 +218,15 @@ export default function OrdersManagement() {
 
                   {/* Date */}
                   <span className="text-xs text-muted-foreground hidden md:block whitespace-nowrap">
-                    {(() => {
-                      if (!order.createdAt) return "—";
-                      const d = new Date(order.createdAt);
-                      return isNaN(d.getTime()) ? "—" : format(d, "MMM dd, yyyy");
-                    })()}
+                    {formatDate(order.createdAt, "MMM dd, yyyy")}
                   </span>
 
                   {/* Status */}
                   <div>
-                    <Badge className={`text-xs border font-medium flex items-center gap-1 w-fit ${cfg.badge}`} variant="outline">
+                    <Badge
+                      className={`text-xs border font-medium flex items-center gap-1 w-fit ${cfg.badge}`}
+                      variant="outline"
+                    >
                       <div className={`h-1.5 w-1.5 rounded-full ${cfg.dot}`} />
                       {cfg.label}
                     </Badge>
@@ -239,7 +236,12 @@ export default function OrdersManagement() {
                   <div className="flex items-center gap-1 justify-end">
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button size="icon" variant="ghost" className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity" data-testid={`button-view-order-${order.id}`}>
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                          data-testid={`button-view-order-${order.id}`}
+                        >
                           <Eye className="h-4 w-4" />
                         </Button>
                       </DialogTrigger>
@@ -281,7 +283,9 @@ export default function OrdersManagement() {
                           <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
                             <p className="text-xs text-muted-foreground mb-2">Project Description</p>
                             <p className="text-sm leading-relaxed">
-                              {order.projectDescription || <span className="italic text-muted-foreground">No description provided.</span>}
+                              {order.projectDescription || (
+                                <span className="italic text-muted-foreground">No description provided.</span>
+                              )}
                             </p>
                           </div>
                           <div className="flex items-center gap-2 pt-1">
@@ -290,7 +294,10 @@ export default function OrdersManagement() {
                               {cfg.label}
                             </Badge>
                             {order.priority && (
-                              <Badge variant="outline" className={`text-xs capitalize ${PRIORITY_CONFIG[order.priority]?.badge || ""}`}>
+                              <Badge
+                                variant="outline"
+                                className={`text-xs capitalize ${PRIORITY_CONFIG[order.priority]?.badge ?? ""}`}
+                              >
                                 {order.priority} priority
                               </Badge>
                             )}
@@ -301,7 +308,12 @@ export default function OrdersManagement() {
 
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <Button size="icon" variant="ghost" className="h-8 w-8" data-testid={`button-order-actions-${order.id}`}>
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          className="h-8 w-8"
+                          data-testid={`button-order-actions-${order.id}`}
+                        >
                           <MoreHorizontal className="h-4 w-4" />
                         </Button>
                       </DropdownMenuTrigger>
@@ -334,10 +346,10 @@ export default function OrdersManagement() {
         {filtered.length > 0 && (
           <div className="px-5 py-3 border-t border-border/60 bg-muted/10 flex items-center justify-between">
             <p className="text-xs text-muted-foreground">
-              Showing <strong>{filtered.length}</strong> of <strong>{orders?.length || 0}</strong> orders
+              Showing <strong>{filtered.length}</strong> of <strong>{orders?.length ?? 0}</strong> orders
             </p>
-            {(search || activeTab !== "all") && (
-              <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => { setSearch(""); setActiveTab("all"); }}>
+            {hasFilters && (
+              <Button variant="ghost" size="sm" className="text-xs h-7" onClick={clearFilters}>
                 Clear filters
               </Button>
             )}
