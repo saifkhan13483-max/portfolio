@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import Hero from "@/features/home/components/Hero";
-import ProjectsGallery from "@/features/portfolio/components/ProjectsGallery";
+
+const ProjectsGallery = lazy(() => import("@/features/portfolio/components/ProjectsGallery"));
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { m } from "framer-motion";
@@ -601,8 +602,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. PROJECTS */}
-      <ProjectsGallery />
+      {/* 4. PROJECTS — lazy-loaded so Firestore SDK defers until after the hero renders */}
+      <Suspense fallback={
+        <section className="py-12 sm:py-20 bg-card/30 border-t border-border">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1,2,3].map(i => (
+                <div key={i} className="h-64 rounded-2xl bg-muted animate-pulse" />
+              ))}
+            </div>
+          </div>
+        </section>
+      }>
+        <ProjectsGallery />
+      </Suspense>
 
       {/* 5. SERVICES PREVIEW */}
       <section id="services" className="py-10 sm:py-16 lg:py-24 border-t border-border bg-card/20">

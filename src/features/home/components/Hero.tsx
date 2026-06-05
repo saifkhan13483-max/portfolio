@@ -55,6 +55,14 @@ function NeuralNetwork() {
     const ro = new ResizeObserver(resize);
     ro.observe(canvas.parentElement!);
 
+    // Pause rAF when hero is off-screen to save CPU/battery
+    let isVisible = true;
+    const io = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    io.observe(canvas.parentElement!);
+
     const primaryHsl = getComputedStyle(document.documentElement)
       .getPropertyValue("--primary")
       .trim() || "222 80% 55%";
@@ -134,13 +142,19 @@ function NeuralNetwork() {
         ctx.fill();
       });
 
-      animRef.current = requestAnimationFrame(draw);
     };
 
-    animRef.current = requestAnimationFrame(draw);
+    // Smart scheduler: skip canvas work when hero is scrolled out of view
+    const drawSmart = (ts: number) => {
+      if (isVisible) draw(ts);
+      animRef.current = requestAnimationFrame(drawSmart);
+    };
+
+    animRef.current = requestAnimationFrame(drawSmart);
     return () => {
       cancelAnimationFrame(animRef.current);
       ro.disconnect();
+      io.disconnect();
     };
   }, [init]);
 
