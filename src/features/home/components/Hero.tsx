@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Zap, Shield, Clock, Star, Code2, Globe, Layers } from "lucide-react";
+import NetworkBackground from "./NetworkBackground";
 
 const highlights = [
   { icon: Zap, text: "Fast Delivery" },
@@ -111,17 +112,13 @@ function TypewriterCode() {
 export default function Hero() {
   return (
     <section className="relative pt-8 sm:pt-12 pb-10 sm:pb-14 overflow-hidden">
-      {/* Background Blobs — CSS animations (no JS overhead) */}
-      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="hero-blob-1 absolute -top-[15%] right-0 w-[55%] h-[70%] bg-primary/10 blur-[80px] rounded-full" />
-        <div className="hero-blob-2 absolute top-[50%] -left-[5%] w-[40%] h-[50%] bg-secondary/8 blur-[70px] rounded-full" />
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: "64px 64px",
-          }}
-        />
+      {/* Animated Neural Network Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <NetworkBackground />
+        {/* Subtle left-side fade to keep content readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+        {/* Bottom fade into page */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 relative z-10">
