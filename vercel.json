@@ -2,7 +2,6 @@
   "installCommand": "npm ci --omit=optional --legacy-peer-deps",
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "nodeVersion": "20.x",
   "cleanUrls": true,
   "trailingSlash": false,
   "functions": {
