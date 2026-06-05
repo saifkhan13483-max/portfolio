@@ -497,7 +497,7 @@ export default function Services() {
                       <div className="flex items-center gap-2">
                         {row.level}
                         {row.highlight && (
-                          <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold tracking-wide">← Us</span>
+                          <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold tracking-wide">← Me</span>
                         )}
                       </div>
                     </td>
@@ -522,7 +522,7 @@ export default function Services() {
                 <div className="flex items-center justify-between mb-3">
                   <span className={`font-bold text-sm ${row.highlight ? "text-primary" : "text-foreground"}`}>{row.level}</span>
                   {row.highlight && (
-                    <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold">← Us</span>
+                    <span className="text-[9px] bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold">← Me</span>
                   )}
                 </div>
                 <div className="grid grid-cols-2 gap-2">
