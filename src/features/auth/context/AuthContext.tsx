@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { User } from "firebase/auth";
-import { onAuthStateChanged } from "firebase/auth";
+import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase/config";
 import { isAdmin as checkAdminStatus } from "@/lib/firebase/auth";
 

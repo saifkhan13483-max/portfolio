@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { db } from "@/lib/firebase/config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { useCreateOrder } from "@/hooks/use-orders";
+import type { Order } from "@/types";
 
 const formSchema = z.object({
   clientName: z.string().min(2, "Name must be at least 2 characters"),
@@ -19,9 +19,13 @@ const formSchema = z.object({
   timeline: z.string().min(1, "Please enter a timeline"),
 });
 
+type ContactFormValues = z.infer<typeof formSchema>;
+
 export default function ContactForm() {
   const { toast } = useToast();
-  const form = useForm<z.infer<typeof formSchema>>({
+  const createOrder = useCreateOrder();
+
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       clientName: "",
@@ -33,12 +37,14 @@ export default function ContactForm() {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: ContactFormValues) => {
     try {
-      await addDoc(collection(db, "contacts"), {
+      await createOrder.mutateAsync({
         ...values,
-        status: "new",
-        timestamp: serverTimestamp(),
+        status: "pending" as Order["status"],
+        priority: "medium" as Order["priority"],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
       });
 
       toast({
@@ -47,7 +53,7 @@ export default function ContactForm() {
       });
       form.reset();
     } catch (error) {
-      console.error("Error submitting order:", error);
+      console.error("Error submitting inquiry:", error);
       toast({
         variant: "destructive",
         title: "Submission Failed",
@@ -101,10 +107,12 @@ export default function ContactForm() {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent className="bg-gray-900 border-white/10 text-foreground">
-                  <SelectItem value="Web Development">Web Development</SelectItem>
-                  <SelectItem value="Mobile Development">Mobile Development</SelectItem>
-                  <SelectItem value="UI/UX Design">UI/UX Design</SelectItem>
-                  <SelectItem value="Digital Strategy">Digital Strategy</SelectItem>
+                  <SelectItem value="Landing Page">Landing Page</SelectItem>
+                  <SelectItem value="Business Website">Business Website</SelectItem>
+                  <SelectItem value="Custom Web App">Custom Web App</SelectItem>
+                  <SelectItem value="AI Feature Add-On">AI Feature Add-On</SelectItem>
+                  <SelectItem value="Monthly Retainer">Monthly Retainer</SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
@@ -148,10 +156,10 @@ export default function ContactForm() {
             <FormItem>
               <FormLabel>Project Description</FormLabel>
               <FormControl>
-                <Textarea 
-                  placeholder="Tell us about your project goals and requirements..." 
+                <Textarea
+                  placeholder="Tell us about your project goals and requirements..."
                   className="min-h-[150px] bg-white/5 border-white/10 text-foreground"
-                  {...field} 
+                  {...field}
                 />
               </FormControl>
               <FormMessage />
@@ -159,8 +167,13 @@ export default function ContactForm() {
           )}
         />
 
-        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-foreground h-14 text-lg font-bold">
-          Send Project Inquiry
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full bg-primary hover:bg-primary/90 text-foreground h-14 text-lg font-bold"
+          disabled={createOrder.isPending}
+        >
+          {createOrder.isPending ? "Sending…" : "Send Project Inquiry"}
         </Button>
       </form>
     </Form>

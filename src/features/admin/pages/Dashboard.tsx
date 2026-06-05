@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { 
-  ShoppingBag, 
-  Clock, 
-  CheckCircle2, 
+import {
+  ShoppingBag,
+  Clock,
+  CheckCircle2,
   Briefcase,
   ArrowUpRight,
   Plus,
@@ -18,20 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Order, Project } from "@/types";
 import { Link } from "wouter";
 import { format } from "date-fns";
-
-const statusColors: Record<string, string> = {
-  pending: "bg-amber-50 text-amber-700 border-amber-200",
-  "in-progress": "bg-blue-50 text-blue-700 border-blue-200",
-  completed: "bg-emerald-50 text-emerald-700 border-emerald-200",
-  cancelled: "bg-red-50 text-red-700 border-red-200",
-};
-
-const statusDot: Record<string, string> = {
-  pending: "bg-amber-500",
-  "in-progress": "bg-blue-500",
-  completed: "bg-emerald-500",
-  cancelled: "bg-red-400",
-};
+import { STATUS_CONFIG } from "@/features/admin/constants/order-status";
 
 function MetricCard({
   title,
@@ -202,7 +189,7 @@ export default function AdminDashboard() {
               <div className="space-y-1.5">
                 {recentOrders.map((order: Order) => (
                   <div key={order.id} className="flex items-center gap-3 px-3 py-2.5 rounded-xl border border-transparent hover:border-border hover:bg-muted/30 transition-all group">
-                    <div className={`h-2 w-2 rounded-full flex-shrink-0 ${statusDot[order.status] || "bg-muted-foreground/40"}`} />
+                    <div className={`h-2 w-2 rounded-full flex-shrink-0 ${STATUS_CONFIG[order.status]?.dot || "bg-muted-foreground/40"}`} />
                     <div className="min-w-0 flex-1">
                       <p className="font-medium text-sm truncate">{order.clientName}</p>
                       <p className="text-xs text-muted-foreground truncate">{order.serviceType}</p>
@@ -214,7 +201,7 @@ export default function AdminDashboard() {
                           return isNaN(d.getTime()) ? "" : format(d, "MMM d");
                         })() : ""}
                       </span>
-                      <Badge className={`text-[10px] px-2 py-0.5 border font-medium capitalize ${statusColors[order.status] || ""}`} variant="outline">
+                      <Badge className={`text-[10px] px-2 py-0.5 border font-medium capitalize ${STATUS_CONFIG[order.status]?.badge || ""}`} variant="outline">
                         {order.status}
                       </Badge>
                     </div>

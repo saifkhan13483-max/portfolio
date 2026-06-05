@@ -1,20 +1,20 @@
 import { useState, useMemo } from "react";
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle, 
-  DialogTrigger 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { useOrders, useUpdateOrder } from "@/hooks/use-orders";
 import { Order } from "@/types";
-import { 
-  MoreHorizontal, Eye, Clock, CheckCircle2, XCircle, AlertCircle, 
-  Search, ShoppingBag, Mail, Calendar, DollarSign, Tag, Filter
+import {
+  MoreHorizontal, Eye, Clock, CheckCircle2, XCircle, AlertCircle,
+  Search, ShoppingBag, Mail, Calendar, DollarSign, Tag, Filter,
 } from "lucide-react";
 import { format } from "date-fns";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -26,19 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-const statusConfig: Record<string, { label: string; dot: string; badge: string; icon: React.ElementType }> = {
-  pending:     { label: "Pending",     dot: "bg-amber-400",   badge: "bg-amber-50 text-amber-700 border-amber-200",   icon: Clock },
-  "in-progress": { label: "In Progress", dot: "bg-blue-500",    badge: "bg-blue-50 text-blue-700 border-blue-200",       icon: AlertCircle },
-  completed:   { label: "Completed",   dot: "bg-emerald-500", badge: "bg-emerald-50 text-emerald-700 border-emerald-200", icon: CheckCircle2 },
-  cancelled:   { label: "Cancelled",   dot: "bg-red-400",     badge: "bg-red-50 text-red-700 border-red-200",          icon: XCircle },
-};
-
-const priorityConfig: Record<string, { badge: string }> = {
-  high:   { badge: "bg-red-50 text-red-600 border-red-200" },
-  medium: { badge: "bg-orange-50 text-orange-600 border-orange-200" },
-  low:    { badge: "bg-slate-50 text-slate-500 border-slate-200" },
-};
+import { STATUS_CONFIG, PRIORITY_CONFIG } from "@/features/admin/constants/order-status";
 
 const statusTabs = ["all", "pending", "in-progress", "completed", "cancelled"] as const;
 type StatusTab = typeof statusTabs[number];
@@ -112,7 +100,7 @@ export default function OrdersManagement() {
           </p>
         </div>
         <div className="flex items-center gap-2 flex-wrap">
-          {Object.entries(statusConfig).map(([key, cfg]) => {
+          {Object.entries(STATUS_CONFIG).map(([key, cfg]) => {
             const count = counts[key as keyof typeof counts] || 0;
             if (key === "pending" && count > 0) {
               return (
@@ -203,7 +191,7 @@ export default function OrdersManagement() {
         ) : (
           <div className="divide-y divide-border/50">
             {filtered.map((order: Order) => {
-              const cfg = statusConfig[order.status] || statusConfig.pending;
+              const cfg = STATUS_CONFIG[order.status] || STATUS_CONFIG.pending;
               const StatusIcon = cfg.icon;
               return (
                 <div key={order.id} className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-4 px-5 py-4 items-center hover:bg-muted/20 transition-colors group">
@@ -224,7 +212,7 @@ export default function OrdersManagement() {
                   <div>
                     <Badge variant="secondary" className="font-normal text-xs">{order.serviceType}</Badge>
                     {order.priority && (
-                      <Badge variant="outline" className={`ml-1.5 text-[10px] font-normal capitalize ${priorityConfig[order.priority]?.badge || ""}`}>
+                      <Badge variant="outline" className={`ml-1.5 text-[10px] font-normal capitalize ${PRIORITY_CONFIG[order.priority]?.badge || ""}`}>
                         {order.priority}
                       </Badge>
                     )}
@@ -302,7 +290,7 @@ export default function OrdersManagement() {
                               {cfg.label}
                             </Badge>
                             {order.priority && (
-                              <Badge variant="outline" className={`text-xs capitalize ${priorityConfig[order.priority]?.badge || ""}`}>
+                              <Badge variant="outline" className={`text-xs capitalize ${PRIORITY_CONFIG[order.priority]?.badge || ""}`}>
                                 {order.priority} priority
                               </Badge>
                             )}

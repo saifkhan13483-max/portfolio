@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, User, Sparkles } from "lucide-react";
-import { geminiChat, ChatMessage, buildChatbotPrompt } from "@/features/chatbot/services/groq-client";
+import { sendChatMessage, ChatMessage, buildChatbotPrompt } from "@/features/chatbot/services/groq-client";
 
 interface Message {
   role: "user" | "assistant";
@@ -223,7 +223,7 @@ export default function ChatBot() {
           parts: [{ text: m.content }],
         }));
 
-      const reply = await geminiChat(history, trimmed, buildChatbotPrompt());
+      const reply = await sendChatMessage(history, trimmed, buildChatbotPrompt());
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
     } catch (err: unknown) {
       const raw = err instanceof Error ? err.message : "Something went wrong.";

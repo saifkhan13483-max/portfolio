@@ -102,12 +102,17 @@ QUICK FACTS (for fast answers):
 - Post-launch: 30 days free bug fixes, then retainer available`;
 }
 
+/** Shape of a single chat turn as expected by the /api/chat endpoint. */
 export interface ChatMessage {
   role: "user" | "model";
   parts: { text: string }[];
 }
 
-export async function geminiChat(
+/**
+ * Sends a chat turn to the /api/chat Groq proxy and returns the assistant's reply.
+ * Throws an Error if the server responds with an error or returns no text.
+ */
+export async function sendChatMessage(
   history: ChatMessage[],
   userMessage: string,
   systemInstruction: string

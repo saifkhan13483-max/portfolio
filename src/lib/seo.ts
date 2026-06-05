@@ -1,4 +1,4 @@
-const BASE_URL = "https://portfolio-wheat-iota-47.vercel.app";
+const BASE_URL = import.meta.env.VITE_SITE_URL || "https://saifcraft.dev";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/logo-dark.png`;
 
 interface PageSEOOptions {
@@ -16,12 +16,13 @@ function setMeta(selector: string, value: string) {
 }
 
 function setOrCreateMeta(attrs: Record<string, string>, content: string) {
-  const attrPairs = Object.entries(attrs);
-  const selector = attrPairs.map(([k, v]) => `[${k}="${v}"]`).join("");
+  const selector = Object.entries(attrs)
+    .map(([k, v]) => `[${k}="${v}"]`)
+    .join("");
   let el = document.querySelector(`meta${selector}`) as HTMLMetaElement | null;
   if (!el) {
-    el = document.createElement("meta") as HTMLMetaElement;
-    attrPairs.forEach(([k, v]) => el!.setAttribute(k, v));
+    el = document.createElement("meta");
+    Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
     document.head.appendChild(el);
   }
   el.setAttribute("content", content);
@@ -30,7 +31,7 @@ function setOrCreateMeta(attrs: Record<string, string>, content: string) {
 function setOrCreateLink(rel: string, href: string) {
   let el = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
   if (!el) {
-    el = document.createElement("link") as HTMLLinkElement;
+    el = document.createElement("link");
     el.setAttribute("rel", rel);
     document.head.appendChild(el);
   }
@@ -40,7 +41,7 @@ function setOrCreateLink(rel: string, href: string) {
 function setRobotsDirective(content: string) {
   let el = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
   if (!el) {
-    el = document.createElement("meta") as HTMLMetaElement;
+    el = document.createElement("meta");
     el.setAttribute("name", "robots");
     document.head.appendChild(el);
   }
@@ -79,11 +80,11 @@ export function updatePageSEO({
 
 export function addSchema(id: string, data: object) {
   if (document.getElementById(id)) return;
-  const s = document.createElement("script");
-  s.id = id;
-  s.type = "application/ld+json";
-  s.text = JSON.stringify(data);
-  document.head.appendChild(s);
+  const script = document.createElement("script");
+  script.id = id;
+  script.type = "application/ld+json";
+  script.text = JSON.stringify(data);
+  document.head.appendChild(script);
 }
 
 export function removeSchemas(ids: string[]) {

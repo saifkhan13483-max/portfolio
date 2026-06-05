@@ -4,10 +4,10 @@ import { useToast } from '@/hooks/use-toast';
 
 export const useImageUpload = () => {
   const { toast } = useToast();
-  
+
   return useMutation({
     mutationFn: uploadToCloudinary,
-    onError: (error: any) => {
+    onError: (error: Error) => {
       console.error('Image upload failed:', error);
       toast({
         title: 'Upload Failed',

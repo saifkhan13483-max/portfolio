@@ -19,7 +19,7 @@ export default function Login() {
   const { isAdmin, user } = useAuth();
 
   if (user && isAdmin) {
-    window.location.href = "/admin/dashboard";
+    setLocation("/admin/dashboard");
     return null;
   }
 
@@ -29,12 +29,13 @@ export default function Login() {
     try {
       await signInWithEmail(email, password);
       toast({ title: "Signed in successfully" });
-      window.location.href = "/admin/dashboard";
-    } catch (error: any) {
+      setLocation("/admin/dashboard");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Invalid credentials. Please try again.";
       toast({
         variant: "destructive",
         title: "Sign in failed",
-        description: error.message || "Invalid credentials. Please try again.",
+        description: message,
       });
     } finally {
       setIsLoading(false);
@@ -46,12 +47,13 @@ export default function Login() {
     try {
       await signInWithGoogle();
       toast({ title: "Signed in with Google" });
-      window.location.href = "/admin/dashboard";
-    } catch (error: any) {
+      setLocation("/admin/dashboard");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Please try again.";
       toast({
         variant: "destructive",
         title: "Google sign in failed",
-        description: error.message || "Please try again.",
+        description: message,
       });
     } finally {
       setIsLoading(false);
@@ -100,7 +102,7 @@ export default function Login() {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(v => !v)}
+                  onClick={() => setShowPassword((v) => !v)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                   tabIndex={-1}
                   data-testid="button-toggle-password"
@@ -115,7 +117,7 @@ export default function Login() {
               disabled={isLoading}
               data-testid="button-login"
             >
-              {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Sign In
             </Button>
           </form>
