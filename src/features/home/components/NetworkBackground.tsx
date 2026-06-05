@@ -118,7 +118,7 @@ export default function NetworkBackground() {
           : rand(0, W);
         nodes.push({
           x: xBias, y: rand(0, H),
-          vx: Math.cos(angle) * speed - 0.12,
+          vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
           depth, isHub: false, isMega: false,
           pulsePhase: rand(0, TAU),
