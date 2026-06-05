@@ -1,8 +1,157 @@
 import { m, animate } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Zap, Shield, Clock, Star, Code2, Globe, Layers } from "lucide-react";
+
+interface NeuralNode {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  r: number;
+}
+
+interface Pulse {
+  fromIdx: number;
+  toIdx: number;
+  t: number;
+  speed: number;
+  opacity: number;
+}
+
+function NeuralNetwork() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animRef = useRef<number>(0);
+  const nodesRef = useRef<NeuralNode[]>([]);
+  const pulsesRef = useRef<Pulse[]>([]);
+
+  const init = useCallback((w: number, h: number) => {
+    const count = Math.max(18, Math.floor((w * h) / 22000));
+    nodesRef.current = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 2 + 1.5,
+    }));
+    pulsesRef.current = [];
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      const parent = canvas.parentElement;
+      if (!parent) return;
+      canvas.width = parent.offsetWidth;
+      canvas.height = parent.offsetHeight;
+      init(canvas.width, canvas.height);
+    };
+    resize();
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas.parentElement!);
+
+    const primaryHsl = getComputedStyle(document.documentElement)
+      .getPropertyValue("--primary")
+      .trim() || "222 80% 55%";
+    const [h, s, l] = primaryHsl.split(" ").map((v) => parseFloat(v));
+    const nodeColor = `hsla(${h}, ${s}%, ${l}%, `;
+    const edgeColor = `hsla(${h}, ${s}%, ${l}%, `;
+    const pulseColor = `hsla(${h}, ${s + 10}%, ${Math.min(l + 20, 95)}%, `;
+
+    const MAX_DIST = 160;
+    let lastPulse = 0;
+
+    const draw = (ts: number) => {
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const nodes = nodesRef.current;
+
+      nodes.forEach((n) => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      });
+
+      if (ts - lastPulse > 600 && nodes.length > 1) {
+        lastPulse = ts;
+        const fi = Math.floor(Math.random() * nodes.length);
+        let ti = Math.floor(Math.random() * nodes.length);
+        if (ti === fi) ti = (ti + 1) % nodes.length;
+        pulsesRef.current.push({ fromIdx: fi, toIdx: ti, t: 0, speed: 0.008 + Math.random() * 0.008, opacity: 0.9 });
+      }
+
+      pulsesRef.current = pulsesRef.current.filter((p) => p.t <= 1);
+      pulsesRef.current.forEach((p) => { p.t += p.speed; });
+
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[j].x - nodes[i].x;
+          const dy = nodes[j].y - nodes[i].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < MAX_DIST) {
+            const alpha = (1 - dist / MAX_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.strokeStyle = `${edgeColor}${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+
+      pulsesRef.current.forEach((p) => {
+        const from = nodes[p.fromIdx];
+        const to = nodes[p.toIdx];
+        if (!from || !to) return;
+        const px = from.x + (to.x - from.x) * p.t;
+        const py = from.y + (to.y - from.y) * p.t;
+        const grad = ctx.createRadialGradient(px, py, 0, px, py, 8);
+        grad.addColorStop(0, `${pulseColor}${p.opacity * (1 - Math.abs(p.t - 0.5) * 1.2)})`);
+        grad.addColorStop(1, `${pulseColor}0)`);
+        ctx.beginPath();
+        ctx.arc(px, py, 8, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      });
+
+      nodes.forEach((n) => {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `${nodeColor}0.55)`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r * 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = `${nodeColor}0.08)`;
+        ctx.fill();
+      });
+
+      animRef.current = requestAnimationFrame(draw);
+    };
+
+    animRef.current = requestAnimationFrame(draw);
+    return () => {
+      cancelAnimationFrame(animRef.current);
+      ro.disconnect();
+    };
+  }, [init]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden="true"
+    />
+  );
+}
 
 const highlights = [
   { icon: Zap, text: "Fast Delivery" },
@@ -113,15 +262,9 @@ export default function Hero() {
     <section className="relative pt-8 sm:pt-12 pb-10 sm:pb-14 overflow-hidden">
       {/* Background Blobs — CSS animations (no JS overhead) */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+        <NeuralNetwork />
         <div className="hero-blob-1 absolute -top-[15%] right-0 w-[55%] h-[70%] bg-primary/10 blur-[80px] rounded-full" />
         <div className="hero-blob-2 absolute top-[50%] -left-[5%] w-[40%] h-[50%] bg-secondary/8 blur-[70px] rounded-full" />
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-            backgroundSize: "64px 64px",
-          }}
-        />
       </div>
 
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16 relative z-10">
