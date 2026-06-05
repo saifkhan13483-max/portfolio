@@ -71,7 +71,7 @@ function NeuralNetwork() {
     const edgeColor = `hsla(${h}, ${s}%, ${l}%, `;
     const pulseColor = `hsla(${h}, ${s + 10}%, ${Math.min(l + 20, 95)}%, `;
 
-    const MAX_DIST = 160;
+    const MAX_DIST = 220;
     let lastPulse = 0;
 
     const draw = (ts: number) => {
@@ -105,12 +105,12 @@ function NeuralNetwork() {
           const dy = nodes[j].y - nodes[i].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < MAX_DIST) {
-            const alpha = (1 - dist / MAX_DIST) * 0.18;
+            const alpha = (1 - dist / MAX_DIST) * 0.45;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             ctx.strokeStyle = `${edgeColor}${alpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 1.5;
             ctx.stroke();
           }
         }
@@ -134,11 +134,11 @@ function NeuralNetwork() {
       nodes.forEach((n) => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = `${nodeColor}0.55)`;
+        ctx.fillStyle = `${nodeColor}0.8)`;
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r * 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = `${nodeColor}0.08)`;
+        ctx.arc(n.x, n.y, n.r * 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = `${nodeColor}0.18)`;
         ctx.fill();
       });
 
