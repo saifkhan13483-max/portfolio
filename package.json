@@ -85,6 +85,7 @@
     "vite": "^7.3.0"
   },
   "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.61.1",
     "bufferutil": "^4.0.8"
   }
 }

@@ -15,9 +15,10 @@ import {
 import {
   SiReact, SiNodedotjs, SiTypescript, SiPostgresql, SiTailwindcss,
   SiNextdotjs, SiMongodb, SiDocker, SiFirebase, SiGraphql,
-  SiGithub, SiLinkedin, SiX, SiRedis, SiPrisma, SiVercel,
+  SiGithub, SiX, SiRedis, SiPrisma, SiVercel,
   SiGit, SiOpenai
 } from "react-icons/si";
+import { FaLinkedin as SiLinkedin } from "react-icons/fa";
 
 const skillCategories = [
   {
