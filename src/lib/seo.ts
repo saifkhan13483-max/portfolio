@@ -1,5 +1,6 @@
-const BASE_URL = import.meta.env.VITE_SITE_URL || "https://saifcraft.dev";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/logo-dark.png`;
+import { SITE_URL } from "@/lib/constants";
+
+const DEFAULT_OG_IMAGE = `${SITE_URL}/logo-dark.png`;
 
 interface PageSEOOptions {
   title: string;
@@ -56,7 +57,7 @@ export function updatePageSEO({
   ogImage = DEFAULT_OG_IMAGE,
   noindex = false,
 }: PageSEOOptions) {
-  const url = `${BASE_URL}${path}`;
+  const url = `${SITE_URL}${path}`;
 
   document.title = title;
 

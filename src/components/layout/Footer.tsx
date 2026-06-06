@@ -37,11 +37,11 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Landing Page — from $800</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Business Website — from $2,000</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Custom Web App — from $3,500</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">AI Features — from $1,200</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Monthly Retainer — from $550/mo</span></Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Landing Page — from $800</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Business Website — from $2,000</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Custom Web App — from $3,500</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">AI Features — from $1,200</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Monthly Retainer — from $550/mo</Link></li>
             </ul>
           </div>
 
@@ -49,11 +49,11 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Navigate</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li><Link href="/about"><span className="hover:text-white transition-colors cursor-pointer">About Us</span></Link></li>
-              <li><Link href="/portfolio"><span className="hover:text-white transition-colors cursor-pointer">Our Work</span></Link></li>
-              <li><Link href="/services"><span className="hover:text-white transition-colors cursor-pointer">Services & Pricing</span></Link></li>
-              <li><Link href="/faq"><span className="hover:text-white transition-colors cursor-pointer">FAQ</span></Link></li>
-              <li><Link href="/contact"><span className="hover:text-white transition-colors cursor-pointer">Share Your Idea</span></Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/portfolio" className="hover:text-white transition-colors">Our Work</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Services & Pricing</Link></li>
+              <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Share Your Idea</Link></li>
             </ul>
           </div>
 
@@ -83,9 +83,9 @@ export default function Footer() {
         <div className="border-t border-white/15 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-white/55">
           <p>&copy; {currentYear} Saif Khan / SaifCraft. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="/faq"><span className="hover:text-white transition-colors cursor-pointer">FAQ</span></Link>
-            <Link href="/privacy-policy"><span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span></Link>
-            <Link href="/terms-of-service"><span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span></Link>
+            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

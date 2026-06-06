@@ -7,6 +7,7 @@ import {
   LogOut,
   ChevronRight,
   ExternalLink,
+  Menu,
 } from "lucide-react";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { signOut } from "@/lib/firebase/auth";
@@ -20,7 +21,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { cn } from "@/lib/utils";
+import { cn, getUserInitials } from "@/lib/utils";
 import { useState } from "react";
 
 const menuItems = [
@@ -51,7 +52,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
     setLocation("/admin/login");
   };
 
-  const initials = user?.email ? user.email.slice(0, 2).toUpperCase() : "AD";
+  const initials = getUserInitials(user?.displayName, user?.email, "AD");
   const current = pageTitles[location] ?? { title: "Admin", description: "" };
   const parentCrumb = location !== "/admin/dashboard" ? "Dashboard" : null;
 
@@ -165,11 +166,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
             className="h-8 w-8 flex items-center justify-center rounded-md text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors flex-shrink-0"
             aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <rect y="2"    width="16" height="1.5" rx="0.75" fill="currentColor" />
-              <rect y="7.25" width="16" height="1.5" rx="0.75" fill="currentColor" />
-              <rect y="12.5" width="16" height="1.5" rx="0.75" fill="currentColor" />
-            </svg>
+            <Menu className="h-4 w-4" />
           </button>
 
           {/* Breadcrumb */}

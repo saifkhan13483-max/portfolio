@@ -73,7 +73,7 @@ export default function AdminDashboard() {
       value: orders?.length ?? 0,
       icon: ShoppingBag,
       description: "All-time requests",
-      gradient: "bg-gradient-to-br from-[hsl(231,82%,52%)] to-[hsl(231,82%,38%)]",
+      gradient: "bg-gradient-to-br from-primary to-primary/75",
       href: "/admin/orders",
       loading: ordersLoading,
     },

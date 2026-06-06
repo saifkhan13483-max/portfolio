@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { updatePageSEO } from "@/lib/seo";
+import { formatDate, getUserInitials } from "@/lib/utils";
 import { m, AnimatePresence } from "framer-motion";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { useOrders } from "@/hooks/use-orders";
@@ -87,13 +88,7 @@ function OrderCard({ order, index }: { order: Order; index: number }) {
   const priority = PRIORITY_CONFIG[order.priority] ?? PRIORITY_CONFIG.medium;
   const StatusIcon = status.icon;
 
-  const date = order.createdAt
-    ? new Date(order.createdAt).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      })
-    : "—";
+  const date = formatDate(order.createdAt, "MMM d, yyyy");
 
   return (
     <m.div
@@ -217,13 +212,7 @@ export default function ClientProfile() {
       })
     : "Unknown";
 
-  const initials =
-    user.displayName
-      ?.split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2) || user.email?.charAt(0).toUpperCase() || "U";
+  const initials = getUserInitials(user.displayName, user.email);
 
   const handleSaveName = async () => {
     if (!newName.trim() || newName === user.displayName) {

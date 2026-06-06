@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LOGO_LIGHT, LOGO_DARK } from "@/lib/constants";
+import { getUserInitials } from "@/lib/utils";
 
 const navItems = [
   { label: "Home",      href: "/" },
@@ -126,7 +127,7 @@ export default function Header() {
                     <Avatar className="h-9 w-9">
                       <AvatarImage src={user.photoURL || ""} alt={user.displayName || ""} />
                       <AvatarFallback className="bg-primary/20 font-semibold">
-                        {user.displayName?.charAt(0) || "U"}
+                        {getUserInitials(user.displayName, user.email)}
                       </AvatarFallback>
                     </Avatar>
                   </Button>
