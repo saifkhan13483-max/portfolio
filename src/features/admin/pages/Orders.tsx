@@ -29,6 +29,92 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { STATUS_CONFIG, PRIORITY_CONFIG } from "@/features/admin/constants/order-status";
 
+/* ─── Order detail dialog ──────────────────────────────────── */
+
+/**
+ * Renders the Eye button trigger and full order detail dialog.
+ * Extracted from the row map to keep the table markup readable.
+ */
+function OrderDetailDialog({ order }: { order: Order }) {
+  const cfg = STATUS_CONFIG[order.status] ?? STATUS_CONFIG.pending;
+
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          size="icon"
+          variant="ghost"
+          className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+          data-testid={`button-view-order-${order.id}`}
+        >
+          <Eye className="h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Order Details</DialogTitle>
+          <DialogDescription>
+            Full request from <strong>{order.clientName}</strong>
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-3 py-1">
+          <div className="grid grid-cols-2 gap-3">
+            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
+                <Mail className="h-3 w-3" /> Client
+              </div>
+              <p className="text-sm font-semibold">{order.clientName}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{order.clientEmail}</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
+                <Calendar className="h-3 w-3" /> Timeline
+              </div>
+              <p className="text-sm font-semibold">{order.timeline || "Not specified"}</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
+                <DollarSign className="h-3 w-3" /> Budget
+              </div>
+              <p className="text-sm font-semibold">{order.budget || "Not specified"}</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
+                <Tag className="h-3 w-3" /> Service
+              </div>
+              <p className="text-sm font-semibold">{order.serviceType}</p>
+            </div>
+          </div>
+
+          <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
+            <p className="text-xs text-muted-foreground mb-2">Project Description</p>
+            <p className="text-sm leading-relaxed">
+              {order.projectDescription || (
+                <span className="italic text-muted-foreground">No description provided.</span>
+              )}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 pt-1">
+            <Badge className={`border text-xs ${cfg.badge}`} variant="outline">
+              <div className={`h-1.5 w-1.5 rounded-full mr-1.5 ${cfg.dot}`} />
+              {cfg.label}
+            </Badge>
+            {order.priority && (
+              <Badge
+                variant="outline"
+                className={`text-xs capitalize ${PRIORITY_CONFIG[order.priority]?.badge ?? ""}`}
+              >
+                {order.priority} priority
+              </Badge>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 const STATUS_TABS = ["all", "pending", "in-progress", "completed", "cancelled"] as const;
 type StatusTab = typeof STATUS_TABS[number];
 
@@ -232,77 +318,7 @@ export default function OrdersManagement() {
 
                   {/* Actions */}
                   <div className="flex items-center gap-1 justify-end">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button
-                          size="icon"
-                          variant="ghost"
-                          className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
-                          data-testid={`button-view-order-${order.id}`}
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-lg">
-                        <DialogHeader>
-                          <DialogTitle>Order Details</DialogTitle>
-                          <DialogDescription>
-                            Full request from <strong>{order.clientName}</strong>
-                          </DialogDescription>
-                        </DialogHeader>
-                        <div className="space-y-3 py-1">
-                          <div className="grid grid-cols-2 gap-3">
-                            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
-                              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
-                                <Mail className="h-3 w-3" /> Client
-                              </div>
-                              <p className="text-sm font-semibold">{order.clientName}</p>
-                              <p className="text-xs text-muted-foreground mt-0.5">{order.clientEmail}</p>
-                            </div>
-                            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
-                              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
-                                <Calendar className="h-3 w-3" /> Timeline
-                              </div>
-                              <p className="text-sm font-semibold">{order.timeline || "Not specified"}</p>
-                            </div>
-                            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
-                              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
-                                <DollarSign className="h-3 w-3" /> Budget
-                              </div>
-                              <p className="text-sm font-semibold">{order.budget || "Not specified"}</p>
-                            </div>
-                            <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
-                              <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1.5">
-                                <Tag className="h-3 w-3" /> Service
-                              </div>
-                              <p className="text-sm font-semibold">{order.serviceType}</p>
-                            </div>
-                          </div>
-                          <div className="p-3 rounded-xl bg-muted/40 border border-border/60">
-                            <p className="text-xs text-muted-foreground mb-2">Project Description</p>
-                            <p className="text-sm leading-relaxed">
-                              {order.projectDescription || (
-                                <span className="italic text-muted-foreground">No description provided.</span>
-                              )}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-2 pt-1">
-                            <Badge className={`border text-xs ${cfg.badge}`} variant="outline">
-                              <div className={`h-1.5 w-1.5 rounded-full mr-1.5 ${cfg.dot}`} />
-                              {cfg.label}
-                            </Badge>
-                            {order.priority && (
-                              <Badge
-                                variant="outline"
-                                className={`text-xs capitalize ${PRIORITY_CONFIG[order.priority]?.badge ?? ""}`}
-                              >
-                                {order.priority} priority
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+                    <OrderDetailDialog order={order} />
 
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>

@@ -1,37 +1,25 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ordersApi } from "@/lib/firebase/firestore";
+import { useFirestoreCollection } from "@/hooks/use-firestore-collection";
+import { QUERY_KEYS } from "@/lib/query-keys";
 import type { Order } from "@/types";
 
 export function useOrders() {
-  const queryClient = useQueryClient();
-
-  useEffect(() => {
-    const unsubscribe = ordersApi.subscribeAll((orders) => {
-      queryClient.setQueryData(["/orders"], orders);
-    });
-    return () => unsubscribe();
-  }, [queryClient]);
-
-  return useQuery({
-    queryKey: ["/orders"],
-    queryFn: () => ordersApi.getAll(),
-    staleTime: Infinity, // Real-time updates handle freshness
-  });
+  return useFirestoreCollection(QUERY_KEYS.orders, ordersApi);
 }
 
 export function useUpdateOrder() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: { id: string, data: Partial<Order> }) => ordersApi.update(id, data),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["/orders"] }),
+    mutationFn: ({ id, data }: { id: string; data: Partial<Order> }) => ordersApi.update(id, data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEYS.orders }),
   });
 }
 
 export function useCreateOrder() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (data: Omit<Order, 'id'>) => ordersApi.create(data),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["/orders"] }),
+    mutationFn: (data: Omit<Order, "id">) => ordersApi.create(data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: QUERY_KEYS.orders }),
   });
 }

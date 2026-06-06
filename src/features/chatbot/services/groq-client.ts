@@ -111,12 +111,19 @@ export interface ChatMessage {
   parts: { text: string }[];
 }
 
+/** Expected success shape returned by the /api/chat proxy. */
+interface ChatApiResponse {
+  text?: string;
+  error?: string;
+}
+
 /**
  * Sends a chat turn to the /api/chat Groq proxy and returns the assistant's reply.
  * Throws an Error if the server responds with an error or returns no text.
  *
- * JSON is parsed after the ok-check so that a non-JSON gateway error (502/504)
- * still produces a readable message instead of a JSON parse exception.
+ * JSON is parsed after the status-check so that a non-JSON gateway error
+ * (e.g. Cloudflare 502) still produces a readable message instead of a
+ * JSON parse exception.
  */
 export async function sendChatMessage(
   history: ChatMessage[],
@@ -129,11 +136,11 @@ export async function sendChatMessage(
     body: JSON.stringify({ history, message: userMessage, systemInstruction }),
   });
 
-  // Parse body once — gracefully handle non-JSON responses (e.g. Cloudflare 502)
-  const data = await response.json().catch(() => null);
+  // Gracefully handle non-JSON responses (e.g. gateway errors) before inspecting body.
+  const data: ChatApiResponse | null = await response.json().catch(() => null);
 
   if (!response.ok) {
-    throw new Error(data?.error || `Server error: ${response.status}`);
+    throw new Error(data?.error ?? `Server error: ${response.status}`);
   }
 
   if (!data?.text) {
