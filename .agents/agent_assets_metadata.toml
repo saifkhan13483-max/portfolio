@@ -95,3 +95,9 @@ id = "C0kEIWEHYI0CgiBc7_pJk"
 uri = "file://saifkhan-linkedin-post.txt"
 type = "text"
 title = "LinkedIn Post + Image Prompt — Saif Khan"
+
+[[outputs]]
+id = "0vHUkFtq43oSPaao-YLdv"
+uri = "file://animation-guide.md"
+type = "text"
+title = "The Complete Web Animation Guide v2.0"
