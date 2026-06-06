@@ -67,7 +67,7 @@ SaifCraft is the professional portfolio and freelance services site of **Saif Kh
 | **Routing** | wouter |
 | **Data Fetching** | TanStack React Query v5 |
 | **Forms** | React Hook Form + Zod |
-| **Authentication** | Firebase Authentication (Email/Password + Google) |
+| **Authentication** | Firebase Authentication (Email/Password) |
 | **Database** | Firebase Firestore |
 | **AI Chatbot** | Groq API — llama models, multi-key rotation, model fallback |
 | **Media** | Cloudinary (unsigned upload preset) |
@@ -87,27 +87,34 @@ saifcraft/
 │   ├── logo.png / logo-light.png / logo-dark.png
 │   ├── robots.txt                       # Search engine crawl rules
 │   ├── sitemap.xml                      # Public page URLs for indexing
-│   └── 404.html                         # SPA fallback for Vercel routing
+│   └── 404.html                         # SPA fallback for direct URL loads
 │
 ├── src/
 │   ├── App.tsx                          # Root router — public + admin branches
 │   ├── main.tsx                         # Entry point, wrapped in ErrorBoundary
 │   ├── index.css                        # Global styles & CSS custom properties
 │   │
-│   ├── components/                      # Globally shared, reusable UI only
+│   ├── components/                      # Globally shared UI only
 │   │   ├── layout/
 │   │   │   ├── ErrorBoundary.tsx        # Crash fallback boundary
 │   │   │   ├── Header.tsx               # Nav bar — auth menu, dark mode toggle
 │   │   │   └── Footer.tsx               # Site footer with links & social icons
 │   │   └── ui/                          # shadcn/ui primitives (40+ components)
 │   │
-│   ├── features/                        # Feature-scoped code — components, pages, libs
+│   ├── features/                        # Feature-scoped code
 │   │   ├── auth/
 │   │   │   └── AuthContext.tsx          # Firebase auth state provider
 │   │   │
 │   │   ├── admin/
 │   │   │   ├── components/
 │   │   │   │   └── AdminProtectedRoute.tsx  # Auth guard for admin routes
+│   │   │   ├── constants/
+│   │   │   │   └── order-status.ts      # Status + priority config constants
+│   │   │   ├── hooks/
+│   │   │   │   ├── use-admin-search.ts  # Admin list search/filter hook
+│   │   │   │   └── use-image-upload.ts  # Cloudinary upload hook
+│   │   │   ├── utils/
+│   │   │   │   └── validate-image-file.ts  # Image file validation helper
 │   │   │   └── pages/
 │   │   │       ├── AdminLayout.tsx      # Admin shell layout
 │   │   │       ├── Dashboard.tsx        # Admin overview & stats
@@ -119,7 +126,7 @@ saifcraft/
 │   │   ├── chatbot/
 │   │   │   ├── components/
 │   │   │   │   └── ChatBot.tsx          # Floating AI chatbot widget
-│   │   │   └── lib/
+│   │   │   └── services/
 │   │   │       ├── groq-client.ts       # API transport, prompt builder, ChatMessage type
 │   │   │       └── knowledge-base.ts    # Full site knowledge base string
 │   │   │
@@ -135,6 +142,19 @@ saifcraft/
 │   │   │   └── pages/
 │   │   │       └── Home.tsx             # Landing page
 │   │   │
+│   │   ├── about/
+│   │   │   └── pages/
+│   │   │       └── About.tsx            # About page
+│   │   │
+│   │   ├── faq/
+│   │   │   └── pages/
+│   │   │       └── FAQ.tsx              # FAQ page
+│   │   │
+│   │   ├── legal/
+│   │   │   └── pages/
+│   │   │       ├── PrivacyPolicy.tsx    # Privacy policy page
+│   │   │       └── TermsOfService.tsx   # Terms of service page
+│   │   │
 │   │   ├── portfolio/
 │   │   │   ├── components/
 │   │   │   │   ├── ProjectCard.tsx      # Portfolio project card
@@ -143,17 +163,18 @@ saifcraft/
 │   │   │       ├── Portfolio.tsx        # Portfolio gallery page
 │   │   │       └── ProjectDetail.tsx    # Individual project case study
 │   │   │
+│   │   ├── profile/
+│   │   │   └── pages/
+│   │   │       └── ClientProfile.tsx    # Client inquiry history (/profile)
+│   │   │
 │   │   └── services/
-│   │       ├── components/
-│   │       │   ├── ServiceCard.tsx      # Service package card
-│   │       │   └── ServicesSection.tsx  # Services overview section
 │   │       └── pages/
 │   │           └── Services.tsx         # Services & pricing page
 │   │
-│   ├── hooks/                           # Global hooks (used across 2+ features)
+│   ├── hooks/                           # Shared hooks (used across 2+ features)
 │   │   ├── use-dark-mode.ts
-│   │   ├── use-image-upload.ts          # Cloudinary upload hook
-│   │   ├── use-mobile.tsx               # Mobile breakpoint hook
+│   │   ├── use-firestore-collection.ts  # Generic Firestore collection hook
+│   │   ├── use-mobile.ts                # Mobile breakpoint hook
 │   │   ├── use-orders.ts                # Firestore orders CRUD
 │   │   ├── use-projects.ts              # Firestore projects CRUD
 │   │   ├── use-services.ts              # Firestore services CRUD
@@ -164,31 +185,29 @@ saifcraft/
 │   │   │   ├── config.ts                # Firebase app initialisation
 │   │   │   ├── auth.ts                  # signIn, signOut, isAdmin helpers
 │   │   │   └── firestore.ts             # Firestore CRUD + local fallbacks
+│   │   ├── server/
+│   │   │   └── groq-relay.ts            # Shared Groq relay logic (dev + prod)
 │   │   ├── cloudinary.ts                # Cloudinary upload helper
+│   │   ├── constants.ts                 # App-wide constants
+│   │   ├── query-keys.ts                # TanStack Query key definitions
 │   │   ├── queryClient.ts               # TanStack React Query client setup
+│   │   ├── seo.ts                       # updatePageSEO, addSchema, removeSchemas
 │   │   └── utils.ts                     # Utility functions (cn, etc.)
 │   │
-│   ├── pages/                           # Standalone pages (no dedicated feature folder)
-│   │   ├── About.tsx
-│   │   ├── ClientProfile.tsx            # Client inquiry history (/profile)
-│   │   ├── FAQ.tsx
-│   │   ├── NotFound.tsx                 # 404 page
-│   │   ├── PrivacyPolicy.tsx
-│   │   └── TermsOfService.tsx
+│   ├── pages/
+│   │   └── NotFound.tsx                 # 404 page
 │   │
-│   ├── types/
-│   │   └── index.ts                     # Project, Service, Order TypeScript interfaces
-│   │
-│   └── utils/
-│       └── seo.ts                       # updatePageSEO, addSchema, removeSchemas helpers
+│   └── types/
+│       └── index.ts                     # Project, Service, Order TypeScript interfaces
 │
 ├── firestore.rules                      # Firestore security rules
 ├── index.html                           # HTML shell — meta tags, OG, JSON-LD schema
 ├── vercel.json                          # Vercel deploy config
 ├── vite.config.ts                       # Vite — port 5000, code splitting, dev Groq proxy
 ├── tsconfig.json                        # TypeScript config + path aliases
+├── tailwind.config.ts                   # Tailwind CSS configuration
 ├── components.json                      # shadcn/ui configuration
-└── .env.example                         # Environment variables template
+└── postcss.config.js                    # PostCSS configuration
 ```
 
 ---
@@ -214,7 +233,7 @@ npm install
 npm run dev
 ```
 
-The app runs on **port 5000**. The `/api/chat` endpoint is handled by a Vite middleware in dev, and by `api/chat.ts` as a Vercel serverless function in production.
+The app runs on **port 5000**. The `/api/chat` endpoint is served by a Vite middleware in dev and by `api/chat.ts` as a Vercel serverless function in production.
 
 ### Build
 
@@ -234,7 +253,7 @@ npm run check
 
 ## Environment Variables
 
-Copy `.env.example` to `.env` (local) or add the values via Replit Secrets / Vercel Project Settings.
+Add these to your Replit Secrets or Vercel Project Settings.
 
 ```env
 # Firebase — VITE_ prefix makes these available in the client bundle
@@ -253,6 +272,10 @@ VITE_CLOUDINARY_CLOUD_NAME=
 
 # Groq — server-side ONLY, never prefix with VITE_
 GROQ_API_KEY=
+GROQ_API_KEY_2=   # optional — additional keys for rate-limit rotation
+GROQ_API_KEY_3=
+GROQ_API_KEY_4=
+GROQ_API_KEY_5=
 ```
 
 > **Important:** `GROQ_API_KEY` and siblings are server-only secrets. `VITE_*` variables are embedded into the client bundle at build time — never store secrets in them.
@@ -272,7 +295,6 @@ All aliases resolve from `src/`. Configured in both `tsconfig.json` and `vite.co
 | `@lib/*` | `src/lib/*` |
 | `@pages/*` | `src/pages/*` |
 | `@types/*` | `src/types/*` |
-| `@utils/*` | `src/utils/*` |
 
 ---
 
@@ -283,7 +305,8 @@ Browser
   │
   ├── /api/chat (POST)
   │     ├── [dev]  Vite middleware in vite.config.ts
-  │     └── [prod] Vercel serverless function → api/chat.ts → Groq API
+  │     └── [prod] Vercel serverless function → api/chat.ts
+  │                Both import from src/lib/server/groq-relay.ts
   │
   └── All other routes → React SPA (wouter client-side routing)
         ├── Firebase Auth — admin authentication
@@ -292,11 +315,12 @@ Browser
 ```
 
 **Key decisions:**
-- **Feature-based structure** — each domain (admin, chatbot, portfolio, services, contact, home) owns its components, pages, and libs. Shared-only code lives in `components/`, `hooks/`, `lib/`, or `utils/`
+
+- **Feature-based structure** — each domain owns its components, pages, hooks, and utils. Only truly shared code lives in `components/`, `hooks/`, or `lib/`
 - **No separate Express server** — all server logic lives in either the Vite middleware (dev) or Vercel serverless functions (prod)
-- **Dual API layer** — `/api/chat` is transparent across environments with zero config changes
-- **Groq multi-key rotation** — on a 429 rate-limit, the proxy automatically advances to the next key and retries all 3 llama models before giving up
-- **Chatbot knowledge base separated** — `knowledge-base.ts` holds site content; `groq-client.ts` handles API transport. Update content without touching transport logic, and vice versa
+- **Shared Groq relay** — `src/lib/server/groq-relay.ts` is imported by both the Vite middleware and `api/chat.ts`, keeping logic DRY across environments
+- **Groq multi-key rotation** — on a 429 rate-limit, the proxy advances to the next key and retries across 3 llama models before giving up
+- **Chatbot knowledge base separated** — `knowledge-base.ts` holds site content; `groq-client.ts` handles API transport. Update either without touching the other
 - **Firebase local fallbacks** — services return pre-defined data if Firestore is empty or unreachable
 - **Admin routes fully isolated** — public `Header`/`Footer` are never rendered under `/admin/*`; a separate router branch handles the admin shell
 
@@ -319,8 +343,8 @@ The admin area is accessible at `/admin`. Access requires:
 
 The floating chatbot widget (`ChatBot.tsx`) is powered by Groq and uses a hand-crafted site knowledge base split across two files:
 
-- `features/chatbot/lib/knowledge-base.ts` — full site content (every page, price, FAQ answer, contact detail)
-- `features/chatbot/lib/groq-client.ts` — API transport, prompt builder, and `ChatMessage` type
+- `features/chatbot/services/knowledge-base.ts` — full site content (every page, price, FAQ answer, contact detail)
+- `features/chatbot/services/groq-client.ts` — API transport, prompt builder, and `ChatMessage` type
 
 It answers questions about:
 - Service pricing and what is included
@@ -331,7 +355,7 @@ It answers questions about:
 **Reliability features:**
 - Cycles through up to 5 Groq API keys on rate-limit (HTTP 429)
 - Falls back across 3 llama models per key before returning an error
-- Returns a graceful error message to the user if all keys are exhausted
+- Returns a graceful error message if all keys are exhausted
 
 ---
 
@@ -343,7 +367,7 @@ It answers questions about:
 | Open Graph | Configured in `index.html` |
 | Twitter Card | Configured in `index.html` |
 | JSON-LD schema | `Person` schema for Saif Khan in `index.html` |
-| Canonical URL | `<link rel="canonical">` updated per page via `utils/seo.ts` |
+| Canonical URL | `<link rel="canonical">` updated per page via `lib/seo.ts` |
 | Sitemap | `public/sitemap.xml` — all public pages |
 | Robots | `public/robots.txt` — allow all, reference sitemap |
 | Code splitting | Vendor chunks for React, Firebase, Framer Motion, Radix UI, icons |
