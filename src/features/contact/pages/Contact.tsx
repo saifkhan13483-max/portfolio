@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -73,19 +74,19 @@ export default function Contact() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", position: 2, name: "Contact", item: "https://portfolio-wheat-iota-47.vercel.app/contact" },
+        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE_URL}/contact` },
       ],
     });
     addSchema("jsonld-contact-page", {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       name: "Contact Saif Khan — Hire a Fullstack Developer",
-      url: "https://portfolio-wheat-iota-47.vercel.app/contact",
+      url: `${SITE_URL}/contact`,
       description: "Get in touch with Saif Khan to discuss your web development project.",
       mainEntity: {
         "@type": "Person",
-        "@id": "https://portfolio-wheat-iota-47.vercel.app/#person",
+        "@id": `${SITE_URL}/#person`,
         email: "contact@saifcraft.com",
         availableLanguage: "English",
       },

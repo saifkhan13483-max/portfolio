@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 import { useServices } from "@/hooks/use-services";
 import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -162,8 +163,8 @@ export default function Services() {
     addSchema("jsonld-services-breadcrumb", {
       "@context": "https://schema.org", "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home",     item: "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://portfolio-wheat-iota-47.vercel.app/services" },
+        { "@type": "ListItem", position: 1, name: "Home",     item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services` },
       ],
     });
     addSchema("jsonld-services-howto", {
@@ -177,12 +178,12 @@ export default function Services() {
       "@context": "https://schema.org", "@type": "ItemList",
       name: "Web Development Services by Saif Khan",
       description: "Fixed-scope freelance web development packages with transparent pricing.",
-      url: "https://portfolio-wheat-iota-47.vercel.app/services",
+      url: `${SITE_URL}/services`,
       itemListElement: packages.map((p, i) => ({
         "@type": "ListItem", position: i + 1,
         item: { "@type": "Service", name: p.name, description: p.tagline,
           offers: { "@type": "Offer", priceRange: `${p.price} - ${p.priceTo}`, priceCurrency: "USD" },
-          provider: { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" } },
+          provider: { "@id": `${SITE_URL}/#person` } },
       })),
     });
     return () => removeSchemas(["jsonld-services-breadcrumb", "jsonld-services-howto", "jsonld-services-itemlist"]);

@@ -16,45 +16,94 @@ import {
 import { db } from './config';
 import { Project, Service, Order } from '@/types';
 
-// Generic CRUD helper
+/**
+ * Creates a typed Firestore CRUD helper for a given collection.
+ * All async methods throw on failure — callers (hooks/pages) should
+ * handle errors via try/catch or React Query's `onError`.
+ */
 const createCRUD = <T extends { id?: string }>(collectionName: string) => {
   const colRef = collection(db, collectionName);
 
   return {
     getAll: async (): Promise<T[]> => {
-      const snapshot = await getDocs(colRef);
-      return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as T));
+      try {
+        const snapshot = await getDocs(colRef);
+        return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as T));
+      } catch (error) {
+        console.error(`[firestore] getAll(${collectionName}) failed:`, error);
+        throw new Error(`Failed to fetch ${collectionName}.`);
+      }
     },
+
     getById: async (id: string): Promise<T | null> => {
-      const docRef = doc(db, collectionName, id);
-      const snapshot = await getDoc(docRef);
-      return snapshot.exists() ? ({ id: snapshot.id, ...snapshot.data() } as T) : null;
+      try {
+        const docRef = doc(db, collectionName, id);
+        const snapshot = await getDoc(docRef);
+        return snapshot.exists() ? ({ id: snapshot.id, ...snapshot.data() } as T) : null;
+      } catch (error) {
+        console.error(`[firestore] getById(${collectionName}, ${id}) failed:`, error);
+        throw new Error(`Failed to fetch ${collectionName} document.`);
+      }
     },
-    subscribeAll: (callback: (data: T[]) => void): Unsubscribe => {
-      return onSnapshot(colRef, (snapshot) => {
-        const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as T));
-        callback(data);
-      });
+
+    /**
+     * Subscribes to real-time updates for the collection.
+     * @param callback - Called with the full document list on each change.
+     * @param onError  - Optional error handler for subscription failures.
+     */
+    subscribeAll: (
+      callback: (data: T[]) => void,
+      onError?: (error: Error) => void
+    ): Unsubscribe => {
+      return onSnapshot(
+        colRef,
+        (snapshot) => {
+          const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as T));
+          callback(data);
+        },
+        (error) => {
+          console.error(`[firestore] subscribeAll(${collectionName}) error:`, error);
+          onError?.(error);
+        }
+      );
     },
+
     create: async (data: Omit<T, 'id'>): Promise<string> => {
-      const docRef = await addDoc(colRef, {
-        ...data,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      });
-      return docRef.id;
+      try {
+        const docRef = await addDoc(colRef, {
+          ...data,
+          createdAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+        });
+        return docRef.id;
+      } catch (error) {
+        console.error(`[firestore] create(${collectionName}) failed:`, error);
+        throw new Error(`Failed to create ${collectionName} document.`);
+      }
     },
+
     update: async (id: string, data: Partial<T>): Promise<void> => {
-      const docRef = doc(db, collectionName, id);
-      await updateDoc(docRef, {
-        ...data,
-        updatedAt: serverTimestamp(),
-      });
+      try {
+        const docRef = doc(db, collectionName, id);
+        await updateDoc(docRef, {
+          ...data,
+          updatedAt: serverTimestamp(),
+        });
+      } catch (error) {
+        console.error(`[firestore] update(${collectionName}, ${id}) failed:`, error);
+        throw new Error(`Failed to update ${collectionName} document.`);
+      }
     },
+
     delete: async (id: string): Promise<void> => {
-      const docRef = doc(db, collectionName, id);
-      await deleteDoc(docRef);
-    }
+      try {
+        const docRef = doc(db, collectionName, id);
+        await deleteDoc(docRef);
+      } catch (error) {
+        console.error(`[firestore] delete(${collectionName}, ${id}) failed:`, error);
+        throw new Error(`Failed to delete ${collectionName} document.`);
+      }
+    },
   };
 };
 
@@ -98,11 +147,15 @@ export const getServicesWithFallback = async (): Promise<Service[]> => {
   }
 };
 
-// Special queries
 export const getFeaturedProjects = async (): Promise<Project[]> => {
-  const q = query(collection(db, 'projects'), where('featured', '==', true));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
+  try {
+    const q = query(collection(db, 'projects'), where('featured', '==', true));
+    const snapshot = await getDocs(q);
+    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
+  } catch (error) {
+    console.error("Error fetching featured projects:", error);
+    return [];
+  }
 };
 
 export const getActiveServices = async (): Promise<Service[]> => {

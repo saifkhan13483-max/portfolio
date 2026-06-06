@@ -2,7 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
+import type { IncomingMessage, ServerResponse } from "http";
 import { callGroqWithRotation, getGroqKeys } from "./src/lib/server/groq-relay";
+
+/** Shape of a chat history entry sent from the client (Gemini-style format). */
+interface ChatHistoryMessage {
+  role: "user" | "model";
+  parts: Array<{ text: string }>;
+}
 
 export default defineConfig({
   base: "/",
@@ -10,7 +17,7 @@ export default defineConfig({
     {
       name: "groq-proxy",
       configureServer(server) {
-        server.middlewares.use("/api/chat", async (req: any, res: any) => {
+        server.middlewares.use("/api/chat", async (req: IncomingMessage, res: ServerResponse) => {
           if (req.method !== "POST") {
             res.statusCode = 405;
             res.end("Method Not Allowed");
@@ -18,7 +25,7 @@ export default defineConfig({
           }
 
           let raw = "";
-          req.on("data", (chunk: any) => (raw += chunk));
+          req.on("data", (chunk: Buffer) => (raw += chunk));
           req.on("end", async () => {
             res.setHeader("Content-Type", "application/json");
             try {
@@ -32,7 +39,7 @@ export default defineConfig({
 
               const messages = [
                 { role: "system" as const, content: systemInstruction },
-                ...history.map((m: any) => ({
+                ...history.map((m: ChatHistoryMessage) => ({
                   role: (m.role === "model" ? "assistant" : "user") as "assistant" | "user",
                   content: m.parts?.[0]?.text ?? "",
                 })),

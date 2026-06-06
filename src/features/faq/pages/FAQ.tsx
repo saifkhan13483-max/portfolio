@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { ElementType } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { m, AnimatePresence } from "framer-motion";
 import {
@@ -7,8 +8,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import { SITE_URL } from "@/lib/constants";
 
-const categoryIcons: Record<string, any> = {
+const categoryIcons: Record<string, ElementType> = {
   "Working With Us":  Users,
   "Pricing & Payment": CreditCard,
   "Contracts & Scope": FileText,
@@ -229,8 +231,8 @@ export default function FAQ() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://portfolio-wheat-iota-47.vercel.app/faq" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": `${SITE_URL}/faq` }
       ]
     });
 
@@ -239,7 +241,7 @@ export default function FAQ() {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "name": "Frequently Asked Questions — Saif Khan Freelance Developer",
-      "url": "https://portfolio-wheat-iota-47.vercel.app/faq",
+      "url": `${SITE_URL}/faq`,
       "mainEntity": allFaqItems.map(item => ({
         "@type": "Question",
         "name": item.q,

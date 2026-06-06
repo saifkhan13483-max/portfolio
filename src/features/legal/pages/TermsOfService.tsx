@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { ScrollText, ArrowLeft, Home } from "lucide-react";
 import { Link } from "wouter";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -105,8 +106,8 @@ export default function TermsOfService() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": "https://portfolio-wheat-iota-47.vercel.app/terms-of-service" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Terms of Service", "item": `${SITE_URL}/terms-of-service` }
       ]
     });
 

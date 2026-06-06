@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -54,9 +55,9 @@ export default function ProjectDetail() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://portfolio-wheat-iota-47.vercel.app/portfolio" },
-        { "@type": "ListItem", "position": 3, "name": project.title, "item": `https://portfolio-wheat-iota-47.vercel.app/portfolio/${params?.id}` }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": `${SITE_URL}/portfolio` },
+        { "@type": "ListItem", "position": 3, "name": project.title, "item": `${SITE_URL}/portfolio/${params?.id}` }
       ]
     });
 

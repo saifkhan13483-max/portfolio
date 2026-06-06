@@ -4,6 +4,8 @@ import { useProjects } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { m, AnimatePresence } from "framer-motion";
 import { Briefcase, Sparkles } from "lucide-react";
+import type { Project } from "@/types";
+import { SITE_URL } from "@/lib/constants";
 
 const CATEGORIES = ["All", "Web App", "E-Commerce", "Mobile", "SaaS", "Full-Stack"];
 
@@ -22,8 +24,8 @@ export default function Portfolio() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://portfolio-wheat-iota-47.vercel.app/portfolio" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": `${SITE_URL}/portfolio` }
       ]
     });
 
@@ -32,10 +34,10 @@ export default function Portfolio() {
       "@type": "CollectionPage",
       "name": "Freelance Developer Portfolio — Saif Khan",
       "description": "A curated selection of real-world fullstack web apps, SaaS platforms, and e-commerce solutions built by Saif Khan.",
-      "url": "https://portfolio-wheat-iota-47.vercel.app/portfolio",
+      "url": `${SITE_URL}/portfolio`,
       "datePublished": "2019-01-01",
       "dateModified": "2026-05-28",
-      "author": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+      "author": { "@id": `${SITE_URL}/#person` }
     });
 
     return () => {
@@ -43,12 +45,12 @@ export default function Portfolio() {
     };
   }, []);
 
-  const categories = ["All", ...Array.from(new Set(projects?.map((p: any) => p.category) ?? []))];
+  const categories = ["All", ...Array.from(new Set(projects?.map((p: Project) => p.category) ?? []))];
 
-  const filtered =
+  const filtered: Project[] | undefined =
     activeCategory === "All"
       ? projects
-      : projects?.filter((p: any) => p.category === activeCategory);
+      : projects?.filter((p: Project) => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-background">
@@ -155,7 +157,7 @@ export default function Portfolio() {
             >
               {filtered && filtered.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                  {filtered.map((project: any, index: number) => (
+                  {filtered.map((project: Project, index: number) => (
                     <ProjectCard key={project.id} project={project} index={index} />
                   ))}
                 </div>

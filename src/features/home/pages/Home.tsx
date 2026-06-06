@@ -1,5 +1,6 @@
 import { useEffect, lazy, Suspense } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import Hero from "@/features/home/components/Hero";
 
@@ -246,11 +247,11 @@ export default function Home() {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "SaifCraft — Freelance Web Development",
-      "url": "https://portfolio-wheat-iota-47.vercel.app/",
+      "url": `${SITE_URL}/`,
       "description": "Senior fullstack development services: custom web apps, React frontends, Node.js APIs, and AI feature integrations.",
       "priceRange": "$800 - $8,000+",
       "areaServed": "Worldwide",
-      "provider": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" },
+      "provider": { "@id": `${SITE_URL}/#person` },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -274,7 +275,7 @@ export default function Home() {
             "author": { "@type": "Person", "name": "Sarah Mitchell" },
             "reviewBody": "He built our patient booking system in 6 weeks. It reduced our front-desk workload by 60% and the code is clean enough that our own team can maintain it. Best investment we made.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+            "itemReviewed": { "@id": `${SITE_URL}/#organization` }
           }
         },
         {
@@ -285,7 +286,7 @@ export default function Home() {
             "author": { "@type": "Person", "name": "James Okonkwo" },
             "reviewBody": "He replaced our Shopify store with a custom solution that loads 3x faster. We eliminated $300/month in fees and our conversion rate went up by 22%. I wish I'd done this sooner.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+            "itemReviewed": { "@id": `${SITE_URL}/#organization` }
           }
         },
         {
@@ -296,7 +297,7 @@ export default function Home() {
             "author": { "@type": "Person", "name": "Priya Sharma" },
             "reviewBody": "We went from idea to working MVP in under 8 weeks. He communicated clearly throughout, hit every milestone, and the code quality blew our in-house team away.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#organization" }
+            "itemReviewed": { "@id": `${SITE_URL}/#organization` }
           }
         }
       ]

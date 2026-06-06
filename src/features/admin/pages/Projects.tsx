@@ -1,4 +1,6 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef } from "react";
+import { useAdminSearch } from "@/features/admin/hooks/use-admin-search";
+import { validateImageFile } from "@/features/admin/utils/validate-image-file";
 import { 
   Dialog, 
   DialogContent, 
@@ -41,7 +43,6 @@ export default function ProjectsManagement() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProject, setEditingProject] = useState<Project | null>(null);
-  const [search, setSearch] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState<Partial<Project>>({
@@ -56,27 +57,20 @@ export default function ProjectsManagement() {
     featured: false,
   });
 
-  const filtered = useMemo(() => {
-    if (!projects) return [];
-    const q = search.trim().toLowerCase();
-    if (!q) return projects as Project[];
-    return (projects as Project[]).filter(
-      p =>
-        p.title?.toLowerCase().includes(q) ||
-        p.category?.toLowerCase().includes(q) ||
-        p.technologies?.some(t => t.toLowerCase().includes(q))
-    );
-  }, [projects, search]);
+  const { search, setSearch, filtered } = useAdminSearch(
+    projects,
+    (p, q) =>
+      !!p.title?.toLowerCase().includes(q) ||
+      !!p.category?.toLowerCase().includes(q) ||
+      !!p.technologies?.some(t => t.toLowerCase().includes(q))
+  );
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    if (!file.type.startsWith("image/")) {
-      toast({ title: "Invalid file type", description: "Please upload an image", variant: "destructive" });
-      return;
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      toast({ title: "File too large", description: "Maximum size is 5MB", variant: "destructive" });
+    const validation = validateImageFile(file);
+    if (!validation.ok) {
+      toast({ title: validation.title, description: validation.description, variant: "destructive" });
       return;
     }
     try {
@@ -144,7 +138,7 @@ export default function ProjectsManagement() {
     }
   };
 
-  const featuredCount = (projects as Project[] | undefined)?.filter(p => p.featured).length || 0;
+  const featuredCount = projects?.filter(p => p.featured).length ?? 0;
 
   if (isLoading) {
     return (

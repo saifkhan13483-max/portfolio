@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useAdminSearch } from "@/features/admin/hooks/use-admin-search";
 import {
   Dialog,
   DialogContent,
@@ -42,27 +43,24 @@ const TAB_LABELS: Record<StatusTab, string> = {
 export default function OrdersManagement() {
   const { data: orders, isLoading } = useOrders();
   const updateOrder = useUpdateOrder();
-  const [search, setSearch] = useState("");
   const [activeTab, setActiveTab] = useState<StatusTab>("all");
+
+  const tabFiltered = useMemo(() => {
+    if (!orders) return undefined;
+    return activeTab !== "all" ? orders.filter(o => o.status === activeTab) : [...orders];
+  }, [orders, activeTab]);
+
+  const { search, setSearch, filtered } = useAdminSearch(
+    tabFiltered,
+    (o, q) =>
+      !!o.clientName?.toLowerCase().includes(q) ||
+      !!o.clientEmail?.toLowerCase().includes(q) ||
+      !!o.serviceType?.toLowerCase().includes(q)
+  );
 
   const handleStatusUpdate = async (id: string, status: Order["status"]) => {
     await updateOrder.mutateAsync({ id, data: { status } });
   };
-
-  const filtered = useMemo(() => {
-    if (!orders) return [];
-    let list: Order[] = activeTab !== "all" ? orders.filter(o => o.status === activeTab) : [...orders];
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      list = list.filter(
-        o =>
-          o.clientName?.toLowerCase().includes(q) ||
-          o.clientEmail?.toLowerCase().includes(q) ||
-          o.serviceType?.toLowerCase().includes(q)
-      );
-    }
-    return list;
-  }, [orders, activeTab, search]);
 
   const counts = useMemo<Record<StatusTab, number>>(() => {
     if (!orders) return { all: 0, pending: 0, "in-progress": 0, completed: 0, cancelled: 0 };

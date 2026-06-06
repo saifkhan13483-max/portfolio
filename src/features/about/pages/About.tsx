@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
+import { SITE_URL } from "@/lib/constants";
 import { useDarkMode } from "@/hooks/use-dark-mode";
 import {
   Github, Linkedin, Twitter, Target, Lightbulb, Clock,
@@ -247,19 +248,19 @@ export default function About() {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://portfolio-wheat-iota-47.vercel.app/" },
-        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://portfolio-wheat-iota-47.vercel.app/about" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": `${SITE_URL}/about` }
       ]
     });
 
     addSchema("jsonld-about-person", {
       "@context": "https://schema.org",
       "@type": "Person",
-      "@id": "https://portfolio-wheat-iota-47.vercel.app/#person",
+      "@id": `${SITE_URL}/#person`,
       "name": "Saif Khan",
       "jobTitle": "Senior Freelance Fullstack Developer",
       "description": "Saif Khan is a senior fullstack developer with 7+ years of personal experience building React, Node.js, TypeScript, and AI-integrated web applications for startups and businesses worldwide.",
-      "url": "https://portfolio-wheat-iota-47.vercel.app/about",
+      "url": `${SITE_URL}/about`,
       "image": "https://res.cloudinary.com/de2wrwg6e/image/upload/v1778032828/khjghjfgjhfgh_lnkk4d.png",
       "email": "contact@saifcraft.com",
       "hasCredential": [
@@ -287,7 +288,7 @@ export default function About() {
             "author": { "@type": "Person", "name": "James Carter", "jobTitle": "CEO, LaunchPad SaaS" },
             "reviewBody": "Saif delivered our entire platform in 6 weeks — clean code, no bugs at launch, and communicated every step. Best hire we've made.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+            "itemReviewed": { "@id": `${SITE_URL}/#person` }
           }
         },
         {
@@ -298,7 +299,7 @@ export default function About() {
             "author": { "@type": "Person", "name": "Priya Mehta", "jobTitle": "Founder, ShopFlow" },
             "reviewBody": "We needed an AI chatbot integrated into our e-commerce site fast. Saif had it live in 10 days. Responsive, professional, and incredibly skilled.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+            "itemReviewed": { "@id": `${SITE_URL}/#person` }
           }
         },
         {
@@ -309,7 +310,7 @@ export default function About() {
             "author": { "@type": "Person", "name": "Lucas Brennan", "jobTitle": "CTO, DataNest" },
             "reviewBody": "Rarely do you find a developer who understands both the technical and business side. Saif ships quality code and actually cares about the outcome.",
             "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-            "itemReviewed": { "@id": "https://portfolio-wheat-iota-47.vercel.app/#person" }
+            "itemReviewed": { "@id": `${SITE_URL}/#person` }
           }
         }
       ]

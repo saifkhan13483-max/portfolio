@@ -1,4 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState } from "react";
+import { useAdminSearch } from "@/features/admin/hooks/use-admin-search";
+import { validateImageFile } from "@/features/admin/utils/validate-image-file";
 import { 
   Dialog, 
   DialogContent, 
@@ -41,28 +43,28 @@ export default function ServicesManagement() {
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingService, setEditingService] = useState<Service | null>(null);
-  const [search, setSearch] = useState("");
   const [formData, setFormData] = useState<Partial<Service>>({
     title: "", description: "", category: "",
     pricing: "", deliveryTime: "", active: true, features: [], imageUrl: "",
   });
   const [featureInput, setFeatureInput] = useState("");
 
-  const filtered = useMemo(() => {
-    if (!services) return [];
-    const q = search.trim().toLowerCase();
-    if (!q) return services as Service[];
-    return (services as Service[]).filter(
-      s =>
-        s.title?.toLowerCase().includes(q) ||
-        s.category?.toLowerCase().includes(q) ||
-        s.description?.toLowerCase().includes(q)
-    );
-  }, [services, search]);
+  const { search, setSearch, filtered } = useAdminSearch(
+    services,
+    (s, q) =>
+      !!s.title?.toLowerCase().includes(q) ||
+      !!s.category?.toLowerCase().includes(q) ||
+      !!s.description?.toLowerCase().includes(q)
+  );
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
+    const validation = validateImageFile(file);
+    if (!validation.ok) {
+      toast({ title: validation.title, description: validation.description, variant: "destructive" });
+      return;
+    }
     try {
       const imageUrl = await imageUpload.mutateAsync(file);
       setFormData(prev => ({ ...prev, imageUrl }));
@@ -130,7 +132,7 @@ export default function ServicesManagement() {
     }
   };
 
-  const activeCount = (services as Service[] | undefined)?.filter(s => s.active).length || 0;
+  const activeCount = services?.filter(s => s.active).length ?? 0;
   const inactiveCount = (services?.length || 0) - activeCount;
 
   if (isLoading) {
