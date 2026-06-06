@@ -328,26 +328,36 @@ export default function Hero() {
               </span>
             </m.div>
 
-            {/* Headline with word-by-word reveal */}
+            {/* Headline — 3 clean lines, zero layout shift */}
             <m.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-5xl font-display font-bold leading-[1.1] tracking-tight mb-4"
+              className="font-display font-bold tracking-tight mb-4"
             >
-              We build{" "}
-              <RotatingWords />{" "}
-              <br className="hidden sm:block" />
-              web apps that{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">deliver results.</span>
-                <m.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 0.7, ease: "easeOut" }}
-                  style={{ originX: 0 }}
-                  className="absolute bottom-1 left-0 w-full h-2.5 bg-primary/12 -skew-x-2 rounded"
-                />
+              {/* Line 1 — static */}
+              <span className="block text-[1.75rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.2rem] leading-[1.12] text-foreground">
+                We build
+              </span>
+
+              {/* Line 2 — animated rotating word, own block = no layout shift */}
+              <span className="block text-[2.1rem] sm:text-[3.2rem] md:text-[3.9rem] lg:text-[4.1rem] leading-[1.08] py-0.5">
+                <RotatingWords />
+              </span>
+
+              {/* Line 3 — static with underline accent */}
+              <span className="block text-[1.75rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.2rem] leading-[1.12] text-foreground">
+                web apps that{" "}
+                <span className="relative inline-block whitespace-nowrap">
+                  <span className="relative z-10">deliver results.</span>
+                  <m.span
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
+                    style={{ originX: 0 }}
+                    className="absolute bottom-1 left-0 w-full h-[10px] bg-primary/10 -skew-x-2 rounded"
+                  />
+                </span>
               </span>
             </m.h1>
 
