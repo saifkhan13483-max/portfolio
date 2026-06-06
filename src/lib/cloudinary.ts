@@ -8,40 +8,50 @@ interface CloudinaryErrorResponse {
   error?: { message?: string };
 }
 
-/** Returns a full-resolution optimised Cloudinary URL (auto format, quality, capped at 1280px wide). */
+/**
+ * Returns true if the URL is a raw Cloudinary URL that has not yet
+ * had any delivery transformations applied (i.e. safe to transform).
+ */
+function isRawCloudinaryUrl(url: string): boolean {
+  return !!url?.includes("res.cloudinary.com") && !url.includes("/upload/f_auto");
+}
+
+/** Injects a Cloudinary transformation string between "/upload/" and the asset path. */
+function applyTransform(url: string, transform: string): string {
+  return url.replace("/upload/", `/upload/${transform}/`);
+}
+
+/** Returns a full-resolution optimised URL (auto format & quality, capped at 1280 px wide). */
 export function optimizeCloudinaryUrl(url: string): string {
-  if (!url?.includes("res.cloudinary.com")) return url;
-  if (url.includes("/upload/f_auto")) return url;
-  return url.replace("/upload/", "/upload/f_auto,q_auto,c_limit,w_1280/");
+  if (!isRawCloudinaryUrl(url)) return url;
+  return applyTransform(url, "f_auto,q_auto,c_limit,w_1280");
 }
 
 /** Returns a 16:9 card thumbnail (800×450, auto format + quality). */
 export function getCloudinaryCardUrl(url: string): string {
-  if (!url?.includes("res.cloudinary.com")) return url;
-  if (url.includes("/upload/f_auto")) return url;
-  return url.replace("/upload/", "/upload/f_auto,q_auto,c_fill,w_800,h_450/");
+  if (!isRawCloudinaryUrl(url)) return url;
+  return applyTransform(url, "f_auto,q_auto,c_fill,w_800,h_450");
 }
 
 /** Returns a small 16:9 thumbnail (400×225, auto format + quality). */
 export function getCloudinaryThumbUrl(url: string): string {
-  if (!url?.includes("res.cloudinary.com")) return url;
-  if (url.includes("/upload/f_auto")) return url;
-  return url.replace("/upload/", "/upload/f_auto,q_auto,c_fill,w_400,h_225/");
+  if (!isRawCloudinaryUrl(url)) return url;
+  return applyTransform(url, "f_auto,q_auto,c_fill,w_400,h_225");
 }
 
 /** Uploads a file to Cloudinary using an unsigned upload preset and returns the secure URL. */
 export const uploadToCloudinary = async (file: File): Promise<string> => {
   const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
-  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || 'devstudio_uploads';
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET || "devstudio_uploads";
 
   const formData = new FormData();
-  formData.append('file', file);
-  formData.append('upload_preset', uploadPreset);
-  formData.append('cloud_name', cloudName);
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
+  formData.append("cloud_name", cloudName);
 
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
-    { method: 'POST', body: formData }
+    { method: "POST", body: formData }
   );
 
   if (!response.ok) {

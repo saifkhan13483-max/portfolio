@@ -62,8 +62,12 @@ export const projectsApi = createCRUD<Project>('projects');
 export const servicesApi = createCRUD<Service>('services');
 export const ordersApi = createCRUD<Order>('orders');
 
-// Local fallback for services if Firestore is empty/inaccessible
-const localServices: Service[] = [
+/**
+ * Static fallback services shown when Firestore is empty or unreachable.
+ * Keep these in sync with the real services managed in the admin dashboard.
+ * Once the database is populated this data is never used in production.
+ */
+const LOCAL_FALLBACK_SERVICES: Service[] = [
   {
     id: "full-stack-web-development",
     title: "Full Stack Web Development",
@@ -87,10 +91,10 @@ export const getServicesWithFallback = async (): Promise<Service[]> => {
   try {
     const services = await servicesApi.getAll();
     if (services.length > 0) return services;
-    return localServices;
+    return LOCAL_FALLBACK_SERVICES;
   } catch (error) {
     console.error("Error fetching services, using fallback:", error);
-    return localServices;
+    return LOCAL_FALLBACK_SERVICES;
   }
 };
 
@@ -108,9 +112,9 @@ export const getActiveServices = async (): Promise<Service[]> => {
     if (snapshot.docs.length > 0) {
       return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Service));
     }
-    return localServices.filter(s => s.active);
+    return LOCAL_FALLBACK_SERVICES.filter(s => s.active);
   } catch (error) {
     console.error("Error fetching active services, using fallback:", error);
-    return localServices.filter(s => s.active);
+    return LOCAL_FALLBACK_SERVICES.filter(s => s.active);
   }
 };

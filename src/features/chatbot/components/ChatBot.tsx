@@ -8,7 +8,6 @@ interface Message {
   content: string;
 }
 
-
 function parseInline(text: string): React.ReactNode[] {
   const parts = text.split(/(\*\*[^*\n]+\*\*|\*[^*\n]+\*)/g);
   return parts.map((part, i) => {

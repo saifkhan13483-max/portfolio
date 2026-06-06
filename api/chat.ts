@@ -1,7 +1,12 @@
 import { callGroqWithRotation, getGroqKeys, type GroqMessage } from "../src/lib/server/groq-relay";
 
+/**
+ * Represents a single turn in the chat history as sent from the frontend.
+ * Uses a Gemini-style format (role + parts) which is bridged to the
+ * OpenAI-style format (role + content) that Groq expects.
+ */
 interface ChatHistoryItem {
-  role: string;
+  role: "user" | "model" | "assistant";
   parts?: Array<{ text: string }>;
 }
 

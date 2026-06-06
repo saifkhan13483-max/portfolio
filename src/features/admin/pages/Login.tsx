@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { signInWithEmail, signInWithGoogle } from "@/lib/firebase/auth";
@@ -18,10 +18,15 @@ export default function Login() {
   const { toast } = useToast();
   const { isAdmin, user } = useAuth();
 
-  if (user && isAdmin) {
-    setLocation("/admin/dashboard");
-    return null;
-  }
+  // Redirect already-authenticated admins away from the login page
+  useEffect(() => {
+    if (user && isAdmin) {
+      setLocation("/admin/dashboard");
+    }
+  }, [user, isAdmin, setLocation]);
+
+  // Render nothing while the redirect is in flight
+  if (user && isAdmin) return null;
 
   const handleEmailLogin = async (e: React.FormEvent) => {
     e.preventDefault();

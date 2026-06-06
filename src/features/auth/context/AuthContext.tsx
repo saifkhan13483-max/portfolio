@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, type FC, type ReactNode } from "react";
 import { User, onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase/config";
 import { isAdmin as checkAdminStatus } from "@/lib/firebase/auth";
@@ -15,22 +15,15 @@ const AuthContext = createContext<AuthContextType>({
   isAdmin: false,
 });
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setUser(user);
-      
-      if (user) {
-        const adminStatus = await checkAdminStatus(user);
-        setIsAdmin(adminStatus);
-      } else {
-        setIsAdmin(false);
-      }
-      
+    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+      setUser(firebaseUser);
+      setIsAdmin(firebaseUser ? await checkAdminStatus(firebaseUser) : false);
       setLoading(false);
     });
 

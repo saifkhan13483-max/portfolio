@@ -19,6 +19,14 @@ export type GroqRelayResult =
   | { ok: true; text: string; keyIndex: number; model: string }
   | { ok: false; error: string; status: number };
 
+/** Shape of a successful Groq chat-completions API response. */
+interface GroqApiResponse {
+  choices?: Array<{
+    message?: { content?: string };
+  }>;
+  error?: { message?: string };
+}
+
 /** Reads GROQ_API_KEY through GROQ_API_KEY_5 from process.env, filtering blanks. */
 export function getGroqKeys(): string[] {
   return [
@@ -73,10 +81,10 @@ export async function callGroqWithRotation(
         });
 
         // Parse the body once to avoid double-consuming the response stream
-        const data = await groqRes.json().catch(() => null) as Record<string, unknown> | null;
+        const data = await groqRes.json().catch(() => null) as GroqApiResponse | null;
 
         if (groqRes.ok) {
-          const text = (data as any)?.choices?.[0]?.message?.content as string | undefined;
+          const text = data?.choices?.[0]?.message?.content;
           if (text) {
             return { ok: true, text, keyIndex: keyIndex + 1, model };
           }
@@ -84,7 +92,7 @@ export async function callGroqWithRotation(
           continue;
         }
 
-        lastError = (data as any)?.error?.message || `HTTP ${groqRes.status}`;
+        lastError = data?.error?.message ?? `HTTP ${groqRes.status}`;
 
         if (groqRes.status === 429) {
           console.warn(`[groq-relay] Key #${keyIndex + 1} rate-limited on ${model}. Trying next key...`);
