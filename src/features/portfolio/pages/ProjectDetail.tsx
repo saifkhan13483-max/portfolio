@@ -131,10 +131,10 @@ export default function ProjectDetail() {
           </m.div>
 
           {/* Layered overlays */}
-          <div className="absolute inset-0 bg-[#08091a]/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#08091a]/30 via-[#08091a]/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#08091a]/30 via-[#08091a]/15 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#08091a]/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[#08091a]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08091a]/60 via-[#08091a]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#08091a]/60 via-[#08091a]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#08091a]/60 via-transparent to-transparent" />
 
           {/* All hero content stacked naturally */}
           <div className="relative z-10 px-4 sm:px-8 lg:px-14 xl:px-20 pt-5 sm:pt-6 pb-8 sm:pb-11 lg:pb-13 max-w-7xl 2xl:max-w-[1600px] mx-auto w-full">
