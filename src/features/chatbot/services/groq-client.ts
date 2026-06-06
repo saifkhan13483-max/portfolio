@@ -1,7 +1,11 @@
 import { SITE_KNOWLEDGE_BASE } from "./knowledge-base";
 
-export function buildChatbotPrompt(): string {
-  return `You are a friendly, knowledgeable assistant for Saif Khan's portfolio site (SaifCraft). Think of yourself as someone who knows Saif personally and genuinely wants to help visitors — not a robot reading from a manual.
+/**
+ * Static system prompt for the AI chatbot.
+ * Defined as a constant — it has no runtime dependencies and never changes
+ * between requests, so there is no need to rebuild it on every call.
+ */
+export const CHATBOT_SYSTEM_PROMPT = `You are a friendly, knowledgeable assistant for Saif Khan's portfolio site (SaifCraft). Think of yourself as someone who knows Saif personally and genuinely wants to help visitors — not a robot reading from a manual.
 
 ${SITE_KNOWLEDGE_BASE}
 
@@ -100,7 +104,6 @@ QUICK FACTS (for fast answers):
 - Team: 10–15 people · based in Pakistan · 100% remote worldwide
 - IP: 100% client ownership after final payment
 - Post-launch: 30 days free bug fixes, then retainer available`;
-}
 
 /** Shape of a single chat turn as expected by the /api/chat endpoint. */
 export interface ChatMessage {
@@ -111,6 +114,9 @@ export interface ChatMessage {
 /**
  * Sends a chat turn to the /api/chat Groq proxy and returns the assistant's reply.
  * Throws an Error if the server responds with an error or returns no text.
+ *
+ * JSON is parsed after the ok-check so that a non-JSON gateway error (502/504)
+ * still produces a readable message instead of a JSON parse exception.
  */
 export async function sendChatMessage(
   history: ChatMessage[],
@@ -123,7 +129,8 @@ export async function sendChatMessage(
     body: JSON.stringify({ history, message: userMessage, systemInstruction }),
   });
 
-  const data = await response.json();
+  // Parse body once — gracefully handle non-JSON responses (e.g. Cloudflare 502)
+  const data = await response.json().catch(() => null);
 
   if (!response.ok) {
     throw new Error(data?.error || `Server error: ${response.status}`);

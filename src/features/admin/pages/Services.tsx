@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAdminSearch } from "@/features/admin/hooks/use-admin-search";
-import { validateImageFile } from "@/features/admin/utils/validate-image-file";
 import { 
   Dialog, 
   DialogContent, 
@@ -56,23 +55,6 @@ export default function ServicesManagement() {
       !!s.category?.toLowerCase().includes(q) ||
       !!s.description?.toLowerCase().includes(q)
   );
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const validation = validateImageFile(file);
-    if (!validation.ok) {
-      toast({ title: validation.title, description: validation.description, variant: "destructive" });
-      return;
-    }
-    try {
-      const imageUrl = await imageUpload.mutateAsync(file);
-      setFormData(prev => ({ ...prev, imageUrl }));
-      toast({ title: "Image uploaded" });
-    } catch {
-      toast({ title: "Upload failed", variant: "destructive" });
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -250,7 +232,7 @@ export default function ServicesManagement() {
                       </div>
                     )}
                     <div className="flex-1">
-                      <Input type="file" onChange={handleFileUpload} accept="image/*" className="cursor-pointer" />
+                      <Input type="file" onChange={e => imageUpload.handleFileChange(e, url => setFormData(prev => ({ ...prev, imageUrl: url })))} accept="image/*" className="cursor-pointer" />
                       {imageUpload.isPending && (
                         <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                           <Loader2 className="h-3 w-3 animate-spin" /> Uploading…

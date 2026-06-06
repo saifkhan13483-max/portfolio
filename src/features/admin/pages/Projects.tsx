@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { useAdminSearch } from "@/features/admin/hooks/use-admin-search";
-import { validateImageFile } from "@/features/admin/utils/validate-image-file";
 import { 
   Dialog, 
   DialogContent, 
@@ -64,23 +63,6 @@ export default function ProjectsManagement() {
       !!p.category?.toLowerCase().includes(q) ||
       !!p.technologies?.some(t => t.toLowerCase().includes(q))
   );
-
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const validation = validateImageFile(file);
-    if (!validation.ok) {
-      toast({ title: validation.title, description: validation.description, variant: "destructive" });
-      return;
-    }
-    try {
-      const imageUrl = await imageUpload.mutateAsync(file);
-      setFormData(prev => ({ ...prev, imageUrl }));
-      toast({ title: "Image uploaded" });
-    } catch {
-      toast({ title: "Upload failed", variant: "destructive" });
-    }
-  };
 
   const removeImage = () => {
     setFormData(prev => ({ ...prev, imageUrl: "" }));
@@ -232,7 +214,7 @@ export default function ProjectsManagement() {
                 </div>
               </div>
             )}
-            <input type="file" ref={fileInputRef} onChange={handleFileUpload} className="hidden" accept="image/*" />
+            <input type="file" ref={fileInputRef} onChange={e => imageUpload.handleFileChange(e, url => setFormData(prev => ({ ...prev, imageUrl: url })))} className="hidden" accept="image/*" />
             <div className="space-y-1">
               <Label htmlFor="imageUrl" className="text-xs text-muted-foreground">Or paste an image URL</Label>
               <Input id="imageUrl" value={formData.imageUrl} onChange={e => setFormData({ ...formData, imageUrl: e.target.value })} placeholder="https://example.com/image.jpg" className="h-8 text-xs" />
