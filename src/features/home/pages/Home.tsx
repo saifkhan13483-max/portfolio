@@ -314,6 +314,58 @@ export default function Home() {
       {/* 1. HERO */}
       <Hero />
 
+      {/* 1.5 TECH MARQUEE — scrolling strip of logos */}
+      <section className="border-t border-border py-4 overflow-hidden bg-card/40">
+        <div className="flex items-center gap-4 px-4">
+          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/60 shrink-0 hidden sm:block">
+            Built with
+          </span>
+          <div className="overflow-hidden flex-1 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="marquee-track gap-8">
+              {[
+                { icon: SiReact, name: "React", color: "#61DAFB" },
+                { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+                { icon: SiNodedotjs, name: "Node.js", color: "#68A063" },
+                { icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
+                { icon: SiTailwindcss, name: "Tailwind", color: "#38BDF8" },
+                { icon: SiNextdotjs, name: "Next.js", color: "currentColor" },
+                { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+                { icon: SiDocker, name: "Docker", color: "#2496ED" },
+                { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
+                { icon: SiGraphql, name: "GraphQL", color: "#E10098" },
+                { icon: SiGithub, name: "GitHub", color: "currentColor" },
+                { icon: SiRedis, name: "Redis", color: "#DC382D" },
+                { icon: SiVercel, name: "Vercel", color: "currentColor" },
+                { icon: SiOpenai, name: "OpenAI", color: "#10A37F" },
+                { icon: SiGit, name: "Git", color: "#F05032" },
+                { icon: SiPrisma, name: "Prisma", color: "#2D3748" },
+                { icon: SiReact, name: "React", color: "#61DAFB" },
+                { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+                { icon: SiNodedotjs, name: "Node.js", color: "#68A063" },
+                { icon: SiPostgresql, name: "PostgreSQL", color: "#336791" },
+                { icon: SiTailwindcss, name: "Tailwind", color: "#38BDF8" },
+                { icon: SiNextdotjs, name: "Next.js", color: "currentColor" },
+                { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+                { icon: SiDocker, name: "Docker", color: "#2496ED" },
+                { icon: SiFirebase, name: "Firebase", color: "#FFCA28" },
+                { icon: SiGraphql, name: "GraphQL", color: "#E10098" },
+                { icon: SiGithub, name: "GitHub", color: "currentColor" },
+                { icon: SiRedis, name: "Redis", color: "#DC382D" },
+                { icon: SiVercel, name: "Vercel", color: "currentColor" },
+                { icon: SiOpenai, name: "OpenAI", color: "#10A37F" },
+                { icon: SiGit, name: "Git", color: "#F05032" },
+                { icon: SiPrisma, name: "Prisma", color: "#2D3748" },
+              ].map((tech, i) => (
+                <div key={i} className="flex items-center gap-2 shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-200">
+                  <tech.icon style={{ color: tech.color, width: 18, height: 18, flexShrink: 0 }} />
+                  <span className="text-xs font-medium text-foreground whitespace-nowrap">{tech.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. ABOUT — inline per guide */}
       <section id="about" className="py-10 sm:py-16 border-t border-border overflow-hidden">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">

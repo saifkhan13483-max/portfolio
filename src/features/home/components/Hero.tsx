@@ -167,6 +167,32 @@ function NeuralNetwork() {
   );
 }
 
+const ROTATING_WORDS = ["fast, custom", "scalable", "AI-powered", "production-ready"];
+
+function RotatingWords() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex(i => (i + 1) % ROTATING_WORDS.length);
+    }, 2600);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <m.span
+      key={index}
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -14 }}
+      transition={{ duration: 0.35, ease: [0, 0, 0.2, 1] }}
+      className="text-gradient-primary inline-block"
+    >
+      {ROTATING_WORDS[index]}
+    </m.span>
+  );
+}
+
 const highlights = [
   { icon: Zap, text: "Fast Delivery" },
   { icon: Shield, text: "Clean Code" },
@@ -310,9 +336,7 @@ export default function Hero() {
               className="text-[1.7rem] sm:text-4xl md:text-5xl lg:text-5xl font-display font-bold leading-[1.1] tracking-tight mb-4"
             >
               We build{" "}
-              <span className="text-gradient-primary inline-block">
-                fast, custom
-              </span>{" "}
+              <RotatingWords />{" "}
               <br className="hidden sm:block" />
               web apps that{" "}
               <span className="relative inline-block">
@@ -375,7 +399,7 @@ export default function Hero() {
               <m.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Button
                   size="lg"
-                  className="h-11 px-7 text-sm rounded-full group btn-cta border-0 shadow-md shadow-primary/20 w-full"
+                  className="h-11 px-7 text-sm rounded-full group btn-cta btn-cta-pulse border-0 shadow-md shadow-primary/20 w-full"
                   asChild
                 >
                   <Link href="/contact">
