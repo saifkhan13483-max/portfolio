@@ -336,17 +336,17 @@ export default function Hero() {
               className="font-display font-bold tracking-tight mb-4"
             >
               {/* Line 1 — static */}
-              <span className="block text-[1.75rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.2rem] leading-[1.12] text-foreground">
+              <span className="block text-[1.45rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[2.5rem] leading-[1.15] text-foreground">
                 We build
               </span>
 
               {/* Line 2 — animated rotating word, own block = no layout shift */}
-              <span className="block text-[2.1rem] sm:text-[3.2rem] md:text-[3.9rem] lg:text-[4.1rem] leading-[1.08] py-0.5">
+              <span className="block text-[1.75rem] sm:text-[2.45rem] md:text-[2.95rem] lg:text-[3.1rem] leading-[1.1] py-0.5">
                 <RotatingWords />
               </span>
 
-              {/* Line 3 — static with underline accent */}
-              <span className="block text-[1.75rem] sm:text-[2.6rem] md:text-[3.1rem] lg:text-[3.2rem] leading-[1.12] text-foreground">
+              {/* Line 3 — static with underline accent, must stay on one line */}
+              <span className="block text-[1.45rem] sm:text-[2rem] md:text-[2.4rem] lg:text-[2.5rem] leading-[1.15] text-foreground">
                 web apps that{" "}
                 <span className="relative inline-block whitespace-nowrap">
                   <span className="relative z-10">deliver results.</span>
