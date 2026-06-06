@@ -9,7 +9,7 @@ import {
   ExternalLink,
   Menu,
 } from "lucide-react";
-import { useAuth } from "@/features/auth/context/AuthContext";
+import { useAuth } from "@/features/auth/AuthContext";
 import { signOut } from "@/lib/firebase/auth";
 import { useLocation, Link } from "wouter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";

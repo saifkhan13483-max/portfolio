@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import "./index.css";
-import { AuthProvider } from "@/features/auth/context/AuthContext";
+import { AuthProvider } from "@/features/auth/AuthContext";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
