@@ -161,7 +161,7 @@ function NeuralNetwork() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-40 blur-[1.5px]"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-90 blur-[1.5px]"
       aria-hidden="true"
     />
   );
