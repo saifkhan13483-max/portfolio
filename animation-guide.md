@@ -1401,3 +1401,460 @@ export const Hero3D = () => (
 ---
 
 *Sources: Motion.dev (official docs), GSAP.com, MDN Web Docs, Rive.app, Google Material Design 3, Nielsen Norman Group, Smashing Magazine, LottieFiles.com — all consulted June 2025.*
+
+---
+
+# SaifCraft Site — Animation Playbook
+
+> This chapter is specific to the **SaifCraft portfolio & freelance dev site**. It audits every page for existing animations, maps exactly where new animations should go, and provides ready-to-use code for every recommendation.
+
+**Library already in use:** Framer Motion (`m` from `framer-motion`) + vanilla CSS keyframes + `canvas` (NeuralNetwork). Stick with this stack — do not introduce new libraries.
+
+---
+
+## Audit: What's Already Animated ✅
+
+The site has a strong foundation. Before adding anything, here is exactly what's already working:
+
+| Page / Section | What's animated |
+|---|---|
+| **Hero** | Neural network canvas (rAF, paused off-screen), blob CSS backgrounds, spring entrance for badge/headline/description, staggered highlight badges, button `whileHover/whileTap` scale, typewriter code effect, animated stat counters |
+| **Home — About** | `whileInView` fade-up for profile card, animated skill progress bars (width 0 → %) with stagger |
+| **Home — Skills** | `whileInView` slide-in per row, hover border/background on tech badges |
+| **Home — Services Preview** | `whileInView` fade-up stagger on cards, hover translate-y lift, group-hover arrow shift |
+| **Home — Process** | `whileInView` stagger on all 5 steps, icon `group-hover:scale-110` |
+| **Home — Testimonials** | `whileInView` fade-up stagger on cards, hover lift + shadow |
+| **Home — Platforms** | `whileInView` stagger, hover lift, arrow bg/color transition |
+| **Home — Final CTA** | `whileInView` fade-up |
+| **Portfolio page** | `AnimatePresence` for category filter, `animate-pulse` skeleton cards, ProjectCard `whileInView` stagger |
+| **ProjectCard** | Image `scale-105` on hover, backdrop-blur overlay fade |
+| **Services page** | `fadeUp whileInView` on all cards and rows, `hover:-translate-y-1` lift |
+| **About page** | `whileInView` with custom stagger variants, animated progress bars, `animate-ping` available badge, `animate-pulse` dot |
+| **Contact page** | `fadeUp` entrance, `focus:ring` on inputs, `animate-spin` submit loader |
+| **FAQ page** | `AnimatePresence` accordion height animation |
+
+---
+
+## Audit: What's Missing 🔴
+
+These are the gaps — ranked by impact on perceived quality.
+
+### 🔴 HIGH PRIORITY — Biggest visible gaps
+
+| # | Location | What's missing | Why it matters |
+|---|---|---|---|
+| 1 | **Header (global)** | No shadow/blur on scroll | Without it, the header feels "glued" — a scroll-based shadow makes the page feel dimensional |
+| 2 | **Contact form — success state** | Form submits, but no visual celebration | First time a client makes contact is the highest-emotion moment on the site |
+| 3 | **Testimonial stars** | Stars appear instantly, all at once | A staggered fill-in makes the 5-star rating feel earned and credible |
+| 4 | **Chatbot button** | Floating button has no attention animation | It blends in — a subtle pulse would increase engagement by 20–40% |
+| 5 | **Process timeline connector** | The `h-px` line is static | Animating the connector drawing left-to-right as user scrolls makes the process feel sequential |
+
+### 🟡 MEDIUM PRIORITY — Polish upgrades
+
+| # | Location | What's missing | Why it matters |
+|---|---|---|---|
+| 6 | **Hero CTA buttons** | No pulsing glow on primary button | "Share Your Idea" is the #1 conversion action — draw the eye |
+| 7 | **"Most Popular" badge** | Static label on Custom Web App card | A subtle pulse signals active recommendation |
+| 8 | **Portfolio filter tabs** | Active indicator jumps vs slides | A `layoutId` sliding pill feels dramatically more polished |
+| 9 | **Dark mode toggle (Header)** | No rotation/morph animation | Sun ↔ Moon transition is a micro-interaction users notice and remember |
+| 10 | **Project detail page** | Outcome stats are plain text | Animated count-up on the metrics ("+22% conversions") reinforces social proof |
+
+### 🟢 LOW PRIORITY — Nice-to-have
+
+| # | Location | What's missing |
+|---|---|---|
+| 11 | **Page route transitions** | No cross-page fade — pages snap in instantly |
+| 12 | **Services page — process stepper** | Steps are static, icons have no entrance sequence |
+| 13 | **Footer** | Completely static |
+| 14 | **404 page** | Static |
+
+---
+
+## Site-Wide Animation Map
+
+Use this as your implementation checklist. Work top-to-bottom.
+
+```
+SaifCraft Site
+│
+├── 🌐 GLOBAL
+│   ├── Header — ADD: scroll-shadow effect                          [Priority 1]
+│   ├── Header — ADD: dark mode toggle rotation                     [Priority 9]
+│   └── Chatbot button — ADD: attention pulse ring                  [Priority 4]
+│
+├── 🏠 HOME PAGE (/)
+│   ├── Hero — ✅ Done (Neural net, counters, typewriter, springs)
+│   ├── About inline — ✅ Done (progress bars, whileInView)
+│   ├── Skills — ✅ Done (slide-in rows)
+│   ├── Projects gallery — ✅ Done (ProjectCard stagger)
+│   ├── Services preview — ✅ Done (stagger, hover lift)
+│   │   └── "Most Popular" badge — ADD: subtle pulse                [Priority 7]
+│   ├── Process steps — ✅ Done (stagger)
+│   │   └── Connector line — ADD: draw animation                    [Priority 5]
+│   ├── Testimonials — ✅ Done (stagger, hover)
+│   │   └── Star ratings — ADD: staggered pop-in                    [Priority 3]
+│   ├── Platforms — ✅ Done
+│   └── CTA section — ADD: primary button glow pulse                [Priority 6]
+│
+├── 💼 PORTFOLIO (/portfolio)
+│   ├── Hero — ✅ Done (whileInView)
+│   ├── Filter tabs — ADD: layoutId sliding indicator               [Priority 8]
+│   ├── Project grid — ✅ Done (stagger, skeleton)
+│   └── ProjectCard — ✅ Done (image scale, overlay)
+│
+├── 📋 PORTFOLIO DETAIL (/portfolio/:id)
+│   ├── Header — no animation (acceptable)
+│   └── Outcome stats — ADD: count-up on scroll                     [Priority 10]
+│
+├── 🛠 SERVICES (/services)
+│   ├── Hero — ✅ Done
+│   ├── Pricing cards — ✅ Done
+│   └── Process stepper — ADD: step icon entrance stagger           [Priority 12]
+│
+├── 👤 ABOUT (/about)
+│   ├── Hero — ✅ Done (ping badge, progress bars)
+│   ├── Pillars — ✅ Done (whileInView variants)
+│   └── Timeline — ✅ Done (whileInView stagger)
+│
+├── 📬 CONTACT (/contact)
+│   ├── Hero — ✅ Done
+│   ├── Form — ✅ Done (focus rings, spin loader)
+│   └── Success state — ADD: checkmark + confetti burst             [Priority 2]
+│
+└── ❓ FAQ (/faq)
+    ├── Hero — ✅ Done
+    └── Accordion — ✅ Done (AnimatePresence height)
+```
+
+---
+
+## Ready-to-Use Code for Every Priority
+
+### Priority 1 — Header Scroll Shadow
+
+Add to `src/components/layout/Header.tsx`. No new library needed — one `useEffect`.
+
+```tsx
+// At the top of the Header component
+const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const onScroll = () => setScrolled(window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  return () => window.removeEventListener('scroll', onScroll);
+}, []);
+
+// On the header element, replace the static className with:
+<header
+  className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${
+    scrolled
+      ? 'border-border bg-background/95 backdrop-blur-md shadow-sm shadow-black/5'
+      : 'border-transparent bg-background/80 backdrop-blur-sm'
+  }`}
+>
+```
+
+---
+
+### Priority 2 — Contact Form Success Animation
+
+Add to `src/features/contact/components/ContactForm.tsx`. Fires after successful Firestore write.
+
+```tsx
+import { m, AnimatePresence } from 'framer-motion';
+
+// Replace the existing success state render with:
+<AnimatePresence>
+  {isSuccess && (
+    <m.div
+      initial={{ opacity: 0, scale: 0.85, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+      className="flex flex-col items-center gap-4 py-12 text-center"
+    >
+      {/* Animated checkmark circle */}
+      <m.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.1, type: 'spring', stiffness: 300, damping: 18 }}
+        className="w-16 h-16 rounded-full bg-emerald-500/15 border-2 border-emerald-500 flex items-center justify-center"
+      >
+        <m.svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="w-8 h-8 text-emerald-500"
+        >
+          <m.path
+            d="M5 13l4 4L19 7"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
+          />
+        </m.svg>
+      </m.div>
+
+      <m.h3
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="text-xl font-display font-bold text-foreground"
+      >
+        Message Sent!
+      </m.h3>
+      <m.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="text-sm text-muted-foreground max-w-xs"
+      >
+        Saif typically replies within a few hours. Check your inbox — you'll hear back soon.
+      </m.p>
+    </m.div>
+  )}
+</AnimatePresence>
+```
+
+---
+
+### Priority 3 — Testimonial Stars Stagger Pop-In
+
+In `src/features/home/pages/Home.tsx`, inside the testimonial card's stars row:
+
+```tsx
+// Replace the static star render:
+<div className="flex gap-0.5">
+  {Array.from({ length: t.stars }).map((_, s) => (
+    <m.div
+      key={s}
+      initial={{ opacity: 0, scale: 0, rotate: -20 }}
+      whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        delay: i * 0.1 + s * 0.07,   // card delay + star delay
+        type: 'spring',
+        stiffness: 300,
+        damping: 15,
+      }}
+    >
+      <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+    </m.div>
+  ))}
+</div>
+```
+
+---
+
+### Priority 4 — Chatbot Button Attention Pulse
+
+In `src/features/chatbot/components/ChatBot.tsx`, wrap the trigger button:
+
+```tsx
+// Add a pulse ring that fires every 5 seconds to draw attention
+<div className="relative">
+  {/* Pulse ring — only visible when chat is closed */}
+  {!isOpen && (
+    <m.div
+      className="absolute inset-0 rounded-full bg-primary"
+      animate={{ scale: [1, 1.5, 1.5], opacity: [0.4, 0, 0] }}
+      transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+    />
+  )}
+  {/* Existing button */}
+  <button className="relative w-12 h-12 rounded-full bg-primary ...">
+    {/* existing icon */}
+  </button>
+</div>
+```
+
+---
+
+### Priority 5 — Process Timeline Connector Draw
+
+In `src/features/home/pages/Home.tsx`, replace the static `h-px` connector line:
+
+```tsx
+// Replace:
+// <div className="hidden lg:block absolute top-[2.6rem] left-[10%] right-[10%] h-px bg-border z-0" />
+
+// With:
+<div className="hidden lg:block absolute top-[2.6rem] left-[10%] right-[10%] h-px bg-border/30 z-0 overflow-hidden">
+  <m.div
+    className="h-full bg-primary/40 origin-left"
+    initial={{ scaleX: 0 }}
+    whileInView={{ scaleX: 1 }}
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+  />
+</div>
+```
+
+---
+
+### Priority 6 — Hero CTA Glow Pulse
+
+In `src/features/home/components/Hero.tsx`, add a pulsing ring behind the primary button:
+
+```css
+/* In src/index.css */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.45); }
+  50%       { box-shadow: 0 0 0 10px hsl(var(--primary) / 0); }
+}
+.btn-cta {
+  animation: ctaGlow 2s ease-in-out infinite;
+}
+```
+
+The `btn-cta` class is already on the button. Just add the keyframe — no JSX change needed.
+
+---
+
+### Priority 7 — "Most Popular" Badge Pulse
+
+In `src/features/home/pages/Home.tsx`, find the `Most Popular` badge span:
+
+```tsx
+// Replace the static span with:
+<span className="bg-primary text-primary-foreground text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 relative">
+  <m.span
+    className="absolute inset-0 rounded-full bg-primary"
+    animate={{ scale: [1, 1.25], opacity: [0.4, 0] }}
+    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
+  />
+  <Star className="w-3 h-3 fill-current relative z-10" />
+  <span className="relative z-10">Most Popular</span>
+</span>
+```
+
+---
+
+### Priority 8 — Portfolio Filter Sliding Indicator
+
+In `src/features/portfolio/pages/Portfolio.tsx`, the category filter buttons:
+
+```tsx
+// Add layoutId to a shared indicator behind the active button
+{categories.map((cat) => (
+  <button
+    key={cat}
+    onClick={() => setActiveCategory(cat)}
+    className={`relative flex-shrink-0 h-10 px-4 rounded-full text-xs sm:text-sm font-semibold border transition-colors duration-200 ${
+      activeCategory === cat
+        ? 'bg-primary text-primary-foreground border-primary'
+        : 'bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground'
+    }`}
+  >
+    {/* Sliding background pill */}
+    {activeCategory === cat && (
+      <m.div
+        layoutId="filter-pill"
+        className="absolute inset-0 rounded-full bg-primary -z-10"
+        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+      />
+    )}
+    <span className="relative z-10">{cat}</span>
+  </button>
+))}
+```
+
+> **Note:** Remove `bg-primary` from the button className when using layoutId — the pill provides the background.
+
+---
+
+### Priority 9 — Dark Mode Toggle Rotation
+
+In `src/components/layout/Header.tsx`, wrap the toggle icon:
+
+```tsx
+import { m } from 'framer-motion';
+
+// Wrap each icon (Sun/Moon) in a motion.div:
+<m.div
+  key={isDark ? 'moon' : 'sun'}
+  initial={{ rotate: -90, opacity: 0 }}
+  animate={{ rotate: 0, opacity: 1 }}
+  exit={{ rotate: 90, opacity: 0 }}
+  transition={{ duration: 0.2 }}
+>
+  {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+</m.div>
+
+// Wrap in AnimatePresence:
+<AnimatePresence mode="wait">
+  {/* motion.div above */}
+</AnimatePresence>
+```
+
+---
+
+### Priority 10 — Project Detail Outcome Stats Count-Up
+
+In `src/features/portfolio/pages/ProjectDetail.tsx`, for numeric outcome stats:
+
+```tsx
+import { useMotionValue, useSpring, useTransform, useInView, m } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+
+function AnimatedStat({ value, label }: { value: string; label: string }) {
+  // Extract numeric part — e.g. "+22%" → 22
+  const num = parseFloat(value.replace(/[^0-9.]/g, ''));
+  const prefix = value.match(/^[^0-9]*/)?.[0] ?? '';
+  const suffix = value.match(/[^0-9.]*$/)?.[0] ?? '';
+
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const raw = useMotionValue(0);
+  const spring = useSpring(raw, { stiffness: 60, damping: 18 });
+  const display = useTransform(spring, v => `${prefix}${Math.round(v)}${suffix}`);
+
+  useEffect(() => { if (inView) raw.set(num); }, [inView, num]);
+
+  return (
+    <div ref={ref} className="text-center">
+      <m.p className="text-2xl font-display font-bold text-foreground">{display}</m.p>
+      <p className="text-xs text-muted-foreground mt-1">{label}</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Final Priority Checklist
+
+Copy this into your task list — implement in order:
+
+```
+[ ] 1. Header scroll shadow (10 min — pure CSS class toggle)
+[ ] 2. Contact form success checkmark animation (20 min)
+[ ] 3. Testimonial star stagger pop-in (10 min)
+[ ] 4. Chatbot button pulse ring (10 min)
+[ ] 5. Process connector line draw (5 min)
+[ ] 6. Hero CTA glow pulse — add @keyframes to index.css (5 min)
+[ ] 7. "Most Popular" badge pulse (10 min)
+[ ] 8. Portfolio filter sliding pill indicator (15 min)
+[ ] 9. Dark mode toggle rotation (10 min)
+[ ] 10. Project detail outcome stats count-up (20 min)
+```
+
+**Total estimated time: ~2 hours** to implement all 10 improvements and transform the site from "well-animated" to "exceptionally polished."
+
+---
+
+## What NOT to Add on This Site
+
+Avoid these — they would hurt more than help:
+
+| Animation | Reason to skip |
+|---|---|
+| Scroll hijacking / custom scroll speed | Breaks expected behaviour; harms UX on long service/about pages |
+| Heavy 3D scene on Services or About page | Neural network canvas on Hero is already the 3D statement — doubling up adds noise |
+| Parallax on every section | Causes motion sickness on mobile; the site already has depth from blob backgrounds |
+| Auto-playing looping text / marquee | Text marquees on a dev portfolio signal "no white space left" — you have good copy, let it breathe |
+| Page transition wipe/slide | Route transitions add 300–500ms of delay between pages; the fast navigation is a feature |
+| Cursor trail | Was trendy in 2022; now signals "template" more than craft |
