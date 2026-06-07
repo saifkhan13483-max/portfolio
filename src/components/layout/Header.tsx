@@ -93,26 +93,6 @@ export default function Header() {
 
   return (
     <>
-      {/* ── Announcement Bar ─────────────────────────────────────── */}
-      <m.div
-        initial={{ height: 36, opacity: 1 }}
-        animate={hidden ? { height: 0, opacity: 0 } : { height: 36, opacity: 1 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="overflow-hidden bg-gradient-to-r from-primary via-accent to-primary/80 text-primary-foreground"
-        style={{ backgroundSize: "200% 100%" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 h-[36px] flex items-center justify-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse shrink-0" />
-          <p className="text-[11px] sm:text-xs font-medium tracking-wide text-center">
-            <span className="font-semibold">Available for freelance work</span>
-            <span className="mx-2 opacity-60">·</span>
-            <Link href="/contact" className="underline underline-offset-2 opacity-90 hover:opacity-100 transition-opacity">
-              Let's build something great →
-            </Link>
-          </p>
-        </div>
-      </m.div>
-
       {/* ── Main Header ──────────────────────────────────────────── */}
       <m.header
         animate={{ y: hidden ? "-100%" : "0%" }}
