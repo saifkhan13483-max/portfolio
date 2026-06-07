@@ -133,7 +133,7 @@ const faqs = [
       },
       {
         q: "Should I hire a specialist or a generalist developer?",
-        a: "For early-stage products, a senior fullstack team is usually the better choice. You need people who can build the backend, frontend, database, and deployment pipeline — not siloed specialists who can't talk to each other. Research shows specialist freelancers command a 90–150% premium over generalists. Our position: we're fullstack specialists in the React + Node + PostgreSQL stack, with dedicated AI, QA, and design workstreams — deep expertise across every layer without the overhead of a large agency.",
+        a: "For early-stage products, a senior fullstack developer is usually the better choice over siloed specialists. You need someone who can build the backend, frontend, database, and deployment pipeline end-to-end without communication gaps. Research shows specialist freelancers command a 90–150% premium over generalists. My position: fullstack specialist in the React + Node + PostgreSQL stack with deep AI, QA, and design sensibility — expertise across every layer without the overhead of a large agency.",
       },
       {
         q: "Do I need a technical co-founder?",

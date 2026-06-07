@@ -464,7 +464,7 @@ export default function Home() {
                 {[
                   { label: "Based in", value: "Remote — Global" },
                   { label: "Response time", value: "< 24 hours" },
-                  { label: "Team size", value: "10–15 People" },
+                  { label: "Experience", value: "7+ Years" },
                   { label: "AI-ready", value: "Yes — LLMs & RAG" },
                 ].map((fact) => (
                   <div key={fact.label} className="bg-card border border-border rounded-xl px-3 py-2.5">
@@ -490,15 +490,14 @@ export default function Home() {
                   <span className="text-gradient-primary">solve real problems.</span>
                 </h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Senior fullstack team. Direct communication. Results you can measure.
+                  Senior fullstack developer. Direct communication. Results you can measure.
                 </p>
               </div>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We're a <strong className="text-foreground">10–15 person fullstack team</strong> led by Saif Khan, who personally has{" "}
-                <strong className="text-foreground">7+ years of fullstack experience</strong> building web apps from scratch —{" "}
+                I'm Saif Khan — a senior fullstack developer with <strong className="text-foreground">7+ years of hands-on experience</strong> building web apps from scratch —{" "}
                 specializing in <strong className="text-foreground">React, Node.js, tRPC, TypeScript & PostgreSQL.</strong>{" "}
-                For the past <strong className="text-foreground">2 years he's shipped AI-native features</strong> — chatbots, RAG pipelines, semantic search, and agent workflows. You talk directly to Saif, not a project manager.
+                For the past <strong className="text-foreground">2 years I've shipped AI-native features</strong> — chatbots, RAG pipelines, semantic search, and agent workflows. You work directly with me, not a project manager.
               </p>
 
               {/* Value cards — 1 col on mobile, 2 col on sm+ */}

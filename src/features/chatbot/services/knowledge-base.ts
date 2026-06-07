@@ -10,7 +10,7 @@ export const SITE_KNOWLEDGE_BASE = `
 Full name: Saif Khan
 Brand name: SaifCraft
 Title: Senior Fullstack Developer & AI Integration Specialist
-Experience: Saif personally has 7+ years fullstack development · 2+ years AI integration (production) — this is his own experience, not the team's combined total
+Experience: Saif personally has 7+ years fullstack development · 2+ years AI integration (production)
 Location: Multan, Punjab, Pakistan — works worldwide (US, UK, Europe, Middle East, SE Asia)
 Availability: Available for new projects — starting June 2026
 Email: contact@saifcraft.com  (href: mailto:contact@saifcraft.com)
@@ -20,8 +20,8 @@ LinkedIn: linkedin.com/in/saifcraft-dev  (href: https://www.linkedin.com/in/saif
 Twitter/X: @saifcraft_dev  (href: https://twitter.com/saifcraft_dev)
 Response time: Within 24 hours — guaranteed
 Work type: Freelance / Contract / Fixed-scope preferred
-Team size: 10–15 person team (frontend, backend, AI/ML, QA, and design)
-Direct developer access: You talk to Saif, not a project manager
+Solo developer: Saif handles everything personally — no team, no project managers
+Direct access: You talk to Saif directly
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  SITE-WIDE STATS (appear across pages)
@@ -55,7 +55,7 @@ When logged in: Shows user avatar → dropdown with My Profile (/profile), Suppo
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  FOOTER (appears on every public page)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Description: "SaifCraft is a 10–15 person fullstack development team led by Saif Khan."
+Description: "Saif Khan is a senior fullstack developer & AI specialist."
 Socials: Twitter · LinkedIn · GitHub
 Services column (links to /services): Landing Page · Business Website · Custom Web App · AI Features · Monthly Retainer
 Navigate column: About Us (/about) · Our Work (/portfolio) · Services & Pricing (/services) · FAQ (/faq) · Share Your Idea (/contact)
@@ -71,7 +71,7 @@ Meta description: Senior fullstack developer for React, Node.js & AI web apps. F
 
 SECTION 1 — HERO:
 Headline: "We build fast, custom web apps that deliver results."
-Subheading: "10–15 person fullstack team led by Saif Khan, who has 7+ years of personal experience, helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
+Subheading: "Saif Khan — senior fullstack developer — brings 7+ years of personal experience helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget."
 Highlight badges: Fast Delivery · Clean Code · On Time & On Budget
 CTA buttons: "Share Your Idea" → /contact  ·  "View Our Work" → /portfolio
 Tech stack badges: React · TypeScript · Node.js · tRPC · PostgreSQL · Stripe · AI/LLMs
@@ -80,11 +80,11 @@ Stats bar: 48+ Projects Delivered · 29+ Happy Clients · 7+ Years Experience ·
 
 SECTION 2 — ABOUT SUMMARY:
 Headline: "We help businesses build web apps that solve real problems."
-Bio: 10–15 person fullstack team led by Saif Khan. Saif personally has 7+ years of experience with React/Node.js/tRPC/TypeScript/PostgreSQL, and 2+ years shipping AI-native features — chatbots, RAG pipelines, semantic search, agent workflows.
+Bio: Saif Khan is a senior fullstack developer with 7+ years of personal experience with React/Node.js/tRPC/TypeScript/PostgreSQL, and 2+ years shipping AI-native features — chatbots, RAG pipelines, semantic search, agent workflows.
 Value cards: Fast Delivery · Clean Code · On Time & On Budget · Clear Communication
 CTA: "Read Our Story" → /about
 Specialization bars: React/Next.js 95% · Node.js APIs 92% · AI Feature Integration 85% · Database Design 88%
-Quick facts: Based in: Remote — Global · Response time: < 24 hours · Team size: 10–15 People · AI-ready: Yes — LLMs & RAG
+Quick facts: Based in: Remote — Global · Response time: < 24 hours · Experience: 7+ Years · AI-ready: Yes — LLMs & RAG
 
 SECTION 3 — TECH STACK / SKILLS:
 Heading: "Tech Stack & Expertise"
@@ -117,7 +117,7 @@ c) Priya Sharma (CTO, LaunchPad SaaS) — "Went from idea to working MVP in unde
 SECTION 7 — SOCIAL PROFILES:
 GitHub (@saifcraft-dev): 15+ public repos, real production projects, clean documented code
 LinkedIn (Saif Khan): 500+ connections, verified recommendations, weekly dev insights
-Twitter/X (@saifcraft_dev): Building in public, daily build updates, team insights
+Twitter/X (@saifcraft_dev): Building in public, daily build updates, developer insights
 
 SECTION 8 — PROJECTS GALLERY:
 Live project cards from Firebase Firestore. CTA: "View All Projects" → /portfolio
@@ -388,10 +388,10 @@ Q: What is RAG, and does my AI chatbot need it?
 A: RAG stands for Retrieval-Augmented Generation. Instead of training a model (expensive and slow), you give an LLM access to your own data at query time — FAQs, docs, product info — and it answers using that context. The result is a chatbot that's accurate, up-to-date, and on-brand. We implement RAG using PostgreSQL + pgvector, so you don't need a separate vector database. If you want an AI assistant that actually knows your business, RAG is the right architecture.
 
 Q: Should I hire a specialist or a generalist developer?
-A: For early-stage products, a senior fullstack team is usually the better choice. You need people who can build the backend, frontend, database, and deployment pipeline — not siloed specialists. Our position: we're fullstack specialists in React + Node + PostgreSQL, with dedicated AI, QA, and design workstreams — deep expertise across every layer without the overhead of a large agency.
+A: For early-stage products, a senior fullstack developer is usually the better choice over siloed specialists. You need someone who can build the backend, frontend, database, and deployment pipeline end-to-end. Saif's position: fullstack specialist in React + Node + PostgreSQL with deep AI, QA, and design sensibility — expertise across every layer without the overhead of a large agency.
 
 Q: Do I need a technical co-founder?
-A: Probably not — at least not as early as most founders think. 90% of startups fail, and those with technical co-founders fail at roughly the same rate as solo founders. The bottleneck is almost never "not enough code." What most founders actually need is a fast, trustworthy way to get a validated MVP into users' hands without giving up equity. With AI tools compressing development timelines by 40–60%, a senior freelance team can take a validated idea to a production MVP in 6–8 weeks. You keep 100% equity. You ship fast, learn fast, make smarter decisions with real user data.
+A: Probably not — at least not as early as most founders think. 90% of startups fail, and those with technical co-founders fail at roughly the same rate as solo founders. The bottleneck is almost never "not enough code." What most founders actually need is a fast, trustworthy way to get a validated MVP into users' hands without giving up equity. With AI tools compressing development timelines by 40–60%, a senior freelance developer can take a validated idea to a production MVP in 6–8 weeks. You keep 100% equity. You ship fast, learn fast, make smarter decisions with real user data.
 
 Q: What are passkeys, and should my SaaS support them?
 A: Passkeys are cryptographic, phishing-proof replacements for passwords (FIDO2 standard). As of 2025, 69% of users already have at least one passkey. Passkey logins complete in 8.5 seconds vs 31.2 seconds for traditional MFA, with 93% success rate vs 63% for legacy methods. 87% of enterprise organizations are already deploying them. If you're building a SaaS product today, modern auth (passkeys + magic links) is increasingly table stakes.
@@ -564,7 +564,7 @@ INTENT: "Show me past work / examples"
 → /portfolio — 48+ real projects with descriptions, tech stacks, and live links.
 
 INTENT: "Who is Saif Khan?"
-→ Saif Khan is a senior fullstack developer & AI specialist with 7+ years of his own personal experience. He leads a 10–15 person team. 48+ projects, 94% satisfaction rate. More at /about.
+→ Saif Khan is a senior fullstack developer & AI specialist with 7+ years of personal experience. Solo developer — 48+ projects, 94% satisfaction rate. More at /about.
 
 INTENT: "How does the process work?"
 → 4 steps: Discovery call → Proposal & contract → Build with weekly demos → Launch & handoff. Details at /services.

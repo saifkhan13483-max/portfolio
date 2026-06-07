@@ -18,7 +18,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/75 text-sm leading-relaxed mb-6">
-              SaifCraft is a 10–15 person fullstack development team led by Saif Khan. We help startups and businesses build fast, custom web apps that solve real problems.
+              Saif Khan is a senior fullstack developer & AI specialist who helps startups and businesses build fast, custom web apps that solve real problems.
             </p>
             <div className="flex space-x-4">
               <a href="https://twitter.com/saifcraft_dev" target="_blank" rel="noopener noreferrer" className="text-white/65 hover:text-white transition-colors" aria-label="Twitter">

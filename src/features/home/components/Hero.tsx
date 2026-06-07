@@ -368,8 +368,8 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.2 }}
               className="text-sm sm:text-base text-muted-foreground mb-5 leading-relaxed max-w-lg mx-auto sm:mx-0"
             >
-              10–15 person fullstack team led by Saif Khan, who brings{" "}
-              <strong className="text-foreground font-semibold">7+ years of his own experience</strong>{" "}
+              Saif Khan — senior fullstack developer — brings{" "}
+              <strong className="text-foreground font-semibold">7+ years of hands-on experience</strong>{" "}
               helping startups and businesses turn ideas into polished, production-ready web applications — on time, within budget.
             </m.p>
 

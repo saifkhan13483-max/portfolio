@@ -101,7 +101,7 @@ QUICK FACTS (for fast answers):
 - Email: contact@saifcraft.com
 - WhatsApp: +92 318 8055850 (https://wa.me/923188055850)
 - Response time: within 24 hours, always
-- Team: 10–15 people · based in Pakistan · 100% remote worldwide
+- Solo developer: Saif Khan · based in Pakistan · 100% remote worldwide
 - IP: 100% client ownership after final payment
 - Post-launch: 30 days free bug fixes, then retainer available`;
 

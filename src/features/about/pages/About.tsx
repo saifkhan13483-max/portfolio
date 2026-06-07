@@ -36,7 +36,7 @@ const pillars = [
   {
     icon: Lightbulb,
     title: "Clean Code",
-    desc: "We write code your team can maintain and extend. No black boxes, no technical debt left behind.",
+    desc: "I write code you can maintain and extend. No black boxes, no technical debt left behind.",
     highlights: ["Typed, documented codebase", "Scalable architecture"],
   },
   {
@@ -119,71 +119,6 @@ const timeline = [
   },
 ];
 
-const teamMembers = [
-  {
-    name: "Saif Khan",
-    role: "Founder & Lead Developer",
-    bio: "7+ years building production-ready web apps. Leads architecture decisions, client communication, and AI integrations on every project.",
-    avatar: "SK",
-    color: "bg-primary",
-    tags: ["React", "Node.js", "tRPC", "AI/LLMs"],
-    isFounder: true,
-  },
-  {
-    name: "Zain Ul Abideen",
-    role: "Senior Frontend Developer",
-    bio: "5+ years in React and Next.js. Pixel-perfect UI implementation, design system architecture, and animation engineering.",
-    avatar: "ZA",
-    color: "bg-blue-500",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind"],
-    isFounder: false,
-  },
-  {
-    name: "Ahmed Raza",
-    role: "Backend & API Engineer",
-    bio: "Designs and builds scalable REST and tRPC APIs. Expert in PostgreSQL schema design, query optimization, and Prisma.",
-    avatar: "AR",
-    color: "bg-emerald-500",
-    tags: ["Node.js", "tRPC", "PostgreSQL", "Prisma"],
-    isFounder: false,
-  },
-  {
-    name: "Bilal Hassan",
-    role: "AI / LLM Engineer",
-    bio: "Specializes in RAG pipelines, agent workflows, and embedding-based search. Ships AI into production — not just demos.",
-    avatar: "BH",
-    color: "bg-violet-500",
-    tags: ["OpenAI", "Anthropic", "RAG", "pgvector"],
-    isFounder: false,
-  },
-  {
-    name: "Usman Tariq",
-    role: "DevOps & Infrastructure",
-    bio: "Manages CI/CD pipelines, production infrastructure on Railway and Vercel, and zero-downtime deployment strategies.",
-    avatar: "UT",
-    color: "bg-orange-500",
-    tags: ["Docker", "Railway", "Vercel", "CI/CD"],
-    isFounder: false,
-  },
-  {
-    name: "Fatima Noor",
-    role: "UI/UX Designer",
-    bio: "Crafts clean, conversion-focused interfaces and design systems. Works directly with frontend to ensure pixel-perfect results.",
-    avatar: "FN",
-    color: "bg-pink-500",
-    tags: ["Figma", "Design Systems", "Prototyping"],
-    isFounder: false,
-  },
-  {
-    name: "Hamza Malik",
-    role: "QA & Testing Lead",
-    bio: "Every release goes through Hamza. Owns automated and manual QA so bugs are caught before your users ever see them.",
-    avatar: "HM",
-    color: "bg-amber-500",
-    tags: ["E2E Testing", "Performance", "Accessibility"],
-    isFounder: false,
-  },
-];
 
 const testimonials = [
   {
@@ -417,7 +352,6 @@ export default function About() {
                 {[
                   { Icon: MapPin,    text: "Remote — Global" },
                   { Icon: Briefcase, text: "Freelance / Contract" },
-                  { Icon: Users,     text: "10–15 Person Team" },
                   { Icon: Mail,      text: "contact@saifcraft.com" },
                 ].map(({ Icon, text }) => (
                   <span key={text} className="flex items-center gap-1.5">
@@ -493,23 +427,23 @@ export default function About() {
 
         {/* ── My Story ── */}
         <div>
-          <SectionHeading label="Background" title="Our Story" />
+          <SectionHeading label="Background" title="My Story" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2 space-y-4 text-muted-foreground leading-relaxed text-sm sm:text-base">
               <p>
-                We're a fullstack team led by Saif Khan, who has <strong className="text-foreground font-semibold">7+ years of his own experience</strong> building web applications from scratch. We've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. We push back on bad assumptions before a single line of code is written.
+                I'm Saif Khan — a senior fullstack developer with <strong className="text-foreground font-semibold">7+ years of hands-on experience</strong> building web applications from scratch. I've worked with early-stage startups, small businesses, and growing companies — always focused on writing clean code that actually moves the needle. Research shows <strong className="text-foreground font-semibold">67% of startup failures</strong> come from building the wrong product. I push back on bad assumptions before a single line of code is written.
               </p>
               <p>
-                We specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and we build with these modern primitives from day one. Over the past 2+ years we've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets us deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
+                I specialize in <strong className="text-foreground font-semibold">React, Node.js, TypeScript, PostgreSQL, Prisma, and Supabase</strong> — the most in-demand stack of 2025. TypeScript is now the #1 language on GitHub with 2.6M monthly contributors. PostgreSQL has ranked #1 most-used, most-admired, and most-desired database for three consecutive years. The React Compiler (shipped in React 19) delivers <strong className="text-foreground font-semibold">12% faster initial loads and 2.5× faster interactions</strong> — and I build with these modern primitives from day one. Over the past 2+ years I've woven AI into production products: RAG-powered chatbots trained on your business data, semantic search with pgvector, agent workflows, and content generation pipelines using OpenAI and Anthropic. AI-assisted development lets me deliver MVPs <strong className="text-foreground font-semibold">40–60% faster</strong> — without cutting corners on quality.
               </p>
               <p>
-                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a development partner they can trust, not just a ticket-taker. That's the role we fill. When you hire us, you work directly with Saif — backed by a <strong className="text-foreground font-semibold">10–15 person team</strong> covering frontend, backend, AI/ML, QA, and design. Clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
+                The rise of the solo founder — now <strong className="text-foreground font-semibold">36.3% of all new startups</strong> — means more non-technical founders than ever need a development partner they can trust, not just a ticket-taker. That's the role I fill. When you hire me, you work directly with Saif — clear updates, honest timelines, and a 94% client satisfaction rate across 29+ clients on three continents.
               </p>
             </div>
 
             {/* Side card: what I can help with */}
             <div className="bg-card border border-border rounded-2xl p-5 space-y-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">What we can help with</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">What I can help with</p>
               <ul className="space-y-2.5">
                 {[
                   "Custom Web Applications",
@@ -535,75 +469,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── Meet the Team ── */}
-        <div>
-          <SectionHeading
-            label="The Team"
-            title="Meet the People Behind SaifCraft"
-            subtitle="A tight-knit group of 10–15 remote specialists across frontend, backend, AI/ML, design, and QA — led by Saif Khan."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {teamMembers.map((member, i) => (
-              <m.div
-                key={member.name}
-                custom={i}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className={`bg-card border rounded-2xl p-5 flex flex-col gap-4 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${
-                  member.isFounder ? "border-primary/40 lg:col-span-1" : "border-border hover:border-primary/30"
-                }`}
-              >
-                {/* Avatar + name row */}
-                <div className="flex items-center gap-3">
-                  <div className={`w-12 h-12 rounded-2xl ${member.color} flex items-center justify-center text-white text-sm font-black shrink-0 shadow-md`}>
-                    {member.avatar}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-sm font-bold text-foreground leading-tight truncate">{member.name}</p>
-                    <p className="text-xs text-primary font-semibold leading-tight mt-0.5">{member.role}</p>
-                    {member.isFounder && (
-                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20 px-1.5 py-0.5 rounded-full mt-1">
-                        Founder
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Bio */}
-                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{member.bio}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5">
-                  {member.tags.map(tag => (
-                    <span key={tag} className="text-xs font-semibold bg-muted text-muted-foreground border border-border rounded-md px-2 py-0.5">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </m.div>
-            ))}
-
-            {/* +More card */}
-            <m.div
-              custom={teamMembers.length}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="border border-dashed border-primary/25 bg-primary/[0.02] rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-2 min-h-[180px]"
-            >
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Users className="w-5 h-5 text-primary" />
-              </div>
-              <p className="text-sm font-bold text-foreground">+8 more</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Additional specialists across mobile, data engineering, and security.
-              </p>
-            </m.div>
-          </div>
-        </div>
 
         {/* ── Time Breakdown ── */}
         <div>
@@ -861,8 +726,8 @@ export default function About() {
               },
               {
                 icon: Zap,
-                title: "Lean Team, Low Overhead",
-                desc: "10–15 remote specialists means we can profitably serve niches too small for VC-backed competitors — while moving faster than any traditional agency.",
+                title: "Solo Expert, Zero Overhead",
+                desc: "Working directly with a senior developer means no agency markup, no project managers in between — just fast, focused execution on your product.",
                 color: "text-violet-500",
                 bg: "bg-violet-500/10",
               },
@@ -882,8 +747,8 @@ export default function About() {
               },
               {
                 icon: Target,
-                title: "Parallel Workstreams",
-                desc: "Multiple engineers working simultaneously on frontend, backend, and AI layers — so your project never bottlenecks on a single developer's calendar.",
+                title: "Full-Stack Ownership",
+                desc: "Frontend, backend, database, and AI — all handled by one expert. No handoff gaps, no miscommunication between specialisms, no finger-pointing.",
                 color: "text-primary",
                 bg: "bg-primary/10",
               },

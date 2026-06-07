@@ -48,9 +48,9 @@ const stats = [
 ];
 
 const nextSteps = [
-  { icon: MessageSquare, step: "01", title: "We read your idea",    desc: "Every submission is reviewed personally by Saif and the team. No bots, no auto-replies." },
-  { icon: FileText,      step: "02", title: "We analyse feasibility", desc: "We assess whether your idea can be built, what it would take, and whether it's the right fit for us." },
-  { icon: CalendarCheck, step: "03", title: "We contact you",       desc: "If we can convert your idea into reality, a team member reaches out to you directly." },
+  { icon: MessageSquare, step: "01", title: "I read your idea",    desc: "Every submission is reviewed personally by Saif. No bots, no auto-replies." },
+  { icon: FileText,      step: "02", title: "I analyse feasibility", desc: "I assess whether your idea can be built, what it would take, and whether it's the right fit." },
+  { icon: CalendarCheck, step: "03", title: "I contact you",       desc: "If I can convert your idea into reality, I'll reach out to you directly within 24 hours." },
 ];
 
 const services = [
@@ -119,7 +119,7 @@ export default function Contact() {
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
       });
-      toast({ title: "Idea submitted!", description: "Our team will review it. If we can build it, we'll contact you directly." });
+      toast({ title: "Idea submitted!", description: "I'll review it personally. If I can build it, I'll contact you directly." });
       form.reset();
     } catch {
       toast({ title: "Something went wrong", description: "Please try again.", variant: "destructive" });
@@ -173,10 +173,10 @@ export default function Contact() {
               <h1 className="text-[2.35rem] leading-[1.08] sm:text-5xl lg:text-[58px] font-display font-bold text-foreground tracking-tight mb-4 sm:mb-6">
                 Describe your
                 <br />
-                <span className="text-primary">idea to us.</span>
+                <span className="text-primary">idea to me.</span>
               </h1>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-md">
-                Tell us what you want to build. Our team will analyse your idea — if we can convert it into reality, a team member will contact you directly.
+                Tell me what you want to build. I'll personally analyse your idea — if I can convert it into reality, I'll contact you directly.
               </p>
             </m.div>
 
