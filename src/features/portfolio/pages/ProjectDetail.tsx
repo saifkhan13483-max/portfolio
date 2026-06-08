@@ -66,7 +66,9 @@ export default function ProjectDetail() {
     };
   }, [project, params?.id]);
 
-  if (!project && !isLoading) {
+  if (isLoading && !project) return null;
+
+  if (!project) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center space-y-5">
