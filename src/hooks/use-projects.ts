@@ -42,12 +42,35 @@ export function useProjectsLite() {
 /**
  * One-shot single-project read — uses Firestore Lite.
  * Use on the public ProjectDetail page.
+ *
+ * initialData seeds the detail cache from the already-cached projects list
+ * so navigating from the portfolio page shows content INSTANTLY — no Firestore
+ * round-trip needed. initialDataUpdatedAt tells React Query the data is as
+ * fresh as the list query, preventing unnecessary background refetches.
  */
 export function useProjectLite(id: string) {
   return useQuery({
     queryKey: QUERY_KEYS.project(id),
     queryFn: () => getProject(id),
     enabled: !!id,
+    initialData: () => {
+      const list = queryClient.getQueryData<Project[]>(QUERY_KEYS.projects);
+      return list?.find((p) => p.id === id);
+    },
+    initialDataUpdatedAt: () =>
+      queryClient.getQueryState(QUERY_KEYS.projects)?.dataUpdatedAt,
+  });
+}
+
+/**
+ * Prefetch a single project on card hover so the detail page opens instantly.
+ * Seeds both the individual key and (if not cached) the list key.
+ */
+export function prefetchProject(id: string) {
+  queryClient.prefetchQuery({
+    queryKey: QUERY_KEYS.project(id),
+    queryFn: () => getProject(id),
+    staleTime: 30 * 60 * 1000,
   });
 }
 

@@ -4,6 +4,7 @@ import { ExternalLink, Eye, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link, useLocation } from "wouter";
 import { getCloudinaryCardUrl, getCloudinaryThumbUrl } from "@/lib/cloudinary";
+import { prefetchProject } from "@/hooks/use-projects";
 
 interface ProjectCardProps {
   project: Project;
@@ -23,6 +24,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.45, delay: Math.min(index * 0.07, 0.35) }}
       className="group relative flex flex-col rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/40 hover:shadow-xl hover:shadow-primary/8 transition-all duration-300"
+      onMouseEnter={() => prefetchProject(project.id)}
     >
       {/* ── Image ── */}
       <div

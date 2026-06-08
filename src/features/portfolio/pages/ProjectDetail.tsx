@@ -66,7 +66,7 @@ export default function ProjectDetail() {
     };
   }, [project, params?.id]);
 
-  if (isLoading && !project) return null;
+  if (isLoading && !project) return <ProjectDetailSkeleton />;
 
   if (!project) {
     return (
@@ -516,6 +516,106 @@ function TechChip({ label }: { label: string }) {
         <Code2 className="h-2.5 w-2.5 text-primary" />
       </div>
       <span className="text-xs sm:text-[0.8125rem] font-semibold text-foreground whitespace-nowrap leading-none">{label}</span>
+    </div>
+  );
+}
+
+/* ── Skeleton ──────────────────────────────────────────────────
+   Shown while project data is being fetched (direct-URL access
+   or first-visit with no list cache). Matches the real layout
+   exactly so there's zero layout shift when content arrives.
+─────────────────────────────────────────────────────────────── */
+function Bone({ className, style }: { className?: string; style?: React.CSSProperties }) {
+  return <div className={`animate-pulse rounded-lg bg-muted/60 ${className ?? ""}`} style={style} />;
+}
+
+function ProjectDetailSkeleton() {
+  return (
+    <div className="min-h-screen bg-background overflow-x-hidden">
+
+      {/* Hero */}
+      <section className="relative w-full overflow-hidden">
+        <div className="relative w-full flex flex-col min-h-[380px] sm:min-h-[460px] lg:min-h-[540px] bg-muted/30 animate-pulse">
+          <div className="relative z-10 flex flex-col justify-end h-full px-4 sm:px-8 lg:px-14 xl:px-20 pt-6 pb-8 sm:pb-12 lg:pb-14 max-w-7xl 2xl:max-w-[1600px] mx-auto w-full">
+            {/* Back link */}
+            <div className="mb-5 sm:mb-7">
+              <Bone className="h-4 w-32" />
+            </div>
+            {/* Badges */}
+            <div className="flex gap-2 mb-4">
+              <Bone className="h-6 w-20 rounded-full" />
+              <Bone className="h-6 w-24 rounded-full" />
+            </div>
+            {/* Title */}
+            <Bone className="h-10 sm:h-12 w-3/4 max-w-xl mb-3 sm:mb-4 rounded-xl" />
+            {/* Description */}
+            <Bone className="h-4 w-full max-w-lg mb-2" />
+            <Bone className="h-4 w-2/3 max-w-sm mb-6 sm:mb-7" />
+            {/* Buttons */}
+            <div className="flex gap-2.5">
+              <Bone className="h-11 w-36 rounded-xl" />
+              <Bone className="h-11 w-36 rounded-xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Body */}
+      <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-14 xl:px-20 py-8 sm:py-12 lg:py-16">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 xl:gap-16">
+
+          {/* Main */}
+          <main className="flex-1 min-w-0">
+            {/* Section header */}
+            <div className="flex items-center gap-3 mb-5 sm:mb-6 pb-4 border-b border-border/60">
+              <Bone className="w-9 h-9 rounded-xl" />
+              <Bone className="h-5 w-44 rounded-lg" />
+            </div>
+            {/* Body paragraphs */}
+            <div className="space-y-3 mb-12">
+              {[1, 0.9, 0.75, 0.85, 0.6].map((w, i) => (
+                <Bone key={i} className="h-4" style={{ width: `${w * 100}%` }} />
+              ))}
+            </div>
+            {/* Tech section header */}
+            <div className="flex items-center gap-3 mb-5 pb-4 border-b border-border/60">
+              <Bone className="w-9 h-9 rounded-xl" />
+              <Bone className="h-5 w-40 rounded-lg" />
+            </div>
+            {/* Tech chips */}
+            <div className="flex flex-wrap gap-2">
+              {[80, 96, 72, 88, 64, 104, 76].map((w, i) => (
+                <Bone key={i} className="h-10 rounded-xl" style={{ width: `${w}px` }} />
+              ))}
+            </div>
+          </main>
+
+          {/* Sidebar (desktop) */}
+          <aside className="hidden lg:block w-[272px] xl:w-[296px] shrink-0">
+            <div className="sticky top-24 flex flex-col gap-4">
+              <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm">
+                <Bone className="h-[3px] w-full rounded-none" />
+                <Bone className="h-38 w-full rounded-none" />
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex items-center gap-3 px-4 py-3.5 border-b border-border">
+                    <Bone className="w-8 h-8 rounded-lg" />
+                    <div className="flex-1 space-y-1.5">
+                      <Bone className="h-2.5 w-16" />
+                      <Bone className="h-3.5 w-28" />
+                    </div>
+                  </div>
+                ))}
+                <div className="p-4 flex flex-col gap-2.5 bg-muted/20">
+                  <Bone className="h-11 w-full rounded-xl" />
+                  <Bone className="h-11 w-full rounded-xl" />
+                </div>
+              </div>
+              <Bone className="h-36 w-full rounded-2xl" />
+            </div>
+          </aside>
+
+        </div>
+      </div>
     </div>
   );
 }
