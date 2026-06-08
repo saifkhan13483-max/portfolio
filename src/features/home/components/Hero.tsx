@@ -464,7 +464,7 @@ export default function Hero() {
                   }}
                   whileHover={{ scale: 1.1, y: -2 }}
                   transition={{ type: "spring", stiffness: 280 }}
-                  className="text-[11px] font-mono bg-primary/8 text-primary/80 border border-primary/15 rounded-md px-2 py-0.5 cursor-default"
+                  className="text-[11px] font-mono bg-primary/8 text-black dark:text-white border border-primary/15 rounded-md px-2 py-0.5 cursor-default"
                 >
                   {tech}
                 </m.span>
