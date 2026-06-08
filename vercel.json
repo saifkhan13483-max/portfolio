@@ -47,11 +47,11 @@
       ]
     },
     {
-      "source": "/favicon.png",
+      "source": "/:file(robots.txt|sitemap.xml|sitemap-index.xml|manifest.json|logo.png|logo-dark.png|favicon.png)",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=86400, stale-while-revalidate=3600"
         }
       ]
     },

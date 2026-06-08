@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
-import { useProjects } from "@/hooks/use-projects";
+import { useProjectsLite } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { m, AnimatePresence } from "framer-motion";
 import { Briefcase, Sparkles } from "lucide-react";
@@ -10,7 +10,7 @@ import { SITE_URL } from "@/lib/constants";
 const CATEGORIES = ["All", "Web App", "E-Commerce", "Mobile", "SaaS", "Full-Stack"];
 
 export default function Portfolio() {
-  const { data: projects, isLoading } = useProjects();
+  const { data: projects, isLoading } = useProjectsLite();
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {

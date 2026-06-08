@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useProjects } from "@/hooks/use-projects";
+import { useProjectsLite } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { m, AnimatePresence } from "framer-motion";
@@ -7,7 +7,7 @@ import { Link } from "wouter";
 import { ArrowRight, Briefcase } from "lucide-react";
 
 export default function ProjectsGallery() {
-  const { data: projects, isLoading } = useProjects();
+  const { data: projects, isLoading } = useProjectsLite();
   const [activeCategory, setActiveCategory] = useState("All");
 
   const categories = useMemo(() => {

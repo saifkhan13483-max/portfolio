@@ -27,16 +27,31 @@ export function optimizeCloudinaryUrl(url: string): string {
   return applyTransform(url, "f_auto,q_auto,c_limit,w_1280");
 }
 
-/** Returns a 16:9 card thumbnail (800×450, auto format + quality). */
+/**
+ * Returns a 16:9 card thumbnail (800×450) optimised for desktop grid cards.
+ * Use alongside getCloudinaryThumbUrl() in a srcset for responsive loading.
+ */
 export function getCloudinaryCardUrl(url: string): string {
   if (!isRawCloudinaryUrl(url)) return url;
   return applyTransform(url, "f_auto,q_auto,c_fill,w_800,h_450");
 }
 
-/** Returns a small 16:9 thumbnail (400×225, auto format + quality). */
+/**
+ * Returns a compact 16:9 thumbnail (400×225) for mobile screens and small slots.
+ * Roughly half the pixel area of getCloudinaryCardUrl — ~60-70% smaller file.
+ */
 export function getCloudinaryThumbUrl(url: string): string {
   if (!isRawCloudinaryUrl(url)) return url;
   return applyTransform(url, "f_auto,q_auto,c_fill,w_400,h_225");
+}
+
+/**
+ * Returns a tiny placeholder image (32×18, very low quality) for blur-up loading.
+ * Embed as a data-src or use as a CSS background while the real image loads.
+ */
+export function getCloudinaryPlaceholderUrl(url: string): string {
+  if (!isRawCloudinaryUrl(url)) return url;
+  return applyTransform(url, "f_auto,q_1,c_fill,w_32,h_18,e_blur:300");
 }
 
 /** Uploads a file to Cloudinary using an unsigned upload preset and returns the secure URL. */

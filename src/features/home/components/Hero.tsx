@@ -28,7 +28,10 @@ function NeuralNetwork() {
   const pulsesRef = useRef<Pulse[]>([]);
 
   const init = useCallback((w: number, h: number) => {
-    const count = Math.max(18, Math.floor((w * h) / 22000));
+    const isMobile = w < 768;
+    const count = isMobile
+      ? Math.min(10, Math.floor((w * h) / 40000))
+      : Math.max(18, Math.floor((w * h) / 22000));
     nodesRef.current = Array.from({ length: count }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
@@ -76,7 +79,7 @@ function NeuralNetwork() {
     const edgeColor = `hsla(${h}, ${s}%, ${l}%, `;
     const pulseColor = `hsla(${h}, ${s + 10}%, ${Math.min(l + 20, 95)}%, `;
 
-    const MAX_DIST = 220;
+    const MAX_DIST = canvas.width < 768 ? 150 : 220;
     let lastPulse = 0;
 
     const draw = (ts: number) => {

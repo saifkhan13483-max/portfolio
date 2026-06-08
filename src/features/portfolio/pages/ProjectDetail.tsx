@@ -1,5 +1,5 @@
 import { useRoute, Link } from "wouter";
-import { useProject } from "@/hooks/use-projects";
+import { useProjectLite } from "@/hooks/use-projects";
 import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,7 +34,7 @@ const scaleIn = (delay = 0) => ({
 
 export default function ProjectDetail() {
   const [, params] = useRoute("/portfolio/:id");
-  const { data: project, isLoading } = useProject(params?.id || "");
+  const { data: project, isLoading } = useProjectLite(params?.id || "");
   const [mobileMetaOpen, setMobileMetaOpen] = useState(false);
 
   useEffect(() => {
