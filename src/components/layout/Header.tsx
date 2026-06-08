@@ -81,10 +81,10 @@ export default function Header() {
     <>
       {/* ── Main Header ──────────────────────────────────────────── */}
       <m.header
-        className={`sticky top-0 z-50 w-full transition-[background,border-color,box-shadow] duration-300 ${
+        className={`sticky top-0 z-50 w-full backdrop-blur-2xl border-b transition-[background,border-color,box-shadow] duration-300 ${
           scrolled
-            ? "bg-background/80 backdrop-blur-2xl border-b border-border/50 shadow-[0_1px_24px_0_hsl(var(--foreground)/0.07)]"
-            : "bg-transparent border-b border-transparent"
+            ? "bg-background/90 border-border/50 shadow-[0_1px_24px_0_hsl(var(--foreground)/0.07)]"
+            : "bg-background/70 border-border/30"
         }`}
       >
         {/* Gradient line at top edge (only when scrolled) */}
@@ -113,10 +113,8 @@ export default function Header() {
             {/* ── Desktop Nav — floating pill ─────────────────────── */}
             <nav
               aria-label="Main navigation"
-              className={`hidden lg:flex items-center rounded-full transition-all duration-300 ${
-                scrolled
-                  ? "bg-muted/70 border border-border/60 px-1.5 py-1 gap-0.5 shadow-sm"
-                  : "gap-0.5"
+              className={`hidden lg:flex items-center rounded-full transition-all duration-300 bg-muted/60 border border-border/50 px-1.5 py-1 gap-0.5 ${
+                scrolled ? "shadow-sm" : ""
               }`}
             >
               {navItems.map((item) => {
@@ -167,12 +165,12 @@ export default function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="relative h-9 w-9 rounded-full p-0 hover:ring-2 hover:ring-primary/30 transition-all duration-200"
+                      className="relative h-9 w-9 rounded-full p-0 hover:ring-2 hover:ring-primary/40 transition-all duration-200"
                       data-testid="button-user-menu"
                     >
-                      <Avatar className="h-9 w-9 ring-2 ring-border">
+                      <Avatar className="h-9 w-9 ring-2 ring-primary/30">
                         <AvatarImage src={user.photoURL || ""} alt={user.displayName || ""} />
-                        <AvatarFallback className="bg-primary/15 text-primary text-xs font-bold">
+                        <AvatarFallback className="bg-primary/20 text-primary text-xs font-bold">
                           {getUserInitials(user.displayName, user.email)}
                         </AvatarFallback>
                       </Avatar>
@@ -182,7 +180,6 @@ export default function Header() {
                     className="w-60 rounded-2xl p-1.5 shadow-xl border border-border/60"
                     align="end"
                     sideOffset={8}
-                    forceMount
                   >
                     <DropdownMenuLabel className="font-normal px-3 py-2.5">
                       <div className="flex items-center gap-2.5">
