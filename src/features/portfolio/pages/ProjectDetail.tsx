@@ -66,21 +66,7 @@ export default function ProjectDetail() {
     };
   }, [project, params?.id]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="relative">
-            <div className="h-12 w-12 rounded-full border-[3px] border-primary/20" />
-            <div className="absolute inset-0 h-12 w-12 animate-spin rounded-full border-[3px] border-transparent border-t-primary" />
-          </div>
-          <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase animate-pulse">Loading project</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!project) {
+  if (!project && !isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center space-y-5">
