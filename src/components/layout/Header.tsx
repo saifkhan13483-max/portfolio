@@ -161,7 +161,7 @@ export default function Header() {
 
               {/* User avatar dropdown OR login button */}
               {user ? (
-                <DropdownMenu>
+                <DropdownMenu modal={false}>
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
