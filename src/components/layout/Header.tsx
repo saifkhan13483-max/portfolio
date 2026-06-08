@@ -81,7 +81,7 @@ export default function Header() {
     <>
       {/* ── Main Header ──────────────────────────────────────────── */}
       <m.header
-        className={`lg:sticky top-0 z-50 w-full backdrop-blur-2xl border-b transition-[background,border-color,box-shadow] duration-300 ${
+        className={`sticky top-0 z-50 w-full backdrop-blur-2xl border-b transition-[background,border-color,box-shadow] duration-300 ${
           scrolled
             ? "bg-background/90 border-border/50 shadow-[0_1px_24px_0_hsl(var(--foreground)/0.07)]"
             : "bg-background/70 border-border/30"
