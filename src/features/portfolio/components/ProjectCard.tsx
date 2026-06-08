@@ -40,8 +40,9 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           width={800}
           height={450}
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-          loading="lazy"
-          decoding="async"
+          loading={index < 3 ? "eager" : "lazy"}
+          fetchpriority={index === 0 ? "high" : index < 3 ? "auto" : "low"}
+          decoding={index < 3 ? "sync" : "async"}
         />
 
         {/* Featured badge */}

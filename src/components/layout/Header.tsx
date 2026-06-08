@@ -22,6 +22,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LOGO_LIGHT, LOGO_DARK } from "@/lib/constants";
 import { getUserInitials } from "@/lib/utils";
 import { routes } from "@/lib/routes";
+import { prefetchProjects } from "@/hooks/use-projects";
 
 /**
  * Each nav item maps its href to the corresponding lazy route so
@@ -31,7 +32,7 @@ import { routes } from "@/lib/routes";
 const navItems = [
   { label: "Home",      href: "/",          prefetch: () => routes.Home.prefetch() },
   { label: "Services",  href: "/services",  prefetch: () => routes.Services.prefetch() },
-  { label: "Portfolio", href: "/portfolio", prefetch: () => routes.Portfolio.prefetch() },
+  { label: "Portfolio", href: "/portfolio", prefetch: () => { routes.Portfolio.prefetch(); prefetchProjects(); } },
   { label: "About",     href: "/about",     prefetch: () => routes.About.prefetch() },
   { label: "FAQ",       href: "/faq",       prefetch: () => routes.FAQ.prefetch() },
   { label: "Contact",   href: "/contact",   prefetch: () => routes.Contact.prefetch() },

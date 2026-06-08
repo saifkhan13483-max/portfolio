@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import { updatePageSEO, addSchema, removeSchemas } from "@/lib/seo";
 import { useProjectsLite } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
@@ -115,7 +115,7 @@ export default function Portfolio() {
             {(isLoading ? CATEGORIES : categories).map((cat) => (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                onClick={() => startTransition(() => setActiveCategory(cat))}
                 data-testid={`filter-${cat.toLowerCase().replace(/\s+/g, "-")}`}
                 className={`flex-shrink-0 h-10 px-4 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 ${
                   activeCategory === cat
@@ -174,7 +174,10 @@ export default function Portfolio() {
 
       {/* ── Bottom CTA ── */}
       {!isLoading && (
-        <section className="border-t border-border bg-card">
+        <section
+          className="border-t border-border bg-card"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 280px" }}
+        >
           <div className="container mx-auto px-4 max-w-7xl 2xl:max-w-[1600px] py-14 sm:py-20 text-center">
             <m.div
               initial={{ opacity: 0, y: 20 }}

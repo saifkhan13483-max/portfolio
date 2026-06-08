@@ -3,7 +3,20 @@ import { projectsApi } from "@/lib/firebase/firestore";
 import { useFirestoreCollection } from "@/hooks/use-firestore-collection";
 import { getProjects, getProject } from "@/lib/firebase/firestore-lite";
 import { QUERY_KEYS } from "@/lib/query-keys";
+import { queryClient } from "@/lib/queryClient";
 import type { Project } from "@/types";
+
+/**
+ * Fire-and-forget Firestore prefetch — call on nav hover so data arrives
+ * before the route chunk finishes loading. No-ops if data is already fresh.
+ */
+export function prefetchProjects() {
+  queryClient.prefetchQuery({
+    queryKey: QUERY_KEYS.projects,
+    queryFn: getProjects,
+    staleTime: 30 * 60 * 1000,
+  });
+}
 
 /**
  * Real-time subscription hook — uses full Firestore SDK (~60KB).

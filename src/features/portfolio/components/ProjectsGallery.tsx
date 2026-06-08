@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, startTransition } from "react";
 import { useProjectsLite } from "@/hooks/use-projects";
 import { ProjectCard } from "@/features/portfolio/components/ProjectCard";
 import { Button } from "@/components/ui/button";
@@ -38,7 +38,11 @@ export default function ProjectsGallery() {
   }
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 lg:py-24 bg-card/20 border-t border-border">
+    <section
+      id="portfolio"
+      className="py-12 sm:py-16 lg:py-24 bg-card/20 border-t border-border"
+      style={{ contentVisibility: "auto", containIntrinsicSize: "0 700px" }}
+    >
       <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-16">
 
         {/* Header */}
@@ -62,7 +66,7 @@ export default function ProjectsGallery() {
                 <Button
                   key={category}
                   variant={activeCategory === category ? "default" : "outline"}
-                  onClick={() => setActiveCategory(category)}
+                  onClick={() => startTransition(() => setActiveCategory(category))}
                   className={`rounded-full text-xs sm:text-sm h-10 sm:h-11 px-4 sm:px-5 shrink-0 ${
                     activeCategory === category
                       ? "bg-primary text-primary-foreground border-primary"
@@ -85,7 +89,7 @@ export default function ProjectsGallery() {
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-8"
             >
               <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
+                {filteredProjects.map((project, index) => (
                   <m.div
                     key={project.id}
                     layout
@@ -94,7 +98,7 @@ export default function ProjectsGallery() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ProjectCard project={project} />
+                    <ProjectCard project={project} index={index} />
                   </m.div>
                 ))}
               </AnimatePresence>

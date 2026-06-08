@@ -63,10 +63,24 @@ function NeuralNetwork() {
     const ro = new ResizeObserver(resize);
     ro.observe(canvas.parentElement!);
 
-    // Pause rAF when hero is off-screen to save CPU/battery
+    // True rAF pause: stop the loop entirely when hero scrolls off-screen,
+    // restart it when it comes back. Previously the loop ran at 60fps and just
+    // skipped draw(); now it doesn't schedule a frame at all while invisible.
     let isVisible = true;
+    let rafRunning = false;
+
+    const startLoop = () => {
+      if (rafRunning) return;
+      rafRunning = true;
+      animRef.current = requestAnimationFrame(drawSmart);
+    };
+
     const io = new IntersectionObserver(
-      ([entry]) => { isVisible = entry.isIntersecting; },
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) startLoop();
+        // When not visible, drawSmart will naturally stop after current frame
+      },
       { threshold: 0 }
     );
     io.observe(canvas.parentElement!);
@@ -152,13 +166,18 @@ function NeuralNetwork() {
 
     };
 
-    // Smart scheduler: skip canvas work when hero is scrolled out of view
+    // True rAF stop/start: when hero scrolls off-screen, the loop exits.
+    // IntersectionObserver restarts it when the hero comes back into view.
     const drawSmart = (ts: number) => {
-      if (isVisible) draw(ts);
+      if (!isVisible) {
+        rafRunning = false;
+        return; // exit loop — IntersectionObserver will restart it
+      }
+      draw(ts);
       animRef.current = requestAnimationFrame(drawSmart);
     };
 
-    animRef.current = requestAnimationFrame(drawSmart);
+    startLoop();
     return () => {
       cancelAnimationFrame(animRef.current);
       ro.disconnect();
