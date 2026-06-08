@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, Link } from "wouter";
 import {
   Menu, X, LogIn, User as UserIcon, LayoutDashboard,
@@ -32,32 +32,18 @@ const navItems = [
 ];
 
 const SCROLL_THRESHOLD = 20;
-const HIDE_THRESHOLD   = 80;
 
 export default function Header() {
   const [location]                    = useLocation();
   const [scrolled, setScrolled]       = useState(false);
-  const [hidden, setHidden]           = useState(false);
   const [mobileOpen, setMobileOpen]   = useState(false);
-  const lastScrollY                   = useRef(0);
   const { user, isAdmin }             = useAuth();
   const { toast }                     = useToast();
   const isDark                        = useDarkMode();
   const logo                          = isDark ? LOGO_DARK : LOGO_LIGHT;
 
-  /* Smart-sticky: hide on scroll-down, reveal on scroll-up */
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > SCROLL_THRESHOLD);
-
-      if (y > HIDE_THRESHOLD) {
-        setHidden(y > lastScrollY.current + 4);
-      } else {
-        setHidden(false);
-      }
-      lastScrollY.current = y;
-    };
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -95,9 +81,7 @@ export default function Header() {
     <>
       {/* ── Main Header ──────────────────────────────────────────── */}
       <m.header
-        animate={{ y: hidden ? "-100%" : "0%" }}
-        transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
-        className={`sticky top-0 z-50 w-full will-change-transform transition-[background,border-color,box-shadow] duration-300 ${
+        className={`sticky top-0 z-50 w-full transition-[background,border-color,box-shadow] duration-300 ${
           scrolled
             ? "bg-background/80 backdrop-blur-2xl border-b border-border/50 shadow-[0_1px_24px_0_hsl(var(--foreground)/0.07)]"
             : "bg-transparent border-b border-transparent"
