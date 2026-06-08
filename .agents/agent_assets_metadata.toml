@@ -107,3 +107,9 @@ id = "G9cmaENtk-gNMjPoFW9Xw"
 uri = "file://research/website-headers-complete-guide.md"
 type = "text"
 title = "Website Headers — Complete Type Reference Guide"
+
+[[outputs]]
+id = "psb1hf0zilvpJefztDB9K"
+uri = "file://research/performance-optimization-report.md"
+type = "text"
+title = "SaifCraft Performance Optimization — Research Report + Prompt"
