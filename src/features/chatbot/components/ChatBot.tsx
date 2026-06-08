@@ -247,7 +247,7 @@ export default function ChatBot() {
         onClick={() => setOpen((v) => !v)}
         data-testid="button-chatbot-toggle"
         aria-label={open ? "Close chat" : "Open chat"}
-        className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-[60] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center touch-manipulation"
+        className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-[60] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 flex items-center justify-center touch-manipulation ring-2 ring-primary/30 ring-offset-2 ring-offset-background"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
       >
