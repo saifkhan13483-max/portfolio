@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { LazyMotion, domAnimation } from "framer-motion";
 import "./index.css";
 import { AuthProvider } from "@/features/auth/AuthContext";
@@ -10,35 +10,52 @@ import { Switch, Route, Redirect, useLocation } from "wouter";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ErrorBoundary } from "@/components/layout/ErrorBoundary";
+import { routes } from "@/lib/routes";
 
-const ChatBot = lazy(() => import("@/features/chatbot/components/ChatBot"));
+const {
+  ChatBot,
+  Home,
+  Portfolio,
+  Services,
+  About,
+  Contact,
+  FAQ,
+  ProjectDetail,
+  PrivacyPolicy,
+  TermsOfService,
+  AdminLogin,
+  AdminDashboard,
+  OrdersManagement,
+  ProjectsManagement,
+  ServicesManagement,
+  AdminLayout,
+  AdminProtectedRoute,
+  ClientProfile,
+  NotFound,
+} = routes;
 
-const Home = lazy(() => import("@/features/home/pages/Home"));
-const Portfolio = lazy(() => import("@/features/portfolio/pages/Portfolio"));
-const Services = lazy(() => import("@/features/services/pages/Services"));
-const About = lazy(() => import("@/features/about/pages/About"));
-const Contact = lazy(() => import("@/features/contact/pages/Contact"));
-const FAQ = lazy(() => import("@/features/faq/pages/FAQ"));
-const ProjectDetail = lazy(() => import("@/features/portfolio/pages/ProjectDetail"));
-const PrivacyPolicy = lazy(() => import("@/features/legal/pages/PrivacyPolicy"));
-const TermsOfService = lazy(() => import("@/features/legal/pages/TermsOfService"));
-const AdminLogin = lazy(() => import("@/features/admin/pages/Login"));
-const AdminDashboard = lazy(() => import("@/features/admin/pages/Dashboard"));
-const OrdersManagement = lazy(() => import("@/features/admin/pages/Orders"));
-const ProjectsManagement = lazy(() => import("@/features/admin/pages/Projects"));
-const ServicesManagement = lazy(() => import("@/features/admin/pages/Services"));
-const AdminLayout = lazy(() => import("@/features/admin/pages/AdminLayout"));
-const AdminProtectedRoute = lazy(() => import("@/features/admin/components/AdminProtectedRoute"));
-const ClientProfile = lazy(() => import("@/features/profile/pages/ClientProfile"));
-const NotFound = lazy(() => import("@/pages/NotFound"));
-
+/**
+ * Delayed spinner — renders nothing for the first 200 ms.
+ * On fast connections the chunk loads before the delay expires,
+ * so the user never sees a loading flash. On slow connections the
+ * spinner appears after 200 ms, giving clear feedback.
+ */
 function PageLoader() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const id = setTimeout(() => setShow(true), 200);
+    return () => clearTimeout(id);
+  }, []);
+
+  if (!show) return null;
+
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
       <div className="relative flex items-center justify-center">
         <div className="absolute h-[52px] w-[52px] animate-spin rounded-full border-[3px] border-primary/20 border-t-primary" />
         <img
-          src="https://res.cloudinary.com/de2wrwg6e/image/upload/v1780892808/Untitled_design__2_-removebg-preview_ldupjq.png"
+          src="https://res.cloudinary.com/de2wrwg6e/image/upload/f_auto,q_auto,w_80/v1780892808/Untitled_design__2_-removebg-preview_ldupjq.png"
           alt="SaifCraft"
           className="h-[38px] w-[38px] object-contain"
         />

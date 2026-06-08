@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation, Link } from "wouter";
 import {
   Menu, X, LogIn, User as UserIcon, LayoutDashboard,
@@ -21,14 +21,20 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { LOGO_LIGHT, LOGO_DARK } from "@/lib/constants";
 import { getUserInitials } from "@/lib/utils";
+import { routes } from "@/lib/routes";
 
+/**
+ * Each nav item maps its href to the corresponding lazy route so
+ * we can call `.prefetch()` on mouseenter/focus to warm the chunk
+ * before the user clicks — making navigation feel instant.
+ */
 const navItems = [
-  { label: "Home",      href: "/" },
-  { label: "Services",  href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "About",     href: "/about" },
-  { label: "FAQ",       href: "/faq" },
-  { label: "Contact",   href: "/contact" },
+  { label: "Home",      href: "/",          prefetch: () => routes.Home.prefetch() },
+  { label: "Services",  href: "/services",  prefetch: () => routes.Services.prefetch() },
+  { label: "Portfolio", href: "/portfolio", prefetch: () => routes.Portfolio.prefetch() },
+  { label: "About",     href: "/about",     prefetch: () => routes.About.prefetch() },
+  { label: "FAQ",       href: "/faq",       prefetch: () => routes.FAQ.prefetch() },
+  { label: "Contact",   href: "/contact",   prefetch: () => routes.Contact.prefetch() },
 ];
 
 const SCROLL_THRESHOLD = 20;
@@ -57,25 +63,25 @@ export default function Header() {
   /* Close mobile menu on route change */
   useEffect(() => { setMobileOpen(false); }, [location]);
 
-  const handleLogin = async () => {
+  const handleLogin = useCallback(async () => {
     try {
       await signInWithGoogle();
       toast({ title: "Welcome back!", description: "You're now logged in." });
     } catch {
       toast({ title: "Login failed", description: "Please try again.", variant: "destructive" });
     }
-  };
+  }, [toast]);
 
-  const handleLogout = async () => {
+  const handleLogout = useCallback(async () => {
     try {
       await signOut();
       toast({ title: "Logged out", description: "See you next time." });
     } catch {
       toast({ title: "Error", description: "Could not log out.", variant: "destructive" });
     }
-  };
+  }, [toast]);
 
-  const close = () => setMobileOpen(false);
+  const close = useCallback(() => setMobileOpen(false), []);
 
   return (
     <>
@@ -100,6 +106,7 @@ export default function Header() {
               href="/"
               className="flex items-center gap-2.5 shrink-0 group"
               data-testid="link-logo"
+              onMouseEnter={() => routes.Home.prefetch()}
             >
               <img
                 src={logo}
@@ -124,6 +131,8 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     data-testid={`link-nav-${item.label.toLowerCase()}`}
+                    onMouseEnter={item.prefetch}
+                    onFocus={item.prefetch}
                     className={`relative px-4 py-2 text-[13.5px] font-medium rounded-full transition-all duration-150 select-none ${
                       active
                         ? "text-foreground"
@@ -153,7 +162,11 @@ export default function Header() {
                 className="hidden md:inline-flex btn-cta border-0 rounded-full h-9 px-5 text-[13px] font-semibold gap-1.5 shadow-[var(--glow-primary-sm)] hover:shadow-[var(--glow-primary-md)] hover:-translate-y-0.5 transition-all duration-200"
                 data-testid="button-get-started"
               >
-                <Link href="/contact" className="flex items-center gap-1.5">
+                <Link
+                  href="/contact"
+                  className="flex items-center gap-1.5"
+                  onMouseEnter={() => routes.Contact.prefetch()}
+                >
                   Get Started
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -205,13 +218,21 @@ export default function Header() {
                       </DropdownMenuItem>
                     )}
                     <DropdownMenuItem asChild>
-                      <Link href="/profile" className="flex items-center gap-2.5 cursor-pointer px-3 py-2 rounded-xl">
+                      <Link
+                        href="/profile"
+                        className="flex items-center gap-2.5 cursor-pointer px-3 py-2 rounded-xl"
+                        onMouseEnter={() => routes.ClientProfile.prefetch()}
+                      >
                         <UserIcon className="w-4 h-4 text-muted-foreground" />
                         <span className="text-sm">My Profile</span>
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
-                      <Link href="/contact" className="flex items-center gap-2.5 cursor-pointer px-3 py-2 rounded-xl">
+                      <Link
+                        href="/contact"
+                        className="flex items-center gap-2.5 cursor-pointer px-3 py-2 rounded-xl"
+                        onMouseEnter={() => routes.Contact.prefetch()}
+                      >
                         <MessageSquare className="w-4 h-4 text-muted-foreground" />
                         <span className="text-sm">Contact / Support</span>
                       </Link>
@@ -348,6 +369,8 @@ export default function Header() {
                       <Link
                         href={item.href}
                         onClick={close}
+                        onMouseEnter={item.prefetch}
+                        onFocus={item.prefetch}
                         data-testid={`link-mobile-nav-${item.label.toLowerCase()}`}
                         className={`flex items-center justify-between px-4 py-3.5 my-0.5 rounded-2xl text-[14px] font-medium transition-all duration-150 ${
                           active
@@ -376,7 +399,11 @@ export default function Header() {
                   onClick={close}
                   data-testid="button-mobile-get-started"
                 >
-                  <Link href="/contact" className="flex items-center justify-center gap-2">
+                  <Link
+                    href="/contact"
+                    className="flex items-center justify-center gap-2"
+                    onMouseEnter={() => routes.Contact.prefetch()}
+                  >
                     <Zap className="w-4 h-4" />
                     Get Started Today
                   </Link>
@@ -420,7 +447,11 @@ export default function Header() {
                         className="h-9 text-xs gap-1.5 rounded-xl border-border/60"
                         onClick={close}
                       >
-                        <Link href="/profile" className="flex items-center gap-1.5">
+                        <Link
+                          href="/profile"
+                          className="flex items-center gap-1.5"
+                          onMouseEnter={() => routes.ClientProfile.prefetch()}
+                        >
                           <UserIcon className="w-3.5 h-3.5" />
                           Profile
                         </Link>

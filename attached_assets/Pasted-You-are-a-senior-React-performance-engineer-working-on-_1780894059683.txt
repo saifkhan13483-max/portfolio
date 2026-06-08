@@ -1,0 +1,70 @@
+You are a senior React performance engineer working on SaifCraft — a React 18 + Vite 7 + TypeScript SPA using wouter for routing, Framer Motion v11 (LazyMotion + m components), Firebase v10 modular SDK (Auth + Firestore), Cloudinary images, and Tailwind CSS v3. The app is deployed on Vercel.
+
+Implement ALL of the following performance optimizations. Do not break any existing functionality. Do not change the UI appearance. Read each affected file before editing it.
+
+---
+
+## OPTIMIZATION 1: Route Prefetching on Hover + startTransition Navigation
+
+### 1a. Create a lazyWithPrefetch utility
+Create `src/lib/lazyWithPrefetch.ts`:
+- Export a `lazyWithPrefetch<T>(factory: () => Promise<{ default: T }>)` function
+- It calls `React.lazy(factory)` and attaches a `.prefetch()` method to the result
+- `.prefetch()` calls `factory()` and ignores the returned promise (fire-and-forget, no error propagation)
+- The returned component is fully compatible with React.lazy + Suspense
+
+### 1b. Replace all React.lazy calls in App.tsx
+- Import `lazyWithPrefetch` from `@/lib/lazyWithPrefetch`
+- Replace every `lazy(() => import(...))` call with `lazyWithPrefetch(() => import(...))`
+- Keep all existing import paths exactly the same
+
+### 1c. Add startTransition to navigation
+- In `App.tsx`'s `Router` function (or equivalent), wrap the route-change logic with `startTransition` from React so Suspense boundaries are not immediately triggered on navigation
+- This keeps the current page visible while the new chunk is being loaded
+
+### 1d. Add hover/focus prefetch to Header nav links
+- In `src/components/layout/Header.tsx`, read the file first
+- For each navigation Link, add `onMouseEnter` and `onFocus` handlers that call the corresponding lazy component's `.prefetch()` method
+- Map each nav href to its lazy component: `/` → Home, `/portfolio` → Portfolio, `/services` → Services, `/about` → About, `/contact` → Contact, `/faq` → FAQ
+- The Header must import these lazy components (or accept them via a shared module) to call `.prefetch()`
+- Create `src/lib/routes.ts` that exports all lazyWithPrefetch route components so both App.tsx and Header.tsx can import from the same place without circular dependencies
+
+### 1e. Delayed spinner to prevent flash on fast connections
+- In the `PageLoader` component in `App.tsx`, add a 200ms delay before showing the spinner
+- Use `useState(false)` + `useEffect` with a `setTimeout(200ms)` to set `show = true`
+- Render `null` until `show` is true, then render the existing spinner UI
+- This prevents the spinner from flashing on fast connections where the chunk loads in <200ms
+
+---
+
+## OPTIMIZATION 2: Firebase Firestore Lite for Public Pages
+
+### 2a. Create a Firestore Lite client
+- Read `src/lib/firebase/firestore.ts` and `src/lib/firebase/config.ts` first
+- Create `src/lib/firebase/firestore-lite.ts` that:
+  - Imports `getFirestore` from `firebase/firestore/lite` (NOT `firebase/firestore`)
+  - Imports `collection`, `getDocs`, `doc`, `getDoc`, `query`, `where`, `orderBy`, `limit` from `firebase/firestore/lite`
+  - Exports typed read-only helper functions for the public pages: `getProjects()`, `getServices()`, `getProject(id: string)`
+  - These replace the equivalent functions in `firestore.ts` for public (non-admin) use
+  - The Firestore Lite instance uses the same Firebase app from `config.ts`
+
+### 2b. Update public-facing hooks to use Firestore Lite
+- Read `src/hooks/use-projects.ts` and `src/hooks/use-services.ts` (or wherever these hooks are defined — check with grep)
+- Update these hooks to import from `src/lib/firebase/firestore-lite.ts` instead of the full Firestore SDK
+- The admin hooks (`use-orders.ts`, admin pages) must continue using the full `firebase/firestore` SDK — do not change those
+
+### 2c. Update vite.config.ts chunk splitting
+- Add `"vendor-firebase-firestore-lite": ["firebase/firestore/lite"]` as a separate vendor chunk
+- Keep `"vendor-firebase-firestore": ["firebase/firestore"]` for the full SDK (used by admin only)
+- This ensures the lite SDK and full SDK are in separate chunks and the lite loads first
+
+---
+
+## OPTIMIZATION 3: Async Framer Motion Feature Loading
+
+### 3a. Switch to async LazyMotion features
+- Read `src/App.tsx`
+- Change the LazyMotion setup from:
+  ```tsx
+  import { LazyMotion, domAnimation } from "framer-motion";
+  <LazyMotion features={domAnimation} strict>

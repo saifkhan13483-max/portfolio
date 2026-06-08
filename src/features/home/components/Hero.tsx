@@ -1,4 +1,4 @@
-import { m, animate } from "framer-motion";
+import { m, animate, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -21,6 +21,7 @@ interface Pulse {
 }
 
 function NeuralNetwork() {
+  const prefersReducedMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animRef = useRef<number>(0);
   const nodesRef = useRef<NeuralNode[]>([]);
@@ -39,6 +40,10 @@ function NeuralNetwork() {
   }, []);
 
   useEffect(() => {
+    // Skip the canvas animation entirely for users who prefer reduced motion.
+    // This removes the rAF loop and saves main-thread CPU on those devices.
+    if (prefersReducedMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -157,6 +162,9 @@ function NeuralNetwork() {
       io.disconnect();
     };
   }, [init]);
+
+  // Don't render canvas at all for reduced-motion users
+  if (prefersReducedMotion) return null;
 
   return (
     <canvas

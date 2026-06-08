@@ -89,14 +89,22 @@ export default defineConfig({
     target: "esnext",
     cssCodeSplit: true,
     chunkSizeWarningLimit: 500,
+    // Inject modulepreload link tags for the initial route's dependencies
+    // so the browser fetches critical chunks at high priority.
+    modulePreload: {
+      polyfill: true,
+    },
     rollupOptions: {
       output: {
         manualChunks: {
-          "vendor-react": ["react", "react-dom"],
-          "vendor-motion": ["framer-motion"],
-          "vendor-firebase-app": ["firebase/app"],
-          "vendor-firebase-auth": ["firebase/auth"],
-          "vendor-firebase-firestore": ["firebase/firestore"],
+          "vendor-react":                  ["react", "react-dom"],
+          "vendor-motion":                 ["framer-motion"],
+          "vendor-firebase-app":           ["firebase/app"],
+          "vendor-firebase-auth":          ["firebase/auth"],
+          // Firestore Lite (~17KB gzipped) — for public read-only pages
+          "vendor-firebase-firestore-lite":["firebase/firestore/lite"],
+          // Full Firestore SDK (~60KB gzipped) — for admin + real-time subscriptions
+          "vendor-firebase-firestore":     ["firebase/firestore"],
           "vendor-ui": [
             "@radix-ui/react-dialog",
             "@radix-ui/react-dropdown-menu",
@@ -105,10 +113,10 @@ export default defineConfig({
             "@radix-ui/react-tabs",
             "@radix-ui/react-accordion",
           ],
-          "vendor-lucide": ["lucide-react"],
-          "vendor-react-icons": ["react-icons"],
-          "vendor-query": ["@tanstack/react-query"],
-          "vendor-form": ["react-hook-form", "@hookform/resolvers", "zod"],
+          "vendor-lucide":                 ["lucide-react"],
+          "vendor-react-icons":            ["react-icons"],
+          "vendor-query":                  ["@tanstack/react-query"],
+          "vendor-form":                   ["react-hook-form", "@hookform/resolvers", "zod"],
         },
       },
     },

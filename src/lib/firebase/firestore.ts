@@ -147,27 +147,10 @@ export const getServicesWithFallback = async (): Promise<Service[]> => {
   }
 };
 
-export const getFeaturedProjects = async (): Promise<Project[]> => {
-  try {
-    const q = query(collection(db, 'projects'), where('featured', '==', true));
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
-  } catch (error) {
-    console.error("Error fetching featured projects:", error);
-    return [];
-  }
-};
-
-export const getActiveServices = async (): Promise<Service[]> => {
-  try {
-    const q = query(collection(db, 'services'), where('active', '==', true));
-    const snapshot = await getDocs(q);
-    if (snapshot.docs.length > 0) {
-      return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Service));
-    }
-    return LOCAL_FALLBACK_SERVICES.filter(s => s.active);
-  } catch (error) {
-    console.error("Error fetching active services, using fallback:", error);
-    return LOCAL_FALLBACK_SERVICES.filter(s => s.active);
-  }
-};
+// Re-exported from firestore-lite.ts — these are read-only one-time fetches
+// that don't need real-time subscriptions, so they use the lighter Lite SDK.
+export {
+  getFeaturedProjects,
+  getActiveServices,
+  getServicesWithFallback as getServicesWithFallbackLite,
+} from "./firestore-lite";

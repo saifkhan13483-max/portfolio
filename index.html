@@ -129,16 +129,36 @@
     <!-- Groq AI API — warm connection before chatbot opens -->
     <link rel="dns-prefetch" href="https://api.groq.com" />
 
-    <!-- Async (non-render-blocking) font loading with display=optional for zero layout shift -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+    <!--
+      Preload the hero spinner logo so it's ready before JS executes.
+      Using the optimized Cloudinary URL (f_auto, q_auto, w_80) to keep it tiny.
+      fetchpriority="high" tells the browser this is a critical LCP resource.
+    -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/de2wrwg6e/image/upload/f_auto,q_auto,w_80/v1780892808/Untitled_design__2_-removebg-preview_ldupjq.png"
+      fetchpriority="high"
+    />
+
+    <!--
+      display=optional — uses cached font if available, system font otherwise.
+      Zero CLS: no font-swap layout shift on any visit after the first.
+      First visit: system font (instant). Repeat visits: custom font (cached).
+    -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=optional"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=optional"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=optional" />
     </noscript>
 
     <script>

@@ -3,3 +3,4 @@
 - [Admin order-status constants](admin-order-status.md) — `src/features/admin/constants/order-status.ts` owns `STATUS_CONFIG` + `PRIORITY_CONFIG`; `ClientProfile.tsx` has a separate client-facing config.
 - [Image upload hook pattern](image-upload-hook.md) — `useImageUpload()` returns mutation + `handleFileChange(e, onSuccess)`; validation and error toasts live there — callers need no catch blocks or validateImageFile import.
 - [Chatbot system prompt](chatbot-system-prompt.md) — `CHATBOT_SYSTEM_PROMPT` is a module-level const in `groq-client.ts`; do not make it a function — it has no runtime dependencies.
+- [Route prefetch + Firestore Lite architecture](perf-optimizations.md) — lazy routes via `lazyWithPrefetch` in `src/lib/routes.ts`; Firestore Lite in `firestore-lite.ts`; `useFirestoreCollection` (subscribeAll) keeps full SDK — cannot use Lite there.
