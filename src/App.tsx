@@ -36,11 +36,11 @@ function PageLoader() {
   return (
     <div className="flex items-center justify-center min-h-[60vh]">
       <div className="relative flex items-center justify-center">
-        <div className="absolute h-16 w-16 animate-spin rounded-full border-[3px] border-primary/20 border-t-primary" />
+        <div className="absolute h-24 w-24 animate-spin rounded-full border-[3px] border-primary/20 border-t-primary" />
         <img
           src="https://res.cloudinary.com/de2wrwg6e/image/upload/v1780892808/Untitled_design__2_-removebg-preview_ldupjq.png"
           alt="SaifCraft"
-          className="h-9 w-9 object-contain"
+          className="h-16 w-16 object-contain"
         />
       </div>
     </div>
