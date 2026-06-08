@@ -367,10 +367,8 @@ export default function FAQ() {
                       : "bg-card text-muted-foreground border-border hover:border-primary/40 hover:text-foreground"
                   }`}
                 >
-                  <Icon className="w-3 h-3 shrink-0" />
-                  {/* Mobile: abbreviated label */}
-                  <span className="sm:hidden">{section.category.split(" ")[0]}</span>
-                  {/* Desktop: full label */}
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
+                  {/* Desktop only: full label */}
                   <span className="hidden sm:inline">{section.category}</span>
                 </button>
               );
