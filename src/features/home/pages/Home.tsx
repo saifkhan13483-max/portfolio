@@ -179,7 +179,7 @@ const servicePreview = [
   {
     icon: Globe,
     name: "Landing Page",
-    price: "$800 – $1,500",
+    price: "$100 – $250",
     time: "5–7 days",
     desc: "High-converting, pixel-perfect landing pages built to impress and rank.",
     features: ["Fully responsive design", "SEO-optimised markup", "Contact form & CTA", "Fast load times"],
@@ -213,7 +213,7 @@ const servicePreview = [
   {
     icon: Bot,
     name: "AI Feature Add-On",
-    price: "$1,200 – $3,000",
+    price: "$850 – $1,800",
     time: "1–3 weeks",
     desc: "Supercharge any existing product with intelligent AI-powered features.",
     features: ["AI chatbot integration", "Semantic search (RAG)", "Content generation", "OpenAI / LLM APIs"],
@@ -224,7 +224,7 @@ const servicePreview = [
   {
     icon: RefreshCcw,
     name: "Monthly Retainer",
-    price: "$550 – $950/mo",
+    price: "$150 – $550/mo",
     time: "Ongoing",
     desc: "Dedicated monthly support so your product keeps running at its best.",
     features: ["Bug fixes & updates", "Uptime monitoring", "Priority response", "Monthly reports"],
@@ -249,7 +249,7 @@ export default function Home() {
       "name": "SaifCraft — Freelance Web Development",
       "url": `${SITE_URL}/`,
       "description": "Senior fullstack development services: custom web apps, React frontends, Node.js APIs, and AI feature integrations.",
-      "priceRange": "$800 - $8,000+",
+      "priceRange": "$100 - $8,000+",
       "areaServed": "Worldwide",
       "provider": { "@id": `${SITE_URL}/#person` },
       "aggregateRating": {

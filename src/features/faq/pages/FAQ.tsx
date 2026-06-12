@@ -54,11 +54,11 @@ const faqs = [
     items: [
       {
         q: "How much does a typical project cost?",
-        a: "It depends on scope. A landing page starts at $800. A full business website typically runs $2,000–$3,500. A custom web application (React + Node.js + PostgreSQL) starts at $3,500 and goes up depending on complexity. See the full pricing breakdown on the Services page.",
+        a: "It depends on scope. A landing page starts at $100. A full business website typically runs $2,000–$3,500. A custom web application (React + Node.js + PostgreSQL) starts at $3,500 and goes up depending on complexity. See the full pricing breakdown on the Services page.",
       },
       {
         q: "Do you require a deposit?",
-        a: "Yes — always. For projects under $800, we collect 100% upfront. For larger projects, we collect 33–50% upfront before starting. This is standard practice and protects both of us. Serious clients respect payment terms; problematic ones push back on them — which is a useful early warning sign.",
+        a: "Yes — always. For projects under $250, we collect 100% upfront. For larger projects, we collect 33–50% upfront before starting. This is standard practice and protects both of us. Serious clients respect payment terms; problematic ones push back on them — which is a useful early warning sign.",
       },
       {
         q: "What payment methods do you accept?",
@@ -108,7 +108,7 @@ const faqs = [
       },
       {
         q: "Do you offer ongoing support after delivery?",
-        a: "Yes. All projects include 30 days of free post-launch support for bug fixes. After that, we offer monthly retainer packages starting at $550/month that cover bug fixes, updates, security patches, and priority response time.",
+        a: "Yes. All projects include 30 days of free post-launch support for bug fixes. After that, we offer monthly retainer packages starting at $150/month that cover bug fixes, updates, security patches, and priority response time.",
       },
       {
         q: "Will I own the code?",

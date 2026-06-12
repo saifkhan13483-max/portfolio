@@ -89,11 +89,11 @@ DevOps & Tools: Docker (Advanced) · Vercel (Expert) · Git (Expert)
 AI / LLMs (Advanced): OpenAI API · Anthropic/Claude · RAG Pipelines · pgvector · Agent Workflows
 
 SERVICE PREVIEW (5 cards, each links to /services):
-1. Landing Page — $800–$1,500 · 5–7 business days · Single-page responsive, SEO, contact form, deployed
+1. Landing Page — $100–$250 · 5–7 business days · Single-page responsive, SEO, contact form, deployed
 2. Business Website — $2,000–$3,500 · 2–3 weeks · 5–8 pages, Analytics, SEO, Google Maps, deployed
 3. Custom Web App ★ Most Popular — $3,500–$8,000+ · 4–8 weeks · Full stack, auth, admin panel, 30-day support
-4. AI Feature Add-On 🔥 Fastest Growing — $1,200–$3,000 · 1–3 weeks · RAG chatbot, semantic search, OpenAI/Groq/Anthropic
-5. Monthly Retainer — $550–$950/mo · Ongoing · 5–10 hrs/mo, priority 4-hr response
+4. AI Feature Add-On 🔥 Fastest Growing — $850–$1,800 · 1–3 weeks · RAG chatbot, semantic search, OpenAI/Groq/Anthropic
+5. Monthly Retainer — $150–$550/mo · Ongoing · 5–10 hrs/mo, priority 4-hr response
 CTA: "See Full Pricing" → /services
 
 DATA / PROOF SECTION:
@@ -119,7 +119,7 @@ Live project cards loaded from Firebase Firestore. CTA: "View All Projects" → 
  PAGE 2 — SERVICES & PRICING (/services)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Page title: "Web Development Services & Pricing | Saif Khan | SaifCraft"
-Meta description: Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI integrations & retainers. Clear pricing, no surprises.
+Meta description: Fixed-scope packages: landing pages from $100, business websites from $2K, custom web apps from $3.5K, AI integrations & retainers. Clear pricing, no surprises.
 Headline: "Services & Packages"
 Tagline: "Fixed-scope packages with transparent pricing. No hourly billing, no scope surprises — you know exactly what you're getting before we start."
 Top CTA: "Start a Project" → /contact
@@ -130,7 +130,7 @@ OUTCOMES STRIP (real client results):
 ─── THE 5 PACKAGES ───
 
 PACKAGE 1 — LANDING PAGE
-Price range: $800 – $1,500
+Price range: $100 – $250
 Timeline: 5–7 business days
 Revisions: 2 revision rounds
 Best for: Startups launching a product · Local businesses promoting a service
@@ -169,7 +169,7 @@ Includes:
 • 30-day post-launch support
 
 PACKAGE 4 — AI FEATURE ADD-ON 🔥 Fastest Growing
-Price range: $1,200 – $3,000
+Price range: $850 – $1,800
 Timeline: 1–3 weeks per feature
 Revisions: Included
 Best for: Businesses or developers who want AI-powered capabilities added to an existing app
@@ -182,7 +182,7 @@ Includes:
 • No separate vector database needed — runs on PostgreSQL
 
 PACKAGE 5 — MONTHLY RETAINER
-Price range: $550 – $950/month (minimum 3 months)
+Price range: $150 – $550/month (minimum 3 months)
 Timeline: Ongoing (min. 3 months)
 Revisions: Priority 4-hour response on critical issues
 Best for: Clients who need ongoing support after their project goes live
@@ -197,8 +197,8 @@ Includes:
 EXTRA CARD: "Need something custom?" → describe your idea → "Get a Custom Quote" → /contact
 
 ─── PAYMENT STRUCTURE ───
-Under $800:          100% upfront
-$800 – $2,000:       50% upfront · 50% on delivery
+Under $250:          100% upfront
+$250 – $2,000:       50% upfront · 50% on delivery
 $2,000 – $6,000:     33% upfront · 33% midpoint · 33% on delivery
 $6,000+:             40% upfront · 30% milestone · 30% on delivery
 Monthly retainer:    100% on the 1st of each month
@@ -365,10 +365,10 @@ A: The biggest cause of 'this isn't what I asked for' isn't a bad developer — 
 ─── CATEGORY 2: Pricing & Payment (5 questions) ───
 
 Q: How much does a typical project cost?
-A: It depends on scope. A landing page starts at $800. A full business website typically runs $2,000–$3,500. A custom web application (React + Node.js + PostgreSQL) starts at $3,500 and goes up depending on complexity. See the full pricing breakdown at /services.
+A: It depends on scope. A landing page starts at $100. A full business website typically runs $2,000–$3,500. A custom web application (React + Node.js + PostgreSQL) starts at $3,500 and goes up depending on complexity. See the full pricing breakdown at /services.
 
 Q: Do you require a deposit?
-A: Yes — always. For projects under $800, we collect 100% upfront. For larger projects, we collect 33–50% upfront before starting. This is standard practice and protects both of us. Serious clients respect payment terms; problematic ones push back on them — which is a useful early warning sign.
+A: Yes — always. For projects under $250, we collect 100% upfront. For larger projects, we collect 33–50% upfront before starting. This is standard practice and protects both of us. Serious clients respect payment terms; problematic ones push back on them — which is a useful early warning sign.
 
 Q: What payment methods do you accept?
 A: PayPal, Wise (bank transfer), Stripe (card), or direct bank transfer. For international clients, Wise is usually the cheapest option with the lowest fees.
@@ -402,7 +402,7 @@ Q: What do I receive at the end?
 A: You receive: all source code (via GitHub), a deployed live URL, a Loom video walkthrough of the finished product, and a handover document explaining how to log in, update content, and maintain the system. All code and intellectual property transfers to you fully on final payment.
 
 Q: Do you offer ongoing support after delivery?
-A: Yes. All projects include 30 days of free post-launch support for bug fixes. After that, we offer monthly retainer packages starting at $550/month that cover bug fixes, updates, security patches, and priority response time.
+A: Yes. All projects include 30 days of free post-launch support for bug fixes. After that, we offer monthly retainer packages starting at $150/month that cover bug fixes, updates, security patches, and priority response time.
 
 Q: Will I own the code?
 A: Yes — 100%. After final payment, all code, designs, and intellectual property transfer to you. We retain no rights to anything built for your project.
@@ -583,11 +583,11 @@ An account is only needed if you want to track your project inquiries on /profil
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
  QUICK-REFERENCE PRICING TABLE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Landing Page:       $800 – $1,500     ·  5–7 business days  ·  2 revision rounds
+Landing Page:       $100 – $250       ·  5–7 business days  ·  2 revision rounds
 Business Website:   $2,000 – $3,500   ·  2–3 weeks          ·  2 revision rounds
 Custom Web App ★:   $3,500 – $8,000+  ·  4–8 weeks          ·  3 milestone reviews · 30-day support included
-AI Feature Add-On:  $1,200 – $3,000   ·  1–3 weeks/feature  ·  Revisions included
-Monthly Retainer:   $550 – $950/mo    ·  Min. 3 months       ·  Priority 4-hr response · 5–10 hrs/mo
+AI Feature Add-On:  $850 – $1,800     ·  1–3 weeks/feature  ·  Revisions included
+Monthly Retainer:   $150 – $550/mo    ·  Min. 3 months       ·  Priority 4-hr response · 5–10 hrs/mo
 Rush fee:           +25–40% on base price for half-timeline delivery
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -598,7 +598,7 @@ INTENT: "I want to hire Saif / start a project"
 → Best path: /contact — fill out the form (takes 2 minutes). Or WhatsApp directly: +92 318 8055850. Saif replies within 24 hours.
 
 INTENT: "How much does it cost?" / "What is the pricing?"
-→ Give exact ranges: Landing page $800–$1,500 · Business website $2,000–$3,500 · Custom web app $3,500–$8,000+ · AI add-on $1,200–$3,000 · Retainer $550–$950/mo. Full breakdown at /services.
+→ Give exact ranges: Landing page $100–$250 · Business website $2,000–$3,500 · Custom web app $3,500–$8,000+ · AI add-on $850–$1,800 · Retainer $150–$550/mo. Full breakdown at /services.
 
 INTENT: "What can you build for me?"
 → Custom web apps, SaaS MVPs, landing pages, business websites, AI chatbots, semantic search, e-commerce platforms, APIs. Full list at /services.
@@ -613,13 +613,13 @@ INTENT: "How does the process work?"
 → 4 steps: Discovery call → Proposal & contract → Build with weekly demos → Launch & handoff. Full details at /services.
 
 INTENT: "I have a small budget"
-→ Recommend reaching out via /contact anyway. Saif may suggest a phased approach or MVP-first. Cheapest package: Landing Page at $800–$1,500.
+→ Recommend reaching out via /contact anyway. Saif may suggest a phased approach or MVP-first. Cheapest package: Landing Page at $100–$250.
 
 INTENT: "I've been burned before / trust issues"
 → Acknowledge empathetically. Mention: signed contract always used, progress updates every 2–3 days, active public GitHub/LinkedIn profile, fixed-scope pricing (no surprise bills), real portfolio with live links, references available.
 
 INTENT: "Do you do AI features / chatbots?"
-→ Yes — AI Feature Add-On ($1,200–$3,000, 1–3 weeks per feature). RAG chatbot trained on your data, semantic search, content generation, recommendation engines. OpenAI / Groq / Anthropic integration. No separate vector database needed.
+→ Yes — AI Feature Add-On ($850–$1,800, 1–3 weeks per feature). RAG chatbot trained on your data, semantic search, content generation, recommendation engines. OpenAI / Groq / Anthropic integration. No separate vector database needed.
 
 INTENT: "What is RAG?" / "How does the AI chatbot work?"
 → RAG = Retrieval-Augmented Generation. Your business data (FAQs, docs, product info) stored in a vector database (using PostgreSQL + pgvector — no extra DB needed). When a user asks a question, relevant chunks are retrieved and given to the LLM as context so it answers accurately from your data.

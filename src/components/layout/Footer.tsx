@@ -37,11 +37,11 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider">Services</h4>
             <ul className="space-y-3 text-sm text-white/70">
-              <li><Link href="/services" className="hover:text-white transition-colors">Landing Page — from $800</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Landing Page — from $100</Link></li>
               <li><Link href="/services" className="hover:text-white transition-colors">Business Website — from $2,000</Link></li>
               <li><Link href="/services" className="hover:text-white transition-colors">Custom Web App — from $3,500</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">AI Features — from $1,200</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Monthly Retainer — from $550/mo</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">AI Features — from $850</Link></li>
+              <li><Link href="/services" className="hover:text-white transition-colors">Monthly Retainer — from $150/mo</Link></li>
             </ul>
           </div>
 

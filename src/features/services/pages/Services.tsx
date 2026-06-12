@@ -88,8 +88,8 @@ const packages = [
 ];
 
 const paymentStructure = [
-  { icon: "💳", size: "Under $800",       structure: "100% upfront" },
-  { icon: "✌️", size: "$800 – $2,000",   structure: "50% upfront · 50% on delivery" },
+  { icon: "💳", size: "Under $250",       structure: "100% upfront" },
+  { icon: "✌️", size: "$250 – $2,000",   structure: "50% upfront · 50% on delivery" },
   { icon: "📐", size: "$2,000 – $6,000", structure: "33% upfront · 33% midpoint · 33% delivery" },
   { icon: "🚀", size: "$6,000+",          structure: "40% upfront · 30% milestone · 30% delivery" },
   { icon: "🔁", size: "Monthly retainer",structure: "100% on the 1st of each month" },
@@ -277,7 +277,7 @@ export default function Services() {
   useEffect(() => {
     updatePageSEO({
       title: "Web Development Services & Pricing | Saif Khan | SaifCraft",
-      description: "Fixed-scope packages: landing pages from $800, business websites from $2K, custom web apps from $3.5K, AI integrations & retainers. Clear pricing, no surprises.",
+      description: "Fixed-scope packages: landing pages from $100, business websites from $2K, custom web apps from $3.5K, AI integrations & retainers. Clear pricing, no surprises.",
       path: "/services",
     });
     addSchema("jsonld-services-breadcrumb", {
