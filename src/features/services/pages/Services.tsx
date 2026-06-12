@@ -199,18 +199,16 @@ function PackageCard({ pkg, index }: { pkg: typeof packages[number]; index: numb
           ))}
         </ul>
 
-        <div className="pt-4 border-t border-border/60 space-y-1.5">
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <Clock className="w-3 h-3 text-primary shrink-0" />{pkg.timeline}
+        <div className="pt-3 border-t border-border/60">
+          <div className="flex items-center gap-3 text-[11px] text-muted-foreground mb-2">
+            <span className="flex items-center gap-1"><Clock className="w-3 h-3 text-primary shrink-0" />{pkg.timeline}</span>
+            <span className="flex items-center gap-1"><RefreshCw className="w-3 h-3 text-primary shrink-0" />{pkg.revisions}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <RefreshCw className="w-3 h-3 text-primary shrink-0" />{pkg.revisions}
-          </div>
-          <div className="pt-2 flex items-center justify-between">
-            <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-semibold">Starting from</span>
             <div className="text-right">
-              <span className="text-base sm:text-lg font-display font-bold text-foreground">{pkg.price}</span>
-              {pkg.priceTo && <span className="text-xs text-muted-foreground"> – {pkg.priceTo}</span>}
+              <span className="text-sm font-display font-bold text-foreground">{pkg.price}</span>
+              {pkg.priceTo && <span className="text-[11px] text-muted-foreground"> – {pkg.priceTo}</span>}
             </div>
           </div>
         </div>
