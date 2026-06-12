@@ -754,18 +754,12 @@ export default function Home() {
                     ))}
                   </ul>
 
-                  {/* Divider + Price */}
-                  <div className="pt-3 border-t border-border mt-auto">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-semibold mb-0.5">Starting from</p>
-                        <p className={`font-display font-bold text-xl leading-none ${s.highlight ? "text-primary" : "text-foreground"}`}>{s.price}</p>
-                      </div>
-                      <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-transform group-hover:translate-x-0.5 ${
-                        s.highlight ? "border-primary/40 bg-primary/10" : "border-border bg-muted/50"
-                      }`}>
-                        <ArrowRight className={`w-3.5 h-3.5 ${s.highlight ? "text-primary" : "text-muted-foreground"}`} />
-                      </div>
+                  {/* Divider + Arrow */}
+                  <div className="pt-3 border-t border-border mt-auto flex justify-end">
+                    <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-transform group-hover:translate-x-0.5 ${
+                      s.highlight ? "border-primary/40 bg-primary/10" : "border-border bg-muted/50"
+                    }`}>
+                      <ArrowRight className={`w-3.5 h-3.5 ${s.highlight ? "text-primary" : "text-muted-foreground"}`} />
                     </div>
                   </div>
                 </div>
