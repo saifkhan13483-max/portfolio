@@ -18,7 +18,7 @@ const packages = [
   {
     id: 1, icon: Globe, name: "Landing Page",
     tagline: "For startups launching a product or local businesses promoting a service.",
-    price: "$800", priceTo: "$1,500", timeline: "5–7 business days", revisions: "2 revision rounds",
+    price: "$100", priceTo: "$1,500", timeline: "5–7 business days", revisions: "2 revision rounds",
     highlight: false,
     features: [
       "Single-page, fully responsive design",
