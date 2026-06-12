@@ -60,7 +60,7 @@ const packages = [
   {
     id: 4, icon: Bot, name: "AI Feature Add-On",
     tagline: "For businesses or developers who want AI-powered capabilities added to an existing app.",
-    price: "$1,200", priceTo: "$3,000", timeline: "1–3 weeks per feature", revisions: "Included",
+    price: "$850", priceTo: "$1,800", timeline: "1–3 weeks per feature", revisions: "Included",
     highlight: false, badge: "Fastest Growing",
     features: [
       "RAG chatbot trained on your own data (pgvector)",
