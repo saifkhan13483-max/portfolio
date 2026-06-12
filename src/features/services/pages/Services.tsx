@@ -74,7 +74,7 @@ const packages = [
   {
     id: 5, icon: Wrench, name: "Monthly Retainer",
     tagline: "For clients who need ongoing support after their project goes live.",
-    price: "$550", priceTo: "$950/mo", timeline: "Min. 3 months", revisions: "Priority 4-hr response",
+    price: "$150", priceTo: "$550/mo", timeline: "Min. 3 months", revisions: "Priority 4-hr response",
     highlight: false,
     features: [
       "5–10 dedicated hours per month",
