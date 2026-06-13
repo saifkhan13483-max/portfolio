@@ -113,3 +113,9 @@ id = "psb1hf0zilvpJefztDB9K"
 uri = "file://research/performance-optimization-report.md"
 type = "text"
 title = "SaifCraft Performance Optimization — Research Report + Prompt"
+
+[[outputs]]
+id = "YeCCcbSSI0FhUe4OpaoD_"
+uri = "file://research/computer-use-ai-agent.md"
+type = "text"
+title = "Deep Research: Computer Use AI Agent (30+ sources)"
