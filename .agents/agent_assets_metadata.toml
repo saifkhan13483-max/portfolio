@@ -119,3 +119,9 @@ id = "YeCCcbSSI0FhUe4OpaoD_"
 uri = "file://research/computer-use-ai-agent.md"
 type = "text"
 title = "Personal AI Computer Agent — Complete Blueprint (All 8 Capabilities + Full Code)"
+
+[[outputs]]
+id = "_bwImt7PntyC5UWJdg7Uu"
+uri = "file://research/PRD-personal-ai-computer-agent.md"
+type = "text"
+title = "PRD: Personal AI Computer-Control Agent — Complete & Ready for Development"
